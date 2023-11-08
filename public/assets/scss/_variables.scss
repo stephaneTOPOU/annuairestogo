@@ -1,0 +1,101 @@
+$background: #f1eef7;
+$color :#605e7e;
+$color2 :#5f6877;
+$border :#e8ebf3;
+
+/*Color variables*/
+
+$primary : var(--primary-bg-color);
+$primary-hover : var(--primary-bg-hover);
+$primary-shadow :var(--primary-bg-shadow);
+$primary-transparent: var(--primary-bg-transparentcolor);
+$secondary :var(--secondary-color);
+$secondary-hover :var(--secondary-hover);
+$secondary-shadow: var(--secondary-shadow);
+$secondary-transparent: var(--secondary-transparent);
+
+/*transparent primary and secondary*/
+$primary-1: var(--primary-1);
+$primary-2: var(--primary-2);
+$primary-3: var(--primary-3);
+$primary-4: var(--primary-4);
+$primary-5: var(--primary-5);
+$primary-6: var(--primary-6);
+$primary-7: var(--primary-7);
+$primary-8: var(--primary-8);
+$primary-9: var(--primary-9);
+$secondary-1: var(--secondary-1);
+$secondary-2: var(--secondary-2);
+$secondary-3: var(--secondary-3);
+$secondary-4: var(--secondary-4);
+$secondary-5: var(--secondary-5);
+$secondary-6: var(--secondary-6);
+$secondary-7: var(--secondary-7);
+$secondary-8: var(--secondary-8);
+$secondary-9: var(--secondary-9);
+
+$primary-gradient :linear-gradient(-225deg, $primary-6 0%, $secondary-6 48%, $primary-6 100%);
+$gradient :linear-gradient(to right, $primary-9, $secondary-8);
+
+
+/**default color variables**/
+
+$info :#0ab2e6;
+$pink :#ed3284;
+$success: #00e682;
+$danger :#ff382b;
+$warning: #ff8819;
+$blue :#467fcf;
+$yellow :#ffa22b;
+$cyan :#17a2b8;
+$orange :#FF8C00;
+$teal :#05e6e6;
+$purple :#604dd8;
+$lime :#63e600;
+$gray :#868e96;
+$indigo :#6574cd;
+$white :#fff;
+$black :#000;
+$light :#f9faff;
+$dark :#343a40;
+
+/**default colors**/
+
+/*white variables*/
+$white-0 :rgb(255, 255, 255);
+$white-1 :rgba(255, 255, 255, 0.1);
+$white-2 :rgba(255, 255, 255, 0.2);
+$white-3 :rgba(255, 255, 255, 0.3);
+$white-4 :rgba(255, 255, 255, 0.4);
+$white-5 :rgba(255, 255, 255, 0.5);
+$white-6 :rgba(255, 255, 255, 0.6);
+$white-7 :rgba(255, 255, 255, 0.7);
+$white-8 :rgba(255, 255, 255, 0.8);
+$white-9 :rgba(255, 255, 255, 0.9);
+$white-05: rgba(255, 255, 255, 0.05);
+$white-08: rgba(255, 255, 255, 0.08);
+$white-75: rgba(255, 255, 255, 0.075);
+
+/*black variables*/
+$black-0 :rgb(0, 0, 0);
+$black-1 :rgba(0, 0, 0, 0.1);
+$black-2 :rgba(0, 0, 0, 0.2);
+$black-3 :rgba(0, 0, 0, 0.3);
+$black-4 :rgba(0, 0, 0, 0.4);
+$black-5 :rgba(0, 0, 0, 0.5);
+$black-6 :rgba(0, 0, 0, 0.6);
+$black-7 :rgba(0, 0, 0, 0.7);
+$black-8 :rgba(0, 0, 0, 0.8);
+$black-9 :rgba(0, 0, 0, 0.9);
+$black-03: rgba(0, 0, 0, 0.03);
+$black-05: rgba(0, 0, 0, 0.05);
+$black-08: rgba(0, 0, 0, 0.08);
+$black-15: rgba(0, 0, 0, 0.15);
+
+/***********dark-theme**************/
+
+$dark-theme: var(--dark-color);
+$dark-theme2: var(--dark-color2);
+$dark-border: #e7ebf31a;
+$dark-color: #fff;
+$dark-shadow: #1c273c1a;
