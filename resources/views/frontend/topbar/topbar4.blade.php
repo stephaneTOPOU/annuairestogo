@@ -1,10 +1,10 @@
 <div class="horizontal-main bg-dark-transparent clearfix">
     <div class="horizontal-mainwrapper container clearfix">
         <div class="desktoplogo">
-            <a href="index.html"><img src="../assets/images/brand/logo1.png" alt=""></a>
+            <a href="index.html"><img src="{{ asset('assets/images/brand/logo1.png') }}" alt=""></a>
         </div>
         <div class="desktoplogo-1">
-            <a href="index.html"><img src="../assets/images/brand/logo.png" alt=""></a>
+            <a href="index.html"><img src="{{ asset('assets/images/brand/logo.png') }}" alt=""></a>
         </div>
         <!--Nav-->
         <nav class="horizontalMenu clearfix d-md-flex">

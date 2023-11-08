@@ -29,9 +29,18 @@ class HomeController extends Controller
 
         $pays = Pays::all();
 
-        $categories = DB::table('pays')->where('pays.id', $pays_id[0]->id)
-            ->join('categories', 'pays.id', '=', 'categories.pays_id')
-            ->select('*')
+        // $subcategories = DB::table('pays')->where('pays.id', $pays_id[0]->id)
+        //     ->join('categories', 'pays.id', '=', 'categories.pays_id')
+        //     ->join('sous_categories', 'categories.id', '=', 'sous_categories.categorie_id')
+        //     ->select('sous_categories.id as identifiant', 'sous_categories.libelle as nom')
+        //     ->get();
+        
+        $subcategories = DB::table('pays')->where('pays.id', $pays_id[0]->id)
+            ->leftJoin('categories', 'pays.id', '=', 'categories.pays_id')
+            ->leftJoin('sous_categories', 'categories.id', '=', 'sous_categories.categorie_id')
+            ->leftJoin('entreprises', 'sous_categories.id', '=', 'entreprises.souscategorie_id')
+            ->select('sous_categories.id as identifiant','sous_categories.libelle as sub_nom','sous_categories.slug_souscategorie', DB::raw('COUNT(sous_categories.id) as sous_categories_count'))
+            ->groupBy('identifiant', 'sub_nom','sous_categories.slug_souscategorie')
             ->get();
 
         $slider1s = DB::table('pays')->where('pays.id', $pays_id[0]->id)
@@ -65,7 +74,6 @@ class HomeController extends Controller
             ->join('entreprises', 'sous_categories.id', '=', 'entreprises.souscategorie_id')
             ->select('*')
             ->where('entreprises.est_souscrit', '=', '1')
-            //->orWhere('entreprises.logo', '!=', null)
             ->orderBy('entreprises.id', 'desc')
             ->get();
 
@@ -101,25 +109,36 @@ class HomeController extends Controller
         $nombresEntreprise = DB::table('entreprises')->count();
         //dump($nombresEntreprise);
 
-        $pharmacies = DB::table('pays')->where('pays.id', $pays_id[0]->id)
+        $cat_annonce = DB::table('categorie_annonces')
+            ->select('*')
+            ->orderBy('categorie_annonces.id', 'desc')
+            ->get();
+
+        $annonces = DB::table('categorie_annonces')
+            ->join('annonces', 'categorie_annonces.id', '=', 'annonces.categorie_id')
+            ->select('*', 'annonces.id as identifiant', 'categorie_annonces.id as identifiant2')
+            ->orderBy('annonces.id', 'desc')
+            ->take(3)
+            ->get();
+
+        $annonce2s = DB::table('annonces')
+            ->select('*')
+            ->orderBy('annonces.id', 'asc')
+            ->limit(3)
+            ->get();
+
+        $popups = DB::table('pays')->where('pays.id', $pays_id[0]->id)
             ->join('categories', 'pays.id', '=', 'categories.pays_id')
             ->join('sous_categories', 'categories.id', '=', 'sous_categories.categorie_id')
             ->join('entreprises', 'sous_categories.id', '=', 'entreprises.souscategorie_id')
+            ->where('apopup', 1)
             ->select('*')
-            ->where('est_pharmacie', '=', '1')
-            ->where('entreprises.pharmacie_de_garde', '=', '1')
             ->get();
-
-
-        $popups = DB::table('pays')->where('pays.id', $pays_id[0]->id)
-            ->join('pop_ups', 'pays.id', '=', 'pop_ups.pays_id')
-            ->inRandomOrder()
-            ->first();
 
         $banner = DB::table('pays')->where('pays.id', $pays_id[0]->id)
             ->join('banners', 'pays.id', '=', 'banners.pays_id')
-            ->inRandomOrder()
-            ->first();
+            ->select('*')
+            ->get();
 
 
         $parametres = DB::table('pays')->where('pays.id', $pays_id[0]->id)
@@ -129,6 +148,6 @@ class HomeController extends Controller
             ->get();
 
 
-        return view('frontend.home', compact('banner', 'slider1s', 'slider2s', 'slider3s', 'sliderLaterals', 'sliderLateralBas', 'rejoints', 'minispots', 'reportages', 'magazines', 'parametres', 'villes', 'pays', 'categories', 'honeures', 'nombresEntreprise', 'pharmacies', 'inscrit', 'visiteur2', 'popups'));
+        return view('frontend.home', compact('banner', 'slider1s', 'slider2s', 'slider3s', 'sliderLaterals', 'sliderLateralBas', 'rejoints', 'minispots', 'reportages', 'magazines', 'parametres', 'villes', 'pays', 'subcategories', 'honeures', 'nombresEntreprise', 'cat_annonce', 'annonces', 'annonce2s', 'inscrit', 'visiteur2', 'popups'));
     }
 }
