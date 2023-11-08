@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -19,9 +20,32 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'prenoms',
         'email',
+        'telephone1',
+        'telephone2',
+        'adresse',
+        'cv',
+        'photo1',
+        'photo2',
+        'fonction',
+        'description',
         'password',
+        'pays_id',
+        'slug_user'
     ];
+
+    use Sluggable;
+
+    public function Sluggable():array
+    {
+        return[
+            'slug_user' =>
+            [
+                'source' => 'name'
+            ]
+        ];
+    }
 
     /**
      * The attributes that should be hidden for serialization.

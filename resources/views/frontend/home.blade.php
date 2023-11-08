@@ -7,7 +7,7 @@
 @include('frontend.header.header7')
 
 
-    @include('frontend.loader')
+    {{-- @include('frontend.loader') --}}
     <!-- Popup Intro-->
     <div id="myModal" class="modal fade">
         <div class="modal-dialog" role="document">
@@ -19,49 +19,18 @@
                 </div>
                 <div class="modal-body">
                     <div id="popupcarousel" class="owl-carousel testimonial-owl-carousel4">
-                        <div class="item text-center">
-                            <div class="row">
-                                <div class="col-xl-8 col-md-12 d-block mx-auto">
-                                    <div class="testimonia text-center">
-                                        <img src="{{ asset('assets/images/products/intro/intro-about.png') }}" class="w-100 h-100 mb-3 mx-auto text-center" alt="image">
-                                        <h2>ClayList</h2>
-                                        <p>
-                                        Now You Become a Part of Our Website<br>
-                                        Claylist is free classified ads website template with awesome responsive webdesign.
-                                        It has a huge collection of widgets</p>
-                                        <a href="" class="btn btn-primary btn-ptill mb-3">Join Us</a>
+                        @foreach ($popups as $popup)
+                            <div class="item text-center">
+                                <div class="row">
+                                    <div class="col-xl-12 col-md-12 d-block mx-auto">
+                                        <div class="testimonia text-center">
+                                            <img src="{{ asset('assets/images/products/intro') }}/{{ $popup->popup }}" class="w-100 h-100 mb-3 mx-auto text-center" alt="{{ $popup->nom }}">
+                                            <a href="{{ route('entreprise.pays.profil',['slug_pays'=>$popup->slug_pays,'slug_categorie'=>$popup->slug_categorie,'slug_souscategorie'=>$popup->slug_souscategorie,'slug_entreprise'=>$popup->slug_entreprise]) }}" class="btn btn-primary btn-ptill mb-3">{{ $popup->nom }}</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="item text-center">
-                            <div class="row">
-                                <div class="col-xl-8 col-md-12 d-block mx-auto">
-                                    <div class="testimonia text-center">
-                                        <img src="{{ asset('assets/images/products/intro/intro-chat.png') }}" class="w-100 mb-3 mx-auto text-center" alt="image">
-                                        <h2>Chat With Us</h2>
-                                        <p>
-                                        Now You Become a Part of Our Website<br>
-                                        There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in humour</p>
-                                        <a href="" class="btn btn-primary btn-ptill mb-3">Chat</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item text-center">
-                            <div class="row">
-                                <div class="col-xl-8 col-md-12 d-block mx-auto">
-                                    <div class="testimonia text-center">
-                                        <img src="{{ asset('assets/images/products/intro/intro-setting.png') }}" class="w-100 h-100 mb-3 mx-auto text-center" alt="image">
-                                        <h2>Theme Settings</h2>
-                                        <p>
-                                            Now You Become a Part of Our Website<br>
-                                        There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in humour</p>
-                                        <a href="settings.html" class="btn btn-primary btn-ptill mb-3">Change</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -77,48 +46,56 @@
 
     <!--Sliders Section-->
     <section>
-        <div class="banner-1 cover-image sptb-2 sptb-tab bg-background2" data-bs-image-src="{{ asset('assets/images/banners/banner1.jpg') }}">
-            <div class="header-text mb-0">
-                <div class="container">
-                    <div class="text-center text-white mb-7">
-                        <h1 class="mb-1">Find Your Best Classified</h1>
-                        <p>It is a long established fact that a reader will be distracted by the readable.</p>
-                    </div>
-                    <div class="row">
-                        <div class="col-xl-12 col-lg-12 col-md-12 d-block mx-auto">
-                            <div class="search-background bg-transparent">
-                                <div class="form row g-0 ">
-                                    
-                                    <!-- <div class="form-group  col-xl-3 col-lg-3 col-md-12 mb-0 bg-white">
-                                        <input type="text" class="form-control input-lg br-md-0 border-start-0" id="text5" placeholder="Enter Location">
-                                        <span><i class="fa fa-map-marker location-gps me-1"></i></span>
-                                    </div> -->
-                                    <div class="form-group col-xl-6 col-lg-3 col-md-12 select2-lg  mb-0 bg-white">
-                                        <select class="form-control select2-show-search  border-bottom-0" data-placeholder="Select Category">
-                                            <optgroup label="Categories">
-                                                <option>Select</option>
-                                                <option value="1">Private</option>
-                                                <option value="2">Software</option>
-                                                <option value="3">Banking</option>
-                                                <option value="4">Finaces</option>
-                                                <option value="5">Corporate</option>
-                                                <option value="6">Driver</option>
-                                                <option value="7">Sales</option>
-                                            </optgroup>
-                                        </select>
-                                    </div>
-                                    <div class="form-group  col-xl-4 col-lg-3 col-md-12 mb-0 bg-white ">
-                                        <input type="text" class="form-control input-lg br-te-md-0 br-be-md-0 border-start-0" id="text4" placeholder="Job Title or Phrase or Keywords">
-                                    </div>
-                                    <div class="col-xl-2 col-lg-3 col-md-12 mb-0">
-                                        <a href="#" class="btn btn-lg btn-block btn-primary br-ts-md-0 br-bs-md-0">Trouver</a>
-                                    </div>
+        <div class="banner1  relative slider-images">
+            <div class="container-fuild">
+                <!-- Carousel -->
+                <div class="owl-carousel testimonial-owl-carousel2 slider slider-header ">
+                    {{-- <div class="item cover-image" data-bs-image-src="">
+                        <img  alt="first slide" src="{{ asset('assets/images/banners/slide-1.jpg') }}" >
+                    </div> --}}
+                    @foreach ($banner as $ban)
+                        <div class="item">
+                            <img  alt="{{ $ban->image }}" src="{{ asset('assets/images/banners') }}/{{ $ban->image }}" >
+                        </div>
+                    @endforeach
+                </div>
+                <div class="header-text slide-header-text mt-0 mb-0">
+                    <div class="col-xl-8 col-lg-8 col-md-8 col-10 d-block mx-auto">
+                        <div class="search-background bg-transparent input-field">
+                            <div class="text-center text-white  mb-6 ">
+                                <h1 class="mb-1 d-none d-md-block">Trouver les meilleures entreprise</h1>
+                                <p class="d-none d-md-block">It is a long established fact that a reader will be distracted by the readable.</p>
+                            </div>
+                            <div class="form row g-0 ">
+                                <div class="form-group  col-xl-4 col-lg-3 col-md-12 mb-0 bg-white">
+                                    <input type="text" class="form-control input-lg br-te-md-0 br-be-md-0 border-start-0" id="text4" placeholder="Job Title or Phrase or Keywords">
+                                </div>
+                                <div class="form-group  col-xl-3 col-lg-3 col-md-12 mb-0 bg-white">
+                                    <input type="text" class="form-control input-lg br-md-0 border-start-0" id="text5" placeholder="Enter Location">
+                                    <span><i class="fa fa-map-marker location-gps me-1"></i> </span>
+                                </div>
+                                <div class="form-group col-xl-3 col-lg-3 col-md-12 select2-lg  mb-0 bg-white">
+                                    <select class="form-control select2-show-search  border-bottom-0" data-placeholder="Select Category">
+                                        <optgroup label="Categories">
+                                            <option>Select</option>
+                                            <option value="1">Private</option>
+                                            <option value="2">Software</option>
+                                            <option value="3">Banking</option>
+                                            <option value="4">Finaces</option>
+                                            <option value="5">Corporate</option>
+                                            <option value="6">Driver</option>
+                                            <option value="7">Sales</option>
+                                        </optgroup>
+                                    </select>
+                                </div>
+                                <div class="col-xl-2 col-lg-3 col-md-12 mb-0">
+                                    <a href="#" class="btn btn-lg btn-block btn-primary br-ts-md-0 br-bs-md-0">Search Here</a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div><!-- /header-text -->
+                </div><!-- /header-text -->
+            </div>
         </div>
     </section>
     <!--Sliders Section-->
@@ -127,138 +104,28 @@
     <section class="sptb bg-white">
         <div class="container">
             <div class="section-title center-block text-center">
-                <h2>Categories</h2>
+                <h2>Nos secteur d'activités</h2>
                 <p>Mauris ut cursus nunc. Morbi eleifend, ligula at consectetur vehicula</p>
             </div>
             <div id="small-categories" class="owl-carousel owl-carousel-icons2">
-                <div class="item">
-                    <div class="card bg-card">
-                        <div class="card-body">
-                            <div class="cat-item text-center">
-                                <a href="classifieds-list.html"></a>
-                                <div class="cat-img text-shadow1">
-                                    <i class="fa fa-building fa-2x "></i>
-                                </div>
-                                <div class="cat-desc">
-                                    <h5 class="mb-6">Real Estate</h5>
-                                    <small class="badge badge-pill badge-primary me-2">19</small><span class="text-muted">ads are posted</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="card bg-card">
-                        <div class="card-body">
-                            <div class="cat-item text-center">
-                                <a href="classifieds-list.html"></a>
-                                <div class="cat-img text-shadow1">
-                                    <i class="fa fa-graduation-cap fa-2x text-primary-gradient"></i>
-                                </div>
-                                <div class="cat-desc">
-                                    <h5 class="mb-6">Education</h5>
-                                    <small class="badge badge-pill badge-primary me-2">25</small><span class="text-muted">ads are posted</span>
+                @foreach ($subcategories as $categorie)
+                    <div class="item">
+                        <div class="card bg-card">
+                            <div class="card-body">
+                                <div class="cat-item text-center">
+                                    <a href="classifieds-list.html"></a>
+                                    <div class="cat-img text-shadow1">
+                                        <i class="fa fa-building fa-2x "></i>
+                                    </div>
+                                    <div class="cat-desc">
+                                        <h5 class="mb-6">{{ $categorie->sub_nom }}</h5>
+                                        <small class="badge badge-pill badge-primary me-2">{{ $categorie->sous_categories_count }}</small><span class="text-muted">Entreprises</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="item">
-                    <div class="card bg-card">
-                        <div class="card-body">
-                            <div class="cat-item text-center">
-                                <a href="classifieds-list.html"></a>
-                                <div class="cat-img text-shadow1">
-                                    <i class="fa fa-cutlery fa-2x text-primary-gradient "></i>
-                                </div>
-                                <div class="cat-desc">
-                                    <h5 class="mb-6">Restaurant</h5>
-                                    <small class="badge badge-pill badge-primary me-2">23</small><span class="text-muted">ads are posted</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="card bg-card">
-                        <div class="card-body">
-                            <div class="cat-item text-center">
-                                <a href="classifieds-list.html"></a>
-                                <div class="cat-img text-shadow1">
-                                    <i class="fa fa-car fa-2x text-primary-gradient"></i>
-                                </div>
-                                <div class="cat-desc">
-                                    <h5 class="mb-6">Vehicle</h5>
-                                    <small class="badge badge-pill badge-primary me-2">46</small><span class="text-muted">ads are posted</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="card bg-card">
-                        <div class="card-body">
-                            <div class="cat-item text-center">
-                                <a href="classifieds-list.html"></a>
-                                <div class="cat-img text-shadow1">
-                                    <i class="fa fa-heartbeat fa-2x text-primary-gradient"></i>
-                                </div>
-                                <div class="cat-desc">
-                                    <h5 class="mb-6">Health</h5>
-                                    <small class="badge badge-pill badge-primary me-2">52</small><span class="text-muted">ads are posted</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="card bg-card">
-                        <div class="card-body">
-                            <div class="cat-item text-center">
-                                <a href="classifieds-list.html"></a>
-                                <div class="cat-img text-shadow1">
-                                    <i class="fa fa-paw fa-2x text-primary-gradient"></i>
-                                </div>
-                                <div class="cat-desc">
-                                    <h5 class="mb-6">Animals</h5>
-                                    <small class="badge badge-pill badge-primary me-2">52</small><span class="text-muted">ads are posted</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="card bg-card">
-                        <div class="card-body">
-                            <div class="cat-item text-center">
-                                <a href="classifieds-list.html"></a>
-                                <div class="cat-img text-shadow1">
-                                    <i class="fa fa-graduation-cap fa-2x text-primary-gradient"></i>
-                                </div>
-                                <div class="cat-desc">
-                                    <h5 class="mb-6">Education</h5>
-                                    <small class="badge badge-pill badge-primary me-2">25</small><span class="text-muted">ads are posted</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="card bg-card">
-                        <div class="card-body">
-                            <div class="cat-item text-center">
-                                <a href="classifieds-list.html"></a>
-                                <div class="cat-img text-shadow1">
-                                    <i class="fa fa-cutlery fa-2x text-primary-gradient "></i>
-                                </div>
-                                <div class="cat-desc">
-                                    <h5 class="mb-6">Restaurant</h5>
-                                    <small class="badge badge-pill badge-primary me-2">23</small><span class="text-muted">ads are posted</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
@@ -272,46 +139,16 @@
                 <p>Mauris ut cursus nunc. Morbi eleifend, ligula at consectetur vehicula</p>
             </div>
             <div id="myCarousel1" class="owl-carousel owl-carousel-icons2">
-                <div class="item">
-                    <div class="card mb-0">
-                        <div class="item-card2-img">
-                            <a href="classified.html"></a>
-                            <img src="{{ asset('assets/images/products/products/sanlam.jpg') }}" alt="img" class="cover-image">
+                @foreach ($honeures as $honeure)
+                    <div class="item">
+                        <div class="card mb-0">
+                            <div class="item-card2-img">
+                                <a href="{{ route('entreprise.pays.profil',['slug_pays'=>$honeure->slug_pays,'slug_categorie'=>$honeure->slug_categorie,'slug_souscategorie'=>$honeure->slug_souscategorie,'slug_entreprise'=>$honeure->slug_entreprise]) }}"></a>
+                                <img src="{{ asset('assets/images/products/products') }}/{{ $honeure->photo4 }}" alt="{{ $honeure->nom }}" class="cover-image">
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="item">
-                    <div class="card mb-0">
-                        <div class="item-card2-img">
-                            <a href="classified.html"></a>
-                            <img src="{{ asset('assets/images/products/products/bravia.jpg') }}" alt="img" class="cover-image">
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="card mb-0">
-                        <div class="item-card2-img">
-                            <a href="classified.html"></a>
-                            <img src="{{ asset('assets/images/products/products/moov.jpg') }}" alt="img" class="cover-image">
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="card mb-0">
-                        <div class="item-card2-img">
-                            <a href="classified.html"></a>
-                            <img src="{{ asset('assets/images/products/products/dodo.jpg') }}" alt="img" class="cover-image">
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="card mb-0">
-                        <div class="item-card2-img">
-                            <a href="classified.html"></a>
-                            <img src="{{ asset('assets/images/products/products/odg.jpg') }}" alt="img" class="cover-image">
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
@@ -323,339 +160,75 @@
             <div class="col-md-12">
                 <div class="items-gallery">
                     <div class="items-blog-tab text-center">
-                        <h2 class="">Latest News</h2>
+                        <h2 class="">Les dernieres nouvelles</h2>
                         <div class="items-blog-tab-heading row">
                             <div class="col-12">
                                 <ul class="nav items-blog-tab-menu">
-                                    <li class=""><a href="#tab-1" class="active show" data-bs-toggle="tab">All</a></li>
-                                    <li><a href="#tab-2" data-bs-toggle="tab" class="">Business</a></li>
-                                    <li><a href="#tab-3" data-bs-toggle="tab" class="">Beauty</a></li>
-                                    <li><a href="#tab-4" data-bs-toggle="tab" class="">Real Estate</a></li>
-                                    <li><a href="#tab-5" data-bs-toggle="tab" class="">Restaurant</a></li>
+                                    <li class=""><a href="#tab-0" class="active show" data-bs-toggle="tab">All</a></li>
+                                    @foreach ($cat_annonce as $cat_ann)
+                                        <li><a href="#tab-{{ $cat_ann->id }}" data-bs-toggle="tab" class="">{{ $cat_ann->libelle }}</a></li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>
                         <div class="tab-content">
-                            <div class="tab-pane active" id="tab-1">
+                            <div class="tab-pane active" id="tab-0">
                                 <div class="row">
-                                    <div class="col-xl-4 col-lg-4 col-md-12">
-                                        <div class="card mb-xl-0">
-                                            <span class="ribbon-1">
-                                                <span><i class="fa fa-cutlery"></i></span>
-                                            </span>
-                                            <div class="item-card8-img  rounded-top-7">
-                                                <img src="{{ asset('assets/images/products/f2.png') }}" alt="img" class="cover-image">
-                                            </div>
-                                            <div class="item-card8-overlaytext">
-                                                <h6 class=" fs-20 mb-0">Restaurants</h6>
-                                            </div>
-                                            <div class="card-body">
-                                                <div class="item-card8-desc">
-                                                    <p class="text-muted">16 November 2018.</p>
-                                                    <h4 class="font-weight-semibold">Food &amp; Bar Restaurant</h4>
-                                                    <p class="mb-0">Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam</p>
+                                    @foreach ($annonces as $annonce)
+                                        <div class="col-xl-4 col-lg-4 col-md-12">
+                                            <div class="card mb-xl-0">
+                                                <span class="ribbon-1">
+                                                    <span><i class="fa fa-cutlery"></i></span>
+                                                </span>
+                                                <div class="item-card8-img  rounded-top-7">
+                                                    <img src="{{ asset('assets/images/products') }}/{{ $annonce->image1 }}" alt="{{ $annonce->titre }}" class="cover-image">
+                                                </div>
+                                                <div class="item-card8-overlaytext">
+                                                    <h6 class=" fs-20 mb-0">{{ $annonce->libelle }}</h6>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="item-card8-desc">
+                                                        <p class="text-muted">{{ $annonce->created_at }}</p>
+                                                        <h4 class="font-weight-semibold">{{ Str::limit($annonce->titre, 10) }}</h4>
+                                                        <p class="mb-0">{{ Str::limit($annonce->text1, 40) }}</p>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-xl-4 col-lg-4 col-md-12">
-                                        <div class="card mb-xl-0">
-                                            <span class="ribbon-2">
-                                                <span><i class="fa fa-home"></i></span>
-                                            </span>
-                                            <div class="item-card8-img  rounded-top-7">
-                                                <img src="{{ asset('assets/images/products/h2.jpg') }}" alt="img" class="cover-image">
-                                            </div>
-                                            <div class="item-card8-overlaytext">
-                                                <h6 class="bg-primary fs-20 mb-0">Real State</h6>
-                                            </div>
-                                            <div class="card-body">
-                                                <div class="item-card8-desc">
-                                                    <p class="text-muted">16 November 2018.</p>
-                                                    <h4 class="font-weight-semibold">Food &amp; Bar Restaurant</h4>
-                                                    <p class="mb-0">Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-lg-4 col-md-12">
-                                        <div class="card mb-lg-0">
-                                            <span class="ribbon-3">
-                                                <span><i class="fa fa-paint-brush"></i></span>
-                                            </span>
-                                            <div class="item-card8-img  rounded-top-7">
-                                                <img src="{{ asset('assets/images/products/j1.png') }}" alt="img" class="cover-image">
-                                            </div>
-                                            <div class="item-card8-overlaytext">
-                                                <h6 class="bg-info fs-20 mb-0">Beauty Spa</h6>
-                                            </div>
-                                            <div class="card-body">
-                                                <div class="item-card8-desc">
-                                                    <p class="text-muted">16 November 2018.</p>
-                                                    <h4 class="font-weight-semibold">Food &amp; Bar Restaurant</h4>
-                                                    <p class="mb-0">Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    @endforeach
+                                    
                                 </div>
                             </div>
-                            <div class="tab-pane" id="tab-2">
-                                <div class="row">
-                                    <div class="col-xl-4 col-lg-4 col-md-12">
-                                        <div class="card mb-xl-0">
-                                            <span class="ribbon-2">
-                                                <span><i class="fa fa-briefcase"></i></span>
-                                            </span>
-                                            <div class="item-card8-img  rounded-top-7">
-                                                <img src="{{ asset('assets/images/products/f1.png') }}" alt="img" class="cover-image">
-                                            </div>
-                                            <div class="item-card8-overlaytext">
-                                                <h6 class="bg-primary fs-20 mb-0">Business</h6>
-                                            </div>
-                                            <div class="card-body">
-                                                <div class="item-card8-desc">
-                                                    <p class="text-muted">16 November 2018.</p>
-                                                    <h4 class="font-weight-semibold">Food &amp; Bar Restaurant</h4>
-                                                    <p class="mb-0">Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam</p>
+                            @foreach ($cat_annonce as $cat_ann)
+                                <div class="tab-pane" id="tab-{{ $cat_ann->id }}">
+                                    <div class="row">
+                                        @foreach ($annonce2s as $annonce2)
+                                            @if ($cat_ann->id == $annonce2->categorie_id)
+                                                <div class="col-xl-4 col-lg-4 col-md-12">
+                                                    <div class="card mb-xl-0">
+                                                        <span class="ribbon-2">
+                                                            <span><i class="fa fa-briefcase"></i></span>
+                                                        </span>
+                                                        <div class="item-card8-img  rounded-top-7">
+                                                            <img src="{{ asset('assets/images/products') }}/{{ $annonce2->image1 }}" alt="{{ $annonce2->titre }}" class="cover-image">
+                                                        </div>
+                                                        <div class="item-card8-overlaytext">
+                                                            <h6 class="bg-primary fs-20 mb-0">{{ $cat_ann->libelle }}</h6>
+                                                        </div>
+                                                        <div class="card-body">
+                                                            <div class="item-card8-desc">
+                                                                <p class="text-muted">{{ $annonce2->created_at }}</p>
+                                                                <h4 class="font-weight-semibold">{{ Str::limit($annonce2->titre, 10) }}</h4>
+                                                                <p class="mb-0">{{ Str::limit($annonce2->text1, 40) }}</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-lg-4 col-md-12">
-                                        <div class="card mb-xl-0">
-                                            <span class="ribbon-1">
-                                                <span><i class="fa fa-briefcase"></i></span>
-                                            </span>
-                                            <div class="item-card8-img">
-                                                <img src="{{ asset('assets/images/products/j2.png') }}" alt="img" class="cover-image">
-                                            </div>
-                                            <div class="item-card8-overlaytext">
-                                                <h6 class="bg-secondary fs-20 mb-0">Business</h6>
-                                            </div>
-                                            <div class="card-body">
-                                                <div class="item-card8-desc">
-                                                    <p class="text-muted">16 November 2018.</p>
-                                                    <h4 class="font-weight-semibold">Food &amp; Bar Restaurant</h4>
-                                                    <p class="mb-0">Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-lg-4 col-md-12">
-                                        <div class="card mb-0">
-                                            <span class="ribbon-3">
-                                                <span><i class="fa fa-briefcase"></i></span>
-                                            </span>
-                                            <div class="item-card8-img">
-                                                <img src="{{ asset('assets/images/products/j3.png') }}" alt="img" class="cover-image">
-                                            </div>
-                                            <div class="item-card8-overlaytext">
-                                                <h6 class="bg-info fs-20 mb-0">Business</h6>
-                                            </div>
-                                            <div class="card-body">
-                                                <div class="item-card8-desc">
-                                                    <p class="text-muted">16 November 2018.</p>
-                                                    <h4 class="font-weight-semibold">Food &amp; Bar Restaurant</h4>
-                                                    <p class="mb-0">Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam</p>
-                                                </div>
-                                            </div>
-                                        </div>
+                                            @endif
+                                        @endforeach
                                     </div>
                                 </div>
-                            </div>
-                            <div class="tab-pane" id="tab-3">
-                                <div class="row">
-                                    <div class="col-xl-4 col-lg-4 col-md-12">
-                                        <span class="ribbon-3">
-                                            <span><i class="fa fa-paint-brush"></i></span>
-                                        </span>
-                                        <div class="card mb-xl-0">
-                                            <div class="item-card8-img  rounded-top-7">
-                                                <img src="{{ asset('assets/images/products/b1.png') }}" alt="img" class="cover-image">
-                                            </div>
-                                            <div class="item-card8-overlaytext">
-                                                <h6 class="bg-info fs-20 mb-0">Spa</h6>
-                                            </div>
-                                            <div class="card-body">
-                                                <div class="item-card8-desc">
-                                                    <p class="text-muted">16 November 2018.</p>
-                                                    <h4 class="font-weight-semibold">Food &amp; Bar Restaurant</h4>
-                                                    <p class="mb-0">Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-lg-4 col-md-12">
-                                        <div class="card mb-0">
-                                            <span class="ribbon-2">
-                                                <span><i class="fa fa-paint-brush"></i></span>
-                                            </span>
-                                            <div class="item-card8-img">
-                                                <img src="{{ asset('assets/images/products/b2.png') }}" alt="img" class="cover-image">
-                                            </div>
-                                            <div class="item-card8-overlaytext">
-                                                <h6 class="bg-primary fs-20 mb-0">Spa</h6>
-                                            </div>
-                                            <div class="card-body">
-                                                <div class="item-card8-desc">
-                                                    <p class="text-muted">16 November 2018.</p>
-                                                    <h4 class="font-weight-semibold">Food &amp; Bar Restaurant</h4>
-                                                    <p class="mb-0">Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-lg-4 col-md-12">
-                                        <div class="card mb-lg-0">
-                                            <span class="ribbon-1">
-                                                <span><i class="fa fa-paint-brush"></i></span>
-                                            </span>
-                                            <div class="item-card8-img  rounded-top-7">
-                                                <img src="{{ asset('assets/images/products/j1.png') }}" alt="img" class="cover-image">
-                                            </div>
-                                            <div class="item-card8-overlaytext">
-                                                <h6 class="bg-secondary fs-20 mb-0">Spa</h6>
-                                            </div>
-                                            <div class="card-body">
-                                                <div class="item-card8-desc">
-                                                    <p class="text-muted">16 November 2018.</p>
-                                                    <h4 class="font-weight-semibold">Food &amp; Bar Restaurant</h4>
-                                                    <p class="mb-0">Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tab-pane" id="tab-4">
-                                <div class="row">
-                                    <div class="col-xl-4 col-lg-4 col-md-12">
-                                        <span class="ribbon-2">
-                                            <span><i class="fa fa-home"></i></span>
-                                        </span>
-                                        <div class="card mb-xl-0">
-                                            <div class="item-card8-img  rounded-top-7">
-                                                <img src="{{ asset('assets/images/products/h4.png') }}" alt="img" class="cover-image">
-                                            </div>
-                                            <div class="item-card8-overlaytext">
-                                                <h6 class="bg-primary fs-20 mb-0">Real Estate</h6>
-                                            </div>
-                                            <div class="card-body">
-                                                <div class="item-card8-desc">
-                                                    <p class="text-muted">16 November 2018.</p>
-                                                    <h4 class="font-weight-semibold">Food &amp; Bar Restaurant</h4>
-                                                    <p class="mb-0">Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-lg-4 col-md-12">
-                                        <div class="card mb-xl-0">
-                                            <span class="ribbon-3">
-                                                <span><i class="fa fa-home"></i></span>
-                                            </span>
-                                            <div class="item-card8-img">
-                                                <img src="{{ asset('assets/images/products/h2.png') }}" alt="img" class="cover-image">
-                                            </div>
-                                            <div class="item-card8-overlaytext">
-                                                <h6 class="bg-info fs-20 mb-0">Real Estate</h6>
-                                            </div>
-                                            <div class="card-body">
-                                                <div class="item-card8-desc">
-                                                    <p class="text-muted">16 November 2018.</p>
-                                                    <h4 class="font-weight-semibold">Food &amp; Bar Restaurant</h4>
-                                                    <p class="mb-0">Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-lg-4 col-md-12">
-                                        <div class="card mb-0">
-                                            <span class="ribbon-1">
-                                                <span><i class="fa fa-home"></i></span>
-                                            </span>
-                                            <div class="item-card8-img">
-                                                <img src="{{ asset('assets/images/products/h3.png') }}" alt="img" class="cover-image">
-                                            </div>
-                                            <div class="item-card8-overlaytext">
-                                                <h6 class="bg-secondary fs-20 mb-0">Real Estate</h6>
-                                            </div>
-                                            <div class="card-body">
-                                                <div class="item-card8-desc">
-                                                    <p class="text-muted">16 November 2018.</p>
-                                                    <h4 class="font-weight-semibold">Food &amp; Bar Restaurant</h4>
-                                                    <p class="mb-0">Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tab-pane" id="tab-5">
-                                <div class="row">
-                                    <div class="col-xl-4 col-lg-4 col-md-12">
-                                        <div class="card mb-xl-0">
-                                            <span class="ribbon-3">
-                                                <span><i class="fa fa-cutlery"></i></span>
-                                            </span>
-                                            <div class="item-card8-img  rounded-top-7">
-                                                <img src="{{ asset('assets/images/products/f4.png') }}" alt="img" class="cover-image">
-                                            </div>
-                                            <div class="item-card8-overlaytext">
-                                                <h6 class="bg-info fs-20 mb-0">Restaurant</h6>
-                                            </div>
-                                            <div class="card-body">
-                                                <div class="item-card8-desc">
-                                                    <p class="text-muted">16 November 2018.</p>
-                                                    <h4 class="font-weight-semibold">Food &amp; Bar Restaurant</h4>
-                                                    <p class="mb-0">Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-lg-4 col-md-12">
-                                        <div class="card mb-xl-0">
-                                            <span class="ribbon-1">
-                                                <span><i class="fa fa-cutlery"></i></span>
-                                            </span>
-                                            <div class="item-card8-img">
-                                                <img src="{{ asset('assets/images/products/f3.png') }}" alt="img" class="cover-image">
-                                            </div>
-                                            <div class="item-card8-overlaytext">
-                                                <h6 class="bg-secondary fs-20 mb-0">Restaurant</h6>
-                                            </div>
-                                            <div class="card-body">
-                                                <div class="item-card8-desc">
-                                                    <p class="text-muted">16 November 2018.</p>
-                                                    <h4 class="font-weight-semibold">Food &amp; Bar Restaurant</h4>
-                                                    <p class="mb-0">Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-lg-4 col-md-12">
-                                        <div class="card mb-0">
-                                            <span class="ribbon-2">
-                                                <span><i class="fa fa-cutlery"></i></span>
-                                            </span>
-                                            <div class="item-card8-img">
-                                                <img src="{{ asset('assets/images/products/f2.png') }}" alt="img" class="cover-image">
-                                            </div>
-                                            <div class="item-card8-overlaytext">
-                                                <h6 class="bg-primary fs-20 mb-0">Restaurant</h6>
-                                            </div>
-                                            <div class="card-body">
-                                                <div class="item-card8-desc">
-                                                    <p class="text-muted">16 November 2018.</p>
-                                                    <h4 class="font-weight-semibold">Food &amp; Bar Restaurant</h4>
-                                                    <p class="mb-0">Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -675,8 +248,8 @@
                                 <div class="counter-icon">
                                     <i class="icon icon-people"></i>
                                 </div>
-                                <h5>Clients</h5>
-                                <h2 class="counter mb-0">2569</h2>
+                                <h5>Membres</h5>
+                                <h2 class="counter mb-0">@php echo($inscrit + 1000000)@endphp</h2>
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-6">
@@ -684,26 +257,28 @@
                                 <div class="counter-icon text-warning">
                                     <i class="icon icon-rocket"></i>
                                 </div>
-                                <h5>Total Sales</h5>
-                                <h2 class="counter mb-0">1765</h2>
+                                <h5>Entreprise</h5>
+                                <h2 class="counter mb-0">@php echo($nombresEntreprise + 1000000)@endphp</h2>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-md-6">
-                            <div class="counter-status status md-mb-0">
-                                <div class="counter-icon text-primary">
-                                    <i class="icon icon-docs"></i>
+                        @foreach ($visiteur2 as $visiteur)
+                            <div class="col-lg-3 col-md-6">
+                                <div class="counter-status status md-mb-0">
+                                    <div class="counter-icon text-primary">
+                                        <i class="icon icon-docs"></i>
+                                    </div>
+                                    <h5>Visite par mois</h5>
+                                    <h2 class="counter mb-0">@php echo($visiteur->visiteur + 10000000)@endphp</h2>
                                 </div>
-                                <h5>Total Projects</h5>
-                                <h2 class="counter mb-0">846</h2>
                             </div>
-                        </div>
+                        @endforeach
                         <div class="col-lg-3 col-md-6">
                             <div class="counter-status status">
                                 <div class="counter-icon text-success">
                                     <i class="icon icon-emotsmile"></i>
                                 </div>
-                                <h5>Happy Customers</h5>
-                                <h2 class="counter">7253</h2>
+                                <h5>Nombre de clic</h5>
+                                <h2 class="counter">@php echo($visiteur->visiteur + 3000000)@endphp</h2>
                             </div>
                         </div>
                     </div>
