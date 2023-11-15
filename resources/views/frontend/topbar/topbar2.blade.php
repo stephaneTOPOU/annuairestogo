@@ -144,7 +144,6 @@
                                     <option value="SD">Sudan</option>
                                     <option value="SE">Sweden</option>
                                     <option value="SG">Singapore</option>
-                                    
                                     <option value="TH">Thailand</option>
                                     <option value="TJ">Tajikistan</option>
                                     <option value="TL">Timor-Leste</option>
@@ -168,7 +167,7 @@
                                 </select>
                             </li>
                             <li class="dropdown me-5">
-                                <a href="#" class="text-dark" data-bs-toggle="dropdown"><span> Language <i class="fa fa-caret-down text-muted"></i></span> </a>
+                                <a href="#" class="text-dark" data-bs-toggle="dropdown"><span> Langue <i class="fa fa-caret-down text-muted"></i></span> </a>
                                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                                     <a href="#" class="dropdown-item" >
                                         Anglais
