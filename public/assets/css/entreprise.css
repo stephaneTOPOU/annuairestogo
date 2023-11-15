@@ -1,0 +1,45 @@
+.mia-be-class{
+    text-align: center;
+    margin-bottom: 15px;
+}
+.img-search {
+    position: relative;
+    width: 92vw;
+    aspect-ratio: 32/5;
+    margin: 1em;
+}
+
+.img-search .search {
+    z-index: 1;
+    position: absolute;
+    width: 100%;
+    /* clip-path: circle(0% at 0 50%); */
+}
+
+/* .img-search .search.active {
+    clip-path: circle(150% at 0 50%);
+    transition: 2s;
+    transition-property: clip-path;
+} */
+
+.img-search .search img {
+    z-index: 1;
+    width: 100%;
+    border-radius: 1em;
+}
+
+@media (min-width: 901px) {
+    .first-search {
+        margin-top: 6em;
+    }
+
+    .company-search {
+        margin-top: 4.5em;
+    }
+}
+
+@media (max-width: 900px) {
+    .company-search {
+        margin-top: -1.25em;
+    }
+}

@@ -6,7 +6,14 @@
 @include('frontend.header.header6')
 @include('frontend.header.header7')
 
+    <!-- autocompletion-->
 
+    {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"> --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+    <!-- Fin autocompletion-->
     {{-- @include('frontend.loader') --}}
     <!-- Popup Intro-->
     <div id="myModal" class="modal fade">
@@ -66,32 +73,52 @@
                                 <h1 class="mb-1 d-none d-md-block">Trouver les meilleures entreprise</h1>
                                 <p class="d-none d-md-block">It is a long established fact that a reader will be distracted by the readable.</p>
                             </div>
-                            <div class="form row g-0 ">
-                                <div class="form-group  col-xl-4 col-lg-3 col-md-12 mb-0 bg-white">
-                                    <input type="text" class="form-control input-lg br-te-md-0 br-be-md-0 border-start-0" id="text4" placeholder="Job Title or Phrase or Keywords">
+                            <form action="{{ route('recherche.pays',['slug_pays'=>'tg']) }}" method="GET" class="form row g-0 ">
+                                <div class="form-group  col-xl-6 col-lg-3 col-md-12 mb-0 bg-white">
+                                    <input type="text" class="form-control input-lg br-te-md-0 br-be-md-0 border-start-0" id="text4" placeholder="Trouer une entreprise ou un professionel" name="nom">
+                                    <script type="text/javascript">
+                                        var path = "{{ route('autocomplete.pays',['slug_pays'=>'tg']) }}" ;
+                                        // path = path.replace(':pays_id', pays_id);
+                
+                                        $( "#text4" ).autocomplete({
+                                            source: function( request, response ) {
+                                                $.ajax({
+                                                url: path,
+                                                type: 'GET',
+                                                dataType: "json",
+                                                data: {
+                                                    text4: request.term
+                                                },
+                                                success: function( data ) {
+                                                    response( data );
+                                                }
+                                                });
+                                            },
+                                            select: function (event, ui) {
+                                                $('#text4').val(ui.item.label);
+                                                console.log(ui.item); 
+                                                return false;
+                                            }
+                                            });
+                                    </script>
                                 </div>
-                                <div class="form-group  col-xl-3 col-lg-3 col-md-12 mb-0 bg-white">
-                                    <input type="text" class="form-control input-lg br-md-0 border-start-0" id="text5" placeholder="Enter Location">
-                                    <span><i class="fa fa-map-marker location-gps me-1"></i> </span>
-                                </div>
-                                <div class="form-group col-xl-3 col-lg-3 col-md-12 select2-lg  mb-0 bg-white">
-                                    <select class="form-control select2-show-search  border-bottom-0" data-placeholder="Select Category">
-                                        <optgroup label="Categories">
-                                            <option>Select</option>
-                                            <option value="1">Private</option>
-                                            <option value="2">Software</option>
-                                            <option value="3">Banking</option>
-                                            <option value="4">Finaces</option>
-                                            <option value="5">Corporate</option>
-                                            <option value="6">Driver</option>
-                                            <option value="7">Sales</option>
+                                <div class="form-group col-xl-4 col-lg-3 col-md-12 select2-lg  mb-0 bg-white">
+                                    <select class="form-control select2-show-search  border-bottom-0" data-placeholder="Select Category" name="secteur" id="secteur">
+                                        <optgroup label="Catégories">
+                                            <option disabled selected>Secteur d'activité</option>
+                                            @foreach ($souscategories as $souscategorie)
+                                                <option value="{{ $souscategorie->libelle }}">{{ $souscategorie->libelle }}</option>
+                                            @endforeach
                                         </optgroup>
                                     </select>
                                 </div>
                                 <div class="col-xl-2 col-lg-3 col-md-12 mb-0">
-                                    <a href="#" class="btn btn-lg btn-block btn-primary br-ts-md-0 br-bs-md-0">Search Here</a>
+                                    <button type="submit" class="btn btn-lg btn-block btn-primary br-ts-md-0 br-bs-md-0">
+                                        {{-- <i class="fa fa-search"></i> --}}
+                                        Trouver
+                                    </button>
                                 </div>
-                            </div>
+                            </form>
                         </div>
                     </div>
                 </div><!-- /header-text -->
@@ -108,18 +135,18 @@
                 <p>Mauris ut cursus nunc. Morbi eleifend, ligula at consectetur vehicula</p>
             </div>
             <div id="small-categories" class="owl-carousel owl-carousel-icons2">
-                @foreach ($subcategories as $categorie)
+                @foreach ($subcategories as $secteur)
                     <div class="item">
                         <div class="card bg-card">
                             <div class="card-body">
                                 <div class="cat-item text-center">
-                                    <a href="classifieds-list.html"></a>
+                                    <a href="{{ route('entreprise.pays',['slug_pays'=>$secteur->slug1,'slug_categorie'=>$secteur->slug2,'slug_souscategorie'=>$secteur->slug3]) }}"></a>
                                     <div class="cat-img text-shadow1">
                                         <i class="fa fa-building fa-2x "></i>
                                     </div>
                                     <div class="cat-desc">
-                                        <h5 class="mb-6">{{ $categorie->sub_nom }}</h5>
-                                        <small class="badge badge-pill badge-primary me-2">{{ $categorie->sous_categories_count }}</small><span class="text-muted">Entreprises</span>
+                                        <h5 class="mb-6">{{ $secteur->sub_nom }}</h5>
+                                        <small class="badge badge-pill badge-primary me-2">{{ $secteur->sous_categories_count }}</small><span class="text-muted">Entreprises</span>
                                     </div>
                                 </div>
                             </div>
@@ -174,23 +201,23 @@
                         <div class="tab-content">
                             <div class="tab-pane active" id="tab-0">
                                 <div class="row">
-                                    @foreach ($annonces as $annonce)
+                                    @foreach ($annonce_all as $all)
                                         <div class="col-xl-4 col-lg-4 col-md-12">
                                             <div class="card mb-xl-0">
                                                 <span class="ribbon-1">
                                                     <span><i class="fa fa-cutlery"></i></span>
                                                 </span>
                                                 <div class="item-card8-img  rounded-top-7">
-                                                    <img src="{{ asset('assets/images/products') }}/{{ $annonce->image1 }}" alt="{{ $annonce->titre }}" class="cover-image">
+                                                    <img src="{{ asset('assets/images/products') }}/{{ $all->image1 }}" alt="{{ $all->titre }}" class="cover-image">
                                                 </div>
                                                 <div class="item-card8-overlaytext">
-                                                    <h6 class=" fs-20 mb-0">{{ $annonce->libelle }}</h6>
+                                                    <h6 class=" fs-20 mb-0">{{ $all->libelle }}</h6>
                                                 </div>
                                                 <div class="card-body">
                                                     <div class="item-card8-desc">
-                                                        <p class="text-muted">{{ $annonce->created_at }}</p>
-                                                        <h4 class="font-weight-semibold">{{ Str::limit($annonce->titre, 10) }}</h4>
-                                                        <p class="mb-0">{{ Str::limit($annonce->text1, 40) }}</p>
+                                                        <p class="text-muted">{{ $all->created_at }}</p>
+                                                        <h4 class="font-weight-semibold">{{ Str::limit($all->titre, 10) }}</h4>
+                                                        <p class="mb-0">{{ Str::limit($all->text1, 40) }}</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -202,24 +229,24 @@
                             @foreach ($cat_annonce as $cat_ann)
                                 <div class="tab-pane" id="tab-{{ $cat_ann->id }}">
                                     <div class="row">
-                                        @foreach ($annonce2s as $annonce2)
-                                            @if ($cat_ann->id == $annonce2->categorie_id)
+                                        @foreach ($annonces as $annonce)
+                                            @if ($annonce->categorie_id == $cat_ann->id)
                                                 <div class="col-xl-4 col-lg-4 col-md-12">
                                                     <div class="card mb-xl-0">
                                                         <span class="ribbon-2">
                                                             <span><i class="fa fa-briefcase"></i></span>
                                                         </span>
                                                         <div class="item-card8-img  rounded-top-7">
-                                                            <img src="{{ asset('assets/images/products') }}/{{ $annonce2->image1 }}" alt="{{ $annonce2->titre }}" class="cover-image">
+                                                            <img src="{{ asset('assets/images/products') }}/{{ $annonce->image }}" alt="{{ $annonce->titre }}" class="cover-image">
                                                         </div>
                                                         <div class="item-card8-overlaytext">
                                                             <h6 class="bg-primary fs-20 mb-0">{{ $cat_ann->libelle }}</h6>
                                                         </div>
                                                         <div class="card-body">
                                                             <div class="item-card8-desc">
-                                                                <p class="text-muted">{{ $annonce2->created_at }}</p>
-                                                                <h4 class="font-weight-semibold">{{ Str::limit($annonce2->titre, 10) }}</h4>
-                                                                <p class="mb-0">{{ Str::limit($annonce2->text1, 40) }}</p>
+                                                                <p class="text-muted">{{ $annonce->date }}</p>
+                                                                <h4 class="font-weight-semibold">{{ Str::limit($annonce->titre, 10) }}</h4>
+                                                                <p class="mb-0">{{ Str::limit($annonce->description, 40) }}</p>
                                                             </div>
                                                         </div>
                                                     </div>

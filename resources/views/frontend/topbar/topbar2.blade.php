@@ -26,6 +26,7 @@
                             </li>
                             <li class="select-country me-5">
                                 <select class="form-control select2-flag-search" data-placeholder="Select Country">
+                                    <option value="TG">Togo</option>
                                     <option value="UM">United States of America</option>
                                     <option value="AF">Afghanistan</option>
                                     <option value="AL">Albania</option>
@@ -143,7 +144,7 @@
                                     <option value="SD">Sudan</option>
                                     <option value="SE">Sweden</option>
                                     <option value="SG">Singapore</option>
-                                    <option value="TG">Togo</option>
+                                    
                                     <option value="TH">Thailand</option>
                                     <option value="TJ">Tajikistan</option>
                                     <option value="TL">Timor-Leste</option>
@@ -170,36 +171,10 @@
                                 <a href="#" class="text-dark" data-bs-toggle="dropdown"><span> Language <i class="fa fa-caret-down text-muted"></i></span> </a>
                                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                                     <a href="#" class="dropdown-item" >
-                                        English
+                                        Anglais
                                     </a>
                                     <a class="dropdown-item" href="#">
-                                        Arabic
-                                    </a>
-                                    <a class="dropdown-item" href="#">
-                                        German
-                                    </a>
-                                    <a href="#" class="dropdown-item" >
-                                        Greek
-                                    </a>
-                                    <a href="#" class="dropdown-item" >
-                                        Spanish
-                                    </a>
-                                </div>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="text-dark" data-bs-toggle="dropdown"><span>Currency <i class="fa fa-caret-down text-muted"></i></span></a>
-                                <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                                    <a href="#" class="dropdown-item" >
-                                        USD
-                                    </a>
-                                    <a class="dropdown-item" href="#">
-                                        EUR
-                                    </a>
-                                    <a class="dropdown-item" href="#">
-                                        INR
-                                    </a>
-                                    <a href="#" class="dropdown-item" >
-                                        GBP
+                                        Français
                                     </a>
                                 </div>
                             </li>
@@ -210,32 +185,26 @@
             <div class="col-xl-4 col-lg-4 col-sm-8 col-5">
                 <div class="top-bar-right">
                     <ul class="custom">
-                        <li>
-                            <a href="register.html" class="text-dark"><i class="fa fa-user me-1"></i> <span>Register</span></a>
-                        </li>
-                        <li>
-                            <a href="login.html" class="text-dark"><i class="fa fa-sign-in me-1"></i> <span>Login</span></a>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="text-dark" data-bs-toggle="dropdown"><i class="fa fa-home me-1"></i><span> My Dashboard</span></a>
-                            <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                                <a href="mydash.html" class="dropdown-item" >
-                                    <i class="dropdown-icon icon icon-user"></i> My Profile
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="dropdown-icon icon icon-speech"></i> Inbox
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="dropdown-icon icon icon-bell"></i> Notifications
-                                </a>
-                                <a href="mydash.html" class="dropdown-item" >
-                                    <i class="dropdown-icon  icon icon-settings"></i> Account Settings
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="dropdown-icon icon icon-power"></i> Log out
-                                </a>
-                            </div>
-                        </li>
+                        @if (Auth::check())
+                            <li class="dropdown">
+                                <a href="#" class="text-dark" data-bs-toggle="dropdown"><i class="fa fa-home me-1"></i><span>Dashboard</span></a>
+                                <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                                    <a href="{{ route('user.dashboard',['slug_pays'=>'tg','slug_user'=>auth()->user()->slug_user]) }}" class="dropdown-item" >
+                                        <i class="dropdown-icon icon icon-user"></i> My Profile
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('logout.pays',['slug_pays'=>'tg']) }}">
+                                        <i class="dropdown-icon icon icon-power"></i> Déconnexion
+                                    </a>
+                                </div>
+                            </li>
+                        @else
+                            <li>
+                                <a href="{{ route('user.pays',['slug_pays'=>'tg']) }}" class="text-dark"><i class="fa fa-user me-1"></i> <span>S'inscrire</span></a>
+                            </li>
+                            <li>
+                                <a href="{{ route('login.pays',['slug_pays'=>'tg']) }}" class="text-dark"><i class="fa fa-sign-in me-1"></i> <span>Connexion</span></a>
+                            </li>
+                        @endif
                     </ul>
                 </div>
             </div>
