@@ -534,6 +534,114 @@
     </section>
     <!--Blogs-->
 
+    <!-- Annonces -->
+	<section class="sptb">
+		<div class="container">
+			<div class="section-title center-block text-center">
+				<h2>Les Annonces</h2>
+				<p>Mauris ut cursus nunc. Morbi eleifend, ligula at consectetur vehicula</p>
+			</div>
+			<div id="myCarousel1" class="owl-carousel annonce-owl-carousel">
+				<div class="card overflow-hidden">
+					<div class="item-card7-img">
+						<div class="item-card7-imgs">
+							<a href="#"></a>
+							<img src="../assets/images/products/products/job.jpg" alt="img" class="cover-image">
+						</div>
+						<div class="item-card7-overlaytext">
+							<a href="#" class="text-white"> Marketing</a>
+
+						</div>
+					</div>
+					<div class="card-body">
+						<div class="item-card7-desc">
+							<div class="item-card7-text">
+								<a href="#" class="text-dark"><h4 class="font-weight-semibold">Free Online Class for Marketing</h4></a>
+							</div>
+							<ul class="d-flex">
+								<li class=""><a href="#" class="icons"><i class="icon icon-location-pin text-muted me-1"></i> USA</a></li>
+								<li><a href="#" class="icons"><i class="icon icon-event text-muted me-1"></i>1 min ago</a></li>
+								<li class=""><a href="#" class="icons"><i class="icon icon-phone text-muted me-1"></i> 14 675 65</a></li>
+							</ul>
+							<p class="mb-0">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque.</p>
+						</div>
+					</div>
+					<div class="card-body">
+						<a class="me-4"><span class="font-weight-bold">Duration:</span> 6 Months</a>
+						<a class="me-4 float-end"><span class="font-weight-bold">Daily:</span> 2 Hours</a>
+					</div>
+					<div class="card-body">
+						<a href="jobdetail.html" class="btn btn-primary mt-1"> Postuler</a>
+					</div>
+				</div>
+	
+				<div class="card overflow-hidden">
+					<div class="item-card7-img">
+						<div class="item-card7-imgs">
+							<a href="#"></a>
+							<img src="../assets/images/products/products/job.jpg" alt="img" class="cover-image">
+						</div>
+						<div class="item-card7-overlaytext">
+							<a href="#" class="text-white"> IT</a>
+						</div>
+					</div>
+					<div class="card-body">
+						<div class="item-card7-desc">
+							<div class="item-card7-text">
+								<a href="#" class="text-dark"><h4 class="font-weight-semibold">PHP Development Classes</h4></a>
+							</div>
+							<ul class="d-flex">
+								<li class=""><a href="#" class="icons"><i class="icon icon-location-pin text-muted me-1"></i> London</a></li>
+								<li><a href="#" class="icons"><i class="icon icon-event text-muted me-1"></i>10 mins ago</a></li>
+								<li class=""><a href="#" class="icons"><i class="icon icon-phone text-muted me-1"></i> 14 675 65</a></li>
+							</ul>
+							<p class="mb-0">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque.</p>
+						</div>
+					</div>
+					<div class="card-body">
+						<a class="me-4"><span class="font-weight-bold">Duration:</span> 9 Months</a>
+						<a class="me-4 float-end"><span class="font-weight-bold">Daily:</span> 1 Hour</a>
+					</div>
+					<div class="card-body">
+						<a href="#" class="btn btn-primary mt-1"> Postuler</a>
+					</div>
+				</div>
+				<div class="card overflow-hidden">
+					<div class="item-card7-img">
+						<div class="item-card7-imgs">
+							<a href="#"></a>
+							<img src="../assets/images/products/products/job.jpg" alt="img" class="cover-image">
+						</div>
+						<div class="item-card7-overlaytext">
+							<a href="#" class="text-white"> Degree</a>
+						</div>
+					</div>
+					<div class="card-body">
+						<div class="item-card7-desc">
+							<div class="item-card7-text">
+								<a href="#" class="text-dark"><h4 class="font-weight-semibold">Certification Degree Classes</h4></a>
+							</div>
+							<ul class="d-flex">
+								<li class=""><a href="#" class="icons"><i class="icon icon-location-pin text-muted me-1"></i> London</a></li>
+								<li><a href="#" class="icons"><i class="icon icon-event text-muted me-1"></i>10 mins ago</a></li>
+								<li class=""><a href="#" class="icons"><i class="icon icon-phone text-muted me-1"></i> 14 675 65</a></li>
+							</ul>
+							<p class="mb-0">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque.</p>
+						</div>
+					</div>
+					<div class="card-body">
+						<a class="me-4"><span class="font-weight-bold">Duration:</span> 3 Months</a>
+						<a class="me-4 float-end"><span class="font-weight-bold">Daily:</span> 3 Hour</a>
+					</div>
+					<div class="card-body">
+						<a href="#" class="btn btn-primary mt-1"> Postuler</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- /Annonces -->
+
     <!--Pricing Tables 2-->
     <section class="sptb bg-white">
         <div class="container">
