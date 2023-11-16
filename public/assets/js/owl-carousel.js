@@ -249,6 +249,25 @@
 			}
 		}
 	})
+
+	// ______________Annonce-owl-carousel
+	var owl = $('.annonce-owl-carousel');
+	owl.owlCarousel({
+		margin: 25,
+		loop: true,
+		nav: false,
+		animateIn: 'fadeInDowm',
+		animateOut: 'fadeOutDown',
+		autoplayHoverPause: true,
+		autoplayTimeout: 5000,
+		autoplay: true,
+		dots: true,
+		responsive: {
+			0: {
+				items: 3
+			}
+		}
+	})
 	
 	/*---End Owl-carousel----*/
 	
