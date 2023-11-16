@@ -9,6 +9,7 @@ use App\Models\SousCategories;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class ProfileController extends Controller
 {
@@ -125,6 +126,7 @@ class ProfileController extends Controller
         ->join('categories', 'pays.id', '=', 'categories.pays_id')
         ->join('sous_categories', 'categories.id', '=', 'sous_categories.categorie_id')
         ->where('sous_categories.id', $sousCategorie_id[0]->id)
+        ->where('est_souscrit', 1)
         ->join('entreprises', 'sous_categories.id', '=', 'entreprises.souscategorie_id')
         ->select('*', 'entreprises.id as identifiant', 'pays.id as pays_id', 'sous_categories.libelle as subcat')
         ->get();
@@ -134,8 +136,14 @@ class ProfileController extends Controller
             ->orderBy('id', 'desc')
             ->get();
         $commentaire2s = Reponse_commentaire::all();
+
+        $parametres = DB::table('pays')->where('pays.id', $pays_id[0]->id)
+            ->join('parametres', 'pays.id', '=', 'parametres.pays_id')
+            ->where('parametres.id', 1)
+            ->select('*')
+            ->get();
             
-        return view('frontend.profile',compact('commentaires','commentaire2s','entreprise_similaire','souscategories','parametres', 'Profil_entreprises', 'avis3', 'avis', 'services', 'serviceImages', 'horaires', 'galleries', 'premiums', 'basics', 'partenaires'));
+        return view('frontend.profile',compact('parametres','commentaires','commentaire2s','entreprise_similaire','souscategories','parametres', 'Profil_entreprises', 'avis3', 'avis', 'services', 'serviceImages', 'horaires', 'galleries', 'premiums', 'basics', 'partenaires'));
     }
 
 
@@ -186,6 +194,35 @@ class ProfileController extends Controller
             $data->emailR = $request->emailR;
             $data->messageR = $request->messageR;
             $data->save();
+            return redirect()->back()->with('success', 'Merci de nous avoir contacté.');
+        } catch (Exception $e) {
+            return redirect()->back()->with('success', $e->getMessage());
+        }
+    }
+
+    public function message($slug_pays, $slug_categorie, $slug_souscategorie, Request $request)
+    {
+        $request->validate([
+            'nom' => 'required',
+            'email' => 'required|email',
+            'objet' => 'required',
+            'message' => 'required'
+        ]);
+        try {
+            //  Envoi de mail
+            Mail::send('frontend.contact-mail2', array(
+                /**Ajouter les informations de l'entreprise */
+                'entreprise_name' => $request->input('entrprise_nom'),
+                'entreprise_email' => $request->input('entrprise_email'),
+                /**Fin Ajouter les informations de l'entreprise */
+                'name' => $request->input('nom'),
+                'email' => $request->input('email'),
+                'subject' => $request->input('objet'),
+                'form_message' => $request->input('message'),
+            ), function ($message) use ($request) {
+                $message->from($request->input('email'));
+                $message->to('gzk643192@gmail.com', 'Salut K Gz')->subject($request->input('objet'));
+            });
             return redirect()->back()->with('success', 'Merci de nous avoir contacté.');
         } catch (Exception $e) {
             return redirect()->back()->with('success', $e->getMessage());

@@ -13,8 +13,14 @@ class UserController extends Controller
     public function user($slug_pays)
     {
         $pays_id = DB::table('pays')->where('slug_pays', $slug_pays)->select('id')->get();
+    
+        $parametres = DB::table('pays')->where('pays.id', $pays_id[0]->id)
+            ->join('parametres', 'pays.id', '=', 'parametres.pays_id')
+            ->where('parametres.id', 1)
+            ->select('*')
+            ->get();
 
-        return view('frontend.auth.register');
+        return view('frontend.auth.register', compact('parametres'));
     }
 
     public function mydash($slug_pays, $slug_user)
@@ -24,7 +30,13 @@ class UserController extends Controller
 
         $users = User::find($user_id[0]->id);
         $souscategories = SousCategories::all();
-        return view('frontend.mydash', compact('souscategories', 'users'));
+
+        $parametres = DB::table('pays')->where('pays.id', $pays_id[0]->id)
+            ->join('parametres', 'pays.id', '=', 'parametres.pays_id')
+            ->where('parametres.id', 1)
+            ->select('*')
+            ->get();
+        return view('frontend.mydash', compact('souscategories', 'users', 'parametres'));
     }
 
     public function update($slug_pays, $slug_user, Request $request)

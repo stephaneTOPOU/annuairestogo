@@ -93,7 +93,13 @@ class HomeController extends Controller
             ->inRandomOrder()
             ->first();
 
-        return view('frontend.recherche', compact('entreprises', 'souscategories', 'subcategories', 'tops', 'top2s'));
+        $parametres = DB::table('pays')->where('pays.id', $pays_id[0]->id)
+            ->join('parametres', 'pays.id', '=', 'parametres.pays_id')
+            ->where('parametres.id', 1)
+            ->select('*')
+            ->get();
+
+        return view('frontend.recherche', compact('entreprises', 'souscategories', 'subcategories', 'tops', 'top2s', 'parametres'));
     }
 
     public function index_pays($slug_pays)
@@ -137,6 +143,7 @@ class HomeController extends Controller
         $minispots = DB::table('pays')->where('pays.id', $pays_id[0]->id)
             ->join('mini_spots', 'pays.id', '=', 'mini_spots.pays_id')
             ->select('*')
+            ->limit(1)
             ->get();
 
         $reportages = DB::table('pays')->where('pays.id', $pays_id[0]->id)
@@ -204,7 +211,6 @@ class HomeController extends Controller
             ->where('parametres.id', 1)
             ->select('*')
             ->get();
-
 
         return view('frontend.home', compact('banner', 'rejoints', 'minispots', 'reportages', 'magazines', 'parametres', 'villes', 'pays', 'subcategories', 'souscategories', 'honeures', 'nombresEntreprise', 'cat_annonce', 'annonce_all', 'annonces', 'inscrit', 'visiteur2', 'popups'));
     }

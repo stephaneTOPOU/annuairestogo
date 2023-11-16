@@ -139,6 +139,8 @@ Route::get('/{slug_pays}/professionnel', [\App\Http\Controllers\ProfessionnelCon
 
 Route::get('/{slug_pays}/contact', [\App\Http\Controllers\ContactController::class, 'contact_pays'])->name('contact.pays');
 
+Route::post('/{slug_pays}/contact', [\App\Http\Controllers\ContactController::class, 'save'])->name('contact.save');
+
 Route::get('/{slug_pays}/a-propos', [\App\Http\Controllers\AboutController::class, 'about'])->name('about.pays');
 
 Route::get('/{slug_pays}/login', [\App\Http\Controllers\AuthController::class, 'login_pays'])->name('login.pays');
@@ -170,6 +172,8 @@ Route::post('/{slug_pays}/{slug_user}', [\App\Http\Controllers\UserController::c
 Route::get('/{slug_pays}/{slug_categorie}', [\App\Http\Controllers\SousCategoriesController::class, 'Souscategories_pays'])->name('subcat.pays');
 
 Route::get('/{slug_pays}/{slug_categorie}/{slug_souscategorie}', [\App\Http\Controllers\EntrepriseController::class, 'entreprise_pays'])->name('entreprise.pays');
+
+Route::post('/{slug_pays}/{slug_categorie}/{slug_souscategorie}', [\App\Http\Controllers\ProfileController::class, 'message'])->name('entreprise.contact');
 
 Route::get('/{slug_pays}/{slug_categorie}/{slug_souscategorie}/{slug_entreprise}', [\App\Http\Controllers\ProfileController::class, 'ProfileEntreprise_pays'])->name('entreprise.pays.profil');
 

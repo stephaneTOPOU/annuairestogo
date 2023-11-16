@@ -41,6 +41,12 @@ class EntrepriseController extends Controller
             ->inRandomOrder()
             ->first();
 
-        return view('frontend.entreprise', compact('subcategories','entreprises', 'souscategories', 'tops', 'top2s'));
+        $parametres = DB::table('pays')->where('pays.id', $pays_id[0]->id)
+            ->join('parametres', 'pays.id', '=', 'parametres.pays_id')
+            ->where('parametres.id', 1)
+            ->select('*')
+            ->get();
+
+        return view('frontend.entreprise', compact('subcategories','entreprises', 'souscategories', 'tops', 'top2s', 'parametres'));
     }
 }

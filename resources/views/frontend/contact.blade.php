@@ -38,32 +38,34 @@
 			<div class="container">
 				<div class="row">
 				    <div class="col-lg-5 col-xl-4  col-md-12  d-block mb-7">
-					    <div class="section-title center-block text-center">
-							<h2>Coordonnées</h2>
-						</div>
-						<div class="row text-white">
-							<div class="col-12 mb-5">
-								<div class="support-service bg-primary br-2 mb-4 mb-xl-0">
-									<i class="fa fa-phone"></i>
-									<h6>+68 872-627-9735</h6>
-									<P>Assistance gratuite !</P>
+						@foreach ($parametres as $parametre)
+							<div class="section-title center-block text-center">
+								<h2>Coordonnées</h2>
+							</div>
+							<div class="row text-white">
+								<div class="col-12 mb-5">
+									<div class="support-service bg-primary br-2 mb-4 mb-xl-0">
+										<i class="fa fa-phone"></i>
+										<h6> (+228) {{ $parametre->telephone1 }}</h6>
+										<P>Assistance gratuite !</P>
+									</div>
+								</div>
+								<div class="col-12 mb-5">
+									<div class="support-service bg-secondary br-2 mb-4 mb-xl-0">
+										<i class="fa fa-clock-o"></i>
+										<h6>Lun - Ven (07:30 - 18:00)</h6>
+										<p>Heures de travail !</p>
+									</div>
+								</div>
+								<div class="col-12">
+									<div class="support-service bg-warning br-2">
+										<i class="fa fa-envelope-o"></i>
+										<h6>{{ $parametre->email }}</h6>
+										<p>Soutenez-nous !</p>
+									</div>
 								</div>
 							</div>
-							<div class="col-12 mb-5">
-								<div class="support-service bg-secondary br-2 mb-4 mb-xl-0">
-									<i class="fa fa-clock-o"></i>
-									<h6>Lun - Ven (07:30 - 18:00)</h6>
-									<p>Heures de travail !</p>
-								</div>
-							</div>
-							<div class="col-12">
-								<div class="support-service bg-warning br-2">
-									<i class="fa fa-envelope-o"></i>
-									<h6>yourdomain@gmail.com</h6>
-									<p>Soutenez-nous !</p>
-								</div>
-							</div>
-						</div>
+						@endforeach
 					</div>
 				    <div class="col-lg-7 col-xl-8 col-md-12 d-block ">
 						<div class="single-page" >
@@ -72,20 +74,27 @@
 									<h2>Formulaire de contact</h2>
 								</div>
 								<div class="wrapper wrapper2">
-									<div class="card mb-0">
+									<form class="card mb-0" action="{{ route('contact.save',['slug_pays'=>'tg']) }} " method="POST">
+										@csrf
+										@if(Session::has('success'))
+											<div class="alert alert-success" role="alert">{{Session::get('success') }}</div>
+										@endif
 										<div class="card-body">
 											<div class="form-group">
-												<input type="text" class="form-control" id="name1" placeholder="Your Name">
+												<input type="text" class="form-control" id="name1" placeholder="Votre nom" name="nom">
 											</div>
 											<div class="form-group">
-												<input type="email" class="form-control" id="email" placeholder="Email Address">
+												<input type="email" class="form-control" id="email" placeholder="Votre email" name="email">
 											</div>
 											<div class="form-group">
-												<textarea class="form-control" name="example-textarea-input" rows="6" placeholder="Message"></textarea>
+												<input type="text" class="form-control" id="name1" placeholder="Objet" name="objet">
 											</div>
-											<a href="#" class="btn btn-primary">Send Message</a>
+											<div class="form-group">
+												<textarea class="form-control" name="message" rows="6" placeholder="Message"></textarea>
+											</div>
+											<button type="submit" class="btn btn-primary">Envoyer</button>
 										</div>
-									</div>
+									</form>
 								</div>
 							</div>
 						</div>

@@ -5,6 +5,7 @@
 @include('frontend.header.header5')
 @include('frontend.header.header6')
 @include('frontend.header.header7')
+<link href="{{ asset('assets/css/video-player.css') }}" rel="stylesheet"/>
 
     <!-- autocompletion-->
 
@@ -432,12 +433,19 @@
                             <div class="item-card overflow-hidden">
                                 <div class="item-card-desc">
                                     <div class="card text-center overflow-hidden">
-                                        <div class="card-img">
-                                            <img src="{{ asset('assets/images/locations/germany.jpg') }}" alt="img" class="cover-image">
-                                        </div>
-                                        <div class="item-card-text">
-                                            <h4 class="mb-0">44,327<span><i class="fa fa-map-marker me-1 text-primary"></i>GERMANY</span></h4>
-                                        </div>
+                                        @foreach ($minispots as $minispot)
+                                            <div class="video-list">
+                                                <div class="video-list-inner video">
+                                                    <div class="play card-img">
+                                                        <img src="{{ asset('assets/videos/posters') }}/{{ $minispot->image }}" alt="img" class="play">
+                                                    </div>
+                                                    <div class="play item-card-text">
+                                                        <i class="fa fa-play-circle" aria-hidden="false"></i>
+                                                    </div>
+                                                    <video class="hide" muted src="{{ asset('assets/videos') }}/{{ $minispot->video }}" controls poster="{{ asset('assets/videos') }}/{{ $minispot->image }}">
+                                                </div>
+                                            </div>
+                                        @endforeach
                                     </div>
                                 </div>
                             </div>
@@ -446,12 +454,19 @@
                             <div class="item-card overflow-hidden">
                                 <div class="item-card-desc">
                                     <div class="card text-center overflow-hidden">
-                                        <div class="card-img">
-                                            <img src="{{ asset('assets/images/locations/london.jpg') }}" alt="img" class="cover-image">
-                                        </div>
-                                        <div class="item-card-text">
-                                            <h4 class="mb-0">52,145<span><i class="fa fa-map-marker me-1 text-primary"></i> LONDON</span></h4>
-                                        </div>
+                                        @foreach ($minispots as $minispot)
+                                            <div class="video-list">
+                                                <div class="video-list-inner video">
+                                                    <div class="card-img">
+                                                        <img src="{{ asset('assets/images/locations/london.jpg') }}" alt="img" class="cover-image play">
+                                                    </div>
+                                                    <div class="item-card-text play">
+                                                        <i class="fa fa-play-circle" aria-hidden="true"></i>
+                                                    </div>
+                                                    <video class="hide" muted src="{{ asset('assets/videos') }}/{{ $minispot->video }}" controls poster="{{ asset('assets/videos') }}/{{ $minispot->image }}">
+                                                </div>
+                                            </div>
+                                        @endforeach
                                     </div>
                                 </div>
                             </div>
@@ -460,12 +475,19 @@
                             <div class="item-card overflow-hidden">
                                 <div class="item-card-desc">
                                     <div class="card text-center overflow-hidden">
-                                        <div class="card-img">
-                                            <img src="{{ asset('assets/images/locations/austerlia.jpg') }}" alt="img" class="cover-image">
-                                        </div>
-                                        <div class="item-card-text">
-                                            <h4 class="mb-0">63,263<span><i class="fa fa-map-marker text-primary me-1"></i>AUSTERLIA</span></h4>
-                                        </div>
+                                        @foreach ($minispots as $minispot)
+                                            <div class="video-list">
+                                                <div class="video-list-inner video">
+                                                    <div class="card-img">
+                                                        <img src="{{ asset('assets/images/locations/london.jpg') }}" alt="img" class="cover-image play">
+                                                    </div>
+                                                    <div class="item-card-text play">
+                                                        <i class="fa fa-play-circle" aria-hidden="true"></i>
+                                                    </div>
+                                                    <video class="hide" muted src="{{ asset('assets/videos') }}/{{ $minispot->video }}" controls poster="{{ asset('assets/videos') }}/{{ $minispot->image }}">
+                                                </div>
+                                            </div>
+                                        @endforeach
                                     </div>
                                 </div>
                             </div>
@@ -474,12 +496,19 @@
                             <div class="item-card overflow-hidden">
                                 <div class="item-card-desc">
                                     <div class="card text-center overflow-hidden">
-                                        <div class="card-img">
-                                            <img src="{{ asset('assets/images/locations/chicago.jpg') }}" alt="img" class="cover-image">
-                                        </div>
-                                        <div class="item-card-text">
-                                            <h4 class="mb-0">36,485<span><i class="fa fa-map-marker text-primary me-1"></i>CHICAGO</span></h4>
-                                        </div>
+                                        @foreach ($minispots as $minispot)
+                                            <div class="video-list">
+                                                <div class="video-list-inner video">
+                                                    <div class="card-img">
+                                                        <img src="{{ asset('assets/images/locations/london.jpg') }}" alt="img" class="cover-image play">
+                                                    </div>
+                                                    <div class="item-card-text play">
+                                                        <i class="fa fa-play-circle" aria-hidden="true"></i>
+                                                    </div>
+                                                    <video class="hide" muted src="{{ asset('assets/videos') }}/{{ $minispot->video }}" controls poster="{{ asset('assets/videos') }}/{{ $minispot->image }}">
+                                                </div>
+                                            </div>
+                                        @endforeach
                                     </div>
                                 </div>
                             </div>
@@ -632,4 +661,5 @@
 @include('frontend.footer.footer15')
 @include('frontend.footer.footer16')
 @include('frontend.footer.footer17')
+<script src="{{ asset('assets/js/video-modal.js') }}"></script>
 @include('frontend.footer.footer18')

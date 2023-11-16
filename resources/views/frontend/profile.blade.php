@@ -184,23 +184,11 @@
                                             </div>
                                         @endforeach
                                     </div>
-                                    <div class="pt-4 pb-4 px-5 border-top border-top">
-                                        <div class="list-id">
-                                            <div class="row">
-                                                <div class="col">
-                                                    <a class="mb-0">Classified ID : #{{ $Profil_entreprise->identifiant }}</a>
-                                                </div>
-                                                <div class="col col-auto">
-                                                    {{-- Posted By <a class="mb-0 font-weight-bold">Individual</a> / 21st Dec 2018 --}}
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    
                                     <div class="card-footer">
                                         <div class="icons">
-                                            <a href="#" class="btn btn-info icons"><i class="icon icon-share me-1"></i> Share Ad</a>
-                                            <a href="#" class="btn btn-primary icons"><i class="icon icon-heart  me-1"></i> 678</a>
-                                            <a href="#" class="btn btn-secondary icons"><i class="icon icon-printer  me-1"></i> Print</a>
+                                            <a href="#" class="btn btn-info icons"><i class="icon icon-share me-1"></i> Partager </a>
+                                            <a href="#" class="btn btn-secondary icons"><i class="icon icon-printer  me-1"></i> Imprimer </a>
                                         </div>
                                     </div>
                             </div>
@@ -215,15 +203,15 @@
                                         <div class="item">
                                             <div class="card">
                                                 <div class="item-card7-imgs">
-                                                    <a href="classified.html"></a>
-                                                    <img src="{{ asset('assets/images/products/products') }}/{{ $entreprise_sim->logo }}" alt="{{ $entreprise_sim->nom }}" class="cover-image">
+                                                    <a href="{{ route('entreprise.pays.profil',['slug_pays'=>$entreprise_sim->slug_pays,'slug_categorie'=>$entreprise_sim->slug_categorie,'slug_souscategorie'=>$entreprise_sim->slug_souscategorie,'slug_entreprise'=>$entreprise_sim->slug_entreprise]) }}"></a>
+                                                    <img src="{{ asset('assets/images/products/products') }}/{{ $entreprise_sim->publireportage2 }}" alt="{{ $entreprise_sim->nom }}" class="cover-image">
                                                 </div>
                                                 <div class="item-card7-overlaytext">
-                                                    <a href="classified.html" class="text-white">{{ $entreprise_sim->subcat }}</a>
+                                                    <a href="{{ route('entreprise.pays.profil',['slug_pays'=>$entreprise_sim->slug_pays,'slug_categorie'=>$entreprise_sim->slug_categorie,'slug_souscategorie'=>$entreprise_sim->slug_souscategorie,'slug_entreprise'=>$entreprise_sim->slug_entreprise]) }}" class="text-white">{{ $entreprise_sim->subcat }}</a>
                                                 </div>
                                                 <div class="card-body">
                                                     <div class="item-card7-desc">
-                                                        <a href="classified.html" class="text-dark"><h4 class="font-weight-semibold">{{ $entreprise_sim->nom }}</h4></a>
+                                                        <a href="{{ route('entreprise.pays.profil',['slug_pays'=>$entreprise_sim->slug_pays,'slug_categorie'=>$entreprise_sim->slug_categorie,'slug_souscategorie'=>$entreprise_sim->slug_souscategorie,'slug_entreprise'=>$entreprise_sim->slug_entreprise]) }}" class="text-dark"><h4 class="font-weight-semibold">{{ $entreprise_sim->nom }}</h4></a>
                                                     </div>
                                                     <div class="item-card7-text">
                                                         <ul class="icon-card mb-0">
@@ -294,7 +282,7 @@
                                         @foreach ($commentaires as $commentaire)
                                             <div class="media mt-0 p-5">
                                                 <div class="d-flex me-3">
-                                                    <a href="#"><img class="media-object brround" alt="64x64" src="{{ asset('assets/images/user.png') }}"> </a>
+                                                    <a href="#"><img class="media-object brround" alt="64x64" src="{{ asset('assets/images/user_profile/user.png') }}"> </a>
                                                 </div>
                                                 <div class="media-body">
                                                     <h5 class="mt-0 mb-1 font-weight-semibold">{{ $commentaire->nom }}
@@ -312,7 +300,7 @@
                                                         @if ($commentaire2->commentaires_id == $commentaire->id )
                                                             <div class="media mt-5">
                                                                 <div class="d-flex me-3">
-                                                                    <a href="#"> <img class="media-object brround" alt="64x64" src="{{ asset('assets/images/user.png') }}"> </a>
+                                                                    <a href="#"> <img class="media-object brround" alt="64x64" src="{{ asset('assets/images/user_profile/user.png') }}"> </a>
                                                                 </div>
                                                                 <div class="media-body">
                                                                     <h5 class="mt-0 mb-1 font-weight-semibold">{{ $commentaire2->nomR }}<span class="fs-14 ms-0" data-bs-toggle="tooltip" data-bs-placement="top" title="verified"><i class="fa fa-check-circle-o text-success"></i></span></h5>
@@ -365,7 +353,7 @@
                                 </div>
                                 <div class="card-body  item-user">
                                     <div class="profile-pic mb-0">
-                                        <img src="{{ asset('assets/images/products/products') }}/{{ $Profil_entreprise->logo }}" class="brround avatar-xxl" alt="{{ $Profil_entreprise->nom }}">
+                                        <img src="{{ asset('assets/images/products') }}/{{ $Profil_entreprise->logo }}" class="brround avatar-xxl" alt="{{ $Profil_entreprise->nom }}">
                                         <div >
                                             <a href="userprofile.html" class="text-dark"><h4 class="mt-3 mb-1 font-weight-semibold">{{ $Profil_entreprise->nom }}</h4></a>
                                             <span class="text-muted">{{ $Profil_entreprise->subcat }}</span>
@@ -375,23 +363,30 @@
                                     </div>
                                 </div>
                                 <div class="card-body item-user">
-                                    <h4 class="mb-4">Contact Info</h4>
+                                    <h4 class="mb-4">Informations</h4>
                                     <div>
-                                        <h6><span class="font-weight-semibold"><i class="fa fa-envelope me-3 mb-2"></i></span><a href="#" class="text-body">{{ $Profil_entreprise->email }}</a></h6>
-                                        <h6><span class="font-weight-semibold"><i class="fa fa-phone me-3  mb-2"></i></span><a href="#" class="text-primary">(+228) <b>{{ $Profil_entreprise->telephone1 }} • {{ $Profil_entreprise->telephone2 }}</b></a></h6>
-                                        <h6><span class="font-weight-semibold"><i class="fa fa-link me-3 "></i></span><a href="#" class="text-primary">{{ $Profil_entreprise->siteweb }}</a></h6>
+                                        @if ($Profil_entreprise->email)
+                                            <h6><span class="font-weight-semibold"><i class="fa fa-envelope me-3 mb-2"></i></span><a href="#" class="text-body">{{ $Profil_entreprise->email }}</a></h6>
+                                        @endif
+                                        
+                                        <h6><span class="font-weight-semibold"><i class="fa fa-phone me-3  mb-2"></i></span><a href="#" class="text-primary">(+228) <b>{{ $Profil_entreprise->telephone1 }}</b> @if ($Profil_entreprise->telephone2)
+                                            <b>• {{ $Profil_entreprise->telephone2 }}</b>
+                                        @endif</a></h6>
+
+                                        @if ($Profil_entreprise->siteweb)
+                                            <h6><span class="font-weight-semibold"><i class="fa fa-link me-3 "></i></span><a href="#" class="text-primary">{{ $Profil_entreprise->siteweb }}</a></h6>
+                                        @endif
                                     </div>
-                                    <div class=" item-user-icons mt-4">
+                                    {{-- <div class=" item-user-icons mt-4">
                                         <a href="#" class="facebook-bg mt-0"><i class="fa fa-facebook"></i></a>
                                         <a href="#" class="twitter-bg"><i class="fa fa-twitter"></i></a>
                                         <a href="#" class="google-bg"><i class="fa fa-google"></i></a>
                                         <a href="#" class="dribbble-bg"><i class="fa fa-dribbble"></i></a>
-                                    </div>
+                                    </div> --}}
                                 </div>
                                 <div class="card-footer">
                                     <div class="text-start">
-                                        <a href="#" class="btn  btn-info"><i class="fa fa-envelope"></i> Chat</a>
-                                        <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#contact"><i class="fa fa-user"></i> Contact Me</a>
+                                        <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#contact"><i class="fa fa-user"></i> Ecrie à {{ $Profil_entreprise->nom }}</a>
                                     </div>
                                 </div>
                             </div>
@@ -416,10 +411,16 @@
                                 <div class="card-body">
                                     <div class="map-header">
                                         <div class="map-header-layer">
-                                            <iframe
-                                                src="{{ $Profil_entreprise->geolocalisation }}"
-                                                style="border:0; width: 100%; height: 100%;" allowfullscreen="true" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-                                            </iframe>
+                                            @if ($Profil_entreprise->geolocalisation)
+                                                <iframe
+                                                    src="{{ $Profil_entreprise->geolocalisation }}"
+                                                    style="border:0; width: 100%; height: 100%;" allowfullscreen="true" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                                                </iframe>
+                                            @else
+                                                <iframe 
+                                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126931.66373132428!2d1.24669075!3d6.1823217!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1023e1c113185419%3A0x3224b5422caf411d!2zTG9tw6k!5e0!3m2!1sfr!2stg!4v1675847364153!5m2!1sfr!2stg" height="360" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                                                </iframe>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
@@ -590,37 +591,50 @@
 
 @include('frontend.footer.footer1')
 
-        <!-- Message Modal -->
-		<div class="modal fade" id="contact" tabindex="-1" role="dialog"  aria-hidden="true">
-			<div class="modal-dialog" role="document">
-				<form class="modal-content" method="POST">
-                    @csrf
-					<div class="modal-header">
-						<h5 class="modal-title" id="examplecontactLongTitle">Envoyer le message</h5>
-						<button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-						    <span aria-hidden="true">&times;</span>
-						</button>
-					</div>
-					<div class="modal-body">
-						<div class="form-group">
-							<input type="text" class="form-control" id="contact-name" placeholder="Votre nom" name="nom">
-						</div>
-						<div class="form-group">
-							<input type="email" class="form-control" id="contact-email" placeholder="Votre email" name="email">
-						</div>
-						<div class="form-group mb-0">
-							<textarea class="form-control" name="message" rows="6" placeholder="Message" ></textarea>
-						</div>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
-						<button type="submit" class="btn btn-success">Envoyer</button>
-					</div>
-				</form>
-			</div>
-		</div>
     @foreach ($Profil_entreprises as $Profil_entreprise)
             @foreach ($commentaires as $commentaire)
+                <!-- Message Modal -->
+                <div class="modal fade" id="contact" tabindex="-1" role="dialog"  aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <form class="modal-content" method="POST" action="{{ route('entreprise.contact',['slug_pays'=>$Profil_entreprise->slug_pays,'slug_categorie'=>$Profil_entreprise->slug_categorie,'slug_souscategorie'=>$Profil_entreprise->slug_souscategorie]) }}" enctype="multipart/form-data">
+                            @csrf
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="examplecontactLongTitle">{{ $Profil_entreprise->nom }}</h5>
+                                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group" hidden>
+                                    <input class="form-control" type="text" placeholder="{{ $Profil_entreprise->nom }}" required value="{{ $Profil_entreprise->nom }}" name="entrprise_nom">
+                                </div>
+                                <div class="form-group" hidden>
+                                    @if ($Profil_entreprise->email)
+                                        <input class="form-control" type="text" placeholder="{{ $Profil_entreprise->email }}" required value="{{ $Profil_entreprise->email }}" name="entrprise_email">
+                                    @else
+                                        <input class="form-control" type="text" placeholder="contact@showroomafrica.com" required value="contact@showroomafrica.com" name="entrprise_email">
+                                    @endif
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="contact-name" placeholder="Votre nom" name="nom">
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control" id="contact-email" placeholder="Votre email" name="email">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="contact-name" placeholder="Objet" name="objet">
+                                </div>
+                                <div class="form-group mb-0">
+                                    <textarea class="form-control" name="message" rows="6" placeholder="Message" ></textarea>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Annuler</button>
+                                <button type="submit" class="btn btn-success">Envoyer</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
                 <!--Comment Modal -->
                 <div class="modal fade" id="Comment" tabindex="-1" role="dialog"  aria-hidden="true">
                     <div class="modal-dialog" role="document">
