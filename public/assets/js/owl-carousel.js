@@ -261,10 +261,29 @@
 		autoplayHoverPause: true,
 		autoplayTimeout: 5000,
 		autoplay: true,
-		dots: true,
+		dots: false,
 		responsive: {
 			0: {
 				items: 3
+			}
+		}
+	})
+
+	var owl = $('.users-owl-carousel');
+	owl.owlCarousel({
+		loop: true,
+		rewind: false,
+		margin: 25,
+		animateIn: 'fadeInDowm',
+		animateOut: 'fadeOutDown',
+		autoplayTimeout: 5000, // set value to change speed
+		autoplayHoverPause: true,
+		dots: false,
+		nav: true,
+		autoplay: true,
+		responsive: {
+			0: {
+				items: 4
 			}
 		}
 	})

@@ -388,99 +388,60 @@
 						</div>
 					</div>
 				</div>
-
-				<div class="col-xl-3 col-md-12">
-					<div class="card">
-						<div class="card-body">
-							<div class="team-section text-center">
-								<div class="team-img">
-									<img src="../assets/images/faces/male/1.jpg" class="img-thumbnail rounded-circle alt=" alt="">
-								</div>
-								<h4 class="font-weight-bold dark-grey-text mt-4">Tracey	Poole</h4>
-								<h6 class="font-weight-bold blue-text ">Web Designer</h6>
-								<p class="font-weight-normal dark-grey-text">
-								<i class="fa fa-quote-left pe-2"></i>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod eos id officiis hic tenetur quae quaerat ad velit ab hic tenetur.</p>
-								<div class="text-warning">
-									<i class="fa fa-star"> </i>
-									<i class="fa fa-star"> </i>
-									<i class="fa fa-star"> </i>
-									<i class="fa fa-star"> </i>
-									<i class="fa fa-star-half-full"> </i>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-xl-3 col-md-12">
-					<div class="card">
-						<div class="card-body">
-							<div class="team-section text-center">
-								<div class="team-img">
-									<img src="../assets/images/faces/female/1.jpg" class="img-thumbnail rounded-circle alt=" alt="">
-								</div>
-								<h4 class="font-weight-bold dark-grey-text mt-4">Harry	Walker</h4>
-								<h6 class="font-weight-bold blue-text ">Web Developer</h6>
-								<p class="font-weight-normal dark-grey-text">
-								<i class="fa fa-quote-left pe-2"></i>Ut enim ad minima veniam, quis nostrum exercitationem ullam quis nostrum  corporis suscipit laboriosam, nisi ut aliquid commodi.</p>
-								<div class="text-warning">
-									<i class="fa fa-star"> </i>
-									<i class="fa fa-star"> </i>
-									<i class="fa fa-star"> </i>
-									<i class="fa fa-star"> </i>
-									<i class="fa fa-star"> </i>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-xl-3 col-md-12">
-					<div class="card">
-						<div class="card-body">
-							<div class="team-section text-center">
-								<div class="team-img">
-									<img src="../assets/images/faces/male/2.jpg" class="img-thumbnail rounded-circle alt=" alt="">
-								</div>
-								<h4 class="font-weight-bold dark-grey-text mt-4">Paul White</h4>
-								<h6 class="font-weight-bold blue-text ">Photographer</h6>
-								<p class="font-weight-normal dark-grey-text">
-								<i class="fa fa-quote-left pe-2"></i>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti.</p>
-								<div class="text-warning">
-									<i class="fa fa-star"> </i>
-									<i class="fa fa-star"> </i>
-									<i class="fa fa-star"> </i>
-									<i class="fa fa-star"> </i>
-									<i class="fa fa-star-o"> </i>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-                <div class="col-xl-3 col-md-12">
-					<div class="card">
-						<div class="card-body">
-							<div class="team-section text-center">
-								<div class="team-img">
-									<img src="../assets/images/faces/male/2.jpg" class="img-thumbnail rounded-circle alt=" alt="">
-								</div>
-								<h4 class="font-weight-bold dark-grey-text mt-4">Paul White</h4>
-								<h6 class="font-weight-bold blue-text ">Photographer</h6>
-								<p class="font-weight-normal dark-grey-text">
-								<i class="fa fa-quote-left pe-2"></i>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti.</p>
-								<div class="text-warning">
-									<i class="fa fa-star"> </i>
-									<i class="fa fa-star"> </i>
-									<i class="fa fa-star"> </i>
-									<i class="fa fa-star"> </i>
-									<i class="fa fa-star-o"> </i>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
 			</div>
         </div>
     </section>
     <!--/Testimonials-->
+
+    <section>
+        <div class="container">
+            <div id="myCarousel1" class="owl-carousel users-owl-carousel">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="team-section text-center">
+                                <div class="team-img">
+                                    <img src="../assets/images/faces/male/1.jpg" class="img-thumbnail rounded-circle alt=" alt="">
+                                </div>
+                                <h4 class="font-weight-bold dark-grey-text mt-4">Tracey	Poole</h4>
+                                <h6 class="font-weight-bold blue-text ">Web Designer</h6>
+                                <p class="font-weight-normal dark-grey-text">
+                                <i class="fa fa-quote-left pe-2"></i>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod eos id officiis hic tenetur quae quaerat ad velit ab hic tenetur.</p>
+                                <div class="text-warning">
+                                    <i class="fa fa-star"> </i>
+                                    <i class="fa fa-star"> </i>
+                                    <i class="fa fa-star"> </i>
+                                    <i class="fa fa-star"> </i>
+                                    <i class="fa fa-star-half-full"> </i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="team-section text-center">
+                            <div class="team-img">
+                                <img src="../assets/images/faces/female/1.jpg" class="img-thumbnail rounded-circle alt=" alt="">
+                            </div>
+                            <h4 class="font-weight-bold dark-grey-text mt-4">Harry	Walker</h4>
+                            <h6 class="font-weight-bold blue-text ">Web Developer</h6>
+                            <p class="font-weight-normal dark-grey-text">
+                            <i class="fa fa-quote-left pe-2"></i>Ut enim ad minima veniam, quis nostrum exercitationem ullam quis nostrum  corporis suscipit laboriosam, nisi ut aliquid commodi.</p>
+                            <div class="text-warning">
+                                <i class="fa fa-star"> </i>
+                                <i class="fa fa-star"> </i>
+                                <i class="fa fa-star"> </i>
+                                <i class="fa fa-star"> </i>
+                                <i class="fa fa-star"> </i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!--Blogs-->
     <section class="sptb bg-white">

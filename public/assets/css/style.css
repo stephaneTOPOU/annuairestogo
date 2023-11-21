@@ -13858,6 +13858,7 @@ dd {
 .team-section .team-img img {
     max-width: 150px;
     box-shadow: 0 0 0 1px #dce3ec, 0 8px 16px 0 #dce3ec;
+    margin: auto;
 }
 
 .banner1 .carousel-inner img {
