@@ -951,8 +951,8 @@ hr.message-inner-separator {
 }
 
 .avatar-xxl {
-    width: 5rem;
-    height: 5rem;
+    width: 70%;
+    height: auto;
     line-height: 5rem;
     font-size: 2rem;
 }

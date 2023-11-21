@@ -353,7 +353,7 @@
                                 </div>
                                 <div class="card-body  item-user">
                                     <div class="profile-pic mb-0">
-                                        <img src="{{ asset('assets/images/products') }}/{{ $Profil_entreprise->logo }}" class="brround avatar-xxl" alt="{{ $Profil_entreprise->nom }}">
+                                        <img src="{{ asset('assets/images/products') }}/{{ $Profil_entreprise->logo }}" class="avatar-xxl" alt="{{ $Profil_entreprise->nom }}">
                                         <div >
                                             <a href="userprofile.html" class="text-dark"><h4 class="mt-3 mb-1 font-weight-semibold">{{ $Profil_entreprise->nom }}</h4></a>
                                             <span class="text-muted">{{ $Profil_entreprise->subcat }}</span>
