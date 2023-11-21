@@ -6,6 +6,7 @@ use App\Models\Pays;
 use App\Models\SousCategories;
 use App\Models\Stat;
 use App\Models\User;
+use App\Models\Offre;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -212,6 +213,14 @@ class HomeController extends Controller
             ->select('*')
             ->get();
 
-        return view('frontend.home', compact('banner', 'rejoints', 'minispots', 'reportages', 'magazines', 'parametres', 'villes', 'pays', 'subcategories', 'souscategories', 'honeures', 'nombresEntreprise', 'cat_annonce', 'annonce_all', 'annonces', 'inscrit', 'visiteur2', 'popups'));
+        $delete = Offre::whereDate('date_lim', '=', date('Y-m-d'))->delete();
+
+        $offres = DB::table('categorie_offres')
+        ->join('offres', 'categorie_offres.id','=','offres.categorieOffres_id')
+        ->select('*', 'categorie_offres.nom as categorie')
+        ->where('offres.valide',1)->orderBy('offres.id', 'desc')
+        ->get();
+
+        return view('frontend.home', compact('banner', 'rejoints', 'minispots', 'reportages', 'magazines', 'parametres', 'villes', 'pays', 'subcategories', 'souscategories', 'honeures', 'nombresEntreprise', 'cat_annonce', 'annonce_all', 'annonces', 'inscrit', 'visiteur2', 'popups','offres'));
     }
 }
