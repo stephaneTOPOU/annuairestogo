@@ -163,13 +163,13 @@ Route::get('/{slug_pays}/service-siteweb', [\App\Http\Controllers\ServiceControl
 
 Route::get('/{slug_pays}/categorie', [\App\Http\Controllers\CategoriesController::class, 'categories_pays'])->name('categorie.pays');
 
+Route::get('/{slug_pays}/{slug_user}', [\App\Http\Controllers\UserController::class, 'mydash'])->name('user.dashboard');
+
 Route::post('/{slug_pays}/entreprise-devis', [\App\Http\Controllers\DevisController::class, 'devis'])->name('devis.pays.entreprise');
 
 Route::get('/{slug_pays}/{slug_annonce}', [\App\Http\Controllers\NewsController::class, 'news'])->name('news');
 
 Route::get('/{slug_pays}/{offre_slug}', [App\Http\Controllers\OffreController::class, 'jobDetail'])->name('offre.detail');
-
-Route::get('/{slug_pays}/{slug_user}', [\App\Http\Controllers\UserController::class, 'mydash'])->name('user.dashboard');
 
 Route::post('/{slug_pays}/{slug_user}', [\App\Http\Controllers\UserController::class, 'update'])->name('user.dashboard.update');
 
