@@ -1,10 +1,10 @@
 <div class="horizontal-main bg-dark-transparent clearfix">
     <div class="horizontal-mainwrapper container clearfix">
         <div class="desktoplogo">
-            <a href="{{ route('home.pays',['slug_pays'=>'tg']) }}"><img src="{{ asset('assets/images/brand/logo1.png') }}" alt=""></a>
+            <a href="{{ route('home.pays',['slug_pays'=>'tg']) }}"><img src="{{ asset('assets/images/brand/logo1.png') }}" alt="annuaires togo"></a>
         </div>
         <div class="desktoplogo-1">
-            <a href="{{ route('home.pays',['slug_pays'=>'tg']) }}"><img src="{{ asset('assets/images/brand/logo.png') }}" alt=""></a>
+            <a href="{{ route('home.pays',['slug_pays'=>'tg']) }}"><img src="{{ asset('assets/images/brand/logo.png') }}" alt="annuaires togo"></a>
         </div>
         <!--Nav-->
         <nav class="horizontalMenu clearfix d-md-flex">
