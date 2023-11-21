@@ -165,7 +165,7 @@ Route::get('/{slug_pays}/categorie', [\App\Http\Controllers\CategoriesController
 
 Route::post('/{slug_pays}/entreprise-devis', [\App\Http\Controllers\DevisController::class, 'devis'])->name('devis.pays.entreprise');
 
-Route::get('/{slug}/{offre_slug}', [App\Http\Controllers\OffreController::class, 'jobDetail'])->name('offre.detail');
+Route::get('/{slug_pays}/{offre_slug}', [App\Http\Controllers\OffreController::class, 'jobDetail'])->name('offre.detail');
 
 Route::get('/{slug_pays}/{slug_user}', [\App\Http\Controllers\UserController::class, 'mydash'])->name('user.dashboard');
 

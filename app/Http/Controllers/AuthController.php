@@ -14,132 +14,223 @@ use Illuminate\Support\Facades\Storage;
 
 class AuthController extends Controller
 {
-    public function login_pays()
+    public function login_pays($slug_pays)
     {
+        $pays_id = DB::table('pays')->where('slug_pays', $slug_pays)->select('id')->get();
         if (Auth::check()) {
             // The user is logged in...
             return redirect()->route('home.pays', ['slug_pays' => 'tg']);
         } else {
-            return view("frontend.auth.login");
+            $parametres = DB::table('pays')->where('pays.id', $pays_id[0]->id)
+            ->join('parametres', 'pays.id', '=', 'parametres.pays_id')
+            ->where('parametres.id', 1)
+            ->select('*')
+            ->get();
+            return view("frontend.auth.login", compact('parametres'));
         }
 
         if (Auth::check()) {
             // The user is logged in...
             return redirect()->route('home.pays', ['slug_pays' => 'bj']);
         } else {
-            return view("frontend.auth.login");
+            $parametres = DB::table('pays')->where('pays.id', $pays_id[0]->id)
+            ->join('parametres', 'pays.id', '=', 'parametres.pays_id')
+            ->where('parametres.id', 1)
+            ->select('*')
+            ->get();
+            return view("frontend.auth.login", compact('parametres'));
         }
 
         if (Auth::check()) {
             // The user is logged in...
             return redirect()->route('home.pays', ['slug_pays' => 'bf']);
         } else {
-            return view("frontend.auth.login");
+            $parametres = DB::table('pays')->where('pays.id', $pays_id[0]->id)
+            ->join('parametres', 'pays.id', '=', 'parametres.pays_id')
+            ->where('parametres.id', 1)
+            ->select('*')
+            ->get();
+            return view("frontend.auth.login", compact('parametres'));
         }
 
         if (Auth::check()) {
             // The user is logged in...
             return redirect()->route('home.pays', ['slug_pays' => 'ci']);
         } else {
-            return view("frontend.auth.login");
+            $parametres = DB::table('pays')->where('pays.id', $pays_id[0]->id)
+            ->join('parametres', 'pays.id', '=', 'parametres.pays_id')
+            ->where('parametres.id', 1)
+            ->select('*')
+            ->get();
+            return view("frontend.auth.login", compact('parametres'));
         }
 
         if (Auth::check()) {
             // The user is logged in...
             return redirect()->route('home.pays', ['slug_pays' => 'ne']);
         } else {
-            return view("frontend.auth.login");
+            $parametres = DB::table('pays')->where('pays.id', $pays_id[0]->id)
+            ->join('parametres', 'pays.id', '=', 'parametres.pays_id')
+            ->where('parametres.id', 1)
+            ->select('*')
+            ->get();
+            return view("frontend.auth.login", compact('parametres'));
         }
 
         if (Auth::check()) {
             // The user is logged in...
             return redirect()->route('home.pays', ['slug_pays' => 'cm']);
         } else {
-            return view("frontend.auth.login");
+            $parametres = DB::table('pays')->where('pays.id', $pays_id[0]->id)
+            ->join('parametres', 'pays.id', '=', 'parametres.pays_id')
+            ->where('parametres.id', 1)
+            ->select('*')
+            ->get();
+            return view("frontend.auth.login", compact('parametres'));
         }
 
         if (Auth::check()) {
             // The user is logged in...
             return redirect()->route('home.pays', ['slug_pays' => 'cf']);
         } else {
-            return view("frontend.auth.login");
+            $parametres = DB::table('pays')->where('pays.id', $pays_id[0]->id)
+            ->join('parametres', 'pays.id', '=', 'parametres.pays_id')
+            ->where('parametres.id', 1)
+            ->select('*')
+            ->get();
+            return view("frontend.auth.login", compact('parametres'));
         }
 
         if (Auth::check()) {
             // The user is logged in...
             return redirect()->route('home.pays', ['slug_pays' => 'cg']);
         } else {
-            return view("frontend.auth.login");
+            $parametres = DB::table('pays')->where('pays.id', $pays_id[0]->id)
+            ->join('parametres', 'pays.id', '=', 'parametres.pays_id')
+            ->where('parametres.id', 1)
+            ->select('*')
+            ->get();
+            return view("frontend.auth.login", compact('parametres'));
         }
 
         if (Auth::check()) {
             // The user is logged in...
             return redirect()->route('home.pays', ['slug_pays' => 'dj']);
         } else {
-            return view("frontend.auth.login");
+            $parametres = DB::table('pays')->where('pays.id', $pays_id[0]->id)
+            ->join('parametres', 'pays.id', '=', 'parametres.pays_id')
+            ->where('parametres.id', 1)
+            ->select('*')
+            ->get();
+            return view("frontend.auth.login", compact('parametres'));
         }
 
         if (Auth::check()) {
             // The user is logged in...
             return redirect()->route('home.pays', ['slug_pays' => 'ga']);
         } else {
-            return view("frontend.auth.login");
+            $parametres = DB::table('pays')->where('pays.id', $pays_id[0]->id)
+            ->join('parametres', 'pays.id', '=', 'parametres.pays_id')
+            ->where('parametres.id', 1)
+            ->select('*')
+            ->get();
+            return view("frontend.auth.login", compact('parametres'));
         }
 
         if (Auth::check()) {
             // The user is logged in...
             return redirect()->route('home.pays', ['slug_pays' => 'gn']);
         } else {
-            return view("frontend.auth.login");
+            $parametres = DB::table('pays')->where('pays.id', $pays_id[0]->id)
+            ->join('parametres', 'pays.id', '=', 'parametres.pays_id')
+            ->where('parametres.id', 1)
+            ->select('*')
+            ->get();
+            return view("frontend.auth.login", compact('parametres'));
         }
 
         if (Auth::check()) {
             // The user is logged in...
             return redirect()->route('home.pays', ['slug_pays' => 'mg']);
         } else {
-            return view("frontend.auth.login");
+            $parametres = DB::table('pays')->where('pays.id', $pays_id[0]->id)
+            ->join('parametres', 'pays.id', '=', 'parametres.pays_id')
+            ->where('parametres.id', 1)
+            ->select('*')
+            ->get();
+            return view("frontend.auth.login", compact('parametres'));
         }
 
         if (Auth::check()) {
             // The user is logged in...
             return redirect()->route('home.pays', ['slug_pays' => 'ml']);
         } else {
-            return view("frontend.auth.login");
+            $parametres = DB::table('pays')->where('pays.id', $pays_id[0]->id)
+            ->join('parametres', 'pays.id', '=', 'parametres.pays_id')
+            ->where('parametres.id', 1)
+            ->select('*')
+            ->get();
+            return view("frontend.auth.login", compact('parametres'));
         }
 
         if (Auth::check()) {
             // The user is logged in...
             return redirect()->route('home.pays', ['slug_pays' => 'mr']);
         } else {
-            return view("frontend.auth.login");
+            $parametres = DB::table('pays')->where('pays.id', $pays_id[0]->id)
+            ->join('parametres', 'pays.id', '=', 'parametres.pays_id')
+            ->where('parametres.id', 1)
+            ->select('*')
+            ->get();
+            return view("frontend.auth.login", compact('parametres'));
         }
 
         if (Auth::check()) {
             // The user is logged in...
             return redirect()->route('home.pays', ['slug_pays' => 'cd']);
         } else {
-            return view("frontend.auth.login");
+            $parametres = DB::table('pays')->where('pays.id', $pays_id[0]->id)
+            ->join('parametres', 'pays.id', '=', 'parametres.pays_id')
+            ->where('parametres.id', 1)
+            ->select('*')
+            ->get();
+            return view("frontend.auth.login", compact('parametres'));
         }
 
         if (Auth::check()) {
             // The user is logged in...
             return redirect()->route('home.pays', ['slug_pays' => 'rw']);
         } else {
-            return view("frontend.auth.login");
+            $parametres = DB::table('pays')->where('pays.id', $pays_id[0]->id)
+            ->join('parametres', 'pays.id', '=', 'parametres.pays_id')
+            ->where('parametres.id', 1)
+            ->select('*')
+            ->get();
+            return view("frontend.auth.login", compact('parametres'));
         }
 
         if (Auth::check()) {
             // The user is logged in...
             return redirect()->route('home.pays', ['slug_pays' => 'sn']);
         } else {
-            return view("frontend.auth.login");
+            $parametres = DB::table('pays')->where('pays.id', $pays_id[0]->id)
+            ->join('parametres', 'pays.id', '=', 'parametres.pays_id')
+            ->where('parametres.id', 1)
+            ->select('*')
+            ->get();
+            return view("frontend.auth.login", compact('parametres'));
         }
 
         if (Auth::check()) {
             // The user is logged in...
             return redirect()->route('home.pays', ['slug_pays' => 'td']);
         } else {
-            return view("frontend.auth.login");
+            $parametres = DB::table('pays')->where('pays.id', $pays_id[0]->id)
+            ->join('parametres', 'pays.id', '=', 'parametres.pays_id')
+            ->where('parametres.id', 1)
+            ->select('*')
+            ->get();
+            return view("frontend.auth.login", compact('parametres'));
         }
     }
 
