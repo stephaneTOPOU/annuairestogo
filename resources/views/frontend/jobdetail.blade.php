@@ -23,11 +23,10 @@
 		<div class="bg-white border-bottom">
 			<div class="container">
 				<div class="page-header">
-					<h4 class="page-title">Classifieds</h4>
+					<h4 class="page-title">Annonces</h4>
 					<ol class="breadcrumb">
-						<li class="breadcrumb-item"><a href="#">Home</a></li>
-						<li class="breadcrumb-item"><a href="#">Categories</a></li>
-						<li class="breadcrumb-item active" aria-current="page">Classifieds</li>
+						<li class="breadcrumb-item"><a href="#">Accueil</a></li>
+						<li class="breadcrumb-item active" aria-current="page">Annonces</li>
 					</ol>
 				</div>
 			</div>
