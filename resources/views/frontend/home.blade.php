@@ -204,24 +204,26 @@
                                 <div class="row">
                                     @foreach ($annonce_all as $all)
                                         <div class="col-xl-4 col-lg-4 col-md-12">
-                                            <div class="card mb-xl-0">
-                                                <span class="ribbon-1">
-                                                    <span><i class="fa fa-cutlery"></i></span>
-                                                </span>
-                                                <div class="item-card8-img  rounded-top-7">
-                                                    <img src="{{ asset('assets/images/products') }}/{{ $all->image1 }}" alt="{{ $all->titre }}" class="cover-image">
-                                                </div>
-                                                <div class="item-card8-overlaytext">
-                                                    <h6 class=" fs-20 mb-0">{{ $all->libelle }}</h6>
-                                                </div>
-                                                <div class="card-body">
-                                                    <div class="item-card8-desc">
-                                                        <p class="text-muted">{{ $all->created_at }}</p>
-                                                        <h4 class="font-weight-semibold">{{ Str::limit($all->titre, 10) }}</h4>
-                                                        <p class="mb-0">{{ Str::limit($all->text1, 40) }}</p>
+                                            <a href="{{ route('news',['slug_pays'=>'tg','slug_annonce'=>$all->slug_annonce]) }}">
+                                                <div class="card mb-xl-0">
+                                                    <span class="ribbon-1">
+                                                        <span><i class="fa fa-cutlery"></i></span>
+                                                    </span>
+                                                    <div class="item-card8-img  rounded-top-7">
+                                                        <img src="{{ asset('assets/images/products') }}/{{ $all->image1 }}" alt="{{ $all->titre }}" class="cover-image">
+                                                    </div>
+                                                    <div class="item-card8-overlaytext">
+                                                        <h6 class=" fs-20 mb-0">{{ $all->libelle }}</h6>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div class="item-card8-desc">
+                                                            <p class="text-muted">{{ $all->created_at }}</p>
+                                                            <h4 class="font-weight-semibold">{{ Str::limit($all->titre, 10) }}</h4>
+                                                            <p class="mb-0">{{ Str::limit($all->text1, 40) }}</p>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </a>
                                         </div>
                                     @endforeach
                                     
