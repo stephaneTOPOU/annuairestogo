@@ -49,7 +49,7 @@
 													@if ($users->photo1)
                                                         <img src="{{ asset('assets/images/user_profile') }}/{{ $users->photo1 }}" class="brround" alt="{{ $users->name }}">
                                                     @else
-                                                        <img src="{{ asset('assets/images/user_profile/user.png') }}" class="brround" alt="user" width="50">
+                                                        <img src="{{ asset('assets/images/user_profile/user.png') }}" class="brround" alt="{{ $users->name }}" width="50">
                                                     @endif
 												</div>
 												<div class="user-wrap wideget-user-info">
