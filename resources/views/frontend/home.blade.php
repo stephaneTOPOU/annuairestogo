@@ -319,102 +319,165 @@
     <!--Testimonials-->
     <section class="sptb position-relative">
         <div class="container">
-            <div class="section-title center-block text-center">
-                <h1 class="position-relative">Testimonials</h1>
-            </div>
             <div class="row">
-                <div class="col-md-12">
-                    <div id="myCarousel" class="owl-carousel testimonial-owl-carousel">
-                        <div class="item text-center">
-                            <div class="row">
-                                <div class="col-xl-8 col-md-12 d-block mx-auto">
-                                    <div class="">
-                                        <p class="">
-                                            <i class="fa fa-quote-left"></i> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod eos id officiis hic tenetur quae quaerat ad velit ab. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore cum accusamus eveniet molestias voluptatum inventore laboriosam labore sit, aspernatur praesentium iste impedit quidem dolor veniam.
-                                        </p>
-                                        <h3 class="title">Elizabeth</h3>
-                                        <span class="post">Web Developer</span>
-                                        <div class="rating-star">
-                                            <div class="rating-star sm my-rating-5" data-stars="4s"></div>
-                                        </div>
-                                        <div class="owl-controls clickable">
-                                            <div class="owl-pagination">
-                                                <div class="owl-page active">
-                                                    <span class=""></span>
-                                                </div>
-                                                <div class="owl-page ">
-                                                    <span class=""></span>
-                                                </div>
-                                                <div class="owl-page">
-                                                    <span class=""></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item text-center">
-                            <div class="row">
-                                <div class="col-xl-8 col-md-12 d-block mx-auto">
-                                    <div class="">
-                                        <p class=""><i class="fa fa-quote-left"></i> Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore. </p>
-                                        <div class="testimonia-data">
-                                            <h3 class="title">williamson</h3>
-                                            <span class="post">Web Developer</span>
-                                            <div class="rating-star">
-                                                <div class="rating-star sm my-rating-5" data-stars="4s"></div>
-                                                <div class="owl-controls clickable">
-                                                    <div class="owl-pagination">
-                                                        <div class="owl-page ">
-                                                            <span class=""></span>
-                                                        </div>
-                                                        <div class="owl-page active">
-                                                            <span class=""></span>
-                                                        </div>
-                                                        <div class="owl-page">
-                                                            <span class=""></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item text-center">
-                            <div class="row">
-                                <div class="col-xl-8 col-md-12 d-block mx-auto">
-                                    <div class="">
-                                        <p class=""><i class="fa fa-quote-left"></i> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
-                                        <div class="testimonia-data">
-                                            <h3 class="title">Sophie Carr</h3>
-                                            <span class="post">Web Developer</span>
-                                            <div class="rating-star">
-                                                <div class="rating-star sm my-rating-5" data-stars="4s"></div>
-                                                <div class="owl-controls clickable">
-                                                    <div class="owl-pagination">
-                                                        <div class="owl-page ">
-                                                            <span class=""></span>
-                                                        </div>
-                                                        <div class="owl-page">
-                                                            <span class=""></span>
-                                                        </div>
-                                                        <div class="owl-page active">
-                                                            <span class=""></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+				<div class="col-lg-12">
+					<div class="card">
+						<div id="myCarousel" class="owl-carousel testimonial-owl-carousel">
+							<div class="item text-center">
+								<div class="card-body">
+									<div class="row">
+										<div class="col-xl-8 col-md-12 d-block mx-auto">
+											<div class="testimonia">
+												<div class="testimonia-img mx-auto mb-3">
+													<img src="../assets/images/faces/female/11.jpg" class="img-thumbnail rounded-circle alt=" alt="">
+												</div>
+												<p>
+													<i class="fa fa-quote-left"></i> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod eos id officiis hic tenetur quae quaerat ad velit ab. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore cum accusamus eveniet molestias voluptatum inventore laboriosam labore sit, aspernatur praesentium iste impedit quidem dolor veniam.
+												</p>
+												<div class="testimonia-data">
+													<h4 class="fs-20 mb-1">Heather Bell</h4>
+													<div class="rating-star">
+														<div class="rating-star sm my-rating-5" data-stars="4s"></div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="item text-center">
+								<div class="card-body">
+									<div class="row">
+										<div class="col-xl-8 col-md-12 d-block mx-auto">
+											<div class="testimonia">
+												<div class="testimonia-img mx-auto mb-3">
+													<img src="../assets/images/faces/male/42.jpg" class="img-thumbnail rounded-circle alt=" alt="">
+												</div>
+												<p><i class="fa fa-quote-left"></i> Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore. </p>
+												<div class="testimonia-data">
+													<h4 class="fs-20 mb-1">David Blake</h4>
+													<div class="rating-star">
+														<div class="rating-star sm my-rating-5" data-stars="4s"></div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="item text-center">
+								<div class="card-body">
+									<div class="row">
+										<div class="col-xl-8 col-md-12 d-block mx-auto">
+											<div class="testimonia">
+												<div class="testimonia-img mx-auto mb-3">
+													<img src="../assets/images/faces/female/20.jpg" class="img-thumbnail rounded-circle alt=" alt="">
+												</div>
+												<p><i class="fa fa-quote-left"></i> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+												<div class="testimonia-data">
+													<h4 class="fs-20 mb-1">Sophie Carr</h4>
+													<div class="rating-star">
+														<div class="rating-star sm my-rating-5" data-stars="4s"></div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-xl-3 col-md-12">
+					<div class="card">
+						<div class="card-body">
+							<div class="team-section text-center">
+								<div class="team-img">
+									<img src="../assets/images/faces/male/1.jpg" class="img-thumbnail rounded-circle alt=" alt="">
+								</div>
+								<h4 class="font-weight-bold dark-grey-text mt-4">Tracey	Poole</h4>
+								<h6 class="font-weight-bold blue-text ">Web Designer</h6>
+								<p class="font-weight-normal dark-grey-text">
+								<i class="fa fa-quote-left pe-2"></i>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod eos id officiis hic tenetur quae quaerat ad velit ab hic tenetur.</p>
+								<div class="text-warning">
+									<i class="fa fa-star"> </i>
+									<i class="fa fa-star"> </i>
+									<i class="fa fa-star"> </i>
+									<i class="fa fa-star"> </i>
+									<i class="fa fa-star-half-full"> </i>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-xl-3 col-md-12">
+					<div class="card">
+						<div class="card-body">
+							<div class="team-section text-center">
+								<div class="team-img">
+									<img src="../assets/images/faces/female/1.jpg" class="img-thumbnail rounded-circle alt=" alt="">
+								</div>
+								<h4 class="font-weight-bold dark-grey-text mt-4">Harry	Walker</h4>
+								<h6 class="font-weight-bold blue-text ">Web Developer</h6>
+								<p class="font-weight-normal dark-grey-text">
+								<i class="fa fa-quote-left pe-2"></i>Ut enim ad minima veniam, quis nostrum exercitationem ullam quis nostrum  corporis suscipit laboriosam, nisi ut aliquid commodi.</p>
+								<div class="text-warning">
+									<i class="fa fa-star"> </i>
+									<i class="fa fa-star"> </i>
+									<i class="fa fa-star"> </i>
+									<i class="fa fa-star"> </i>
+									<i class="fa fa-star"> </i>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-xl-3 col-md-12">
+					<div class="card">
+						<div class="card-body">
+							<div class="team-section text-center">
+								<div class="team-img">
+									<img src="../assets/images/faces/male/2.jpg" class="img-thumbnail rounded-circle alt=" alt="">
+								</div>
+								<h4 class="font-weight-bold dark-grey-text mt-4">Paul White</h4>
+								<h6 class="font-weight-bold blue-text ">Photographer</h6>
+								<p class="font-weight-normal dark-grey-text">
+								<i class="fa fa-quote-left pe-2"></i>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti.</p>
+								<div class="text-warning">
+									<i class="fa fa-star"> </i>
+									<i class="fa fa-star"> </i>
+									<i class="fa fa-star"> </i>
+									<i class="fa fa-star"> </i>
+									<i class="fa fa-star-o"> </i>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+                <div class="col-xl-3 col-md-12">
+					<div class="card">
+						<div class="card-body">
+							<div class="team-section text-center">
+								<div class="team-img">
+									<img src="../assets/images/faces/male/2.jpg" class="img-thumbnail rounded-circle alt=" alt="">
+								</div>
+								<h4 class="font-weight-bold dark-grey-text mt-4">Paul White</h4>
+								<h6 class="font-weight-bold blue-text ">Photographer</h6>
+								<p class="font-weight-normal dark-grey-text">
+								<i class="fa fa-quote-left pe-2"></i>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti.</p>
+								<div class="text-warning">
+									<i class="fa fa-star"> </i>
+									<i class="fa fa-star"> </i>
+									<i class="fa fa-star"> </i>
+									<i class="fa fa-star"> </i>
+									<i class="fa fa-star-o"> </i>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
         </div>
     </section>
     <!--/Testimonials-->
@@ -546,7 +609,7 @@
                 <div class="card overflow-hidden">
 					<div class="item-card7-img">
 						<div class="item-card7-imgs">
-							<a href="{{ route('offre.detail', ['slug'=>$offre->slug,'offre_slug'=>$offre->slug_offres])}}"></a>
+							<a href="{{ route('offre.detail',['slug_pays'=>'tg','offre_slug'=>$offre->slug_offres])}}"></a>
 							<img src="../assets/images/products/products/job.jpg" alt="img" class="cover-image">
 						</div>
 						<div class="item-card7-overlaytext">
@@ -572,7 +635,7 @@
 						<a class="me-4 float-end"><span class="font-weight-bold">Date limite:</span> {{$offre->date_lim}}</a>
 					</div>
 					<div class="card-body">
-						<a href="{{ route('offre.detail', ['slug'=>$offre->slug,'offre_slug'=>$offre->slug_offres])}}" class="btn btn-primary mt-1">Savoir plus</a>
+						<a href="{{ route('offre.detail', ['slug_pays'=>'tg','offre_slug'=>$offre->slug_offres])}}" class="btn btn-primary mt-1">Savoir plus</a>
 					</div>
 				</div>
                 @endforeach
