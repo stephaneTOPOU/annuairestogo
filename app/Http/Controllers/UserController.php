@@ -39,6 +39,21 @@ class UserController extends Controller
         return view('frontend.mydash', compact('souscategories', 'users', 'parametres'));
     }
 
+    public function myprofil($slug_pays, $slug_user)
+    {
+        $pays_id = DB::table('pays')->where('slug_pays', $slug_pays)->select('id')->get();
+        $user_id = DB::table('users')->where('slug_user', $slug_user)->select('id')->get();
+
+        $users = User::find($user_id[0]->id);
+
+        $parametres = DB::table('pays')->where('pays.id', $pays_id[0]->id)
+            ->join('parametres', 'pays.id', '=', 'parametres.pays_id')
+            ->where('parametres.id', 1)
+            ->select('*')
+            ->get();
+        return view('frontend.user-profile', compact('users','parametres'));
+    }
+
     public function update($slug_pays, $slug_user, Request $request)
     {
         $pays_id = DB::table('pays')->where('slug_pays', $slug_pays)->select('id')->get();

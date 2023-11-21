@@ -17,13 +17,13 @@
 
     <!--Breadcrumb-->
 		<section>
-			<div class="bannerimg cover-image bg-background3" data-bs-image-src="../assets/images/banners/banner2.jpg">
+			<div class="bannerimg cover-image bg-background3" data-bs-image-src="{{ asset('assets/images/banners/banner2.jpg') }}">
 				<div class="header-text mb-0">
 					<div class="container">
 						<div class="text-center text-white">
 							<h1 class="">My Dashboard</h1>
 							<ol class="breadcrumb text-center">
-								<li class="breadcrumb-item"><a href="#">Home</a></li>
+								<li class="breadcrumb-item"><a href="users">Home</a></li>
 								<li class="breadcrumb-item active text-white" aria-current="page">My Dashboard</li>
 							</ol>
 						</div>
@@ -49,7 +49,7 @@
 										@if ($users->photo1)
 											<img src="{{ asset('assets/images/user_profile') }}/{{ $users->photo1 }}" class="brround" alt="{{ $users->name }}">
 										@else
-											<img src="{{ asset('assets/images/user_profile/user.png') }}" class="brround" alt="user">
+											<img src="{{ asset('assets/images/user_profile/user.png') }}" class="brround" alt="{{ $users->name }}">
 										@endif
 									</div>
 									<a href="#" class="text-dark"><h4 class="mt-3 mb-0 font-weight-semibold">{{ $users->name }}</h4></a>

@@ -173,6 +173,8 @@ Route::post('/{slug_pays}/{slug_user}', [\App\Http\Controllers\UserController::c
 
 Route::get('/{slug_pays}/{slug_categorie}', [\App\Http\Controllers\SousCategoriesController::class, 'Souscategories_pays'])->name('subcat.pays');
 
+Route::get('/{slug_pays}/profil/{slug_user}', [\App\Http\Controllers\UserController::class, 'myprofil'])->name('user.profile');
+
 Route::get('/{slug_pays}/{slug_categorie}/{slug_souscategorie}', [\App\Http\Controllers\EntrepriseController::class, 'entreprise_pays'])->name('entreprise.pays');
 
 Route::post('/{slug_pays}/{slug_categorie}/{slug_souscategorie}', [\App\Http\Controllers\ProfileController::class, 'message'])->name('entreprise.contact');

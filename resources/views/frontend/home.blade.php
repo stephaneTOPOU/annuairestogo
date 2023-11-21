@@ -396,49 +396,35 @@
     <section>
         <div class="container">
             <div id="myCarousel1" class="owl-carousel users-owl-carousel">
-                <div class="col-md-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="team-section text-center">
-                                <div class="team-img">
-                                    <img src="../assets/images/faces/male/1.jpg" class="img-thumbnail rounded-circle alt=" alt="">
+                @foreach ($users as $user)
+                    <div class="col-md-12">
+                        <a href="{{ route('user.profile',['slug_pays'=>'tg','slug_user'=>$user->slug_user]) }}">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="team-section text-center">
+                                        <div class="team-img">
+                                            @if ($user->photo1)
+                                                <img src="{{ asset('assets/images/user_profile') }}/{{ $user->photo1 }}" class="img-thumbnail rounded-circle alt=" alt="{{ $user->name }}" width="80">
+                                            @else
+                                                <img src="{{ asset('assets/images/user_profile/user.png') }}" class="img-thumbnail rounded-circle alt=" alt="{{ $user->name }}" width="100">
+                                            @endif
+                                        </div>
+                                        <h4 class="font-weight-bold dark-grey-text mt-4">{{ $user->name }}</h4>
+                                        <h6 class="font-weight-bold blue-text "><i class="icon icon-bag text-muted me-1"></i>{{ $user->fonction }}</h6>
+                                        <p class="font-weight-normal dark-grey-text"><i class="icon icon-phone text-muted me-1"></i>{{ $user->telephone1 }}</p>
+                                        <div class="text-warning">
+                                            <i class="fa fa-star"> </i>
+                                            <i class="fa fa-star"> </i>
+                                            <i class="fa fa-star"> </i>
+                                            <i class="fa fa-star"> </i>
+                                            <i class="fa fa-star-half-full"> </i>
+                                        </div>
+                                    </div>
                                 </div>
-                                <h4 class="font-weight-bold dark-grey-text mt-4">Tracey	Poole</h4>
-                                <h6 class="font-weight-bold blue-text ">Web Designer</h6>
-                                <p class="font-weight-normal dark-grey-text">
-                                <i class="fa fa-quote-left pe-2"></i>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod eos id officiis hic tenetur quae quaerat ad velit ab hic tenetur.</p>
-                                <div class="text-warning">
-                                    <i class="fa fa-star"> </i>
-                                    <i class="fa fa-star"> </i>
-                                    <i class="fa fa-star"> </i>
-                                    <i class="fa fa-star"> </i>
-                                    <i class="fa fa-star-half-full"> </i>
-                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
-                </div>
-                <div class="col-md-12">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="team-section text-center">
-                            <div class="team-img">
-                                <img src="../assets/images/faces/female/1.jpg" class="img-thumbnail rounded-circle alt=" alt="">
-                            </div>
-                            <h4 class="font-weight-bold dark-grey-text mt-4">Harry	Walker</h4>
-                            <h6 class="font-weight-bold blue-text ">Web Developer</h6>
-                            <p class="font-weight-normal dark-grey-text">
-                            <i class="fa fa-quote-left pe-2"></i>Ut enim ad minima veniam, quis nostrum exercitationem ullam quis nostrum  corporis suscipit laboriosam, nisi ut aliquid commodi.</p>
-                            <div class="text-warning">
-                                <i class="fa fa-star"> </i>
-                                <i class="fa fa-star"> </i>
-                                <i class="fa fa-star"> </i>
-                                <i class="fa fa-star"> </i>
-                                <i class="fa fa-star"> </i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>

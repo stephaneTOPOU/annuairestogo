@@ -221,6 +221,8 @@ class HomeController extends Controller
         ->where('offres.valide',1)->orderBy('offres.id', 'desc')
         ->get();
 
-        return view('frontend.home', compact('banner', 'rejoints', 'minispots', 'reportages', 'magazines', 'parametres', 'villes', 'pays', 'subcategories', 'souscategories', 'honeures', 'nombresEntreprise', 'cat_annonce', 'annonce_all', 'annonces', 'inscrit', 'visiteur2', 'popups','offres'));
+        $users = User::all();
+
+        return view('frontend.home', compact('users','banner', 'rejoints', 'minispots', 'reportages', 'magazines', 'parametres', 'villes', 'pays', 'subcategories', 'souscategories', 'honeures', 'nombresEntreprise', 'cat_annonce', 'annonce_all', 'annonces', 'inscrit', 'visiteur2', 'popups','offres'));
     }
 }
