@@ -230,14 +230,14 @@
 						<div class="search">
                             @foreach ($tops as $top)
                                 <div class="img-div">
-                                    <img src="{{ asset('assets/images/products/popup') }}/{{ $top->image }}" alt="{{ $top->image }}" style="display: block; width: 50%; margin: auto;" width="100">
+                                    <img src="{{ asset('assets/images/products/popup') }}/{{ $top->image }}" alt="{{ $top->image }}" style="display: block; width: 100%; margin: auto;" width="100">
                                 </div>
                             @endforeach
                         </div>
                         <br/>
                         <h4 class="mia-be-class">Pharmacie de garde</h4>
                         <div>
-                            <img src="{{ asset('assets/images/products/popup') }}/{{ $top2s->image }}" alt="{{ $top2s->image }}" style="display: block; width: 50%; margin: auto;" width="100">
+                            <img src="{{ asset('assets/images/products/popup') }}/{{ $top2s->image }}" alt="{{ $top2s->image }}" style="display: block; width: 100%; margin: auto;" width="100">
                         </div>
 					</div>
 					<!--/Right Side Content-->
