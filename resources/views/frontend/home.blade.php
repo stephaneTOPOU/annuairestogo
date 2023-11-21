@@ -576,7 +576,7 @@
 								<li><a href="#" class="icons"><i class="icon icon-event text-muted me-1"></i>{{$offre->created_at}}</a></li>
 								<li class=""><a href="#" class="icons"><i class="icon icon-phone text-muted me-1"></i> {{$offre->telephone}}</a></li>
 							</ul>
-							<p class="mb-0">{{$offre->description}}</p>
+							<p class="mb-0">{!! $offre->description !!}</p>
 						</div>
 					</div>
 					<div class="card-body">
