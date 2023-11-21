@@ -236,7 +236,7 @@
 		autoplay: true,
 		animateIn: 'fadeInDowm',
 		animateOut: 'fadeOutDown',
-		autoplay: false,
+		autoplay: true,
 		autoplayTimeout: 5000, // set value to change speed
 		autoplayHoverPause: true,
 		dots: false,
