@@ -142,12 +142,12 @@
                             <div class="card-body">
                                 <div class="cat-item text-center">
                                     <a href="{{ route('entreprise.pays',['slug_pays'=>$secteur->slug1,'slug_categorie'=>$secteur->slug2,'slug_souscategorie'=>$secteur->slug3]) }}"></a>
-                                    <div class="cat-img text-shadow1">
+                                    <div class="cat-img text-shadow1 mt-4">
                                         <i class="fa fa-building fa-2x "></i>
                                     </div>
                                     <div class="cat-desc">
                                         <h5 class="mb-6">{{ $secteur->sub_nom }}</h5>
-                                        <small class="badge badge-pill badge-primary me-2">{{ $secteur->sous_categories_count }}</small><span class="text-muted">Entreprises</span>
+                                        {{-- <small class="badge badge-pill badge-primary me-2">{{ $secteur->sous_categories_count }}</small><span class="text-muted">Entreprises</span> --}}
                                     </div>
                                 </div>
                             </div>
@@ -441,105 +441,39 @@
             <div class="row">
                 <div class="col-12 col-md-12 col-lg-12 col-xl-6">
                     <div class="row">
+                        @foreach ($minispots as $minispot)
                         <div class="col-sm-12 col-lg-6 col-md-6 ">
                             <div class="item-card overflow-hidden">
                                 <div class="item-card-desc">
-                                    <div class="card text-center overflow-hidden">
-                                        @foreach ($minispots as $minispot)
-                                            <div class="video-list">
-                                                <div class="video-list-inner video">
-                                                    <div class="play card-img">
-                                                        <img src="{{ asset('assets/videos/posters') }}/{{ $minispot->image }}" alt="img" class="play">
-                                                    </div>
-                                                    <div class="play item-card-text">
-                                                        <i class="fa fa-play-circle" aria-hidden="false"></i>
-                                                    </div>
-                                                    <video class="hide" muted src="{{ asset('assets/videos') }}/{{ $minispot->video }}" controls poster="{{ asset('assets/videos') }}/{{ $minispot->image }}">
+                                    <div class="card text-center overflow-hidden"> 
+                                        <div class="video-list">
+                                            <div class="video-list-inner video" style="cursor: pointer">
+                                                <div class="play card-img">
+                                                    <img src="{{ asset('assets/videos/posters') }}/{{ $minispot->image }}" alt="img" class="play">
                                                 </div>
+                                                <div class="play item-card-text">
+                                                    <i class="fa fa-play-circle" aria-hidden="false"></i>
+                                                </div>
+                                                <video class="hide" muted src="{{ asset('assets/videos') }}/{{ $minispot->video }}" controls poster="{{ asset('assets/videos') }}/{{ $minispot->image }}">
                                             </div>
-                                        @endforeach
+                                        </div>                                       
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-12 col-lg-6 col-md-6 ">
-                            <div class="item-card overflow-hidden">
-                                <div class="item-card-desc">
-                                    <div class="card text-center overflow-hidden">
-                                        @foreach ($minispots as $minispot)
-                                            <div class="video-list">
-                                                <div class="video-list-inner video">
-                                                    <div class="card-img">
-                                                        <img src="{{ asset('assets/images/locations/london.jpg') }}" alt="img" class="cover-image play">
-                                                    </div>
-                                                    <div class="item-card-text play">
-                                                        <i class="fa fa-play-circle" aria-hidden="true"></i>
-                                                    </div>
-                                                    <video class="hide" muted src="{{ asset('assets/videos') }}/{{ $minispot->video }}" controls poster="{{ asset('assets/videos') }}/{{ $minispot->image }}">
-                                                </div>
-                                            </div>
-                                        @endforeach
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-12 col-lg-6 col-md-6 ">
-                            <div class="item-card overflow-hidden">
-                                <div class="item-card-desc">
-                                    <div class="card text-center overflow-hidden">
-                                        @foreach ($minispots as $minispot)
-                                            <div class="video-list">
-                                                <div class="video-list-inner video">
-                                                    <div class="card-img">
-                                                        <img src="{{ asset('assets/images/locations/london.jpg') }}" alt="img" class="cover-image play">
-                                                    </div>
-                                                    <div class="item-card-text play">
-                                                        <i class="fa fa-play-circle" aria-hidden="true"></i>
-                                                    </div>
-                                                    <video class="hide" muted src="{{ asset('assets/videos') }}/{{ $minispot->video }}" controls poster="{{ asset('assets/videos') }}/{{ $minispot->image }}">
-                                                </div>
-                                            </div>
-                                        @endforeach
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-12 col-lg-6 col-md-6 ">
-                            <div class="item-card overflow-hidden">
-                                <div class="item-card-desc">
-                                    <div class="card text-center overflow-hidden">
-                                        @foreach ($minispots as $minispot)
-                                            <div class="video-list">
-                                                <div class="video-list-inner video">
-                                                    <div class="card-img">
-                                                        <img src="{{ asset('assets/images/locations/london.jpg') }}" alt="img" class="cover-image play">
-                                                    </div>
-                                                    <div class="item-card-text play">
-                                                        <i class="fa fa-play-circle" aria-hidden="true"></i>
-                                                    </div>
-                                                    <video class="hide" muted src="{{ asset('assets/videos') }}/{{ $minispot->video }}" controls poster="{{ asset('assets/videos') }}/{{ $minispot->image }}">
-                                                </div>
-                                            </div>
-                                        @endforeach
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
+                    </div>
+                    <div class="video-container">
+                        <a class="close btn btn-sm btn-light w-6" data-bs-dismiss="modal" aria-label="Close" style="font-size: 14px; border-radius: 50%">x</a>
+                        <video src="" autoplay controls poster=""></video>
                     </div>
                 </div>
                 <div class="col-lg-12 col-md-12 col-xl-6 col-sm-12">
-                    <div class="item-card overflow-hidden">
-                        <div class="item-card-desc">
-                            <div class="card overflow-hidden">
-                                <div class="card-img">
-                                    <img src="{{ asset('assets/images/locations/losangels-1') }}.jpg"  alt="img" class="cover-image">
-                                </div>
-                                <div class="item-card-text">
-                                    <h4 class="mb-0">64,825<span><i class="fa fa-map-marker text-primary me-1"></i>WASHINGTON</span></h4>
-                                </div>
-                            </div>
+                    <div class="row">
+                        <div class="video-youtube">
+                            <iframe src="https://www.youtube.com/embed/jR2gURmLQaI" frameborder="0" allowfullscreen></iframe>
                         </div>
-                    </div>
+                    </div>                   
                 </div>
             </div>
         </div>

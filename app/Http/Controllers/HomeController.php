@@ -144,7 +144,7 @@ class HomeController extends Controller
         $minispots = DB::table('pays')->where('pays.id', $pays_id[0]->id)
             ->join('mini_spots', 'pays.id', '=', 'mini_spots.pays_id')
             ->select('*')
-            ->limit(1)
+            ->limit(4)
             ->get();
 
         $reportages = DB::table('pays')->where('pays.id', $pays_id[0]->id)
