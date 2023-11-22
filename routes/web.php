@@ -155,6 +155,8 @@ Route::get('/{slug_pays}/ajouter-user', [\App\Http\Controllers\UserController::c
 
 Route::post('/{slug_pays}/ajouter-user', [\App\Http\Controllers\AuthController::class, 'addUser_pays'])->name('user.pays.add');
 
+Route::get('/{slug_pays}/{offre_slug}', [App\Http\Controllers\OffreController::class, 'jobDetail'])->name('offre.detail');
+
 Route::post('/{slug_pays}/authentification', [\App\Http\Controllers\AuthController::class, 'authentification_pays'])->name('authenticate.pays');
 
 Route::post('/{slug_pays}/ajouter-entreprise', [\App\Http\Controllers\ActionEntrepriseController::class, 'addEntreprise'])->name('entreprise.pays.add');
@@ -168,8 +170,6 @@ Route::get('/{slug_pays}/{slug_user}', [\App\Http\Controllers\UserController::cl
 Route::post('/{slug_pays}/entreprise-devis', [\App\Http\Controllers\DevisController::class, 'devis'])->name('devis.pays.entreprise');
 
 Route::get('/{slug_pays}/{slug_annonce}', [\App\Http\Controllers\NewsController::class, 'news'])->name('news');
-
-Route::get('/{slug_pays}/{offre_slug}', [App\Http\Controllers\OffreController::class, 'jobDetail'])->name('offre.detail');
 
 Route::post('/{slug_pays}/{slug_user}', [\App\Http\Controllers\UserController::class, 'update'])->name('user.dashboard.update');
 
