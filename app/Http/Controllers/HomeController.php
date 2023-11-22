@@ -7,6 +7,7 @@ use App\Models\SousCategories;
 use App\Models\Stat;
 use App\Models\User;
 use App\Models\Offre;
+use App\Models\SliderRecherche;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -100,7 +101,9 @@ class HomeController extends Controller
             ->select('*')
             ->get();
 
-        return view('frontend.recherche', compact('entreprises', 'souscategories', 'subcategories', 'tops', 'top2s', 'parametres'));
+        $sliders = SliderRecherche::all();
+
+        return view('frontend.recherche', compact('sliders','entreprises', 'souscategories', 'subcategories', 'tops', 'top2s', 'parametres'));
     }
 
     public function index_pays($slug_pays)
