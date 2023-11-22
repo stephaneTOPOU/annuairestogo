@@ -15418,6 +15418,22 @@ a.typewrite {
     border-top-right-radius: 5px;
 }
 
+.video-youtube {
+    position: relative;
+    padding-bottom: 56.25%; /* Ratio 16:9 pour une vidéo YouTube */
+    height: 0;
+    overflow: hidden;
+}
+  
+.video-youtube iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 7px;
+}
+
 .single-page {
     width: 100%;
     margin: 0 auto;

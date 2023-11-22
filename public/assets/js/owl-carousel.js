@@ -264,7 +264,16 @@
 		dots: false,
 		responsive: {
 			0: {
-				items: 3
+				items: 1,
+				nav: true
+			},
+			600: {
+				items: 2,
+				nav: true
+			},
+			1300: {
+				items: 3,
+				nav: true
 			}
 		}
 	})
@@ -283,7 +292,16 @@
 		autoplay: true,
 		responsive: {
 			0: {
-				items: 4
+				items: 1,
+				nav: true
+			},
+			600: {
+				items: 2,
+				nav: true
+			},
+			1300: {
+				items: 4,
+				nav: true
 			}
 		}
 	})
