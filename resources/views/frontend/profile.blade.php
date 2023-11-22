@@ -26,13 +26,13 @@
 
     <!--Sliders Section-->
     <div>
-        <div class="cover-image sptb-1 bg-background" data-bs-image-src="../assets/images/banners/banner1.jpg">
+        <div class="cover-image sptb-1 bg-background" data-bs-image-src="{{ asset('assets/images/banners/banner1.jpg') }}">
             <div class="header-text1 mb-0">
                 <div class="container">
                     <div class="row">
                         <div class="col-xl-8 col-lg-12 col-md-12 d-block mx-auto">
                             <div class="text-center text-white ">
-                                <h1 ><span class="font-weight-bold">16,25,365</span>entreprises disponible </h1>
+                                
                             </div>
                             <div class=" search-background bg-transparent">
                                 <form class="form row g-0" action="{{ route('recherche.pays',['slug_pays'=>'tg']) }}" method="GET">

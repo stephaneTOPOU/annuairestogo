@@ -47,9 +47,9 @@
 											<div class="wideget-user-desc text-center">
 												<div class="wideget-user-img">
 													@if ($users->photo1)
-                                                        <img src="{{ asset('assets/images/user_profile') }}/{{ $users->photo1 }}" class="brround" alt="{{ $users->name }}">
+                                                        <img src="{{ asset('assets/images/user_profile') }}/{{ $users->photo1 }}" class="brround" alt="{{ $users->name }}" style="width: 128px; height: 128px;">
                                                     @else
-                                                        <img src="{{ asset('assets/images/user_profile/user.png') }}" class="brround" alt="{{ $users->name }}" width="50">
+                                                        <img src="{{ asset('assets/images/user_profile/user.png') }}" class="brround" alt="{{ $users->name }}" style="width: 128px; height: 128px;">
                                                     @endif
 												</div>
 												<div class="user-wrap wideget-user-info">

@@ -406,9 +406,9 @@
                                     <div class="team-section text-center">
                                         <div class="team-img">
                                             @if ($user->photo1)
-                                                <img src="{{ asset('assets/images/user_profile') }}/{{ $user->photo1 }}" class="img-thumbnail rounded-circle alt=" alt="{{ $user->name }}" width="80">
+                                                <img src="{{ asset('assets/images/user_profile') }}/{{ $user->photo1 }}" class="img-thumbnail rounded-circle alt=" alt="{{ $user->name }}" style="width: 128px; height: 128px;">
                                             @else
-                                                <img src="{{ asset('assets/images/user_profile/user.png') }}" class="img-thumbnail rounded-circle alt=" alt="{{ $user->name }}" width="100">
+                                                <img src="{{ asset('assets/images/user_profile/user.png') }}" class="img-thumbnail rounded-circle alt=" alt="{{ $user->name }}" style="width: 128px; height: 128px;">
                                             @endif
                                         </div>
                                         <h4 class="font-weight-bold dark-grey-text mt-4">{{ $user->name }}</h4>

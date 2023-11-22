@@ -29,66 +29,21 @@
 @include('frontend.topbar.topbar5')
 
     <!--Sliders Section-->
-		<div>
-			<div class="cover-image sptb-1 bg-background" data-bs-image-src="../assets/images/banners/banner1.jpg">
-				<div class="header-text1 mb-0">
-					<div class="container">
-						<div class="row">
-							<div class="col-xl-8 col-lg-12 col-md-12 d-block mx-auto">
-								<div class="text-center text-white ">
-									<h1 class=""><span class="font-weight-bold">16,25,365 </span> d'entreprise disponible</h1>
-								</div>
-								<div class="search-background mb-0">
-									<form class="form row g-0" action="{{ route('recherche.pays',['slug_pays'=>'tg']) }}" method="GET">
-										<div class="form-group  col-xl-6 col-lg-5 col-md-12 mb-0">
-											<input type="text" class="form-control input-lg border-start-0 br-be-0 br-te-0" id="text4" placeholder="Trouer une entreprise ou un professionel" name="nom">
-                                            <script type="text/javascript">
-                                                var path = "{{ route('autocomplete.pays',['slug_pays'=>'tg']) }}" ;
-                                                // path = path.replace(':pays_id', pays_id);
-                        
-                                                $( "#text4" ).autocomplete({
-                                                    source: function( request, response ) {
-                                                        $.ajax({
-                                                        url: path,
-                                                        type: 'GET',
-                                                        dataType: "json",
-                                                        data: {
-                                                            text4: request.term
-                                                        },
-                                                        success: function( data ) {
-                                                            response( data );
-                                                        }
-                                                        });
-                                                    },
-                                                    select: function (event, ui) {
-                                                        $('#text4').val(ui.item.label);
-                                                        console.log(ui.item); 
-                                                        return false;
-                                                    }
-                                                    });
-                                            </script>
-										</div>
-										<div class="form-group col-xl-4 col-lg-4 select2-lg  col-md-12 mb-0">
-											<select class="form-control select2-show-search border-bottom-0 w-100" data-placeholder="Select" name="secteur">
-												<optgroup label="Catégories">
-                                                    <option disabled selected>Secteur d'activité</option>
-                                                    @foreach ($souscategories as $souscategorie)
-                                                        <option value="{{ $souscategorie->libelle }}">{{ $souscategorie->libelle }}</option>
-                                                    @endforeach
-                                                </optgroup>
-											</select>
-										</div>
-										<div class="col-xl-2 col-lg-3 col-md-12 mb-0">
-											<button type="submit" class="btn btn-lg btn-block btn-primary br-bs-0 br-ts-0">Trouver</button>
-										</div>
-									</form>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div><!-- /header-text -->
-			</div>
-		</div>
+        @foreach ($sliders as $slider)
+            <div>
+                <div class="cover-image sptb-1 bg-background" data-bs-image-src="{{ asset('assets/images/banners') }}/{{ $slider->image }}">
+                    <div class="header-text1 mb-0">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-xl-8 col-lg-12 col-md-12 d-block mx-auto">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- /header-text -->
+                </div>
+            </div>
+        @endforeach
 	<!--/Sliders Section-->
 
     @foreach ($entreprises as $entreprise)
@@ -123,20 +78,52 @@
 								<div class="item2-gl ">
 									<div class=" mb-0">
 										<div class="">
-											<div class="p-5 bg-white item2-gl-nav d-flex">
-												<h6 class="mb-0 mt-2">Affichage de 1 à 10 sur 30 entrées</h6>
-												<ul class="nav item2-gl-menu ms-auto">
-													<li class=""><a href="#tab-11" class="active show" data-bs-toggle="tab" title="List style"><i class="fa fa-list"></i></a></li>
-													<li><a href="#tab-12" data-bs-toggle="tab" class="" title="Grid"><i class="fa fa-th"></i></a></li>
-												</ul>
-												<form class="d-flex" id="triForm">
-													<label class="me-2 mt-1 mb-sm-1">Trier par:</label>
-													<select name="tri_colonne" onchange="document.getElementById('triForm').submit()" class="form-control select2 select-sm w-70">
-                                                        <option value=""></option>
-														<option value="Ordre alphabétique">Ordre alphabétique</option>
-														<option value="Le plus recent">Le plus recent</option>
-													</select>
-												</form>
+											<div class="p-5 bg-white">
+												<div class="search-background mb-0">
+                                                    <form class="form row g-0" action="{{ route('recherche.pays',['slug_pays'=>'tg']) }}" method="GET">
+                                                        <div class="form-group  col-xl-6 col-lg-5 col-md-12 mb-0">
+                                                            <input type="text" class="form-control input-lg border-start-0 br-be-0 br-te-0" id="text4" placeholder="Trouer une entreprise ou un professionel" name="nom">
+                                                            <script type="text/javascript">
+                                                                var path = "{{ route('autocomplete.pays',['slug_pays'=>'tg']) }}" ;
+                                                                // path = path.replace(':pays_id', pays_id);
+                                        
+                                                                $( "#text4" ).autocomplete({
+                                                                    source: function( request, response ) {
+                                                                        $.ajax({
+                                                                        url: path,
+                                                                        type: 'GET',
+                                                                        dataType: "json",
+                                                                        data: {
+                                                                            text4: request.term
+                                                                        },
+                                                                        success: function( data ) {
+                                                                            response( data );
+                                                                        }
+                                                                        });
+                                                                    },
+                                                                    select: function (event, ui) {
+                                                                        $('#text4').val(ui.item.label);
+                                                                        console.log(ui.item); 
+                                                                        return false;
+                                                                    }
+                                                                    });
+                                                            </script>
+                                                        </div>
+                                                        <div class="form-group col-xl-4 col-lg-4 select2-lg  col-md-12 mb-0">
+                                                            <select class="form-control select2-show-search border-bottom-0 w-100" data-placeholder="Select" name="secteur">
+                                                                <optgroup label="Catégories">
+                                                                    <option disabled selected>Secteur d'activité</option>
+                                                                    @foreach ($souscategories as $souscategorie)
+                                                                        <option value="{{ $souscategorie->libelle }}">{{ $souscategorie->libelle }}</option>
+                                                                    @endforeach
+                                                                </optgroup>
+                                                            </select>
+                                                        </div>
+                                                        <div class="col-xl-2 col-lg-3 col-md-12 mb-0">
+                                                            <button type="submit" class="btn btn-lg btn-block btn-primary br-bs-0 br-ts-0">Trouver</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
 											</div>
 										</div>
 									</div>
