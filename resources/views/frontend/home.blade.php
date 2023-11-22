@@ -471,7 +471,10 @@
                 <div class="col-lg-12 col-md-12 col-xl-6 col-sm-12">
                     <div class="row">
                         <div class="video-youtube">
-                            <iframe src="https://www.youtube.com/embed/jR2gURmLQaI" frameborder="0" allowfullscreen></iframe>
+                            @foreach ($reportages as $reportage)
+                                <iframe src="{{$reportage->video}}" frameborder="0" allowfullscreen></iframe>
+                            @endforeach
+                            
                         </div>
                     </div>                   
                 </div>
