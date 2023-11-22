@@ -473,8 +473,7 @@
                         <div class="video-youtube">
                             @foreach ($reportages as $reportage)
                                 <iframe src="{{$reportage->video}}" frameborder="0" allowfullscreen></iframe>
-                            @endforeach
-                            
+                            @endforeach                   
                         </div>
                     </div>                   
                 </div>
