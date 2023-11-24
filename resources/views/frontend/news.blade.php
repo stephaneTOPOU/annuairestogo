@@ -40,116 +40,87 @@
 				<div class="row">
 					<div class="col-xl-8 col-lg-8 col-md-12">
 						<div class="card">
-							<div class="card-body">
-								<div class="item7-card-img">
-									<img src="../assets/images/photos/18.jpg" alt="img" class="w-100">
-									<div class="item7-card-text">
-										<span class="badge badge-info">Jobs</span>
-									</div>
-								</div>
-								<div class="item7-card-desc d-flex mb-2 mt-3">
-									<a href="#"><i class="fa fa-calendar-o text-muted me-2"></i>Nov-28-2018</a>
-									<a href="#"><i class="fa fa-user text-muted me-2"></i>Nissy Sten</a>
-									<div class="ms-auto">
-										<a href="#"><i class="fa fa-comment-o text-muted me-2"></i>2 Comments</a>
-									</div>
-								</div>
-								<a href="#" class="text-dark"><h2 class="font-weight-semibold">Sed ut perspiciatis unde omnis iste</h2></a>
-								<p>Ut enim ad minima veniam, quis exercitationem, enim ad minima veniam, quis nostrum exercitationem
-								At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dol et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deser mollitian animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero temporin cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimusomnis voluptas assumenda est, omnis dolor repellendus. </p>
-								<p>Ut enim ad minima veniam, quis exercitationem, enim ad minima veniam, quis nostrum exercitationem
-								At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dol et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deser mollitian animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero temporin cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimusomnis voluptas assumenda est, omnis dolor repellendus. </p>
-							</div>
-						</div>
-						<div class="card">
-							<div class="card-header">
-								<h3 class="card-title">Comments</h3>
-							</div>
-							<div class="card-body p-0">
-								<div class="media mt-0 p-5">
-                                    <div class="d-flex me-3">
-                                        <a href="#"><img class="media-object brround" alt="64x64" src="../assets/images/faces/male/1.jpg"> </a>
-                                    </div>
-                                    <div class="media-body">
-                                        <h5 class="mt-0 mb-1 font-weight-semibold">Joanne Scott
-											<span class="fs-14 ms-0" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="verified"><i class="fa fa-check-circle-o text-success"></i></span>
-											<span class="fs-14 ms-2"> 4.5 <i class="fa fa-star text-yellow"></i></span>
-										</h5>
-										<small class="text-muted"><span><i class="fa fa-calendar"></i> Dec 21st</span>  <span><i class=" ms-3 fa fa-clock-o"></i> 13.00 </span> <span><i class=" ms-3 fa fa-map-marker"></i> Brezil</span></small>
-                                        <p class="font-13  mb-2 mt-2">
-                                           Ut enim ad minim veniam, quis Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et  nostrud exercitation ullamco laboris   commodo consequat.
-                                        </p>
-										<a href="#" class="me-2"><span class="badge badge-primary">Helpful</span></a>
-										<a href="" class="me-2" data-bs-toggle="modal" data-bs-target="#Comment"><span class="">Comment</span></a>
-										<a href="" class="me-2" data-bs-toggle="modal" data-bs-target="#report"><span class="">Report</span></a>
-                                        <div class="media mt-5">
-                                            <div class="d-flex me-3">
-                                                <a href="#"> <img class="media-object brround" alt="64x64" src="../assets/images/faces/female/2.jpg"> </a>
-                                            </div>
-											<div class="media-body">
-												<h5 class="mt-0 mb-1 font-weight-semibold">Rose Slater <span class="fs-14 ms-0" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="verified"><i class="fa fa-check-circle-o text-success"></i></span></h5>
-												<small class="text-muted"><span><i class="fa fa-calendar"></i> Dec 22nd </span> <span><i class=" ms-3 fa fa-clock-o"></i> 6.00  </span><span><i class=" ms-3 fa fa-map-marker"></i> Brezil</span></small>
-												<p class="font-13  mb-2 mt-2">
-												   Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris   commodo Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur consequat.
-												</p>
-												<a href="" data-bs-toggle="modal" data-bs-target="#Comment"><span class="badge badge-default">Comment</span></a>
-											</div>
+								<div class="card-body">
+									<div class="item7-card-img">
+										<img src="{{ asset('assets/images/products') }}/{{ $annonces->image1 }}" alt="{{ $annonces->titre }}" class="w-100">
+										<div class="item7-card-text">
+											<span class="badge badge-info">Annonce</span>
 										</div>
 									</div>
-								</div>
-								<div class="media p-5 border-top mt-0">
-									<div class="d-flex me-3">
-										<a href="#"> <img class="media-object brround" alt="64x64" src="../assets/images/faces/male/3.jpg"> </a>
+									<div class="item7-card-desc d-flex mb-2 mt-3">
+										<a href="#"><i class="fa fa-calendar-o text-muted me-2"></i>@php echo \Carbon\Carbon::parse($annonces->created_at)->diffForHumans(null, false, 'fr'); @endphp</a>
+										<div class="ms-auto">
+											<a href="#"><i class="fa fa-comment-o text-muted me-2"></i>{{ $nb }} Commentaires</a>
+										</div>
 									</div>
-									<div class="media-body">
-										<h5 class="mt-0 mb-1 font-weight-semibold">Edward
-										<span class="fs-14 ms-0" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="verified"><i class="fa fa-check-circle-o text-success"></i></span>
-										<span class="fs-14 ms-2"> 4 <i class="fa fa-star text-yellow"></i></span>
-										</h5>
-										<small class="text-muted"><span><i class="fa fa-calendar"></i> Dec 21st</span>  <span><i class=" ms-3 fa fa-clock-o"></i> 16.35</span>  <span><i class=" ms-3 fa fa-map-marker"></i> UK</span></small>
-                                        <p class="font-13  mb-2 mt-2">
-                                           Ut enim ad minim veniam, quis Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et  nostrud exercitation ullamco laboris   commodo consequat.
-                                        </p>
-										<a href="#" class="me-2"><span class="badge badge-primary">Helpful</span></a>
-										<a href="" class="me-2" data-bs-toggle="modal" data-bs-target="#Comment"><span class="">Comment</span></a>
-										<a href="" class="me-2" data-bs-toggle="modal" data-bs-target="#report"><span class="">Report</span></a>
-									</div>
+									<a href="#" class="text-dark"><h2 class="font-weight-semibold">{{ $annonces->titre }}</h2></a>
+									<p>{{ $annonces->text1 }}</p>
+									<p>{{ $annonces->text2 }}</p>
 								</div>
-							</div>
+						</div>
+						<div class="card">
+								<div class="card-header">
+									<h3 class="card-title">Les commentaire</h3>
+								</div>
+								<div class="card-body p-0">
+									@foreach ($commentaires as $commentaire)
+										<div class="media mt-0 p-5">
+											<div class="d-flex me-3">
+												<a href="#"><img class="media-object brround" alt="64x64" src="{{ asset('assets/images/user_profile/user.png') }}"> </a>
+											</div>
+											<div class="media-body">
+												<h5 class="mt-0 mb-1 font-weight-semibold">{{ $commentaire->pseudo }}
+													<span class="fs-14 ms-0" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="verified"><i class="fa fa-check-circle-o text-success"></i> @php echo \Carbon\Carbon::parse($commentaire->created_at)->diffForHumans(null, false, 'fr'); @endphp </span>
+												</h5>
+												<small class="text-muted"><span><i class="fa fa-calendar"></i>{{ date('d/m/Y', strtotime($commentaire->created_at)) }}</span>  <span><i class=" ms-3 fa fa-clock-o"></i>{{ date('h:m', strtotime($commentaire->created_at)) }}</span></small>
+												<p class="font-13  mb-2 mt-2">
+													{{ $commentaire->commentaire }}
+												</p>
+												<a href="{{ route('news.comment.rep',['slug_pays'=>'tg','slug_annonce'=>$annonces->slug_annonce,'id'=>$commentaire->identifiant]) }}" data-bs-toggle="modal" data-bs-target="#Comment"><span class="badge badge-default">Répondre</span></a>
+												@foreach ($reponses as $reponse)
+													@if ($reponse->commentaires_id == $commentaire->identifiant)
+														<div class="media mt-5">
+															<div class="d-flex me-3">
+																<a href="#"> <img class="media-object brround" alt="64x64" src="{{ asset('assets/images/user_profile/user.png') }}"> </a>
+															</div>
+															<div class="media-body">
+																<h5 class="mt-0 mb-1 font-weight-semibold">{{ $reponse->nomR }}<span class="fs-14 ms-0" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="verified"><i class="fa fa-check-circle-o text-success"></i></span></h5>
+																<small class="text-muted"><span><i class="fa fa-calendar"></i>{{ date('d/m/Y', strtotime($reponse->created_at)) }}</span> <span><i class=" ms-3 fa fa-clock-o"></i>{{ date('h:m', strtotime($reponse->created_at)) }}</span></small>
+																<p class="font-13  mb-2 mt-2">
+																	{{ $reponse->messageR }}
+																</p>
+																<a href="{{ route('news.comment.rep',['slug_pays'=>'tg','slug_annonce'=>$annonces->slug_annonce,'id'=>$commentaire->identifiant]) }}" data-bs-toggle="modal" data-bs-target="#Comment"><span class="badge badge-default">Répondre</span></a>
+															</div>
+														</div>
+													@endif
+												@endforeach
+											</div>
+										</div>
+									@endforeach
+								</div>
 						</div>
 						<div class="card mb-lg-0">
-							<div class="card-header">
-								<h3 class="card-title">Write Your Comments</h3>
-							</div>
-							<div class="card-body">
-								<div class="form-group">
-									<input type="text" class="form-control" id="name1" placeholder="Your Name">
+								<div class="card-header">
+									<h3 class="card-title">Ecrire un commentaire</h3>
 								</div>
-								<div class="form-group">
-									<input type="email" class="form-control" id="email" placeholder="Email Address">
-								</div>
-								<div class="form-group">
-									<textarea class="form-control" name="example-textarea-input" rows="6" placeholder="Write Your Comment"></textarea>
-								</div>
-								<a href="#" class="btn btn-primary">Submit</a>
-							</div>
+								<form class="card-body" method="POST" action="{{ route('news.comment',['slug_pays'=>'tg','slug_annonce'=>$annonces->slug_annonce]) }}">
+									@csrf
+                                    @if(Session::has('success'))
+                                        <div class="alert alert-success" role="alert">{{Session::get('success') }}</div>
+                                    @endif
+									<div class="form-group">
+										<input type="text" class="form-control" id="name1" placeholder="Votre nom" name="pseudo">
+									</div>
+									<div class="form-group">
+										<textarea class="form-control" name="commentaire" rows="6" placeholder="Votre commentaire"></textarea>
+									</div>
+									<button type="submit" class="btn btn-primary">Envoyer</button>
+								</form>
 						</div>
 					</div>
 
 					<!--Rightside Content-->
 					<div class="col-xl-4 col-lg-4 col-md-12">
-						<div class="card">
-							<div class="card-body">
-								<div class="input-group">
-									<input type="text" class="form-control br-ts-3  br-bs-3" placeholder="Search">
-									<div class="">
-										<button type="button" class="btn btn-primary br-ts-0  br-bs-0">
-											Search
-										</button>
-									</div>
-								</div>
-							</div>
-						</div>
 						<div class="card">
 							<div class="card-header">
 								<h3 class="card-title">Categories</h3>
@@ -207,95 +178,19 @@
 						</div>
 						<div class="card">
 							<div class="card-header">
-								<h3 class="card-title">Popular Tags</h3>
+								<h3 class="card-title">Types de nouvelles</h3>
 							</div>
 							<div class="card-body">
 								<div class="product-tags clearfix">
 									<ul class="list-unstyled mb-0">
-										<li><a href="#">RealEstate</a></li>
-										<li><a href="#">Vehicles</a></li>
-										<li><a href="#">Events</a></li>
-										<li><a href="#">Health& Beauty</a></li>
-										<li><a href="#">Services</a></li>
-										<li><a href="#">Restaurant</a></li>
-										<li><a href="#">Events</a></li>
-										<li><a href="#">Jobs</a></li>
-										<li><a href="#">Automobiles</a></li>
-										<li><a href="#">Computer</a></li>
-										<li><a href="#" class="mb-0">Electronics</a></li>
+										@foreach ($annonce2s as $annonces2)
+											<li><a href="{{ route('news',['slug_pays'=>'tg','slug_annonce'=>$annonces2->slug_cat_an]) }}">{{ $annonces2->libelle }}</a></li>
+										@endforeach
 									</ul>
 								</div>
 							</div>
 						</div>
-						<div class="card mb-0">
-							<div class="card-header">
-								<h3 class="card-title">Blog Authors</h3>
-							</div>
-							<div class="card-body p-0">
-								<ul class="vertical-scroll">
-									<li class="item2">
-										<div class="footerimg d-flex mt-0 mb-0">
-											<div class="d-flex footerimg-l mb-0">
-												<img src="../assets/images/faces/female/18.jpg" alt="image" class="avatar brround  me-2">
-												<a href="#" class="time-title p-0 leading-normal mt-2">Boris	Nash <i class="icon icon-check text-success fs-12 ms-1" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="verified"></i></a>
-											</div>
-											<div class="mt-2 footerimg-r ms-auto">
-												<a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Articles"><span class="text-muted me-2"><i class="fa fa-comment-o"></i> 16</span></a>
-												<a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Likes"><span class="text-muted"><i class="fa fa-thumbs-o-up"></i> 36</span></a>
-											</div>
-										</div>
-									</li>
-									<li class="item2">
-										<div class="footerimg d-flex mt-0 mb-0">
-											<div class="d-flex footerimg-l mb-0">
-												<img src="../assets/images/faces/female/10.jpg" alt="image" class="avatar brround  me-2">
-												<a href="#" class="time-title p-0 leading-normal mt-2">Lorean Mccants <i class="icon icon-check text-success fs-12 ms-1" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="verified"></i></a>
-											</div>
-											<div class="mt-2 footerimg-r ms-auto">
-												<a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Articles"><span class="text-muted me-2"><i class="fa fa-comment-o"></i> 43</span></a>
-												<a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Likes"><span class="text-muted"><i class="fa fa-thumbs-o-up"></i> 23</span></a>
-											</div>
-										</div>
-									</li>
-									<li class="item2">
-										<div class="footerimg d-flex mt-0 mb-0">
-											<div class="d-flex footerimg-l mb-0">
-												<img src="../assets/images/faces/male/18.jpg" alt="image" class="avatar brround  me-2">
-												<a href="#" class="time-title p-0 leading-normal mt-2">Dewitt Henne<i class="icon icon-check text-success fs-12 ms-1" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="verified"></i></a>
-											</div>
-											<div class="mt-2 footerimg-r ms-auto">
-												<a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Articles"><span class="text-muted me-2"><i class="fa fa-comment-o"></i> 34</span></a>
-												<a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Likes"><span class="text-muted"><i class="fa fa-thumbs-o-up"></i> 12</span></a>
-											</div>
-										</div>
-									</li>
-									<li class="item2">
-										<div class="footerimg d-flex mt-0 mb-0">
-											<div class="d-flex footerimg-l mb-0">
-												<img src="../assets/images/faces/male/8.jpg" alt="image" class="avatar brround  me-2">
-												<a href="#" class="time-title p-0 leading-normal mt-2">Archie Overturf <i class="icon icon-check text-success fs-12 ms-1" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="verified"></i></a>
-											</div>
-											<div class="mt-2 footerimg-r ms-auto">
-												<a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Articles"><span class="text-muted me-2"><i class="fa fa-comment-o"></i> 12</span></a>
-												<a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Likes"><span class="text-muted"><i class="fa fa-thumbs-o-up"></i> 32</span></a>
-											</div>
-										</div>
-									</li>
-									<li class="item2">
-										<div class="footerimg d-flex mt-0 mb-0">
-											<div class="d-flex footerimg-l mb-0">
-												<img src="../assets/images/faces/female/21.jpg" alt="image" class="avatar brround  me-2">
-												<a href="#" class="time-title p-0 leading-normal mt-2">Barbra Flegle <i class="icon icon-check text-success fs-12 ms-1" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="verified"></i></a>
-											</div>
-											<div class="mt-2 footerimg-r ms-auto">
-												<a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Articles"><span class="text-muted me-2"><i class="fa fa-comment-o"></i> 21</span></a>
-												<a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Likes"><span class="text-muted"><i class="fa fa-thumbs-o-up"></i> 32</span></a>
-											</div>
-										</div>
-									</li>
-								</ul>
-							</div>
-						</div>
+						
 					</div>
 					<!--/Rightside Content-->
 				</div>
@@ -306,73 +201,37 @@
 @include('frontend.footer.footer1')
 
 <!-- Message Modal -->
-<div class="modal fade" id="Comment" tabindex="-1" role="dialog"  aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleCommentLongTitle">Leave a Comment</h5>
-                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="form-group">
-                    <input type="text" class="form-control" id="commet-name" placeholder="Your Name">
-                </div>
-                <div class="form-group">
-                    <input type="email" class="form-control" id="commet-email" placeholder="Email Address">
-                </div>
-                <div class="form-group mb-0">
-                    <textarea class="form-control" name="example-textarea-input" rows="6" placeholder="Message"></textarea>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-success">Send</button>
-            </div>
-        </div>
-    </div>
-</div>
+@foreach ($commentaires as $commentaire)
+	<div class="modal fade" id="Comment" tabindex="-1" role="dialog"  aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<form class="modal-content" method="POST" action="{{ route('news.comment.rep',['slug_pays'=>'tg','slug_annonce'=>$annonces->slug_annonce,'id'=>$commentaire->identifiant]) }}">
+				@csrf
+				@if(Session::has('success'))
+					<div class="alert alert-success" role="alert">{{Session::get('success') }}</div>
+				@endif
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleCommentLongTitle">Laissez un réponse</h5>
+					<button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div class="form-group">
+						<input type="text" class="form-control" id="commet-name" placeholder="Votre nom" name="nomR">
+					</div>
+					<div class="form-group mb-0">
+						<textarea class="form-control" name="messageR" rows="6" placeholder="Votre réponse"></textarea>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Annuler</button>
+					<button type="submit" class="btn btn-success">Répondre</button>
+				</div>
+			</form>
+		</div>
+	</div>
+@endforeach
 
-<!-- Report Modal -->
-<div class="modal fade" id="report" tabindex="-1" role="dialog"  aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="examplereportLongTitle">Report Abuse</h5>
-                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="form-group">
-                    <input type="text" class="form-control" id="report-name" placeholder="Enter url">
-                </div>
-                <div class="form-group">
-                    <select name="country" id="select-countries" class="form-control form-select">
-                        <option value="1" selected>Categories</option>
-                        <option value="2">Spam</option>
-                        <option value="3">Identity Theft</option>
-                        <option value="4">Online Shopping Fraud</option>
-                        <option value="5">Service Providers</option>
-                        <option value="6">Phishing</option>
-                        <option value="7">Spyware</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <input type="email" class="form-control" id="report-email" placeholder="Email Address">
-                </div>
-                <div class="form-group mb-0">
-                    <textarea class="form-control" name="example-textarea-input" rows="6" placeholder="Message"></textarea>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-success">Submit</button>
-            </div>
-        </div>
-    </div>
-</div>
 
 @include('frontend.footer.footer2')
 @include('frontend.footer.footer3')

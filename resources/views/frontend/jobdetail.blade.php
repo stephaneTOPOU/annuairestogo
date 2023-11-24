@@ -20,17 +20,19 @@
 <!--/Sliders Section-->
 
 		<!--BreadCrumb-->
-		<div class="bg-white border-bottom">
-			<div class="container">
-				<div class="page-header">
-					<h4 class="page-title">Annonces</h4>
-					<ol class="breadcrumb">
-						<li class="breadcrumb-item"><a href="#">Accueil</a></li>
-						<li class="breadcrumb-item active" aria-current="page">Annonces</li>
-					</ol>
+		@foreach ($offres_details as $details)
+			<div class="bg-white border-bottom">
+				<div class="container">
+					<div class="page-header">
+						<h4 class="page-title">{{ $details->titre }}</h4>
+						<ol class="breadcrumb">
+							<li class="breadcrumb-item"><a href="{{ route('home.pays',['slug_pays'=>'tg']) }}">Accueil</a></li>
+							<li class="breadcrumb-item active" aria-current="page">{{ $details->titre }}</li>
+						</ol>
+					</div>
 				</div>
 			</div>
-		</div>
+		@endforeach
 		<!--/BreadCrumb-->
 
 		<!--Add listing-->
@@ -49,7 +51,7 @@
 										<ul class="d-flex mb-0">
 											<li class="me-5"><i class="icon icon-briefcase text-muted me-1"></i> {{$details->entreprise}}</li>
 											<li class="me-5"><i class="icon icon-location-pin text-muted me-1"></i>{{$details->ville}}</li>
-											<li class="me-5"><i class="icon icon-calendar text-muted me-1"></i> {{$details->created_at}}</li>
+											<li class="me-5"><i class="icon icon-calendar text-muted me-1"></i> {{ date('d/m/Y', strtotime($details->date_lim)) }}</li>
 										</ul>
 									</div>
 								</div>
@@ -88,7 +90,7 @@
 											<a class="mb-0">Lien : {{$details->lien}}</a>
 										</div>
 										<div class="col col-auto">
-											<a class="mb-0 font-weight-bold">Date limite : {{$details->date_lim}}</a>
+											<a class="mb-0 font-weight-bold">Date limite : {{ date('d/m/Y', strtotime($details->date_lim)) }}</a>
 										</div>
 									</div>
 								</div>
@@ -125,7 +127,7 @@
 										<div class="item-card7-text">
 											<ul class="icon-card mb-0">
 												<li ><a class="icons"><i class="icon icon-briefcase text-muted me-1"></i>  {{$offre->entreprise}}</a></li>
-												<li><a class="icons"><i class="icon icon-event text-muted me-1"></i> {{$offre->created_at}}</a></li>
+												<li><a class="icons"><i class="icon icon-event text-muted me-1"></i> @php echo \Carbon\Carbon::parse($offre->created_at)->diffForHumans(null, false, 'fr'); @endphp</a></li>
 												<li class="mb-0"><a class="icons"><i class="icon icon-location-pin text-muted me-1"></i> {{$offre->ville}}</a></li>
 												<li class="mb-0"><a class="icons"><i class="icon icon-phone text-muted me-1"></i> {{$offre->telephone}}</a></li>
 											</ul>

@@ -207,7 +207,7 @@
                                             <a href="{{ route('news',['slug_pays'=>'tg','slug_annonce'=>$all->slug_annonce]) }}">
                                                 <div class="card mb-xl-0">
                                                     <span class="ribbon-1">
-                                                        <span><i class="fa fa-cutlery"></i></span>
+                                                        <span><i class="fa fa-briefcase"></i></span>
                                                     </span>
                                                     <div class="item-card8-img  rounded-top-7">
                                                         <img src="{{ asset('assets/images/products') }}/{{ $all->image1 }}" alt="{{ $all->titre }}" class="cover-image">
@@ -217,8 +217,8 @@
                                                     </div>
                                                     <div class="card-body">
                                                         <div class="item-card8-desc">
-                                                            <p class="text-muted">{{ $all->created_at }}</p>
-                                                            <h4 class="font-weight-semibold">{{ Str::limit($all->titre, 10) }}</h4>
+                                                            <p class="text-muted"><i class="icon icon-event text-muted me-1"></i>@php echo \Carbon\Carbon::parse($all->created_at)->diffForHumans(null, false, 'fr'); @endphp</p>
+                                                            <h4 class="font-weight-semibold">{{ Str::limit($all->titre, 50) }}</h4>
                                                             <p class="mb-0">{{ Str::limit($all->text1, 40) }}</p>
                                                         </div>
                                                     </div>
@@ -235,24 +235,26 @@
                                         @foreach ($annonces as $annonce)
                                             @if ($annonce->categorie_id == $cat_ann->id)
                                                 <div class="col-xl-4 col-lg-4 col-md-12">
-                                                    <div class="card mb-xl-0">
-                                                        <span class="ribbon-2">
-                                                            <span><i class="fa fa-briefcase"></i></span>
-                                                        </span>
-                                                        <div class="item-card8-img  rounded-top-7">
-                                                            <img src="{{ asset('assets/images/products') }}/{{ $annonce->image }}" alt="{{ $annonce->titre }}" class="cover-image">
-                                                        </div>
-                                                        <div class="item-card8-overlaytext">
-                                                            <h6 class="bg-primary fs-20 mb-0">{{ $cat_ann->libelle }}</h6>
-                                                        </div>
-                                                        <div class="card-body">
-                                                            <div class="item-card8-desc">
-                                                                <p class="text-muted">{{ $annonce->date }}</p>
-                                                                <h4 class="font-weight-semibold">{{ Str::limit($annonce->titre, 10) }}</h4>
-                                                                <p class="mb-0">{{ Str::limit($annonce->description, 40) }}</p>
+                                                    <a href="{{ route('news',['slug_pays'=>'tg','slug_annonce'=>$annonce->slug_annonce]) }}">
+                                                        <div class="card mb-xl-0">
+                                                            <span class="ribbon-2">
+                                                                <span><i class="fa fa-briefcase"></i></span>
+                                                            </span>
+                                                            <div class="item-card8-img  rounded-top-7">
+                                                                <img src="{{ asset('assets/images/products') }}/{{ $annonce->image1 }}" alt="{{ $annonce->titre }}" class="cover-image">
+                                                            </div>
+                                                            <div class="item-card8-overlaytext">
+                                                                <h6 class="bg-primary fs-20 mb-0">{{ $cat_ann->libelle }}</h6>
+                                                            </div>
+                                                            <div class="card-body">
+                                                                <div class="item-card8-desc">
+                                                                    <p class="text-muted"><i class="icon icon-event text-muted me-1"></i>@php echo \Carbon\Carbon::parse($annonce->date)->diffForHumans(null, false, 'fr'); @endphp</p>
+                                                                    <h4 class="font-weight-semibold">{{ Str::limit($annonce->titre, 50) }}</h4>
+                                                                    <p class="mb-0">{{ Str::limit($annonce->description, 40) }}</p>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
+                                                    </a>
                                                 </div>
                                             @endif
                                         @endforeach
@@ -509,7 +511,7 @@
 							</div>
 							<ul class="d-flex">
 								<li class=""><a href="#" class="icons"><i class="icon icon-location-pin text-muted me-1"></i> {{$offre->ville}}</a></li>
-								<li><a href="#" class="icons"><i class="icon icon-event text-muted me-1"></i>{{$offre->created_at}}</a></li>
+								<li><a href="#" class="icons"><i class="icon icon-event text-muted me-1"></i>@php echo \Carbon\Carbon::parse($offre->created_at)->diffForHumans(null, false, 'fr'); @endphp</a></li>
 								<li class=""><a href="#" class="icons"><i class="icon icon-phone text-muted me-1"></i> {{$offre->telephone}}</a></li>
 							</ul>
 							<p class="mb-0">{!! $offre->description !!}</p>
@@ -517,7 +519,7 @@
 					</div>
 					<div class="card-body">
 						{{-- <a class="me-4"><span class="font-weight-bold">Duration:</span> 6 Months</a> --}}
-						<a class="me-4 float-end"><span class="font-weight-bold">Date limite:</span> {{$offre->date_lim}}</a>
+						<a class="me-4 float-end"><span class="font-weight-bold">Date limite:</span> {{ date('d/m/Y', strtotime($offre->date_lim)) }}</a>
 					</div>
 					<div class="card-body">
 						<a href="{{ route('offre.detail', ['slug_pays'=>'tg','offre_slug'=>$offre->slug_offres])}}" class="btn btn-primary mt-1">Savoir plus</a>

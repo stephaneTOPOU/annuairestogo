@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateReponseCommentairesTable extends Migration
+class CreateReponseCommentaire2sTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateReponseCommentairesTable extends Migration
      */
     public function up()
     {
-        Schema::create('reponse_commentaires', function (Blueprint $table) {
+        Schema::create('reponse_commentaire2s', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('commentaires_id')->unsigned()->nullable();
             $table->string('nomR')->nullable();
-            $table->string('emailR')->nullable();
             $table->longText('messageR')->nullable();
-            $table->foreign('commentaires_id')->references('id')->on('commentaires')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('commentaires_id')->references('id')->on('commentaire_annonces')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ class CreateReponseCommentairesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reponse_commentaires');
+        Schema::dropIfExists('reponse_commentaire2s');
     }
 }
