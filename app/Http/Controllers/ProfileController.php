@@ -135,7 +135,11 @@ class ProfileController extends Controller
             ->select('*')
             ->orderBy('id', 'desc')
             ->get();
-        $commentaire2s = Reponse_commentaire::all();
+        $commentaire2s = DB::table('commentaires')
+            ->join('reponse_commentaires', 'reponse_commentaires.commentaires_id', '=', 'commentaires.id')
+            ->select('*')
+            ->orderBy('reponse_commentaires.id', 'desc')
+            ->get();
 
         $parametres = DB::table('pays')->where('pays.id', $pays_id[0]->id)
             ->join('parametres', 'pays.id', '=', 'parametres.pays_id')
@@ -172,7 +176,7 @@ class ProfileController extends Controller
             $data->email = $request->email;
             $data->commentaire = $request->message;
             $data->save();
-            return redirect()->back()->with('success', 'Merci de nous avoir contacté.');
+            return redirect()->back()->with('success', 'Merci pour le commentaire.');
         } catch (Exception $e) {
             return redirect()->back()->with('success', $e->getMessage());
         }
@@ -194,7 +198,7 @@ class ProfileController extends Controller
             $data->emailR = $request->emailR;
             $data->messageR = $request->messageR;
             $data->save();
-            return redirect()->back()->with('success', 'Merci de nous avoir contacté.');
+            return redirect()->back()->with('success', 'Merci pour la réponse');
         } catch (Exception $e) {
             return redirect()->back()->with('success', $e->getMessage());
         }

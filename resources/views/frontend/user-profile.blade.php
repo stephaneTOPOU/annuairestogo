@@ -32,7 +32,7 @@
 				</div>
 			</div>
 		</section>
-		<!--/Breadcrumb-->
+	<!--/Breadcrumb-->
 
         <!--User Profile-->
 		<section class="sptb">
