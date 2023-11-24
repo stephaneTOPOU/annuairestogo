@@ -68,58 +68,120 @@
                     @endforeach
                 </div>
                 <div class="header-text slide-header-text mt-0 mb-0">
-                    <div class="col-xl-8 col-lg-8 col-md-8 col-10 d-block mx-auto">
-                        <div class="search-background bg-transparent input-field">
-                            <div class="text-center text-white  mb-6 ">
-                                <h1 class="mb-1 d-none d-md-block">Trouver les meilleures entreprise</h1>
-                                <p class="d-none d-md-block">It is a long established fact that a reader will be distracted by the readable.</p>
+                    <div class="container">
+                        <div class="text-center text-white ">
+                            <h1 class="mb-1">Trouver les meilleures entreprise</h1>
+                            <p class="distracted">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-10 col-lg-12 col-md-12 d-block mx-auto">
+                                <div class="item-search-tabs">
+                                    <div class="item-search-menu">
+                                        <ul class="nav">
+                                            <li class=""><a href="#tab1" class="active" data-bs-toggle="tab">Entreprises</a></li>
+                                            <li><a href="#tab2" data-bs-toggle="tab">Professionnels</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="tab-content">
+                                        <div class="tab-pane active" id="tab1">
+                                            <form action="{{ route('recherche.pays',['slug_pays'=>'tg']) }}" method="GET" class="form row g-0 ">
+                                                <div class="form-group  col-xl-6 col-lg-3 col-md-12 mb-0 bg-white">
+                                                    <input type="text" class="form-control input-lg br-te-md-0 br-be-md-0 border-start-0" id="text4" placeholder="Trouver une entreprise" name="nom">
+                                                    <script type="text/javascript">
+                                                        var path = "{{ route('autocomplete.pays',['slug_pays'=>'tg']) }}" ;
+                                                        // path = path.replace(':pays_id', pays_id);
+                                
+                                                        $( "#text4" ).autocomplete({
+                                                            source: function( request, response ) {
+                                                                $.ajax({
+                                                                url: path,
+                                                                type: 'GET',
+                                                                dataType: "json",
+                                                                data: {
+                                                                    text4: request.term
+                                                                },
+                                                                success: function( data ) {
+                                                                    response( data );
+                                                                }
+                                                                });
+                                                            },
+                                                            select: function (event, ui) {
+                                                                $('#text4').val(ui.item.label);
+                                                                console.log(ui.item); 
+                                                                return false;
+                                                            }
+                                                            });
+                                                    </script>
+                                                </div>
+                                                <div class="form-group col-xl-4 col-lg-3 col-md-12 select2-lg  mb-0 bg-white">
+                                                    <select class="form-control select2-show-search  border-bottom-0" data-placeholder="Select Category" name="secteur" id="secteur">
+                                                        <optgroup label="Catégories">
+                                                            <option disabled selected>Secteur d'activité</option>
+                                                            @foreach ($souscategories as $souscategorie)
+                                                                <option value="{{ $souscategorie->libelle }}">{{ $souscategorie->libelle }}</option>
+                                                            @endforeach
+                                                        </optgroup>
+                                                    </select>
+                                                </div>
+                                                <div class="col-xl-2 col-lg-3 col-md-12 mb-0">
+                                                    <button type="submit" class="btn btn-lg btn-block btn-primary br-ts-md-0 br-bs-md-0">
+                                                        {{-- <i class="fa fa-search"></i> --}}
+                                                        Trouver
+                                                    </button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="tab-pane" id="tab2">
+                                            <form action="{{ route('user.list',['slug_pays'=>'tg']) }}" method="GET" class="form row g-0 ">
+                                                <div class="form-group  col-xl-6 col-lg-3 col-md-12 mb-0 bg-white">
+                                                    <input type="text" class="form-control input-lg br-te-md-0 br-be-md-0 border-start-0" id="t44" placeholder="Trouver un professionel" name="name">
+                                                    <script type="text/javascript">
+                                                        var path = "{{ route('user.autocomplete',['slug_pays'=>'tg']) }}" ;
+                                                        // path = path.replace(':pays_id', pays_id);
+                                
+                                                        $( "#t44" ).autocomplete({
+                                                            source: function( request, response ) {
+                                                                $.ajax({
+                                                                url: path,
+                                                                type: 'GET',
+                                                                dataType: "json",
+                                                                data1: {
+                                                                    t44: request.term
+                                                                },
+                                                                success: function( data1 ) {
+                                                                    response( data1 );
+                                                                }
+                                                                });
+                                                            },
+                                                            select: function (event, ui) {
+                                                                $('#t44').val(ui.item.label);
+                                                                console.log(ui.item); 
+                                                                return false;
+                                                            }
+                                                            });
+                                                    </script>
+                                                </div>
+                                                <div class="form-group col-xl-4 col-lg-3 col-md-12 select2-lg  mb-0 bg-white">
+                                                    <select class="form-control select2-show-search  border-bottom-0" data-placeholder="Select Category" name="secteur2" id="secteur2">
+                                                        <optgroup label="Catégories">
+                                                            <option disabled selected>Secteur d'activité</option>
+                                                            @foreach ($souscategories as $souscategorie)
+                                                                <option value="{{ $souscategorie->libelle }}">{{ $souscategorie->libelle }}</option>
+                                                            @endforeach
+                                                        </optgroup>
+                                                    </select>
+                                                </div>
+                                                <div class="col-xl-2 col-lg-3 col-md-12 mb-0">
+                                                    <button type="submit" class="btn btn-lg btn-block btn-primary br-ts-md-0 br-bs-md-0">
+                                                        {{-- <i class="fa fa-search"></i> --}}
+                                                        Trouver
+                                                    </button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <form action="{{ route('recherche.pays',['slug_pays'=>'tg']) }}" method="GET" class="form row g-0 ">
-                                <div class="form-group  col-xl-6 col-lg-3 col-md-12 mb-0 bg-white">
-                                    <input type="text" class="form-control input-lg br-te-md-0 br-be-md-0 border-start-0" id="text4" placeholder="Trouer une entreprise ou un professionel" name="nom">
-                                    <script type="text/javascript">
-                                        var path = "{{ route('autocomplete.pays',['slug_pays'=>'tg']) }}" ;
-                                        // path = path.replace(':pays_id', pays_id);
-                
-                                        $( "#text4" ).autocomplete({
-                                            source: function( request, response ) {
-                                                $.ajax({
-                                                url: path,
-                                                type: 'GET',
-                                                dataType: "json",
-                                                data: {
-                                                    text4: request.term
-                                                },
-                                                success: function( data ) {
-                                                    response( data );
-                                                }
-                                                });
-                                            },
-                                            select: function (event, ui) {
-                                                $('#text4').val(ui.item.label);
-                                                console.log(ui.item); 
-                                                return false;
-                                            }
-                                            });
-                                    </script>
-                                </div>
-                                <div class="form-group col-xl-4 col-lg-3 col-md-12 select2-lg  mb-0 bg-white">
-                                    <select class="form-control select2-show-search  border-bottom-0" data-placeholder="Select Category" name="secteur" id="secteur">
-                                        <optgroup label="Catégories">
-                                            <option disabled selected>Secteur d'activité</option>
-                                            @foreach ($souscategories as $souscategorie)
-                                                <option value="{{ $souscategorie->libelle }}">{{ $souscategorie->libelle }}</option>
-                                            @endforeach
-                                        </optgroup>
-                                    </select>
-                                </div>
-                                <div class="col-xl-2 col-lg-3 col-md-12 mb-0">
-                                    <button type="submit" class="btn btn-lg btn-block btn-primary br-ts-md-0 br-bs-md-0">
-                                        {{-- <i class="fa fa-search"></i> --}}
-                                        Trouver
-                                    </button>
-                                </div>
-                            </form>
                         </div>
                     </div>
                 </div><!-- /header-text -->

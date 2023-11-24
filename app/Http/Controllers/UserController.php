@@ -94,12 +94,59 @@ class UserController extends Controller
     {
         $pays_id = DB::table('pays')->where('slug_pays', $slug_pays)->select('id')->get();
 
+        $nom = request()->input('name');
+        $secteur = request()->input('secteur2');
+
+        if ($nom && $secteur) {
+            $users = DB::table('pays')->where('pays.id', $pays_id[0]->id)
+                ->join('users', 'pays.id', '=', 'users.pays_id')
+                ->where('users.nom', 'LIKE', "%$nom%")
+                ->orWhere('users.telephone1', 'LIKE', "%$nom%")
+                ->select('*')
+                ->orderBy('users.id', 'desc')
+                ->get();
+        } elseif ($nom) {
+            $users = DB::table('pays')->where('pays.id', $pays_id[0]->id)
+                ->join('users', 'pays.id', '=', 'users.pays_id')
+                ->where('users.nom', 'LIKE', "%$nom%")
+                ->orWhere('users.telephone1', 'LIKE', "%$nom%")
+                ->select('*')
+                ->orderBy('users.id', 'desc')
+                ->get();
+        } elseif ($secteur) {
+            $users = DB::table('pays')->where('pays.id', $pays_id[0]->id)
+                ->join('users', 'pays.id', '=', 'users.pays_id')
+                ->where('users.fonction', 'LIKE', "%$secteur%")
+                ->select('*')
+                ->orderBy('users.id', 'desc')
+                ->get();
+        } else {
+            $users = DB::table('pays')->where('pays.id', $pays_id[0]->id)
+                ->join('users', 'pays.id', '=', 'users.pays_id')
+                ->select('*')
+                ->orderBy('users.id', 'desc')
+                ->get();
+        }
+
         $parametres = DB::table('pays')->where('pays.id', $pays_id[0]->id)
             ->join('parametres', 'pays.id', '=', 'parametres.pays_id')
             ->where('parametres.id', 1)
             ->select('*')
             ->get();
             
-        return view('frontend.user-list', compact('parametres'));
+        return view('frontend.user-list', compact('parametres','users'));
+    }
+
+    public function user_autocomplete(Request $request, $slug_pays)
+    {
+        $pays_id = DB::table('pays')->where('slug_pays', $slug_pays)->select('id')->get();
+
+        $data1 = DB::table('pays')->where('pays.id', $pays_id[0]->id)
+            ->join('users', 'pays.id', '=', 'users.pays_id')
+            ->select('users.name as value', 'users.id')
+            ->where('users.name', 'LIKE', '%' . $request->get('t44') . '%')
+            ->get()
+            ->take(6);
+        return response()->json($data1);
     }
 }
