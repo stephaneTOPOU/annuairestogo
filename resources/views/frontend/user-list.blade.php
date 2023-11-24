@@ -37,24 +37,32 @@
 <div class="sptb">
     <div class="container">
         <div class="row">
-            <div class="col-lg-6 col-md-12">
-                <div class="card widgets-cards">
-                    <div class="card-body d-flex">
-                        <div class="widgets-cards-icons">
-                            <div class="wrp icon-circle bg-success">
-                                <i class="fa fa-search icons"></i>
+            @foreach ($users as $user)
+                <div class="col-lg-6 col-md-12">
+                    <a href="{{ route('user.profile',['slug_pays'=>'tg','slug_user'=>$user->slug_user]) }}">
+                        <div class="card widgets-cards">
+                            <div class="card-body d-flex">
+                                <div class="widgets-cards-icons">
+                                    <div class="wrp icon-circle bg-success">
+                                        @if ($user->photo1)
+                                            <img src="{{ asset('assets/images/user_profile') }}/{{ $user->photo1 }}" alt="{{ $user->name }}">
+                                        @else
+                                            <img src="{{ asset('assets/images/user_profile/user.png') }}" alt="{{ $user->name }}">
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="widgets-cards-data">
+                                    <div class="wrp text-wrapper">
+                                        <p>{{ $user->name }}</p>
+                                        <p class="text-muted mt-1 mb-0"><i class="icon icon-phone text-muted me-1"></i>{{ $user->telephone1 }}</p>
+                                        <p class="text-muted mt-1 mb-0"><i class="icon icon-bag text-muted me-1"></i>{{ $user->fonction }}</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="widgets-cards-data">
-                            <div class="wrp text-wrapper">
-                                <p>Search New Posts</p>
-                                <p class="text-muted mt-1 mb-0">ok</p>
-                                <p class="text-muted mt-1 mb-0">ok</p>
-                            </div>
-                        </div>
-                    </div>
+                    </a>
                 </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </div>

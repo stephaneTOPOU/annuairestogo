@@ -100,7 +100,7 @@ class UserController extends Controller
         if ($nom && $secteur) {
             $users = DB::table('pays')->where('pays.id', $pays_id[0]->id)
                 ->join('users', 'pays.id', '=', 'users.pays_id')
-                ->where('users.nom', 'LIKE', "%$nom%")
+                ->where('users.name', 'LIKE', "%$nom%")
                 ->orWhere('users.telephone1', 'LIKE', "%$nom%")
                 ->select('*')
                 ->orderBy('users.id', 'desc')
@@ -108,7 +108,7 @@ class UserController extends Controller
         } elseif ($nom) {
             $users = DB::table('pays')->where('pays.id', $pays_id[0]->id)
                 ->join('users', 'pays.id', '=', 'users.pays_id')
-                ->where('users.nom', 'LIKE', "%$nom%")
+                ->where('users.name', 'LIKE', "%$nom%")
                 ->orWhere('users.telephone1', 'LIKE', "%$nom%")
                 ->select('*')
                 ->orderBy('users.id', 'desc')
