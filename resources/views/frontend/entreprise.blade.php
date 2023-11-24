@@ -212,17 +212,26 @@
 
 					<!--Right Side Content-->
 					<div class="col-xl-3 col-lg-4 col-md-12">
-						<div class="search">
-                            @foreach ($tops as $top)
-                                <div class="img-div">
-                                    <img src="{{ asset('assets/images/products/popup') }}/{{ $top->image }}" alt="{{ $top->image }}" style="display: block; width: 70%; margin: auto;" width="100">
-                                </div>
-                            @endforeach
-                        </div>
-                        <br/>
-                        <h4 class="mia-be-class">Pharmacie de garde</h4>
-                        <div>
-                            <img src="{{ asset('assets/images/products/popup') }}/{{ $top2s->image }}" alt="{{ $top2s->image }}" style="display: block; width: 70%; margin: auto;" width="100">
+                        <div class="top">
+                            <div class="search">
+                                @foreach ($tops as $top)
+                                    <div class="img-div">
+                                        <img src="{{ asset('assets/images/products/popup') }}/{{ $top->image }}" alt="{{ $top->image }}">
+                                    </div>
+                                @endforeach
+                            </div>
+    
+                            <h4 class="mia-be-class">Pharmacie de garde</h4>
+    
+                            <div class="search">
+                                @foreach ($top2s as $top2)
+                                    <div class="img-div">
+                                        <a href="{{ route('entreprise.pays.profil',['slug_pays'=>$top2->slug_pays,'slug_categorie'=>$top2->slug_categorie,'slug_souscategorie'=>$top2->slug_souscategorie,'slug_entreprise'=>$top2->slug_entreprise]) }}">
+                                            <img src="{{ asset('assets/images/products/popup') }}/{{ $top2->photo1 }}" alt="{{ $top2->nom }}">
+                                        </a>
+                                    </div>
+                                @endforeach
+                            </div>
                         </div>
 					</div>
 					<!--/Right Side Content-->

@@ -15,24 +15,33 @@
 @include('frontend.topbar.topbar4')
 @include('frontend.topbar.topbar5')
 
-<!--Breadcrumb-->
-<section>
-    <div class="bannerimg cover-image bg-background3" data-bs-image-src="{{ asset('assets/images/banners/banner2.jpg') }}">
-        <div class="header-text mb-0">
+<div>
+    <div class="cover-image sptb-1 bg-background" data-bs-image-src="{{ asset('assets/images/banners/banner1.jpg') }}">
+        <div class="header-text1 mb-0">
             <div class="container">
-                <div class="text-center text-white ">
-                    <h1 class="">List</h1>
-                    <ol class="breadcrumb text-center">
-                        <li class="breadcrumb-item"><a href="{{ route('home.pays',['slug_pays'=>'tg']) }}">Home</a></li>
-                        {{-- <li class="breadcrumb-item"><a href="#">Pages</a></li> --}}
-                        <li class="breadcrumb-item active text-white" aria-current="page"> List</li>
-                    </ol>
+                <div class="row">
+                    <div class="col-xl-8 col-lg-12 col-md-12 d-block mx-auto">
+                        
+                    </div>
                 </div>
             </div>
+        </div><!-- /header-text -->
+    </div>
+</div>
+
+<!--Breadcrumb-->
+<div class="bg-white border-bottom">
+    <div class="container">
+        <div class="page-header">
+            <h4 class="page-title">User</h4>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ route('home.pays',['slug_pays'=>'tg']) }}">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">User</li>
+            </ol>
         </div>
     </div>
-</section>
-<!--/Breadcrumb-->
+</div>
+<!--/Breadcrumb-->  
 
 <div class="sptb">
     <div class="container">
