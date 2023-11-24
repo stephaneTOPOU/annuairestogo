@@ -7,6 +7,7 @@ use App\Models\SousCategories;
 use App\Models\Stat;
 use App\Models\User;
 use App\Models\Offre;
+use App\Models\Pub;
 use App\Models\SliderRecherche;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -226,6 +227,8 @@ class HomeController extends Controller
 
         $users = User::all();
 
-        return view('frontend.home', compact('users','banner', 'rejoints', 'minispots', 'reportages', 'magazines', 'parametres', 'villes', 'pays', 'subcategories', 'souscategories', 'honeures', 'nombresEntreprise', 'cat_annonce', 'annonce_all', 'annonces', 'inscrit', 'visiteur2', 'popups','offres'));
+        $pubs = Pub::all()->limit(4);
+
+        return view('frontend.home', compact('users','banner', 'rejoints', 'minispots', 'reportages', 'magazines', 'parametres', 'villes', 'pays', 'subcategories', 'souscategories', 'honeures', 'nombresEntreprise', 'cat_annonce', 'annonce_all', 'annonces', 'inscrit', 'visiteur2', 'popups','offres','pubs'));
     }
 }

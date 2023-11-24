@@ -18037,7 +18037,8 @@ hr {
 }
 
 .pricing-plans {
-    padding: 25px 0;
+    padding: 4em 0;
+    cursor: pointer;
 }
 
 .price-value1 {
@@ -18046,6 +18047,8 @@ hr {
     color: #fff;
     display: inline-block;
     position: relative;
+    width: fit-content;
+    transition: margin-left 2s ease;
 }
 
 .price-value1 i {
@@ -18056,8 +18059,24 @@ hr {
 
 .price-value1 span {
     font-size: 40px;
-    color: #fff;
-    margin-left: 17px;
+    color: red;
+    margin-left: 0;
+}
+
+.pricing-plans span:hover {
+    margin-left: 40px;
+    transition: margin-left 1s ease-in-out;
+}
+
+.price-value1 span:not(:hover) {
+    margin-left: 0;
+    transition: margin-left 1s ease-in-out;
+}
+
+.sous-titre {
+    padding: 25px;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 .pricing-plans .month {
@@ -18079,6 +18098,10 @@ hr {
     text-transform: capitalize;
 }
 
+.pricing-plans{
+    background-color: #fedb03;
+}
+
 .pricingTable2 .pricingTable2-sign-up {
     padding: 25px 0;
     border-top: 1px solid #e8ebf3;
@@ -18089,6 +18112,7 @@ hr {
     margin: 0 auto;
     padding: 10px 0;
     color: #fff;
+    background-color: red;
     text-transform: uppercase;
     border-radius: 50px;
     transition: 0.3s ease;
