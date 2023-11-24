@@ -18059,7 +18059,7 @@ hr {
 
 .price-value1 span {
     font-size: 40px;
-    color: red;
+    color: #ed1c24;
     margin-left: 0;
 }
 
@@ -18112,7 +18112,7 @@ hr {
     margin: 0 auto;
     padding: 10px 0;
     color: #fff;
-    background-color: red;
+    background-color: #ed1c24;
     text-transform: uppercase;
     border-radius: 50px;
     transition: 0.3s ease;

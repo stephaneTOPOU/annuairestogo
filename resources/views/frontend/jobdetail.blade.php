@@ -20,38 +20,35 @@
 <!--/Sliders Section-->
 
 		<!--BreadCrumb-->
-		@foreach ($offres_details as $details)
 			<div class="bg-white border-bottom">
 				<div class="container">
 					<div class="page-header">
-						<h4 class="page-title">{{ $details->titre }}</h4>
+						<h4 class="page-title">{{ $offres_details->titre }}</h4>
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item"><a href="{{ route('home.pays',['slug_pays'=>'tg']) }}">Accueil</a></li>
-							<li class="breadcrumb-item active" aria-current="page">{{ $details->titre }}</li>
+							<li class="breadcrumb-item active" aria-current="page">{{ $offres_details->titre }}</li>
 						</ol>
 					</div>
 				</div>
 			</div>
-		@endforeach
 		<!--/BreadCrumb-->
 
 		<!--Add listing-->
 		<section class="sptb">
 			<div class="container">
 				<div class="row">
-					@foreach ($offres_details as $details)
 					<div class="col-xl-8 col-lg-8 col-md-12">
 
 						<!--Classified Description-->
 						<div class="card overflow-hidden">
 							<div class="card-body h-100 boot-slider">
 								<div class="item-det mb-4">
-									<h3 >{{$details->titre}}</h3></a>
+									<h3 >{{$offres_details->titre}}</h3></a>
 									<div class=" d-flex">
 										<ul class="d-flex mb-0">
-											<li class="me-5"><i class="icon icon-briefcase text-muted me-1"></i> {{$details->entreprise}}</li>
-											<li class="me-5"><i class="icon icon-location-pin text-muted me-1"></i>{{$details->ville}}</li>
-											<li class="me-5"><i class="icon icon-calendar text-muted me-1"></i> {{ date('d/m/Y', strtotime($details->date_lim)) }}</li>
+											<li class="me-5"><i class="icon icon-briefcase text-muted me-1"></i> {{$offres_details->entreprise}}</li>
+											<li class="me-5"><i class="icon icon-location-pin text-muted me-1"></i>{{$offres_details->ville}}</li>
+											<li class="me-5"><i class="icon icon-calendar text-muted me-1"></i> {{ date('d/m/Y', strtotime($offres_details->date_lim)) }}</li>
 										</ul>
 									</div>
 								</div>
@@ -64,7 +61,7 @@
 							</div>
 							<div class="card-body">
 								<div class="mb-4">
-									<p>{!! $details->description !!}</p>
+									<p>{!! $offres_details->description !!}</p>
 								</div>
 							</div>
 							<div class="card-header">
@@ -72,7 +69,7 @@
 							</div>
 							<div class="card-body">
 								<div class="mb-4">
-									<p>{!! $details->mission !!}</p>
+									<p>{!! $offres_details->mission !!}</p>
 								</div>
 							</div>
 							<div class="card-header">
@@ -80,17 +77,17 @@
 							</div>
 							<div class="card-body">
 								<div class="mb-4">
-									<p>{!! $details->profil !!}</p>
+									<p>{!! $offres_details->profil !!}</p>
 								</div>
 							</div>
 							<div class="pt-4 pb-4 px-5 border-top border-top">
 								<div class="list-id">
 									<div class="row">
 										<div class="col">
-											<a class="mb-0">Lien : {{$details->lien}}</a>
+											<a class="mb-0">Lien : {{$offres_details->lien}}</a>
 										</div>
 										<div class="col col-auto">
-											<a class="mb-0 font-weight-bold">Date limite : {{ date('d/m/Y', strtotime($details->date_lim)) }}</a>
+											<a class="mb-0 font-weight-bold">Date limite : {{ date('d/m/Y', strtotime($offres_details->date_lim)) }}</a>
 										</div>
 									</div>
 								</div>
@@ -141,7 +138,6 @@
 						</div>
 						<!--/Related Posts-->
 					</div>
-					@endforeach
 					
 
 					<!--Right Side Content-->

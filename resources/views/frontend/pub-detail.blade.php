@@ -24,10 +24,10 @@
 		<div class="bg-white border-bottom">
 			<div class="container">
 				<div class="page-header">
-					<h4 class="page-title">Annonces</h4>
+					<h4 class="page-title">{{$pubs_details->titre}}</h4>
 					<ol class="breadcrumb">
-						<li class="breadcrumb-item"><a href="#">Accueil</a></li>
-						<li class="breadcrumb-item active" aria-current="page">Annonces</li>
+						<li class="breadcrumb-item"><a href="{{ route('home.pays',['slug_pays'=>'tg']) }}">Accueil</a></li>
+						<li class="breadcrumb-item active" aria-current="page">{{$pubs_details->titre}}</li>
 					</ol>
 				</div>
 			</div>
@@ -36,21 +36,19 @@
         <!--Add listing-->
 		<section class="sptb">
 			<div class="container">
-				<div class="row">
-					
+				<div class="row">					
 					<div class="col-xl-8 col-lg-8 col-md-12">
 
 						<!--Classified Description-->
 						<div class="card overflow-hidden">
 							<div class="card-body h-100 boot-slider">
 								<div class="item-det mb-4">
-									<a href="#" class="text-red"><h3 style="font-weight: bold; font-size: 3em;">{{$pubs_details->titre}}</h3></a>
+									<a class="text-red" style="color: #ed1c24"><h3 style="font-weight: bold; font-size: 3em;">{{$pubs_details->titre}}</h3></a>
 								</div>
 								<div class="mb-4">
 									<p>{{$pubs_details->sousTitre}}</p>
 								</div>
-							</div>
-							
+							</div>							
 						</div>
 						<div class="card overflow-hidden">
 							<div class="card-body h-100 boot-slider">
@@ -58,9 +56,13 @@
 									<div id="carouselFade" class="carousel slide carousel-fade" data-bs-ride="carousel"
 										data-bs-loop="false" data-bs-thumb="true">
 										<div class="carousel-inner slide-show-image" id=full-gallery>
-											<div class="carousel-item active"> <img src="../assets/images/products/products/togocom.jpg" alt="img"> </div>
-											<div class="carousel-item"> <img src="../assets/images/products/products/togocom.jpg" alt="img"> </div>
-											<div class="carousel-item"> <img src="../assets/images/products/products/togocom.jpg" alt="img"> </div>
+											<div class="carousel-item active"> <img src="{{asset('assets/images/products/products')}}/{{$pubs_details->image1}}" alt="{{$pubs_details->titre}}"> </div>
+											@if ($pubs_details->image2)
+												<div class="carousel-item"> <img src="{{asset('assets/images/products/products')}}/{{$pubs_details->image2}}" alt="{{$pubs_details->titre}}"> </div>
+											@endif
+											@if ($pubs_details->image3)
+											<div class="carousel-item"> <img src="{{asset('assets/images/products/products')}}/{{$pubs_details->image3}}" alt="{{$pubs_details->titre}}"> </div>
+											@endif
 											<div class="thumbcarousel">
 												<a class="carousel-control-prev" href="#carouselFade" role="button"
 													data-bs-slide="prev">
@@ -83,43 +85,6 @@
 							<div class="card-body">
 								<div class="mb-4">
 									<p>{{$pubs_details->detail}}</p>
-								</div>
-								<h4 class="mb-4">Specifications</h4>
-								<div class="row">
-									<div class="col-xl-12 col-md-12">
-										<div class="table-responsive">
-											<table class="table row table-borderless w-100 m-0 text-nowrap ">
-												<tbody class="col-lg-12 col-xl-6 p-0">
-													<tr>
-														<td><span class="font-weight-bold">Fuel Type :</span> Diesel</td>
-													</tr>
-													<tr>
-														<td><span class="font-weight-bold">Breaks :</span> Front , Rear</td>
-													</tr>
-													<tr>
-														<td><span class="font-weight-bold">Seating :</span> 5 members</td>
-													</tr>
-													<tr>
-														<td><span class="font-weight-bold">Colors :</span> Red , pink, Gray</td>
-													</tr>
-												</tbody>
-												<tbody class="col-lg-12 col-xl-6 p-0 border-top-0">
-													<tr>
-														<td><span class="font-weight-bold">Air Bags :</span> Available</td>
-													</tr>
-													<tr>
-														<td><span class="font-weight-bold">Colors :</span> Red , pink, Gray</td>
-													</tr>
-													<tr>
-														<td><span class="font-weight-bold">Engine :</span> F8D </td>
-													</tr>
-													<tr>
-														<td><span class="font-weight-bold">Power Windows :</span> Available </td>
-													</tr>
-												</tbody>
-											</table>
-										</div>
-									</div>
 								</div>
 							</div>
 						</div>
@@ -152,8 +117,6 @@
 						<!--/Related Posts-->
 					</div>
 					
-					
-
 					<!--Right Side Content-->
 					@foreach ($medias as $media)
 					<div class="col-xl-4 col-lg-4 col-md-12">						

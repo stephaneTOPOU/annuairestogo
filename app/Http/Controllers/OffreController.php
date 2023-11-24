@@ -27,9 +27,8 @@ class OffreController extends Controller
         ->where('offres.valide',1)->orderBy('offres.id', 'desc')
         ->get();
 
-        $offres_details = DB::table('offres')
-        ->where('offres.id', $offre_id[0]->id)
-        ->select('*')->get();
+        $offres_details = Offre::find($offre_id[0]->id);
+    
         return view('frontend.jobdetail', compact('offres','offres_details', 'parametres'));
     }
 }
