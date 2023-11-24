@@ -574,13 +574,8 @@
 							</div>
 							<ul class="d-flex">
 								<li class=""><a class="icons"><i class="icon icon-location-pin text-muted me-1"></i> {{$offre->ville}}</a></li>
-<<<<<<< HEAD
 								<li><a class="icons"><i class="icon icon-event text-muted me-1"></i>{{$offre->created_at}}</a></li>
 								<li class=""><a class="icons"><i class="icon icon-phone text-muted me-1"></i> {{$offre->telephone}}</a></li>
-=======
-								<li><a class="icons"><i class="icon icon-event text-muted me-1"></i>{{ date('d/m/Y', strtotime($offre->created_at)) }}</a></li>
-								<li class=""><a class="icons"><i class="icon icon-phone text-muted me-1"></i>{{$offre->telephone}}</a></li>
->>>>>>> 6d370f0b101f7a67ac05095b04dbbbaabcc1c979
 							</ul>
 							<p class="mb-0">{!! Str::limit($offre->description, 47) !!}</p>
 						</div>
