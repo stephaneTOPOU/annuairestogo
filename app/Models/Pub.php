@@ -19,8 +19,10 @@ class Pub extends Model
         'image1',
         'image2',
         'image3',
-        'spot',
-        'youtube',
         'libelle',
     ];
+    public function MediaPub()
+    {
+        return $this->hasMany(MediaPub::class);
+    }
 }

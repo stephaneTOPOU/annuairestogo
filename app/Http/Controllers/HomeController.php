@@ -226,7 +226,7 @@ class HomeController extends Controller
 
         $users = User::all();
 
-        $pubs = Pub::all()->limit(4);
+        $pubs = Pub::all()->take(4);
 
         return view('frontend.home', compact('users','banner', 'rejoints', 'minispots', 'reportages', 'magazines', 'parametres', 'villes', 'pays', 'subcategories', 'souscategories', 'honeures', 'nombresEntreprise', 'cat_annonce', 'annonce_all', 'annonces', 'inscrit', 'visiteur2', 'popups','offres','pubs'));
     }

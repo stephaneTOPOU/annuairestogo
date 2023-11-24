@@ -171,7 +171,7 @@ Route::post('/{slug_pays}/entreprise-devis', [\App\Http\Controllers\DevisControl
 
 
 
-
+Route::get('/{slug_pays}/{pub_slug}', [App\Http\Controllers\PubController::class, 'pubDetail'])->name('pub.detail');
 
 Route::get('/{slug_pays}/{slug_annonce}', [\App\Http\Controllers\NewsController::class, 'news'])->name('news');
 

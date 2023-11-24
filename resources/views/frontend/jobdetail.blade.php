@@ -127,7 +127,7 @@
 										<div class="item-card7-text">
 											<ul class="icon-card mb-0">
 												<li ><a class="icons"><i class="icon icon-briefcase text-muted me-1"></i>  {{$offre->entreprise}}</a></li>
-												<li><a class="icons"><i class="icon icon-event text-muted me-1"></i> @php echo \Carbon\Carbon::parse($offre->created_at)->diffForHumans(null, false, 'fr'); @endphp</a></li>
+												<li><a class="icons"><i class="icon icon-event text-muted me-1"></i> {{ date('d/m/Y', strtotime($offre->created_at)) }}</a></li>
 												<li class="mb-0"><a class="icons"><i class="icon icon-location-pin text-muted me-1"></i> {{$offre->ville}}</a></li>
 												<li class="mb-0"><a class="icons"><i class="icon icon-phone text-muted me-1"></i> {{$offre->telephone}}</a></li>
 											</ul>
