@@ -29,9 +29,8 @@
 @include('frontend.topbar.topbar5')
 
     <!--Sliders Section-->
-        @foreach ($sliders as $slider)
             <div>
-                <div class="cover-image sptb-1 bg-background" data-bs-image-src="{{ asset('assets/images/banners') }}/{{ $slider->image }}">
+                <div class="cover-image sptb-1 bg-background" data-bs-image-src="{{ asset('assets/images/banners/banner1.jpg') }}">
                     <div class="header-text1 mb-0">
                         <div class="container">
                             <div class="row">
@@ -43,29 +42,22 @@
                     </div><!-- /header-text -->
                 </div>
             </div>
-        @endforeach
 	<!--/Sliders Section-->
 
-    @foreach ($entreprises as $entreprise)
-        @foreach ($subcategories as $subcategorie)
-            @if ($subcategorie->identifiant3 == $entreprise->identifiant2)
-                <!--Breadcrumb-->
-                    <div class="bg-white border-bottom">
-                        <div class="container">
-                            <div class="page-header">
-                                <h4 class="page-title">{{ $entreprise->nom }}</h4>
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="{{ route('home.pays',['slug_pays'=>$entreprise->slug_pays]) }}">Home</a></li>
-                                    <li class="breadcrumb-item"><a href="{{ route('entreprise.pays',['slug_pays'=>$entreprise->slug_pays,'slug_categorie'=>$entreprise->slug_categorie,'slug_souscategorie'=>$entreprise->slug_souscategorie]) }}">{{ $entreprise->sousCategorie }}</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">{{ $entreprise->nom }}</li>
-                                </ol>
-                            </div>
-                        </div>
-                    </div>
-                <!--/Breadcrumb-->            
-            @endif
-        @endforeach
-    @endforeach
+    <!--Breadcrumb-->
+        <div class="bg-white border-bottom">
+            <div class="container">
+                <div class="page-header">
+                    <h4 class="page-title">Recherche</h4>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{{ route('home.pays',['slug_pays'=>'tg']) }}">Home</a></li>
+                        {{-- <li class="breadcrumb-item"><a href="{{ route('entreprise.pays',['slug_pays'=>$entreprise->slug_pays,'slug_categorie'=>$entreprise->slug_categorie,'slug_souscategorie'=>$entreprise->slug_souscategorie]) }}">{{ $entreprise->sousCategorie }}</a></li> --}}
+                        <li class="breadcrumb-item active" aria-current="page">Recherche</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    <!--/Breadcrumb-->            
 
     <!--Add listing-->
 		<section class="sptb">
@@ -218,18 +210,28 @@
 
 					<!--Right Side Content-->
 					<div class="col-xl-3 col-lg-4 col-md-12">
-						<div class="search">
-                            @foreach ($tops as $top)
-                                <div class="img-div">
-                                    <img src="{{ asset('assets/images/products/popup') }}/{{ $top->image }}" alt="{{ $top->image }}" style="display: block; width: 70%; margin: auto;" width="100">
-                                </div>
-                            @endforeach
+                        <div class="top">
+                            <div class="search">
+                                @foreach ($tops as $top)
+                                    <div class="img-div">
+                                        <img src="{{ asset('assets/images/products/popup') }}/{{ $top->image }}" alt="{{ $top->image }}">
+                                    </div>
+                                @endforeach
+                            </div>
+                            
+                            <h4 class="mia-be-class">Pharmacie de garde</h4>
+
+                            <div class="search">
+                                @foreach ($top2s as $top2)
+                                    <div class="img-div">
+                                        <a href="{{ route('entreprise.pays.profil',['slug_pays'=>$top2->slug_pays,'slug_categorie'=>$top2->slug_categorie,'slug_souscategorie'=>$top2->slug_souscategorie,'slug_entreprise'=>$top2->slug_entreprise]) }}">
+                                            <img src="{{ asset('assets/images/products/popup') }}/{{ $top2->photo1 }}" alt="{{ $top2->nom }}">
+                                        </a>
+                                    </div>
+                                @endforeach
+                            </div>
                         </div>
-                        <br/>
-                        <h4 class="mia-be-class">Pharmacie de garde</h4>
-                        <div>
-                            <img src="{{ asset('assets/images/products/popup') }}/{{ $top2s->image }}" alt="{{ $top2s->image }}" style="display: block; width: 70%; margin: auto;" width="100">
-                        </div>
+						
 					</div>
 					<!--/Right Side Content-->
 				</div>

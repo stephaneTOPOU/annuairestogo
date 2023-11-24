@@ -37,9 +37,12 @@ class EntrepriseController extends Controller
             ->get();
 
         $top2s = DB::table('pays')->where('pays.id', $pays_id[0]->id)
-            ->join('slider_recherche_lateral_bas', 'pays.id', '=', 'slider_recherche_lateral_bas.pays_id')
-            ->inRandomOrder()
-            ->first();
+            ->join('categories', 'pays.id', '=', 'categories.pays_id')
+            ->join('sous_categories', 'categories.id', '=', 'sous_categories.categorie_id')
+            ->join('entreprises', 'sous_categories.id', '=', 'entreprises.souscategorie_id')
+            ->select('*', 'sous_categories.libelle as sousCategorie', 'entreprises.id as identifiant', 'sous_categories.id as identifiant2')
+            ->where('entreprises.est_pharmacie', 1)
+            ->get();
 
         $parametres = DB::table('pays')->where('pays.id', $pays_id[0]->id)
             ->join('parametres', 'pays.id', '=', 'parametres.pays_id')
