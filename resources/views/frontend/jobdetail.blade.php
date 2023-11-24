@@ -131,7 +131,7 @@
 												<li class="mb-0"><a class="icons"><i class="icon icon-location-pin text-muted me-1"></i> {{$offre->ville}}</a></li>
 												<li class="mb-0"><a class="icons"><i class="icon icon-phone text-muted me-1"></i> {{$offre->telephone}}</a></li>
 											</ul>
-											<p class="mb-0">{!! $offre->description !!}</p>
+											<p class="mb-0">{!! Str::limit($offre->description, 47) !!}</p>
 										</div>
 									</div>
 								</div>

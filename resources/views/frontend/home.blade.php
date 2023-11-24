@@ -476,7 +476,7 @@
                                             @endif
                                         </div>
                                         <h4 class="font-weight-bold dark-grey-text mt-4">{{ $user->name }}</h4>
-                                        <h6 class="font-weight-bold blue-text "><i class="icon icon-bag text-muted me-1"></i>{{ $user->fonction }}</h6>
+                                        <h6 class="font-weight-bold-text "><i class="icon icon-bag text-muted me-1"></i>{{ $user->fonction }}</h6>
                                         <p class="font-weight-normal dark-grey-text"><i class="icon icon-phone text-muted me-1"></i>{{ $user->telephone1 }}</p>
                                         <div class="text-warning">
                                             <i class="fa fa-star"> </i>
@@ -569,14 +569,20 @@
 					<div class="card-body">
 						<div class="item-card7-desc">
 							<div class="item-card7-text">
-								<a href="#" class="text-dark"><h4 class="font-weight-semibold">{{$offre->titre}}</h4></a>
+								<a href="{{ route('offre.detail',['slug_pays'=>'tg','offre_slug'=>$offre->slug_offres])}}" class="text-dark"><h4 class="font-weight-semibold">{{$offre->titre}}</h4></a>
 							</div>
 							<ul class="d-flex">
+<<<<<<< HEAD
+								<li class=""><a class="icons"><i class="icon icon-location-pin text-muted me-1"></i> {{$offre->ville}}</a></li>
+								<li><a class="icons"><i class="icon icon-event text-muted me-1"></i>{{$offre->created_at}}</a></li>
+								<li class=""><a class="icons"><i class="icon icon-phone text-muted me-1"></i> {{$offre->telephone}}</a></li>
+=======
 								<li class=""><a href="#" class="icons"><i class="icon icon-location-pin text-muted me-1"></i> {{$offre->ville}}</a></li>
 								<li><a href="#" class="icons"><i class="icon icon-event text-muted me-1"></i>@php echo \Carbon\Carbon::parse($offre->created_at)->diffForHumans(null, false, 'fr'); @endphp</a></li>
 								<li class=""><a href="#" class="icons"><i class="icon icon-phone text-muted me-1"></i> {{$offre->telephone}}</a></li>
+>>>>>>> da576852cace90a82510106eaa7671ac9462d341
 							</ul>
-							<p class="mb-0">{!! $offre->description !!}</p>
+							<p class="mb-0">{!! Str::limit($offre->description, 47) !!}</p>
 						</div>
 					</div>
 					<div class="card-body">
@@ -603,98 +609,69 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xl-3 col-md-6 col-sm-12 col-lg-3">
-                        <div class="pricingTable2 pink">
-                            <div class="pricingTable2-header">
-                                <h3>Free</h3>
-                                <span>Lorem ipsum dolor</span>
+                        <a href="" style="color: #605e7e">
+                            <div class="pricingTable2">
+                                <div class="pricing-plans">
+                                    <span class="price-value1"><span>La fibre</span></span>
+                                </div>
+                                <div class="pricingContent2">
+                                    <h2 class="sous-titre">4G+ l’Internet Mobile</h2>
+                                    <p>
+                                        La 4G+ de TOGOCOM est une offre qui permet aux abonnés de se connecter à Internet mobile à Très Haut Débit.
+                                    </p>
+                                </div><!-- CONTENT BOX-->
+                                <div class="pricingTable2-sign-up">
+                                    <a href="#" class="btn btn-block btn-primary">Découvrir</a>
+                                </div><!-- BUTTON BOX-->
                             </div>
+                        </a>
+                        
+                    </div>
+                    <div class="col-xl-3 col-md-6 col-sm-12 col-lg-3">
+                        <div class="pricingTable2">
                             <div class="pricing-plans">
-                                <span class="price-value1"><i class="fa fa-usd"></i><span>0.00</span></span>
-                                <span class="month">/month</span>
+                                <span class="price-value1"><span>Tmoney</span></span>
                             </div>
                             <div class="pricingContent2">
-                                <ul>
-                                    <li><b>Free</b> Ad posting</li>
-                                    <li><b>0</b> Featured Ads</li>
-                                    <li><b>100%</b> Secure</li>
-                                    <li><b>Custome</b> Reviews</li>
-                                    <li><b>24/7</b> Support</li>
-                                </ul>
+                                <h2 class="sous-titre">4G+ l’Internet Mobile</h2>
+                                <p>
+                                    La 4G+ de TOGOCOM est une offre qui permet aux abonnés de se connecter à Internet mobile à Très Haut Débit.
+                                </p>
                             </div><!-- CONTENT BOX-->
                             <div class="pricingTable2-sign-up">
-                                <a href="#" class="btn btn-block btn-primary">sign up</a>
+                                <a href="#" class="btn btn-block">Découvrir</a>
                             </div><!-- BUTTON BOX-->
                         </div>
                     </div>
                     <div class="col-xl-3 col-md-6 col-sm-12 col-lg-3">
-                        <div class="pricingTable2 blue">
-                            <div class="pricingTable2-header">
-                                <h3>Premium</h3>
-                                <span>Lorem ipsum dolor</span>
-                            </div>
+                        <div class="pricingTable2">
                             <div class="pricing-plans">
-                                <span class="price-value1"><i class="fa fa-usd"></i><span>19</span></span>
-                                <span class="month">/month</span>
+                                <span class="price-value1"><span>La fibre</span></span>
                             </div>
                             <div class="pricingContent2">
-                                <ul>
-                                    <li><b>Featured</b> Ad posting</li>
-                                    <li><b>20</b> Featured Ads</li>
-                                    <li><b>100%</b> Secure</li>
-                                    <li><b>Custome</b> Reviews</li>
-                                    <li><b>24/7</b> Support</li>
-                                </ul>
+                                <h2 class="sous-titre">4G+ l’Internet Mobile</h2>
+                                <p>
+                                    La 4G+ de TOGOCOM est une offre qui permet aux abonnés de se connecter à Internet mobile à Très Haut Débit.
+                                </p>
                             </div><!-- CONTENT BOX-->
                             <div class="pricingTable2-sign-up">
-                                <a href="#" class="btn btn-block btn-secondary">sign up</a>
+                                <a href="#" class="btn btn-block">Découvrir</a>
                             </div><!-- BUTTON BOX-->
                         </div>
                     </div>
                     <div class="col-xl-3 col-md-6 col-sm-12 col-lg-3">
-                        <div class="pricingTable2 green">
-                            <div class="pricingTable2-header">
-                                <h3>Silver</h3>
-                                <span>Lorem ipsum dolor</span>
-                            </div>
+                        <div class="pricingTable2">
                             <div class="pricing-plans">
-                                <span class="price-value1"><i class="fa fa-usd"></i><span>67</span></span>
-                                <span class="month">/month</span>
+                                <span class="price-value1"><span>La fibre</span></span>
                             </div>
                             <div class="pricingContent2">
-                                <ul>
-                                    <li><b>Featured</b> Ad posting</li>
-                                    <li><b>30</b> Featured Ads</li>
-                                    <li><b>100%</b> Secure</li>
-                                    <li><b>Custome</b> Reviews</li>
-                                    <li><b>24/7</b> Support</li>
-                                </ul>
+                                <h2 class="sous-titre">4G+ l’Internet Mobile</h2>
+                                <p>
+                                    La 4G+ de TOGOCOM est une offre qui permet aux abonnés de se connecter à Internet mobile à Très Haut Débit.
+                                </p>
                             </div><!-- CONTENT BOX-->
                             <div class="pricingTable2-sign-up">
-                                <a href="#" class="btn btn-block btn-success">sign up</a>
-                            </div><!-- BUTTON BOX-->
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-md-6 col-sm-12 col-lg-3">
-                        <div class="pricingTable2 info">
-                            <div class="pricingTable2-header">
-                                <h3>Gold</h3>
-                                <span>Lorem ipsum dolor</span>
-                            </div>
-                            <div class="pricing-plans">
-                                <span class="price-value1"><i class="fa fa-usd"></i><span>78</span></span>
-                                <span class="month">/month</span>
-                            </div>
-                            <div class="pricingContent2">
-                                <ul>
-                                    <li><b>Featured</b> Ad posting</li>
-                                    <li><b>40</b> Featured Ads</li>
-                                    <li><b>100%</b> Secure</li>
-                                    <li><b>Custome</b> Reviews</li>
-                                    <li><b>24/7</b> Support</li>
-                                </ul>
-                            </div><!-- CONTENT BOX-->
-                            <div class="pricingTable2-sign-up">
-                                <a href="#" class="btn btn-block btn-info">sign up</a>
+                                <a href="#" class="btn btn-block">Découvrir</a>
                             </div><!-- BUTTON BOX-->
                         </div>
                     </div>
