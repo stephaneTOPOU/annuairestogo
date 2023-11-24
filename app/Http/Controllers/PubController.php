@@ -21,11 +21,13 @@ class PubController extends Controller
 
         $pubs = Pub::all()->take(4);
 
-        $pubs_details = DB::table('pubs')
-        ->where('pubs.id', $pub_id[0]->id)
-        ->select('*')->get();
+        $pubs_details = Pub::find($pub_id[0]->id);
+        
+        // DB::table('pubs')
+        // ->where('pubs.id', $pub_id[0]->id)
+        // ->select('*')->get();
 
-        $medias = DB::table('pubs')
+        $medias = DB::table('pubs')->where('pubs.id',$pub_id[0]->id)
         ->join('media_pubs', 'pubs.id','=','media_pubs.pubs_id')
         ->select('*')
         ->get();

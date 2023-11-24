@@ -37,17 +37,17 @@
 		<section class="sptb">
 			<div class="container">
 				<div class="row">
-					@foreach ($pubs_details as $detail)
+					
 					<div class="col-xl-8 col-lg-8 col-md-12">
 
 						<!--Classified Description-->
 						<div class="card overflow-hidden">
 							<div class="card-body h-100 boot-slider">
 								<div class="item-det mb-4">
-									<a href="#" class="text-red"><h3 style="font-weight: bold; font-size: 3em;">{{$detail->titre}}</h3></a>
+									<a href="#" class="text-red"><h3 style="font-weight: bold; font-size: 3em;">{{$pubs_details->titre}}</h3></a>
 								</div>
 								<div class="mb-4">
-									<p>{{$detail->sousTitre}}</p>
+									<p>{{$pubs_details->sousTitre}}</p>
 								</div>
 							</div>
 							
@@ -82,7 +82,7 @@
 							</div> -->
 							<div class="card-body">
 								<div class="mb-4">
-									<p>{{$detail->detail}}</p>
+									<p>{{$pubs_details->detail}}</p>
 								</div>
 								<h4 class="mb-4">Specifications</h4>
 								<div class="row">
@@ -151,7 +151,7 @@
 						</div>
 						<!--/Related Posts-->
 					</div>
-					@endforeach
+					
 					
 
 					<!--Right Side Content-->
