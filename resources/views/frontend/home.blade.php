@@ -166,7 +166,7 @@
                                                     </div>
                                                     <div class="form-group col-xl-4 col-lg-3 col-md-12 select2-lg  mb-0 bg-white">
                                                         <select class="form-control select2-show-search  border-bottom-0" data-placeholder="Select Category" name="secteur2" id="secteur2">
-                                                            <optgroup label="Catégories">
+                                                            <optgroup label="Fonction">
                                                                 <option disabled selected>fonction</option>
                                                                 @foreach ($users as $user)
                                                                     <option value="{{ $user->fonction }}">{{ $user->fonction }}</option>
