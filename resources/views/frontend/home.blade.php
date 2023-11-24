@@ -510,15 +510,9 @@
 								<a href="{{ route('offre.detail',['slug_pays'=>'tg','offre_slug'=>$offre->slug_offres])}}" class="text-dark"><h4 class="font-weight-semibold">{{$offre->titre}}</h4></a>
 							</div>
 							<ul class="d-flex">
-<<<<<<< HEAD
 								<li class=""><a class="icons"><i class="icon icon-location-pin text-muted me-1"></i> {{$offre->ville}}</a></li>
-								<li><a class="icons"><i class="icon icon-event text-muted me-1"></i>{{$offre->created_at}}</a></li>
-								<li class=""><a class="icons"><i class="icon icon-phone text-muted me-1"></i> {{$offre->telephone}}</a></li>
-=======
-								<li class=""><a href="#" class="icons"><i class="icon icon-location-pin text-muted me-1"></i> {{$offre->ville}}</a></li>
-								<li><a href="#" class="icons"><i class="icon icon-event text-muted me-1"></i>@php echo \Carbon\Carbon::parse($offre->created_at)->diffForHumans(null, false, 'fr'); @endphp</a></li>
-								<li class=""><a href="#" class="icons"><i class="icon icon-phone text-muted me-1"></i> {{$offre->telephone}}</a></li>
->>>>>>> da576852cace90a82510106eaa7671ac9462d341
+								<li><a class="icons"><i class="icon icon-event text-muted me-1"></i>{{ date('d/m/Y', strtotime($offre->created_at)) }}</a></li>
+								<li class=""><a class="icons"><i class="icon icon-phone text-muted me-1"></i>{{$offre->telephone}}</a></li>
 							</ul>
 							<p class="mb-0">{!! Str::limit($offre->description, 47) !!}</p>
 						</div>
@@ -546,73 +540,25 @@
             </div>
             <div class="container">
                 <div class="row">
+                    @foreach ($pubs as $pub)
                     <div class="col-xl-3 col-md-6 col-sm-12 col-lg-3">
-                        <a href="" style="color: #605e7e">
+                        <a href="{{ route('pub.detail', ['slug_pays'=>'tg','pub_slug'=>$pub->slug_pub])}}" style="color: #605e7e">
                             <div class="pricingTable2">
                                 <div class="pricing-plans">
-                                    <span class="price-value1"><span>La fibre</span></span>
+                                    <span class="price-value1"><span>{{$pub->titre}}</span></span>
                                 </div>
                                 <div class="pricingContent2">
-                                    <h2 class="sous-titre">4G+ l’Internet Mobile</h2>
-                                    <p>
-                                        La 4G+ de TOGOCOM est une offre qui permet aux abonnés de se connecter à Internet mobile à Très Haut Débit.
-                                    </p>
+                                    <h2 class="sous-titre">{{$pub->sousTitre}}</h2>
+                                    <p>{{$pub->description}}</p>
                                 </div><!-- CONTENT BOX-->
                                 <div class="pricingTable2-sign-up">
-                                    <a href="#" class="btn btn-block btn-primary">Découvrir</a>
+                                    <a href="{{ route('pub.detail', ['slug_pays'=>'tg','pub_slug'=>$pub->slug_pub])}}" class="btn btn-block btn-primary">Découvrir</a>
                                 </div><!-- BUTTON BOX-->
                             </div>
                         </a>
                         
                     </div>
-                    <div class="col-xl-3 col-md-6 col-sm-12 col-lg-3">
-                        <div class="pricingTable2">
-                            <div class="pricing-plans">
-                                <span class="price-value1"><span>Tmoney</span></span>
-                            </div>
-                            <div class="pricingContent2">
-                                <h2 class="sous-titre">4G+ l’Internet Mobile</h2>
-                                <p>
-                                    La 4G+ de TOGOCOM est une offre qui permet aux abonnés de se connecter à Internet mobile à Très Haut Débit.
-                                </p>
-                            </div><!-- CONTENT BOX-->
-                            <div class="pricingTable2-sign-up">
-                                <a href="#" class="btn btn-block">Découvrir</a>
-                            </div><!-- BUTTON BOX-->
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-md-6 col-sm-12 col-lg-3">
-                        <div class="pricingTable2">
-                            <div class="pricing-plans">
-                                <span class="price-value1"><span>La fibre</span></span>
-                            </div>
-                            <div class="pricingContent2">
-                                <h2 class="sous-titre">4G+ l’Internet Mobile</h2>
-                                <p>
-                                    La 4G+ de TOGOCOM est une offre qui permet aux abonnés de se connecter à Internet mobile à Très Haut Débit.
-                                </p>
-                            </div><!-- CONTENT BOX-->
-                            <div class="pricingTable2-sign-up">
-                                <a href="#" class="btn btn-block">Découvrir</a>
-                            </div><!-- BUTTON BOX-->
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-md-6 col-sm-12 col-lg-3">
-                        <div class="pricingTable2">
-                            <div class="pricing-plans">
-                                <span class="price-value1"><span>La fibre</span></span>
-                            </div>
-                            <div class="pricingContent2">
-                                <h2 class="sous-titre">4G+ l’Internet Mobile</h2>
-                                <p>
-                                    La 4G+ de TOGOCOM est une offre qui permet aux abonnés de se connecter à Internet mobile à Très Haut Débit.
-                                </p>
-                            </div><!-- CONTENT BOX-->
-                            <div class="pricingTable2-sign-up">
-                                <a href="#" class="btn btn-block">Découvrir</a>
-                            </div><!-- BUTTON BOX-->
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>

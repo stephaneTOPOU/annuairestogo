@@ -19,11 +19,17 @@ class PubController extends Controller
             ->select('*')
             ->get();
 
-        $pubs = Pub::all()->limit(4);
+        $pubs = Pub::all()->take(4);
 
         $pubs_details = DB::table('pubs')
         ->where('pubs.id', $pub_id[0]->id)
         ->select('*')->get();
-        return view('frontend.pub-detail', compact('pubs','pubs_details', 'parametres'));
+
+        $medias = DB::table('pubs')
+        ->join('media_pubs', 'pubs.id','=','media_pubs.pubs_id')
+        ->select('*')
+        ->get();
+
+        return view('frontend.pub-detail', compact('pubs','pubs_details', 'parametres', 'medias'));
     }
 }
