@@ -3,6 +3,7 @@
 @include('frontend.header.header3')
 @include('frontend.header.header4')
 @include('frontend.header.header5')
+<link href="{{ asset('assets/css/video-player.css') }}" rel="stylesheet"/>
 @include('frontend.header.header6')
 @include('frontend.header.header7')
 
@@ -129,19 +130,19 @@
 						<!--Related Posts-->
 						<div id="myCarousel5" class="owl-carousel owl-carousel-icons3">
 							<!-- Wrapper for carousel items -->
-							@foreach ($pubs_details as $details)
+							@foreach ($pubs as $pub)
 							<div>
-								<a href="{{ route('pub.detail', ['slug_pays'=>'tg','pub_slug'=>$details->slug_pub])}}" style="color: #605e7e">
+								<a href="{{ route('pub.detail', ['slug_pays'=>'tg','pub_slug'=>$pub->slug_pub])}}" style="color: #605e7e">
 									<div class="pricingTable2">
 										<div class="pricing-plans">
-											<span class="price-value1"><span>{{$details->titre}}</span></span>
+											<span class="price-value1"><span>{{$pub->titre}}</span></span>
 										</div>
 										<div class="pricingContent2">
-											<h2 class="sous-titre">{{$details->sousTitre}}</h2>
-											<p>{{$details->description}}</p>
+											<h2 class="sous-titre">{{$pub->sousTitre}}</h2>
+											<p>{{$pub->description}}</p>
 										</div><!-- CONTENT BOX-->
 										<div class="pricingTable2-sign-up">
-											<a href="{{ route('pub.detail', ['slug_pays'=>'tg','pub_slug'=>$details->slug_pub])}}" class="btn btn-block btn-primary">Découvrir</a>
+											<a href="{{ route('pub.detail', ['slug_pays'=>'tg','pub_slug'=>$pub->slug_pub])}}" class="btn btn-block btn-primary">Découvrir</a>
 										</div><!-- BUTTON BOX-->
 									</div>
 								</a>
@@ -221,4 +222,6 @@
 <!--JQuery Slider  js-->
 <script src="{{ asset('assets/plugins/boot-slider/boot-slider.min.js')}}"></script>
 <script src="{{ asset('assets/js/boots-slider.js')}}"></script>
+<!--modal Js-->
+<script src="{{ asset('assets/js/video-modal.js') }}"></script>
 @include('frontend.footer.footer18')
