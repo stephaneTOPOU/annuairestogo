@@ -129,6 +129,8 @@ Route::get('/{slug_pays}', [\App\Http\Controllers\HomeController::class, 'index_
 
 Route::get('/{slug_pays}/autocomplete', [\App\Http\Controllers\HomeController::class, 'autocompletion_pays'])->name('autocomplete.pays');
 
+Route::get('/{slug_pays}/autocomplete-user', [\App\Http\Controllers\UserController::class, 'user_autocomplete'])->name('user.autocomplete');
+
 Route::get('/{slug_pays}/rechercher-entreprise', [\App\Http\Controllers\HomeController::class, 'recherche_pays'])->name('recherche.pays');
 
 Route::get('/{slug_pays}/rechercher-professionnel', [\App\Http\Controllers\UserController::class, 'list'])->name('user.list');
