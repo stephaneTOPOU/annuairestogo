@@ -74,7 +74,7 @@
 												<div class="search-background mb-0">
                                                     <form class="form row g-0" action="{{ route('recherche.pays',['slug_pays'=>'tg']) }}" method="GET">
                                                         <div class="form-group  col-xl-6 col-lg-5 col-md-12 mb-0">
-                                                            <input type="text" class="form-control input-lg border-start-1 br-be-0 br-te-0" id="text4" placeholder="Trouver une entreprise ou un professionel" name="nom">
+                                                            <input type="text" class="form-control input-lg border-start-1 br-be-0 br-te-0" id="text4" placeholder="Trouver une entreprise" name="nom">
                                                             <script type="text/javascript">
                                                                 var path = "{{ route('autocomplete.pays',['slug_pays'=>'tg']) }}" ;
                                                                 // path = path.replace(':pays_id', pays_id);
@@ -130,9 +130,9 @@
                                                                 <a href="{{ route('entreprise.pays.profil',['slug_pays'=>$entreprise->slug_pays,'slug_categorie'=>$entreprise->slug_categorie,'slug_souscategorie'=>$entreprise->slug_souscategorie,'slug_entreprise'=>$entreprise->slug_entreprise]) }}"></a>
                                                                 <img src="{{ asset('assets/images/products') }}/{{ $entreprise->logo }}" alt="{{ $entreprise->nom }}" class="cover-image">
                                                             </div>
-                                                            <div class="item-card9-icons">
+                                                            {{-- <div class="item-card9-icons">
                                                                 <a href="{{ route('entreprise.pays.profil',['slug_pays'=>$entreprise->slug_pays,'slug_categorie'=>$entreprise->slug_categorie,'slug_souscategorie'=>$entreprise->slug_souscategorie,'slug_entreprise'=>$entreprise->slug_entreprise]) }}" class="item-card9-icons1 wishlist"> <i class="fa fa fa-heart-o"></i></a>
-                                                            </div>
+                                                            </div> --}}
                                                         </div>
                                                         <div class="card border-0 mb-0">
                                                             <div class="card-body ">
@@ -177,7 +177,7 @@
                                                                     <div class="card-body ">
                                                                         <div class="item-card9">
                                                                             <a href="{{ route('entreprise.pays.profil',['slug_pays'=>$entreprise->slug_pays,'slug_categorie'=>$entreprise->slug_categorie,'slug_souscategorie'=>$entreprise->slug_souscategorie,'slug_entreprise'=>$entreprise->slug_entreprise]) }}">{{ $entreprise->nom }}</a>
-                                                                            <a href="{{ route('entreprise.pays.profil',['slug_pays'=>$entreprise->slug_pays,'slug_categorie'=>$entreprise->slug_categorie,'slug_souscategorie'=>$entreprise->slug_souscategorie,'slug_entreprise'=>$entreprise->slug_entreprise]) }}" class="text-dark"><h4 class="font-weight-semibold mt-1">{{ $entreprise->sousCategorie }}</h4></a>
+                                                                            <a class="text-dark"><h4 class="font-weight-semibold mt-1">{{ $entreprise->sousCategorie }}</h4></a>
                                                                             <p class="mb-0 leading-tight">{{ $entreprise->adresse }}</p>
                                                                         </div>
                                                                     </div>
