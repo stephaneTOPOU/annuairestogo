@@ -29,10 +29,10 @@
 <div class="bg-white border-bottom">
     <div class="container">
         <div class="page-header">
-            <h4 class="page-title">Professionnel</h4>
+            <h4 class="page-title">Pharmacies de garde</h4>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ route('home.pays',['slug_pays'=>'tg']) }}">Home</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Professionnel</li>
+                <li class="breadcrumb-item active" aria-current="page">Pharmacies de garde</li>
             </ol>
         </div>
     </div>
@@ -42,25 +42,22 @@
 <div class="sptb">
     <div class="container">
         <div class="row">
-            @foreach ($users as $user)
-                <div class="col-lg-6 col-md-12">
-                    <a href="{{ route('user.profile',['slug_pays'=>'tg','slug_user'=>$user->slug_user]) }}">
-                        <div class="card widgets-cards">
-                            <div class="card-body d-flex">
-                                <div class="widgets-cards-icons">
-                                    <div class="wrp icon-circle bg-success">
-                                        @if ($user->photo1)
-                                            <img src="{{ asset('assets/images/user_profile') }}/{{ $user->photo1 }}" alt="{{ $user->name }}">
+            @foreach ($pharmacies as $pharmacie)
+                <div class="col-lg-3 col-md-12">
+                    <a href="{{ route('entreprise.pays.profil',['slug_pays'=>$pharmacie->slug_pays,'slug_categorie'=>$pharmacie->slug_categorie,'slug_souscategorie'=>$pharmacie->slug_souscategorie,'slug_entreprise'=>$pharmacie->slug_entreprise]) }}">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="item-box text-center">
+                                    <div class="stamp text-center stamp-lg bg-primary ">
+                                        @if ( $pharmacie->logo )
+                                            <img src="{{ asset('assets/images/products') }}/{{ $pharmacie->logo }}" class="avatar-xxl" alt="{{ $pharmacie->nom }}">
                                         @else
-                                            <img src="{{ asset('assets/images/user_profile/user.png') }}" alt="{{ $user->name }}">
+                                            <img src="{{ asset('assets/images/products') }}/{{ $pharmacie->logo }}" class="avatar-xxl" alt="{{ $pharmacie->nom }}">
                                         @endif
                                     </div>
-                                </div>
-                                <div class="widgets-cards-data">
-                                    <div class="wrp text-wrapper">
-                                        <p>{{ $user->name }}</p>
-                                        <p class="text-muted mt-1 mb-0"><i class="icon icon-phone text-muted me-1"></i>{{ $user->telephone1 }}</p>
-                                        <p class="text-muted mt-1 mb-0"><i class="icon icon-bag text-muted me-1"></i>{{ $user->fonction }}</p>
+                                    <div class="item-box-wrap">
+                                        <h6 class="mb-2">{{ $pharmacie->nom }}</h6>
+                                        {{-- <p class="text-muted mb-0">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium</p> --}}
                                     </div>
                                 </div>
                             </div>

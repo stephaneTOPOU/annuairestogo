@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\SliderRecherche;
 use App\Models\SousCategories;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -41,7 +42,7 @@ class EntrepriseController extends Controller
             ->join('sous_categories', 'categories.id', '=', 'sous_categories.categorie_id')
             ->join('entreprises', 'sous_categories.id', '=', 'entreprises.souscategorie_id')
             ->select('*', 'sous_categories.libelle as sousCategorie', 'entreprises.id as identifiant', 'sous_categories.id as identifiant2')
-            ->where('entreprises.est_pharmacie', 1)
+            ->where('entreprises.pharmacie_de_garde', 1)
             ->get();
 
         $parametres = DB::table('pays')->where('pays.id', $pays_id[0]->id)
@@ -50,6 +51,8 @@ class EntrepriseController extends Controller
             ->select('*')
             ->get();
 
-        return view('frontend.entreprise', compact('subcategories','entreprises', 'souscategories', 'tops', 'top2s', 'parametres'));
+        $sliders = SliderRecherche::all();
+
+        return view('frontend.entreprise', compact('subcategories','entreprises', 'souscategories', 'tops', 'top2s', 'parametres','sliders'));
     }
 }

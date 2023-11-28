@@ -30,17 +30,11 @@
 
     <!--Sliders Section-->
 		<div>
-			<div class="cover-image sptb-1 bg-background" data-bs-image-src="../assets/images/banners/banner1.jpg">
-				<div class="header-text1 mb-0">
-					<div class="container">
-						<div class="row">
-							<div class="col-xl-8 col-lg-12 col-md-12 d-block mx-auto">
-								
-							</div>
-						</div>
-					</div>
-				</div><!-- /header-text -->
-			</div>
+            <div class="owl-carousel testimonial-owl-carousel2 slider slider-header">
+                @foreach ($sliders as $slider)
+                <div class="item cover-image sptb-1 bg-background" data-bs-image-src="{{ asset('assets/images/banners') }}/{{ $slider->image }}"></div>
+            @endforeach
+            </div>
 		</div>
 	<!--/Sliders Section-->
 
@@ -132,9 +126,6 @@
                                                                 <a href="{{ route('entreprise.pays.profil',['slug_pays'=>$entreprise->slug_pays,'slug_categorie'=>$entreprise->slug_categorie,'slug_souscategorie'=>$entreprise->slug_souscategorie,'slug_entreprise'=>$entreprise->slug_entreprise]) }}"></a>
                                                                 <img src="{{ asset('assets/images/products') }}/{{ $entreprise->logo }}" alt="{{ $entreprise->nom }}" class="cover-image">
                                                             </div>
-                                                            <div class="item-card9-icons">
-                                                                <a href="{{ route('entreprise.pays.profil',['slug_pays'=>$entreprise->slug_pays,'slug_categorie'=>$entreprise->slug_categorie,'slug_souscategorie'=>$entreprise->slug_souscategorie,'slug_entreprise'=>$entreprise->slug_entreprise]) }}" class="item-card9-icons1 wishlist"> <i class="fa fa fa-heart-o"></i></a>
-                                                            </div>
                                                         </div>
                                                         <div class="card border-0 mb-0">
                                                             <div class="card-body ">
@@ -170,9 +161,6 @@
                                                                     <div class="item-card9-imgs">
                                                                         <a href="{{ route('entreprise.pays.profil',['slug_pays'=>$entreprise->slug_pays,'slug_categorie'=>$entreprise->slug_categorie,'slug_souscategorie'=>$entreprise->slug_souscategorie,'slug_entreprise'=>$entreprise->slug_entreprise]) }}"></a>
                                                                         <img src="{{ asset('assets/images/products') }}/{{ $entreprise->logo }}" alt="{{ $entreprise->nom }}" class="cover-image">
-                                                                    </div>
-                                                                    <div class="item-card9-icons">
-                                                                        <a href="{{ route('entreprise.pays.profil',['slug_pays'=>$entreprise->slug_pays,'slug_categorie'=>$entreprise->slug_categorie,'slug_souscategorie'=>$entreprise->slug_souscategorie,'slug_entreprise'=>$entreprise->slug_entreprise]) }}" class="item-card9-icons1 wishlist"> <i class="fa fa fa-heart-o"></i></a>
                                                                     </div>
                                                                 </div>
                                                                 <div class="card border-0 mb-0">
@@ -221,7 +209,7 @@
                                 @endforeach
                             </div>
     
-                            <h4 class="mia-be-class">Pharmacie de garde</h4>
+                            <h4 class="mia-be-class"><a href="{{ route('pharmacie',['slug_pays'=>'tg']) }}">Liste de pharmacie de garde</a></h4>
     
                             <div class="search">
                                 @foreach ($top2s as $top2)

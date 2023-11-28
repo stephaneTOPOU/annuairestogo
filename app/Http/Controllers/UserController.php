@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\SliderRecherche;
 use App\Models\SousCategories;
 use App\Models\User;
 use Exception;
@@ -51,7 +52,9 @@ class UserController extends Controller
             ->where('parametres.id', 1)
             ->select('*')
             ->get();
-        return view('frontend.user-profile', compact('users','parametres'));
+
+        $sliders = SliderRecherche::all();
+        return view('frontend.user-profile', compact('users','parametres','sliders'));
     }
 
     public function update($slug_pays, $slug_user, Request $request)
@@ -133,8 +136,10 @@ class UserController extends Controller
             ->where('parametres.id', 1)
             ->select('*')
             ->get();
+
+        $sliders = SliderRecherche::all();
             
-        return view('frontend.user-list', compact('parametres','users'));
+        return view('frontend.user-list', compact('parametres','users','sliders'));
     }
 
     public function user_autocomplete(Request $request, $slug_pays)
