@@ -120,12 +120,12 @@
                             <div class="card overflow-hidden">
                                     <div class="card-body h-100 boot-slider">
                                         <div class="item-det mb-4">
-                                            <a class="text-dark"><h3 >Gallerie</h3></a>
+                                            <a href="#" class="text-dark"><h3 >Gallerie</h3></a>
                                             <div class=" d-flex">
                                                 <ul class="d-flex mb-0">
-                                                    <li class="me-5"><a class="icons"><i class="icon icon-briefcase text-muted me-1"></i>{{ $Profil_entreprise->subcat }}</a></li>
-                                                    <li class="me-5"><a class="icons"><i class="icon icon-location-pin text-muted me-1"></i>{{$Profil_entreprise->adresse}}</a></li>
-                                                    <li class="me-5"><a class="icons"><i class="icon icon-eye text-muted me-1"></i>{{$Profil_entreprise->vue}}</a></li>
+                                                    <li class="me-5"><a href="#" class="icons"><i class="icon icon-briefcase text-muted me-1"></i>{{ $Profil_entreprise->subcat }}</a></li>
+                                                    <li class="me-5"><a href="#" class="icons"><i class="icon icon-location-pin text-muted me-1"></i>{{$Profil_entreprise->adresse}}</a></li>
+                                                    <li class="me-5"><a href="#" class="icons"><i class="icon icon-eye text-muted me-1"></i>{{$Profil_entreprise->vue}}</a></li>
                                                 </ul>
                                                 <div class=" d-inline-flex me-5">
                                                     <div class="rating-star sm my-rating-5 me-2" data-rating="4.0">
@@ -214,8 +214,8 @@
                                                     </div>
                                                     <div class="item-card7-text">
                                                         <ul class="icon-card mb-0">
-                                                            <li ><a class="icons"><i class="icon icon-location-pin text-muted me-1"></i>{{ $entreprise_sim->adresse }}</a></li>
-                                                            <li class="mb-0"><a class="icons"><i class="icon icon-phone text-muted me-1"></i>(+228) <b>{{ $entreprise_sim->telephone1 }}</b></a></li>
+                                                            <li ><a href="#" class="icons"><i class="icon icon-location-pin text-muted me-1"></i>{{ $entreprise_sim->adresse }}</a></li>
+                                                            <li class="mb-0"><a href="#" class="icons"><i class="icon icon-phone text-muted me-1"></i>(+228) <b>{{ $entreprise_sim->telephone1 }}</b></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -354,7 +354,7 @@
                                     <div class="profile-pic mb-0">
                                         <img src="{{ asset('assets/images/products') }}/{{ $Profil_entreprise->logo }}" class="avatar-xxl" alt="{{ $Profil_entreprise->nom }}">
                                         <div >
-                                            <a class="text-dark"><h4 class="mt-3 mb-1 font-weight-semibold">{{ $Profil_entreprise->nom }}</h4></a>
+                                            <a href="userprofile.html" class="text-dark"><h4 class="mt-3 mb-1 font-weight-semibold">{{ $Profil_entreprise->nom }}</h4></a>
                                             <span class="text-muted">{{ $Profil_entreprise->subcat }}</span>
                                             {{-- <h6 class="mt-2 mb-0"><a href="#" class="btn btn-primary btn-sm">See All Ads</a></h6> --}}
                                         </div>
@@ -377,15 +377,15 @@
                                     <h4 class="mb-4">Informations</h4>
                                     <div>
                                         @if ($Profil_entreprise->email)
-                                            <h6><span class="font-weight-semibold"><i class="fa fa-envelope me-3 mb-2"></i></span><a class="text-body">{{ $Profil_entreprise->email }}</a></h6>
+                                            <h6><span class="font-weight-semibold"><i class="fa fa-envelope me-3 mb-2"></i></span><a href="#" class="text-body">{{ $Profil_entreprise->email }}</a></h6>
                                         @endif
                                         
-                                        <h6><span class="font-weight-semibold"><i class="fa fa-phone me-3  mb-2"></i></span><a class="text-primary">(+228) <b>{{ $Profil_entreprise->telephone1 }}</b> @if ($Profil_entreprise->telephone2)
+                                        <h6><span class="font-weight-semibold"><i class="fa fa-phone me-3  mb-2"></i></span><a href="#" class="text-primary">(+228) <b>{{ $Profil_entreprise->telephone1 }}</b> @if ($Profil_entreprise->telephone2)
                                             <b>• {{ $Profil_entreprise->telephone2 }}</b>
                                         @endif</a></h6>
 
                                         @if ($Profil_entreprise->siteweb)
-                                            <h6><span class="font-weight-semibold"><i class="fa fa-link me-3 "></i></span><a class="text-primary">{{ $Profil_entreprise->siteweb }}</a></h6>
+                                            <h6><span class="font-weight-semibold"><i class="fa fa-link me-3 "></i></span><a href="#" class="text-primary">{{ $Profil_entreprise->siteweb }}</a></h6>
                                         @endif
                                     </div>
                                     {{-- <div class=" item-user-icons mt-4">
@@ -728,7 +728,7 @@
 			</div>
 		</div>
 
-<script src="{{ asset('assets/js/company-hours.js') }}"></script>
+
 @include('frontend.footer.footer2')
 @include('frontend.footer.footer3')
 @include('frontend.footer.footer4')
@@ -761,7 +761,8 @@
 		if (navigator.share) {
 			// Utilisation de l'API Web Share pour partager
 			navigator.share({
-				title: '{{ $Profil_entreprise->nom }}',
+				title: 'Titre de votre contenu à partager',
+				text: 'Description de votre contenu à partager',
 				url: window.location.href,
 			})
 			.then(() => console.log('Contenu partagé avec succès'))
@@ -775,6 +776,7 @@
 		}
 	});
 </script>
+<script src="{{ asset('assets/js/company-hours.js') }}"></script>
 @include('frontend.footer.footer18')
 
 

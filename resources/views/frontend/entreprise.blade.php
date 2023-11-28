@@ -153,44 +153,6 @@
                                                 </div>
                                             @endforeach
 										</div>
-										<div class="tab-pane" id="tab-12">
-											<div class="row">
-                                                @foreach ($entreprises as $entreprise)
-                                                    <div class="col-lg-6 col-md-12 col-xl-4">
-                                                        <div class="card overflow-hidden">
-                                                            <div class="d-md-flex">
-                                                                <div class="item-card9-img">
-                                                                    {{-- <div class="arrow-ribbon bg-primary">Rent</div> --}}
-                                                                    <div class="item-card9-imgs">
-                                                                        <a href="{{ route('entreprise.pays.profil',['slug_pays'=>$entreprise->slug_pays,'slug_categorie'=>$entreprise->slug_categorie,'slug_souscategorie'=>$entreprise->slug_souscategorie,'slug_entreprise'=>$entreprise->slug_entreprise]) }}"></a>
-                                                                        <img src="{{ asset('assets/images/products') }}/{{ $entreprise->logo }}" alt="{{ $entreprise->nom }}" class="cover-image">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="card border-0 mb-0">
-                                                                    <div class="card-body ">
-                                                                        <div class="item-card9">
-                                                                            <a href="{{ route('entreprise.pays.profil',['slug_pays'=>$entreprise->slug_pays,'slug_categorie'=>$entreprise->slug_categorie,'slug_souscategorie'=>$entreprise->slug_souscategorie,'slug_entreprise'=>$entreprise->slug_entreprise]) }}">{{ $entreprise->nom }}</a>
-                                                                            <a href="{{ route('entreprise.pays.profil',['slug_pays'=>$entreprise->slug_pays,'slug_categorie'=>$entreprise->slug_categorie,'slug_souscategorie'=>$entreprise->slug_souscategorie,'slug_entreprise'=>$entreprise->slug_entreprise]) }}" class="text-dark"><h4 class="font-weight-semibold mt-1">{{ $entreprise->sousCategorie }}</h4></a>
-                                                                            <p class="mb-0 leading-tight">{{ $entreprise->adresse }}</p>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="card-footer pt-4 pb-4">
-                                                                        <div class="item-card9-footer d-flex">
-                                                                            <div class="item-card9-cost">
-                                                                                <i class="fa fa-phone"></i> (+228) <b>{{ $entreprise->telephone1 }}</b>
-                                                                            </div>
-                                                                            <div class="ms-auto">
-                                                                                <div class="rating-star sm my-rating-5" data-stars="4s"></div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                @endforeach
-											</div>
-										</div>
 									</div>
 								</div>
 								<div class="center-block text-center">
