@@ -126,12 +126,9 @@
                                                                 <a href="{{ route('entreprise.pays.profil',['slug_pays'=>$entreprise->slug_pays,'slug_categorie'=>$entreprise->slug_categorie,'slug_souscategorie'=>$entreprise->slug_souscategorie,'slug_entreprise'=>$entreprise->slug_entreprise]) }}"></a>
                                                                 <img src="{{ asset('assets/images/products') }}/{{ $entreprise->logo }}" alt="{{ $entreprise->nom }}" class="cover-image">
                                                             </div>
-<<<<<<< HEAD
                                                             {{-- <div class="item-card9-icons">
                                                                 <a href="{{ route('entreprise.pays.profil',['slug_pays'=>$entreprise->slug_pays,'slug_categorie'=>$entreprise->slug_categorie,'slug_souscategorie'=>$entreprise->slug_souscategorie,'slug_entreprise'=>$entreprise->slug_entreprise]) }}" class="item-card9-icons1 wishlist"> <i class="fa fa fa-heart-o"></i></a>
                                                             </div> --}}
-=======
->>>>>>> 3a7098a464b1c7785a73d14eefe9a2eb9311a417
                                                         </div>
                                                         <div class="card border-0 mb-0">
                                                             <div class="card-body ">

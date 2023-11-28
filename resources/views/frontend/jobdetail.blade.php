@@ -225,16 +225,6 @@
 <!--JQuery Slider  js-->
 <script src="{{ asset('assets/plugins/boot-slider/boot-slider.min.js')}}"></script>
 <script src="{{ asset('assets/js/boots-slider.js')}}"></script>
-
-{{-- <script>
-	document.getElementById('boutonPartage').addEventListener('click', function() {
-		// Ouvrir une fenêtre de partage avec les options Twitter et Facebook
-		window.open('https://twitter.com/intent/tweet?url=' + encodeURIComponent(window.location.href) + '&text=Regardez cette page!', '_blank');
-		window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href), '_blank');
-		// Vous pouvez ajouter d'autres réseaux sociaux ici
-	});
-</script> --}}
-
 <script>
 	document.getElementById('boutonPartage').addEventListener('click', function() {
 		// Vérifier si l'API Web Share est disponible dans le navigateur
