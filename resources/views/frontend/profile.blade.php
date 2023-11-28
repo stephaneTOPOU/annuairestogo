@@ -6,6 +6,7 @@
 @include('frontend.header.header6')
 @include('frontend.header.header7')
 
+<link rel="stylesheet" href="{{ asset('assets/css/companies.css') }}" />
 <!-- autocompletion-->
 
     {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"> --}}
@@ -25,67 +26,71 @@
 @include('frontend.topbar.topbar5')
 
     <!--Sliders Section-->
-    <div>
-        <div class="cover-image sptb-1 bg-background" data-bs-image-src="{{ asset('assets/images/banners/banner1.jpg') }}">
-            <div class="header-text1 mb-0">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xl-8 col-lg-12 col-md-12 d-block mx-auto">
-                            <div class="text-center text-white ">
-                                
-                            </div>
-                            <div class=" search-background bg-transparent">
-                                <form class="form row g-0" action="{{ route('recherche.pays',['slug_pays'=>'tg']) }}" method="GET">
-                                    <div class="form-group  col-xl-6 col-lg-5 col-md-12 mb-0">
-                                        <input type="text" class="form-control input-lg border-start-0 br-0" id="text4" placeholder="Trouver une entreprise ou un professionel" name="nom">
-                                        <script type="text/javascript">
-                                            var path = "{{ route('autocomplete.pays',['slug_pays'=>'tg']) }}" ;
-                                            // path = path.replace(':pays_id', pays_id);
-                    
-                                            $( "#text4" ).autocomplete({
-                                                source: function( request, response ) {
-                                                    $.ajax({
-                                                    url: path,
-                                                    type: 'GET',
-                                                    dataType: "json",
-                                                    data: {
-                                                        text4: request.term
-                                                    },
-                                                    success: function( data ) {
-                                                        response( data );
-                                                    }
-                                                    });
-                                                },
-                                                select: function (event, ui) {
-                                                    $('#text4').val(ui.item.label);
-                                                    console.log(ui.item); 
-                                                    return false;
-                                                }
-                                                });
-                                        </script>
+		<div>
+            <div class="owl-carousel testimonial-owl-carousel2 slider slider-header">
+                @foreach ($Profil_entreprises as $Profil_entreprise)
+                <div class="item cover-image sptb-1 bg-background" data-bs-image-src="{{ asset('assets/images/banners/entreprise') }}/{{ $Profil_entreprise->photo4 }}">
+                    <div class="header-text1 mb-0">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-xl-8 col-lg-12 col-md-12 d-block mx-auto">
+                                    <div class="text-center text-white ">
+                                        
                                     </div>
-                                    <div class="form-group col-xl-4 col-lg-4 select2-lg  col-md-12 mb-0">
-                                        <select class="form-control select2-show-search border-bottom-0 w-100" data-placeholder="Select" name="secteur">
-                                            <optgroup label="Catégories">
-                                                <option disabled selected>Secteur d'activité</option>
-                                                @foreach ($souscategories as $souscategorie)
-                                                    <option value="{{ $souscategorie->libelle }}">{{ $souscategorie->libelle }}</option>
-                                                @endforeach
-                                            </optgroup>
-                                        </select>
+                                    <div class=" search-background bg-transparent">
+                                        <form class="form row g-0" action="{{ route('recherche.pays',['slug_pays'=>'tg']) }}" method="GET">
+                                            <div class="form-group  col-xl-6 col-lg-5 col-md-12 mb-0">
+                                                <input type="text" class="form-control input-lg border-start-0 br-0" id="text4" placeholder="Trouver une entreprise ou un professionel" name="nom">
+                                                <script type="text/javascript">
+                                                    var path = "{{ route('autocomplete.pays',['slug_pays'=>'tg']) }}" ;
+                                                    // path = path.replace(':pays_id', pays_id);
+                            
+                                                    $( "#text4" ).autocomplete({
+                                                        source: function( request, response ) {
+                                                            $.ajax({
+                                                            url: path,
+                                                            type: 'GET',
+                                                            dataType: "json",
+                                                            data: {
+                                                                text4: request.term
+                                                            },
+                                                            success: function( data ) {
+                                                                response( data );
+                                                            }
+                                                            });
+                                                        },
+                                                        select: function (event, ui) {
+                                                            $('#text4').val(ui.item.label);
+                                                            console.log(ui.item); 
+                                                            return false;
+                                                        }
+                                                        });
+                                                </script>
+                                            </div>
+                                            <div class="form-group col-xl-4 col-lg-4 select2-lg  col-md-12 mb-0">
+                                                <select class="form-control select2-show-search border-bottom-0 w-100" data-placeholder="Select" name="secteur">
+                                                    <optgroup label="Catégories">
+                                                        <option disabled selected>Secteur d'activité</option>
+                                                        @foreach ($souscategories as $souscategorie)
+                                                            <option value="{{ $souscategorie->libelle }}">{{ $souscategorie->libelle }}</option>
+                                                        @endforeach
+                                                    </optgroup>
+                                                </select>
+                                            </div>
+                                            <div class="col-xl-2 col-lg-3 col-md-12 mb-0">
+                                                <button type="submit" class="btn btn-lg btn-block btn-primary br-bs-0 br-ts-0">Trouver</button>
+                                            </div>
+                                        </form>
                                     </div>
-                                    <div class="col-xl-2 col-lg-3 col-md-12 mb-0">
-                                        <button type="submit" class="btn btn-lg btn-block btn-primary br-bs-0 br-ts-0">Trouver</button>
-                                    </div>
-                                </form>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </div><!-- /header-text -->
                 </div>
-            </div><!-- /header-text -->
-        </div>
-    </div>
-    <!--/Sliders Section-->
+            @endforeach
+            </div>
+		</div>
+	<!--/Sliders Section-->
 
     @foreach ($Profil_entreprises as $Profil_entreprise)
         <!--BreadCrumb-->
@@ -126,13 +131,7 @@
                                                     <div class="rating-star sm my-rating-5 me-2" data-rating="4.0">
                                                     </div>4.0
                                                 </div>
-                                                <div class="rating-star d-flex ">
-                                                    <div class=" me-2">
-                                                        <div class="rating-star sm">
-                                                            <i class="fa fa-heart text-danger"></i>
-                                                        </div>
-                                                    </div> 135
-                                                </div>
+                                                
                                             </div>
                                         </div>
                                         <div class="product-slider carousel-slide-2">
@@ -347,7 +346,7 @@
 
                         <!--Right Side Content-->
                         <div class="col-xl-4 col-lg-4 col-md-12">
-                            <div class="card">
+                            <div class="card company-info">
                                 <div class="card-header">
                                     <h3 class="card-title">Entreprise information</h3>
                                 </div>
@@ -361,6 +360,18 @@
                                         </div>
 
                                     </div>
+                                </div>
+                                <div class="premium company-status">
+                                    @if ($Profil_entreprise->premium == 1)
+                                        <span><i class="fa fa-gem"></i> PREMIUM</span>
+                                    @endif
+                                    @if ($Profil_entreprise->pharmacie_de_garde == 1)
+                                        <span><i class="fa fa-check"></i> <b>Garde</b></span>
+                                    @else
+                                        <span class="closed"><i class="fa fa-shop-slash"></i> <b>Fermé</b></span>
+                                    @endif
+                                    {{-- <span class="closed"><i class="fa fa-shop-slash"></i> <b>Fermé</b></span> --}}
+                                    <span class="opened"><i class="fa fa-check"></i> <b>Ouvert</b></span>
                                 </div>
                                 <div class="card-body item-user">
                                     <h4 class="mb-4">Informations</h4>
@@ -411,40 +422,27 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="card">
+                            <div class="company-info card">
                                 <div class="card-header">
                                     <h3 class="card-title">Horaires de service</h3>
                                 </div>
+                                <div class="premium">
+                                    @if ($Profil_entreprise->pharmacie_de_garde == 1)
+                                        <span><i class="fa fa-check"></i> <b>Garde</b></span>
+                                    @else
+                                        <span class="closed"><i class="fa fa-shop-slash"></i> <b>Fermé</b></span>
+                                    @endif
+                                    {{-- <span class="closed"><i class="fa fa-shop-slash"></i> <b>Fermé</b></span> --}}
+                                    <span class="opened"><i class="fa fa-check"></i> <b>Ouvert</b></span>
+                                </div>
                                 <table class="horaires">
                                     <tbody>
-                                        <tr>
-                                            <td>Lundi</td>
-                                            <td>00H00 - 00H00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Mardi</td>
-                                            <td>00H00 - 00H00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Mercredi</td>
-                                            <td>00H00 - 00H00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Jeudi</td>
-                                            <td>00H00 - 00H00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Vendredi</td>
-                                            <td>00H00 - 00H00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Samedi</td>
-                                            <td>00H00 - 00H00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Dimanche</td>
-                                            <td>00H00 - 00H00</td>
-                                        </tr>
+                                        @foreach ($horaires as $horaire)
+                                            <tr>
+                                                <td class="days" value>{{ $horaire->jour }}</td>
+                                                <td class="hours text-center" colspan="1">{{ $horaire->h_ouverture }}</td>
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>                              
                             </div>
@@ -730,6 +728,7 @@
 			</div>
 		</div>
 
+<script src="{{ asset('assets/js/company-hours.js') }}"></script>
 @include('frontend.footer.footer2')
 @include('frontend.footer.footer3')
 @include('frontend.footer.footer4')
