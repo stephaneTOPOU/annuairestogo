@@ -231,8 +231,7 @@
 		if (navigator.share) {
 			// Utilisation de l'API Web Share pour partager
 			navigator.share({
-				title: 'Titre de votre contenu à partager',
-				text: 'Description de votre contenu à partager',
+				title: '{{$offres_details->titre}}',
 				url: window.location.href,
 			})
 			.then(() => console.log('Contenu partagé avec succès'))
