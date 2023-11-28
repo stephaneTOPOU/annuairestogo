@@ -165,6 +165,8 @@ Route::get('/{slug_pays}/categorie', [\App\Http\Controllers\CategoriesController
 
 Route::post('/{slug_pays}/entreprise-devis', [\App\Http\Controllers\DevisController::class, 'devis'])->name('devis.pays.entreprise');
 
+Route::get('/{slug_pays}/liste-pharmacie-de-garde', [\App\Http\Controllers\PharmacieController::class, 'pharmacie'])->name('pharmacie');
+
 
 
 

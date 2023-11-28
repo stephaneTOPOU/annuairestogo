@@ -15,24 +15,30 @@
 @include('frontend.topbar.topbar4')
 @include('frontend.topbar.topbar5')
 
-    <!--Breadcrumb-->
-		<section>
-			<div class="bannerimg cover-image bg-background3" data-bs-image-src="{{ asset('assets/images/banners/banner2.jpg') }}">
-				<div class="header-text mb-0">
-					<div class="container">
-						<div class="text-center text-white ">
-							<h1 class="">{{ $users->name }}</h1>
-							<ol class="breadcrumb text-center">
-								<li class="breadcrumb-item"><a href="{{ route('home.pays',['slug_pays'=>'tg']) }}">Home</a></li>
-								{{-- <li class="breadcrumb-item"><a href="#">Pages</a></li> --}}
-								<li class="breadcrumb-item active text-white" aria-current="page"> {{ $users->name }}</li>
-							</ol>
+	<!--Sliders Section-->
+		<div>
+			<div class="owl-carousel testimonial-owl-carousel2 slider slider-header">
+				@foreach ($sliders as $slider)
+				<div class="bannerimg cover-image sptb-1 bg-background3" data-bs-image-src="{{ asset('assets/images/banners') }}/{{ $slider->image }}">
+					<div class="header-text mb-0">
+							<div class="container">
+								<div class="text-center text-white ">
+									<h1 class="">{{ $users->name }}</h1>
+									<ol class="breadcrumb text-center">
+										<li class="breadcrumb-item"><a href="{{ route('home.pays',['slug_pays'=>'tg']) }}">Home</a></li>
+										{{-- <li class="breadcrumb-item"><a href="#">Pages</a></li> --}}
+										<li class="breadcrumb-item active text-white" aria-current="page"> {{ $users->name }}</li>
+									</ol>
+								</div>
+							</div>
 						</div>
-					</div>
 				</div>
+			@endforeach
 			</div>
-		</section>
-	<!--/Breadcrumb-->
+		</div>
+	<!--/Sliders Section-->
+
+    
 
         <!--User Profile-->
 		<section class="sptb">
