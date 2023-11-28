@@ -3,10 +3,10 @@
 @include('frontend.header.header3')
 @include('frontend.header.header4')
 @include('frontend.header.header5')
+<link rel="stylesheet" href="{{ asset('assets/css/companies.css') }}" />
 @include('frontend.header.header6')
 @include('frontend.header.header7')
 
-<link rel="stylesheet" href="{{ asset('assets/css/companies.css') }}" />
 <!-- autocompletion-->
 
     {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"> --}}
@@ -225,100 +225,6 @@
                             </div>
                             <!--/Related Posts-->
 
-                            <!--Comments-->
-                            <div class="card">
-                                    <div class="card-header">
-                                        <h3 class="card-title">Rating And Reviews</h3>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="mb-4">
-                                                    <p class="mb-2">
-                                                        <span class="fs-14 ms-2"><i class="fa fa-star text-yellow me-2"></i>5</span>
-                                                    </p>
-                                                    <div class="progress progress-md mb-4 h-4">
-                                                        <div class="progress-bar bg-success" style="width: 100%;">9,232</div>
-                                                    </div>
-                                                </div>
-                                                <div class="mb-4">
-                                                    <p class="mb-2">
-                                                        <span class="fs-14 ms-2"><i class="fa fa-star text-yellow me-2"></i>4</span>
-                                                    </p>
-                                                    <div class="progress progress-md mb-4 h-4">
-                                                        <div class="progress-bar bg-info" style="width: 80%;">8,125</div>
-                                                    </div>
-                                                </div>
-                                                <div class="mb-4">
-                                                    <p class="mb-2">
-                                                        <span class="fs-14 ms-2"><i class="fa fa-star text-yellow me-2"></i>  3</span>
-                                                    </p>
-                                                    <div class="progress progress-md mb-4 h-4">
-                                                        <div class="progress-bar bg-primary" style="width: 60%;">6,263</div>
-                                                    </div>
-                                                </div>
-                                                <div class="mb-4">
-                                                    <p class="mb-2">
-                                                        <span class="fs-14 ms-2"><i class="fa fa-star text-yellow me-2"></i>  2</span>
-                                                    </p>
-                                                    <div class="progress progress-md mb-4 h-4">
-                                                        <div class="progress-bar bg-secondary" style="width: 30%;">3,463</div>
-                                                    </div>
-                                                </div>
-                                                <div class="mb-5">
-                                                    <p class="mb-2">
-                                                        <span class="fs-14 ms-2"><i class="fa fa-star text-yellow me-2"></i>  1</span>
-                                                    </p>
-                                                    <div class="progress progress-md mb-4 h-4">
-                                                        <div class="progress-bar bg-orange" style="width: 20%;">1,456</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="card-body p-0">
-                                        @foreach ($commentaires as $commentaire)
-                                            <div class="media mt-0 p-5">
-                                                <div class="d-flex me-3">
-                                                    <a href="#"><img class="media-object brround" alt="64x64" src="{{ asset('assets/images/user_profile/user.png') }}"> </a>
-                                                </div>
-                                                <div class="media-body">
-                                                    <h5 class="mt-0 mb-1 font-weight-semibold">{{ $commentaire->nom }}
-                                                        <span class="fs-14 ms-0" data-bs-toggle="tooltip" data-bs-placement="top" title="verified"><i class="fa fa-check-circle-o text-success"></i></span>
-                                                        <span class="fs-14 ms-2"> 4.5 <i class="fa fa-star text-yellow"></i></span>
-                                                    </h5>
-                                                    <small class="text-muted"><span><i class="fa fa-calendar"></i>{{$commentaire->created_at}}</span>  <span><i class=" ms-3 fa fa-clock-o"></i> {{$commentaire->created_at}} </span> </small>
-                                                    <p class="font-13  mb-2 mt-2">
-                                                    {{ $commentaire->commentaire }}
-                                                    </p>
-
-                                                    <a href="{{ route('entreprise.pays.comment2',['slug_pays'=>$Profil_entreprise->slug_pays,'slug_categorie'=>$Profil_entreprise->slug_categorie,'slug_souscategorie'=>$Profil_entreprise->slug_souscategorie,'slug_entreprise'=>$Profil_entreprise->slug_entreprise,'id'=>$commentaire->id ]) }}" class="me-2" data-bs-toggle="modal" data-bs-target="#Comment"><span class="badge badge-primary">Répondre</span></a>
-
-                                                    @foreach ($commentaire2s as $commentaire2)
-                                                        @if ($commentaire2->commentaires_id == $commentaire->id )
-                                                            <div class="media mt-5">
-                                                                <div class="d-flex me-3">
-                                                                    <a href="#"> <img class="media-object brround" alt="64x64" src="{{ asset('assets/images/user_profile/user.png') }}"> </a>
-                                                                </div>
-                                                                <div class="media-body">
-                                                                    <h5 class="mt-0 mb-1 font-weight-semibold">{{ $commentaire2->nomR }}<span class="fs-14 ms-0" data-bs-toggle="tooltip" data-bs-placement="top" title="verified"><i class="fa fa-check-circle-o text-success"></i></span></h5>
-                                                                    <small class="text-muted"><span><i class="fa fa-calendar"></i>{{$commentaire2->created_at}} </span> <span><i class=" ms-3 fa fa-clock-o"></i> {{$commentaire2->created_at}}  </span></small>
-                                                                    <p class="font-13  mb-2 mt-2">
-                                                                        {{$commentaire2->messageR}}
-                                                                    </p>
-                                                                    <a href="{{ route('entreprise.pays.comment2',['slug_pays'=>$Profil_entreprise->slug_pays,'slug_categorie'=>$Profil_entreprise->slug_categorie,'slug_souscategorie'=>$Profil_entreprise->slug_souscategorie,'slug_entreprise'=>$Profil_entreprise->slug_entreprise,'id'=>$commentaire->id ]) }}" data-bs-toggle="modal" data-bs-target="#Comment"><span class="badge badge-default">Répondre</span></a>
-                                                                </div>
-                                                            </div>
-                                                        @endif
-                                                    @endforeach
-                                                </div>
-                                            </div>
-                                        @endforeach
-                                    </div>
-                            </div>
-
-                            <!--/Comments-->
                             <div class="card mb-lg-0">
                                 <div class="card-header">
                                         <h3 class="card-title">Laisser un commentaire</h3>
@@ -426,7 +332,7 @@
                                 <div class="card-header">
                                     <h3 class="card-title">Horaires de service</h3>
                                 </div>
-                                <div class="premium">
+                                <div class="premium mt-4">
                                     @if ($Profil_entreprise->pharmacie_de_garde == 1)
                                         <span><i class="fa fa-check"></i> <b>Garde</b></span>
                                     @else
