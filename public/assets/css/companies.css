@@ -27,11 +27,6 @@
     width: 32%;
 }
 
-.company-info {
-    display: flex;
-    padding: 1em;
-}
-
 .company-info .premium span {
     padding: .25em .75em;
     border: 2px solid #207200;
@@ -39,6 +34,8 @@
     color: #207200;
     background: none;
     font-size: 14px;
+    margin-left: 1em;
+    margin-top: 1em !important;
 }
 
 .company-info .premium .closed {
@@ -96,25 +93,10 @@
     border-radius: .5em;
 }
 
-.company-info .horaires {
-    width: 100%;
-    margin-top: 1em;
-    border-collapse: collapse;
-}
-
-.company-info .horaires td {
-    padding: .5em 0;
-    font-size: 14px;
-}
-
-.company-info .horaires .text-center {
-    text-align: center;
-}
-
 .company-info .horaires .font-bold {
     font-weight: bold;
     color: var(--color-primary);
-    background-color: rgba(255, 165, 0, .1);
+    background-color: rgba(212, 33, 122, 0.1);
 }
 
 .company-info .contacts ul li {
