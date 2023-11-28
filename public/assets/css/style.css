@@ -17281,6 +17281,12 @@ hr {
     display: table-cell;
 }
 
+.horaires {
+    margin: 15px;
+}
+.horaires td{
+    padding: 8px;
+}
 .navbar {
     position: relative;
     display: -ms-flexbox;

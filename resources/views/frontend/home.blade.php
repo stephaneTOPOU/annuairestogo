@@ -223,6 +223,8 @@
     </section>
     <!--/Categories-->
 
+
+
     <!--Latest Ads-->
     <section class="sptb bg-white">
         <div class="container">
@@ -594,6 +596,35 @@
 		</div>
 	</section>
 	<!-- /Annonces -->
+
+    <!--Slider latteral -->
+    <section class="stpb">
+        <div class="container mb-8">
+            <div id="myCarousel1" class="owl-carousel slider-owl-carousel">
+                <div class="col-xl-12 col-md-12">
+                    <div class="item-card-img" style="border-radius: 7px">
+                        <img src="../assets/images/products/odg.jpg" alt="img" class="rounded-top-7">
+                    </div>
+                </div>
+                <div class="col-xl-12 col-md-12">
+                    <div class="item-card-img" style="border-radius: 7px">
+                        <img src="../assets/images/products/sivop.jpg" alt="img" class="rounded-top-7">
+                    </div>
+                </div>
+                <div class="col-xl-12 col-md-12">
+                    <div class="item-card-img" style="border-radius: 7px">
+                        <img src="../assets/images/products/krystal.jpg" alt="img" class="rounded-top-7">
+                    </div>
+                </div>
+                <div class="col-xl-12 col-md-12">
+                    <div class="item-card-img" style="border-radius: 7px">
+                        <img src="../assets/images/products/baco.jpg" alt="img" class="rounded-top-7">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--/Slider latteral-->
 
     <!--Pricing Tables 2-->
     <section class="sptb bg-white">
