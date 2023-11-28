@@ -36,6 +36,23 @@
         <!--Contact-->
 		<div class="sptb bg-white mb-0 pb-0">
 			<div class="container">
+				<div class="row mb-6">
+					@foreach ($parametres as $parametre)
+					<div class="col-lg-12 col-xl-12  col-md-12">
+						@if ($parametre->geolocalisation)
+                        	<iframe
+                        	    src="{{ $parametre->geolocalisation }}"
+                        	    style="border:0; width: 100%; height: 300px;" allowfullscreen="true" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                        	</iframe>
+                        @else
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126931.66373132428!2d1.24669075!3d6.1823217!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1023e1c113185419%3A0x3224b5422caf411d!2zTG9tw6k!5e0!3m2!1sfr!2stg!4v1675847364153!5m2!1sfr!2stg" style="border:0; width: 100%; height: 300px;" allowfullscreen="true" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        @endif
+					</div>
+					@endforeach
+					
+				</div>
 				<div class="row">
 				    <div class="col-lg-5 col-xl-4  col-md-12  d-block mb-7">
 						@foreach ($parametres as $parametre)
