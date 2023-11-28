@@ -225,6 +225,54 @@
                             </div>
                             <!--/Related Posts-->
 
+                            <!--Comments-->
+                            <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Rating And Reviews</h3>
+                                    </div>
+
+                                    <div class="card-body p-0">
+                                        @foreach ($commentaires as $commentaire)
+                                            <div class="media mt-0 p-5">
+                                                <div class="d-flex me-3">
+                                                    <a href="#"><img class="media-object brround" alt="64x64" src="{{ asset('assets/images/user_profile/user.png') }}"> </a>
+                                                </div>
+                                                <div class="media-body">
+                                                    <h5 class="mt-0 mb-1 font-weight-semibold">{{ $commentaire->nom }}
+                                                        <span class="fs-14 ms-0" data-bs-toggle="tooltip" data-bs-placement="top" title="verified"><i class="fa fa-check-circle-o text-success"></i></span>
+                                                        <span class="fs-14 ms-2"> 4.5 <i class="fa fa-star text-yellow"></i></span>
+                                                    </h5>
+                                                    <small class="text-muted"><span><i class="fa fa-calendar"></i>{{$commentaire->created_at}}</span>  <span><i class=" ms-3 fa fa-clock-o"></i> {{$commentaire->created_at}} </span> </small>
+                                                    <p class="font-13  mb-2 mt-2">
+                                                    {{ $commentaire->commentaire }}
+                                                    </p>
+
+                                                    <a href="{{ route('entreprise.pays.comment2',['slug_pays'=>$Profil_entreprise->slug_pays,'slug_categorie'=>$Profil_entreprise->slug_categorie,'slug_souscategorie'=>$Profil_entreprise->slug_souscategorie,'slug_entreprise'=>$Profil_entreprise->slug_entreprise,'id'=>$commentaire->id ]) }}" class="me-2" data-bs-toggle="modal" data-bs-target="#Comment"><span class="badge badge-primary">Répondre</span></a>
+
+                                                    @foreach ($commentaire2s as $commentaire2)
+                                                        @if ($commentaire2->commentaires_id == $commentaire->id )
+                                                            <div class="media mt-5">
+                                                                <div class="d-flex me-3">
+                                                                    <a href="#"> <img class="media-object brround" alt="64x64" src="{{ asset('assets/images/user_profile/user.png') }}"> </a>
+                                                                </div>
+                                                                <div class="media-body">
+                                                                    <h5 class="mt-0 mb-1 font-weight-semibold">{{ $commentaire2->nomR }}<span class="fs-14 ms-0" data-bs-toggle="tooltip" data-bs-placement="top" title="verified"><i class="fa fa-check-circle-o text-success"></i></span></h5>
+                                                                    <small class="text-muted"><span><i class="fa fa-calendar"></i>{{$commentaire2->created_at}} </span> <span><i class=" ms-3 fa fa-clock-o"></i> {{$commentaire2->created_at}}  </span></small>
+                                                                    <p class="font-13  mb-2 mt-2">
+                                                                        {{$commentaire2->messageR}}
+                                                                    </p>
+                                                                    <a href="{{ route('entreprise.pays.comment2',['slug_pays'=>$Profil_entreprise->slug_pays,'slug_categorie'=>$Profil_entreprise->slug_categorie,'slug_souscategorie'=>$Profil_entreprise->slug_souscategorie,'slug_entreprise'=>$Profil_entreprise->slug_entreprise,'id'=>$commentaire->id ]) }}" data-bs-toggle="modal" data-bs-target="#Comment"><span class="badge badge-default">Répondre</span></a>
+                                                                </div>
+                                                            </div>
+                                                        @endif
+                                                    @endforeach
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                            </div>
+
+                            <!--/Comments-->
                             <div class="card mb-lg-0">
                                 <div class="card-header">
                                         <h3 class="card-title">Laisser un commentaire</h3>
