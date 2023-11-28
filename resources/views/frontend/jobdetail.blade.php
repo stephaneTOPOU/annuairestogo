@@ -94,7 +94,7 @@
 							</div>
 							<div class="card-footer">
 								<div class="icons">
-									<a href="#" class="btn btn-info icons"><i class="icon icon-share me-1"></i> Partager</a>
+									<button id="boutonPartage" class="btn btn-info icons"><i class="icon icon-share me-1"></i> Partager</button>
 									<a href="#" class="btn btn-secondary icons"><i class="icon icon-printer  me-1"></i> Imprimer</a>
 								</div>
 							</div>
@@ -142,7 +142,7 @@
 
 					<!--Right Side Content-->
 					<div class="col-xl-4 col-lg-4 col-md-12">
-						<div class="card">
+						{{-- <div class="card">
 							<div class="card-header">
 								<h3 class="card-title">Posted By</h3>
 							</div>
@@ -177,7 +177,7 @@
 									<a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#contact"><i class="fa fa-user"></i> Contact Me</a>
 								</div>
 							</div>
-						</div>
+						</div> --}}
 						<div class="card">
 							<div class="card-header">
 								<h3 class="card-title">Map location</h3>
@@ -225,4 +225,35 @@
 <!--JQuery Slider  js-->
 <script src="{{ asset('assets/plugins/boot-slider/boot-slider.min.js')}}"></script>
 <script src="{{ asset('assets/js/boots-slider.js')}}"></script>
+
+{{-- <script>
+	document.getElementById('boutonPartage').addEventListener('click', function() {
+		// Ouvrir une fenêtre de partage avec les options Twitter et Facebook
+		window.open('https://twitter.com/intent/tweet?url=' + encodeURIComponent(window.location.href) + '&text=Regardez cette page!', '_blank');
+		window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href), '_blank');
+		// Vous pouvez ajouter d'autres réseaux sociaux ici
+	});
+</script> --}}
+
+<script>
+	document.getElementById('boutonPartage').addEventListener('click', function() {
+		// Vérifier si l'API Web Share est disponible dans le navigateur
+		if (navigator.share) {
+			// Utilisation de l'API Web Share pour partager
+			navigator.share({
+				title: 'Titre de votre contenu à partager',
+				text: 'Description de votre contenu à partager',
+				url: window.location.href,
+			})
+			.then(() => console.log('Contenu partagé avec succès'))
+			.catch((error) => console.error('Erreur lors du partage : ', error));
+		} else {
+			// Si l'API Web Share n'est pas disponible, rediriger vers une autre méthode de partage
+			window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href), '_blank');
+			window.open('https://twitter.com/intent/tweet?url=' + encodeURIComponent(window.location.href) + '&text=Regardez cette page!', '_blank');
+			
+			// Ajoutez d'autres réseaux sociaux ici ou une autre alternative de partage
+		}
+	});
+</script>
 @include('frontend.footer.footer18')

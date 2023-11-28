@@ -219,7 +219,7 @@
 		loop: true,
 		nav: false,
 		autoplay: true,
-		dots: true,
+		dots: false,
 		responsive: {
 			0: {
 				items: 1
@@ -262,6 +262,7 @@
 		autoplayTimeout: 5000,
 		autoplay: true,
 		dots: false,
+		nav: true,
 		responsive: {
 			0: {
 				items: 1,
@@ -302,6 +303,28 @@
 			1300: {
 				items: 4,
 				nav: true
+			}
+		}
+	})
+
+	// ______________slider-owl-carousel
+	var owl = $('.slider-owl-carousel');
+	owl.owlCarousel({
+		loop: true,
+		rewind: false,
+		margin: 25,
+		autoplay: true,
+		animateIn: 'fadeInDowm',
+		animateOut: 'fadeOutDown',
+		autoplayTimeout: 8000, // set value to change speed
+		autoplayHoverPause: true,
+		dots: false,
+		nav: false,
+		responsiveClass: true,
+		responsive: {
+			0: {
+				items: 1,
+				nav: false
 			}
 		}
 	})

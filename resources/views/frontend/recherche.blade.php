@@ -68,7 +68,7 @@
 												<div class="search-background mb-0">
                                                     <form class="form row g-0" action="{{ route('recherche.pays',['slug_pays'=>'tg']) }}" method="GET">
                                                         <div class="form-group  col-xl-6 col-lg-5 col-md-12 mb-0">
-                                                            <input type="text" class="form-control input-lg border-start-0 br-be-0 br-te-0" id="text4" placeholder="Trouer une entreprise ou un professionel" name="nom">
+                                                            <input type="text" class="form-control input-lg border-start-1 br-be-0 br-te-0" id="text4" placeholder="Trouver une entreprise ou un professionel" name="nom">
                                                             <script type="text/javascript">
                                                                 var path = "{{ route('autocomplete.pays',['slug_pays'=>'tg']) }}" ;
                                                                 // path = path.replace(':pays_id', pays_id);

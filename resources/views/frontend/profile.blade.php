@@ -187,7 +187,7 @@
                                     
                                     <div class="card-footer">
                                         <div class="icons">
-                                            <a href="#" class="btn btn-info icons"><i class="icon icon-share me-1"></i> Partager </a>
+                                            <button id="boutonPartage" class="btn btn-info icons"><i class="icon icon-share me-1"></i> Partager </button>
                                             <a href="#" class="btn btn-secondary icons"><i class="icon icon-printer  me-1"></i> Imprimer </a>
                                         </div>
                                     </div>
@@ -392,20 +392,6 @@
                             </div>
                             <div class="card">
                                 <div class="card-header">
-                                    <h3 class="card-title">Partager</h3>
-                                </div>
-                                <div class="card-body product-filter-desc">
-                                    <div class="product-filter-icons text-center">
-                                        <a href="#" class="facebook-bg"><i class="fa fa-facebook"></i></a>
-                                        <a href="#" class="twitter-bg"><i class="fa fa-twitter"></i></a>
-                                        <a href="#" class="google-bg"><i class="fa fa-whatsapp"></i></a>
-                                        <a href="#" class="dribbble-bg"><i class="fa fa-linkedin"></i></a>
-                                        <a href="#" class="pinterest-bg"><i class="fa fa-instagram"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <div class="card-header">
                                     <h3 class="card-title">Emplacement sur la carte</h3>
                                 </div>
                                 <div class="card-body">
@@ -424,6 +410,43 @@
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title">Horaires de service</h3>
+                                </div>
+                                <table class="horaires">
+                                    <tbody>
+                                        <tr>
+                                            <td>Lundi</td>
+                                            <td>00H00 - 00H00</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mardi</td>
+                                            <td>00H00 - 00H00</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mercredi</td>
+                                            <td>00H00 - 00H00</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Jeudi</td>
+                                            <td>00H00 - 00H00</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Vendredi</td>
+                                            <td>00H00 - 00H00</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Samedi</td>
+                                            <td>00H00 - 00H00</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Dimanche</td>
+                                            <td>00H00 - 00H00</td>
+                                        </tr>
+                                    </tbody>
+                                </table>                              
                             </div>
                             <div class="card">
                                 <div class="card-header">
@@ -733,6 +756,27 @@
 <!--JQuery Slider  js-->
 <script src="{{ asset('assets/plugins/boot-slider/boot-slider.min.js') }}"></script>
 <script src="{{ asset('assets/js/boots-slider.js') }}"></script>
+<script>
+	document.getElementById('boutonPartage').addEventListener('click', function() {
+		// Vérifier si l'API Web Share est disponible dans le navigateur
+		if (navigator.share) {
+			// Utilisation de l'API Web Share pour partager
+			navigator.share({
+				title: 'Titre de votre contenu à partager',
+				text: 'Description de votre contenu à partager',
+				url: window.location.href,
+			})
+			.then(() => console.log('Contenu partagé avec succès'))
+			.catch((error) => console.error('Erreur lors du partage : ', error));
+		} else {
+			// Si l'API Web Share n'est pas disponible, rediriger vers une autre méthode de partage
+			window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href), '_blank');
+			window.open('https://twitter.com/intent/tweet?url=' + encodeURIComponent(window.location.href) + '&text=Regardez cette page!', '_blank');
+			
+			// Ajoutez d'autres réseaux sociaux ici ou une autre alternative de partage
+		}
+	});
+</script>
 @include('frontend.footer.footer18')
 
 
