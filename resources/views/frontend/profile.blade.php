@@ -100,7 +100,7 @@
                     <h4 class="page-title">{{ $Profil_entreprise->nom }}</h4>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ route('home.pays',['slug_pays'=>$Profil_entreprise->slug_pays]) }}">Home</a></li>
-                        <li class="breadcrumb-item"><a href="{{ route('categorie.pays',['slug_pays'=>$Profil_entreprise->slug_pays]) }}">{{ $Profil_entreprise->cat }}</a></li>
+                        <li class="breadcrumb-item"><a href="#">{{ $Profil_entreprise->cat }}</a></li>
                         <li class="breadcrumb-item"><a href="{{ route('entreprise.pays',['slug_pays'=>$Profil_entreprise->slug_pays,'slug_categorie'=>$Profil_entreprise->slug_categorie,'slug_souscategorie'=>$Profil_entreprise->slug_souscategorie]) }}">{{ $Profil_entreprise->subcat }}</a></li>
                         <li class="breadcrumb-item active" aria-current="page">{{ $Profil_entreprise->nom }}</li>
                     </ol>
