@@ -55,7 +55,7 @@
                                                 <div class="item7-card-desc d-flex mb-2">
                                                     <a href="{{ route('blog.detail',['slug_pays'=>'tg','slug_blog'=>$blog->slug_blog]) }}"><i class="fa fa-calendar-o text-muted me-2"></i>{{ date('d/m/Y', strtotime($blog->created_at))}}</a>
                                                     <div class="ms-auto">
-                                                        <a href="{{ route('blog.detail',['slug_pays'=>'tg','slug_blog'=>$blog->slug_blog]) }}"><i class="fa fa-comment-o text-muted me-2"></i>@foreach ($nombres as $nb) @if ($nb->blog == $blog->id) {{ $nb->nb }} @else  @endif @endforeach Comment(s)</a>
+                                                        <a href="{{ route('blog.detail',['slug_pays'=>'tg','slug_blog'=>$blog->slug_blog]) }}"><i class="fa fa-comment-o text-muted me-2"></i>@foreach ($nombres as $nb) @if ($nb->blog == $blog->id) {{ $nb->nb }}  @endif @endforeach Comment(s)</a>
                                                     </div>
                                                 </div>
                                                 <a href="{{ route('blog.detail',['slug_pays'=>'tg','slug_blog'=>$blog->slug_blog]) }}" class="text-dark"><h4 class="font-weight-semibold">{{ Str::limit($blog->titre, 30) }}</h4></a>
