@@ -126,7 +126,9 @@
 												<li ><a class="icons"><i class="icon icon-briefcase text-muted me-1"></i>  {{$offre->entreprise}}</a></li>
 												<li><a class="icons"><i class="icon icon-event text-muted me-1"></i> {{ date('d/m/Y', strtotime($offre->created_at)) }}</a></li>
 												<li class="mb-0"><a class="icons"><i class="icon icon-location-pin text-muted me-1"></i> {{$offre->ville}}</a></li>
-												<li class="mb-0"><a class="icons"><i class="icon icon-phone text-muted me-1"></i> {{$offre->telephone}}</a></li>
+												@if ($offre->telephone)
+													<li class="mb-0"><a class="icons"><i class="icon icon-phone text-muted me-1"></i> {{$offre->telephone}}</a></li>
+												@endif	
 											</ul>
 											<p class="mb-0">{!! Str::limit($offre->description, 47) !!}</p>
 										</div>
