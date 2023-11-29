@@ -15,7 +15,7 @@
 
 <!--Sliders Section-->
 <div>
-    <div class="cover-image sptb-1 bg-background" data-bs-image-src="../assets/images/banners/banner1.jpg">
+    <div class="cover-image sptb-1" data-bs-image-src="../assets/images/banners/banner1.jpg">
     </div>
 </div>
 <!--/Sliders Section-->
