@@ -135,13 +135,9 @@ Route::get('/{slug_pays}/rechercher-entreprise', [\App\Http\Controllers\HomeCont
 
 Route::get('/{slug_pays}/rechercher-professionnel', [\App\Http\Controllers\UserController::class, 'list'])->name('user.list');
 
-Route::post('/{slug_pays}/rechercher-entreprise', [\App\Http\Controllers\DevisController::class, 'devis'])->name('devis.pays.recherche');
-
 Route::get('/{slug_pays}/enregistrer-entreprise', [\App\Http\Controllers\AuthController::class, 'entreprise_pays'])->name('entreprise.register.pays');
 
 Route::get('/{slug_pays}/contact', [\App\Http\Controllers\ContactController::class, 'contact_pays'])->name('contact.pays');
-
-Route::post('/{slug_pays}/contact', [\App\Http\Controllers\ContactController::class, 'save'])->name('contact.save');
 
 Route::get('/{slug_pays}/a-propos', [\App\Http\Controllers\AboutController::class, 'about'])->name('about.pays');
 
@@ -149,11 +145,23 @@ Route::get('/{slug_pays}/login', [\App\Http\Controllers\AuthController::class, '
 
 Route::get('/{slug_pays}/forgot', [\App\Http\Controllers\AuthController::class, 'mdpOubli_pays'])->name('mdpOubli.pays');
 
-Route::post('/{slug_pays}/forgot', [\App\Http\Controllers\AuthController::class, 'forgot_pays'])->name('forgot.pays');
-
 Route::get('/{slug_pays}/logout', [\App\Http\Controllers\AuthController::class, 'logout_pays'])->name('logout.pays');
 
 Route::get('/{slug_pays}/ajouter-user', [\App\Http\Controllers\UserController::class, 'user'])->name('user.pays');
+
+Route::get('/{slug_pays}/categorie', [\App\Http\Controllers\CategoriesController::class, 'categories_pays'])->name('categorie.pays');
+
+Route::get('/{slug_pays}/liste-pharmacie-de-garde', [\App\Http\Controllers\PharmacieController::class, 'pharmacie'])->name('pharmacie');
+
+Route::get('/{slug_pays}/blog',[\App\Http\Controllers\BlogController::class, 'blog'])->name('blog');
+
+
+
+Route::post('/{slug_pays}/contact', [\App\Http\Controllers\ContactController::class, 'save'])->name('contact.save');
+
+Route::post('/{slug_pays}/rechercher-entreprise', [\App\Http\Controllers\DevisController::class, 'devis'])->name('devis.pays.recherche');
+
+Route::post('/{slug_pays}/forgot', [\App\Http\Controllers\AuthController::class, 'forgot_pays'])->name('forgot.pays');
 
 Route::post('/{slug_pays}/ajouter-user', [\App\Http\Controllers\AuthController::class, 'addUser_pays'])->name('user.pays.add');
 
@@ -161,15 +169,7 @@ Route::post('/{slug_pays}/authentification', [\App\Http\Controllers\AuthControll
 
 Route::post('/{slug_pays}/ajouter-entreprise', [\App\Http\Controllers\ActionEntrepriseController::class, 'addEntreprise'])->name('entreprise.pays.add');
 
-Route::get('/{slug_pays}/categorie', [\App\Http\Controllers\CategoriesController::class, 'categories_pays'])->name('categorie.pays');
-
 Route::post('/{slug_pays}/entreprise-devis', [\App\Http\Controllers\DevisController::class, 'devis'])->name('devis.pays.entreprise');
-
-Route::get('/{slug_pays}/liste-pharmacie-de-garde', [\App\Http\Controllers\PharmacieController::class, 'pharmacie'])->name('pharmacie');
-
-Route::get('/{slug_pays}/blog',[\App\Http\Controllers\BlogController::class, 'blog'])->name('blog');
-
-Route::post('/{slug_pays}/{slug_blog}', [\App\Http\Controllers\BlogController::class, 'comment'])->name('blog.comment');
 
 
 
@@ -185,6 +185,10 @@ Route::get('/{slug_pays}/{offre_slug}', [App\Http\Controllers\OffreController::c
 Route::get('/{slug_pays}/{slug_user}', [\App\Http\Controllers\UserController::class, 'mydash'])->name('user.dashboard');
 
 Route::get('/{slug_pays}/{slug_categorie}', [\App\Http\Controllers\SousCategoriesController::class, 'Souscategories_pays'])->name('subcat.pays');
+
+
+
+Route::post('/{slug_pays}/{slug_blog}', [\App\Http\Controllers\BlogController::class, 'comment'])->name('blog.comment');
 
 Route::post('/{slug_pays}/{slug_annonce}', [\App\Http\Controllers\NewsController::class, 'comment'])->name('news.comment');
 
@@ -204,6 +208,8 @@ Route::get('/{slug_pays}/profil/{slug_user}', [\App\Http\Controllers\UserControl
 
 Route::get('/{slug_pays}/{slug_categorie}/{slug_souscategorie}', [\App\Http\Controllers\EntrepriseController::class, 'entreprise_pays'])->name('entreprise.pays');
 
+
+
 Route::post('/{slug_pays}/{slug_annonce}/{id}', [\App\Http\Controllers\NewsController::class, 'reponse'])->name('news.comment.rep');
 
 Route::post('/{slug_pays}/{slug_categorie}/{slug_souscategorie}', [\App\Http\Controllers\ProfileController::class, 'message'])->name('entreprise.contact');
@@ -213,6 +219,9 @@ Route::post('/{slug_pays}/{slug_categorie}/{slug_souscategorie}', [\App\Http\Con
 
 
 Route::get('/{slug_pays}/{slug_categorie}/{slug_souscategorie}/{slug_entreprise}', [\App\Http\Controllers\ProfileController::class, 'ProfileEntreprise_pays'])->name('entreprise.pays.profil');
+
+
+
 
 Route::post('/{slug_pays}/blog/{slug_blog}/{id}', [\App\Http\Controllers\BlogController::class, 'reponse'])->name('blog.comment.rep');
 
