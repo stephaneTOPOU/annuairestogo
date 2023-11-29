@@ -240,11 +240,7 @@
                             <!--Comments-->
                             <div class="card">
                                     <div class="card-header">
-<<<<<<< HEAD
                                         <h3 class="card-title">Évaluation et avis</h3>
-=======
-                                        <h3 class="card-title">Les commentaires</h3>
->>>>>>> b349322b001ac50975e89a84df7daa99cd7db3d6
                                     </div>
 
                                     <div class="card-body p-0">
