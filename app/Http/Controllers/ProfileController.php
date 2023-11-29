@@ -146,8 +146,15 @@ class ProfileController extends Controller
             ->where('parametres.id', 1)
             ->select('*')
             ->get();
+
+        $ratings = DB::table('pays')->where('pays.id', $pays_id[0]->id)
+            ->join('categories', 'pays.id', '=', 'categories.pays_id')->where('categories.id', $categorie_id[0]->id)
+            ->join('sous_categories', 'categories.id', '=', 'sous_categories.categorie_id')->where('sous_categories.id', $sousCategorie_id[0]->id)
+            ->join('entreprises', 'sous_categories.id', '=', 'entreprises.souscategorie_id')->where('entreprises.id', $entreprise_id[0]->id)
+            ->select('rate')
+            ->get();
             
-        return view('frontend.profile',compact('parametres','commentaires','commentaire2s','entreprise_similaire','souscategories','parametres', 'Profil_entreprises', 'avis3', 'avis', 'services', 'serviceImages', 'horaires', 'galleries', 'premiums', 'basics', 'partenaires'));
+        return view('frontend.profile',compact('ratings','parametres','commentaires','commentaire2s','entreprise_similaire','souscategories','parametres', 'Profil_entreprises', 'avis3', 'avis', 'services', 'serviceImages', 'horaires', 'galleries', 'premiums', 'basics', 'partenaires'));
     }
 
 
