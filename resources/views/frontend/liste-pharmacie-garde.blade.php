@@ -46,20 +46,16 @@
                 <div class="col-lg-3 col-md-12">
                     <a href="{{ route('entreprise.pays.profil',['slug_pays'=>$pharmacie->slug_pays,'slug_categorie'=>$pharmacie->slug_categorie,'slug_souscategorie'=>$pharmacie->slug_souscategorie,'slug_entreprise'=>$pharmacie->slug_entreprise]) }}">
                         <div class="card">
-                            <div class="card-body">
-                                <div class="item-box text-center">
-                                    <div class="stamp text-center stamp-lg bg-primary ">
-                                        @if ( $pharmacie->logo )
-                                            <img src="{{ asset('assets/images/products') }}/{{ $pharmacie->logo }}" class="avatar-xxl" alt="{{ $pharmacie->nom }}">
-                                        @else
-                                            <img src="{{ asset('assets/images/products') }}/{{ $pharmacie->logo }}" class="avatar-xxl" alt="{{ $pharmacie->nom }}">
-                                        @endif
-                                    </div>
-                                    <div class="item-box-wrap">
-                                        <h6 class="mb-2">{{ $pharmacie->nom }}</h6>
-                                        {{-- <p class="text-muted mb-0">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium</p> --}}
-                                    </div>
-                                </div>
+                            <div>
+                                @if ( $pharmacie->logo )
+                                    <img src="{{ asset('assets/images/products') }}/{{ $pharmacie->logo }}" class="logo-pharma" alt="{{ $pharmacie->nom }}">
+                                @else
+                                    <img src="{{ asset('assets/images/products') }}/{{ $pharmacie->logo }}" class="logo-pharma" alt="{{ $pharmacie->nom }}">
+                                @endif
+                            </div>
+                            <div class="item-box-wrap">
+                                <h4 class="mt-2" style="padding: 10px">{{ $pharmacie->nom }}</h4>
+                                {{-- <p class="text-muted mb-0">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium</p> --}}
                             </div>
                         </div>
                     </a>
