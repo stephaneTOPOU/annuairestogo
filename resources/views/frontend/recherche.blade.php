@@ -131,8 +131,8 @@
                                                         <div class="card border-0 mb-0">
                                                             <div class="card-body ">
                                                                 <div class="item-card9">
-                                                                    <a href="{{ route('entreprise.pays.profil',['slug_pays'=>$entreprise->slug_pays,'slug_categorie'=>$entreprise->slug_categorie,'slug_souscategorie'=>$entreprise->slug_souscategorie,'slug_entreprise'=>$entreprise->slug_entreprise]) }}">{{ $entreprise->nom }}</a>
-                                                                    <a href="{{ route('entreprise.pays.profil',['slug_pays'=>$entreprise->slug_pays,'slug_categorie'=>$entreprise->slug_categorie,'slug_souscategorie'=>$entreprise->slug_souscategorie,'slug_entreprise'=>$entreprise->slug_entreprise]) }}" class="text-dark"><h4 class="font-weight-semibold mt-1">{{ $entreprise->sousCategorie }}</h4></a>
+                                                                    <a href="{{ route('entreprise.pays.profil',['slug_pays'=>$entreprise->slug_pays,'slug_categorie'=>$entreprise->slug_categorie,'slug_souscategorie'=>$entreprise->slug_souscategorie,'slug_entreprise'=>$entreprise->slug_entreprise]) }}"><h4 class="font-weight-bold mt-1">{{ $entreprise->nom }}</h4></a>
+                                                                    <a href="{{ route('entreprise.pays.profil',['slug_pays'=>$entreprise->slug_pays,'slug_categorie'=>$entreprise->slug_categorie,'slug_souscategorie'=>$entreprise->slug_souscategorie,'slug_entreprise'=>$entreprise->slug_entreprise]) }}" class="text-dark">{{ $entreprise->sousCategorie }}</a>
                                                                     <p class="mb-0 leading-tight">{{ $entreprise->adresse }}</p>
                                                                 </div>
                                                             </div>

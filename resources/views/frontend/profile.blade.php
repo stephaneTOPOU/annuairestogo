@@ -120,12 +120,12 @@
                             <div class="card overflow-hidden">
                                     <div class="card-body h-100 boot-slider">
                                         <div class="item-det mb-4">
-                                            <a href="#" class="text-dark"><h3 >Gallerie</h3></a>
+                                            <a class="text-dark"><h3 >Gallerie</h3></a>
                                             <div class=" d-flex">
                                                 <ul class="d-flex mb-0">
-                                                    <li class="me-5"><a href="#" class="icons"><i class="icon icon-briefcase text-muted me-1"></i>{{ $Profil_entreprise->subcat }}</a></li>
-                                                    <li class="me-5"><a href="#" class="icons"><i class="icon icon-location-pin text-muted me-1"></i>{{$Profil_entreprise->adresse}}</a></li>
-                                                    <li class="me-5"><a href="#" class="icons"><i class="icon icon-eye text-muted me-1"></i>{{$Profil_entreprise->vue}}</a></li>
+                                                    <li class="me-5"><a class="icons"><i class="icon icon-briefcase text-muted me-1"></i>{{ $Profil_entreprise->subcat }}</a></li>
+                                                    <li class="me-5"><a class="icons"><i class="icon icon-location-pin text-muted me-1"></i>{{$Profil_entreprise->adresse}}</a></li>
+                                                    <li class="me-5"><a class="icons"><i class="icon icon-eye text-muted me-1"></i>{{$Profil_entreprise->vue}}</a></li>
                                                 </ul>
                                                 <div class=" d-inline-flex me-5">
                                                     <div class="rating-star sm my-rating-5 me-2" data-rating="4.0">
@@ -228,7 +228,7 @@
                             <!--Comments-->
                             <div class="card">
                                     <div class="card-header">
-                                        <h3 class="card-title">Rating And Reviews</h3>
+                                        <h3 class="card-title">Les commentaires</h3>
                                     </div>
 
                                     <div class="card-body p-0">
@@ -253,7 +253,7 @@
                                                         @if ($commentaire2->commentaires_id == $commentaire->id )
                                                             <div class="media mt-5">
                                                                 <div class="d-flex me-3">
-                                                                    <a href="#"> <img class="media-object brround" alt="64x64" src="{{ asset('assets/images/user_profile/user.png') }}"> </a>
+                                                                    <a> <img class="media-object brround" alt="64x64" src="{{ asset('assets/images/user_profile/user.png') }}"> </a>
                                                                 </div>
                                                                 <div class="media-body">
                                                                     <h5 class="mt-0 mb-1 font-weight-semibold">{{ $commentaire2->nomR }}<span class="fs-14 ms-0" data-bs-toggle="tooltip" data-bs-placement="top" title="verified"><i class="fa fa-check-circle-o text-success"></i></span></h5>
@@ -308,7 +308,7 @@
                                     <div class="profile-pic mb-0">
                                         <img src="{{ asset('assets/images/products') }}/{{ $Profil_entreprise->logo }}" class="avatar-xxl" alt="{{ $Profil_entreprise->nom }}">
                                         <div >
-                                            <a href="userprofile.html" class="text-dark"><h4 class="mt-3 mb-1 font-weight-semibold">{{ $Profil_entreprise->nom }}</h4></a>
+                                            <a class="text-dark"><h4 class="mt-3 mb-1 font-weight-bold">{{ $Profil_entreprise->nom }}</h4></a>
                                             <span class="text-muted">{{ $Profil_entreprise->subcat }}</span>
                                             {{-- <h6 class="mt-2 mb-0"><a href="#" class="btn btn-primary btn-sm">See All Ads</a></h6> --}}
                                         </div>
@@ -351,7 +351,7 @@
                                 </div>
                                 <div class="card-footer">
                                     <div class="text-start">
-                                        <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#contact"><i class="fa fa-user"></i> Ecrie à {{ $Profil_entreprise->nom }}</a>
+                                        <a href="#" class="btn btn-primary" style=" white-space: normal;" data-bs-toggle="modal" data-bs-target="#contact"><i class="fa fa-user"></i> Ecrire à {{ $Profil_entreprise->nom }}</a>
                                     </div>
                                 </div>
                             </div>
