@@ -524,6 +524,13 @@ mark {
     height: auto;
 }
 
+.logo-pharma {
+    width: 300px;
+    margin: auto;
+    height: 300px;
+    line-height: 5rem; 
+}
+
 .figure {
     display: inline-block;
 }
