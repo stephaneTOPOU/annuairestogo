@@ -21,11 +21,11 @@
 				<div class="header-text mb-0">
 					<div class="container">
 						<div class="text-center text-white">
-							<h1 class="">Les nouvelles</h1>
+							<h1 class="">Blog-detail</h1>
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item"><a href="{{ route('home.pays',['slug_pays'=>'tg']) }}">Home</a></li>
 								{{-- <li class="breadcrumb-item"><a href="#">Blog</a></li> --}}
-								<li class="breadcrumb-item active text-white" aria-current="page">Les nouvelles</li>
+								<li class="breadcrumb-item active text-white" aria-current="page">Blog-detail</li>
 							</ol>
 						</div>
 					</div>
@@ -41,21 +41,45 @@
 					<div class="col-xl-8 col-lg-8 col-md-12">
 						<div class="card">
 								<div class="card-body">
-									<div class="item7-card-img">
-										<img src="{{ asset('assets/images/products') }}/{{ $annonces->image1 }}" alt="{{ $annonces->titre }}" class="w-100">
-										<div class="item7-card-text">
-											<span class="badge badge-info">Annonce</span>
-										</div>
-									</div>
+                                    @if ($details->image1)
+                                        <div class="item7-card-img">
+                                            <img src="{{ asset('assets/images/blogs') }}/{{ $details->image1 }}" alt="{{ $details->titre }}" class="w-100">
+                                            <div class="item7-card-text">
+                                                <span class="badge badge-info">Blog</span>
+                                            </div>
+                                        </div>
+                                    @endif
+									
 									<div class="item7-card-desc d-flex mb-2 mt-3">
-										<a href="#"><i class="fa fa-calendar-o text-muted me-2"></i>@php echo \Carbon\Carbon::parse($annonces->created_at)->diffForHumans(null, false, 'fr'); @endphp</a>
+										<a href="#"><i class="fa fa-calendar-o text-muted me-2"></i>@php echo \Carbon\Carbon::parse($details->created_at)->diffForHumans(null, false, 'fr'); @endphp</a>
 										<div class="ms-auto">
-											<a href="#"><i class="fa fa-comment-o text-muted me-2"></i>{{ $nb }} Commentaire(s)</a>
+											<a href="#"><i class="fa fa-comment-o text-muted me-2"></i>{{ $nombres }} Commentaire(s)</a>
 										</div>
 									</div>
-									<a href="#" class="text-dark"><h2 class="font-weight-semibold">{{ $annonces->titre }}</h2></a>
-									<p>{{ $annonces->text1 }}</p>
-									<p>{{ $annonces->text2 }}</p>
+									<a href="#" class="text-dark"><h2 class="font-weight-semibold">{{ $details->titre }}</h2></a>
+									<p>{!! $details->description1 !!}</p>
+
+                                    @if ($details->image2)
+                                        <div class="item7-card-img">
+                                            <img src="{{ asset('assets/images/blogs') }}/{{ $details->image2 }}" alt="{{ $details->titre }}" class="w-100">
+                                            <div class="item7-card-text">
+                                                <span class="badge badge-info">Blog</span>
+                                            </div>
+                                        </div>
+                                    @endif
+                                    
+									<p>{!! $details->description2 !!}</p>
+
+                                    @if ($details->image3)
+                                        <div class="item7-card-img">
+                                            <img src="{{ asset('assets/images/blogs') }}/{{ $details->image3 }}" alt="{{ $details->titre }}" class="w-100">
+                                            <div class="item7-card-text">
+                                                <span class="badge badge-info">Blog</span>
+                                            </div>
+                                        </div>
+                                    @endif
+                                    
+									<p>{!! $details->description3 !!}</p>
 								</div>
 						</div>
 						<div class="card">
@@ -69,14 +93,14 @@
 												<a href="#"><img class="media-object brround" alt="64x64" src="{{ asset('assets/images/user_profile/user.png') }}"> </a>
 											</div>
 											<div class="media-body">
-												<h5 class="mt-0 mb-1 font-weight-semibold">{{ $commentaire->pseudo }}
+												<h5 class="mt-0 mb-1 font-weight-semibold">{{ $commentaire->nom }}
 													<span class="fs-14 ms-0" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="verified"><i class="fa fa-check-circle-o text-success"></i> @php echo \Carbon\Carbon::parse($commentaire->created_at)->diffForHumans(null, false, 'fr'); @endphp </span>
 												</h5>
 												<small class="text-muted"><span><i class="fa fa-calendar"></i>{{ date('d/m/Y', strtotime($commentaire->created_at)) }}</span>  <span><i class=" ms-3 fa fa-clock-o"></i>{{ date('h:m', strtotime($commentaire->created_at)) }}</span></small>
 												<p class="font-13  mb-2 mt-2">
-													{{ $commentaire->commentaire }}
+													{{ $commentaire->message }}
 												</p>
-												<a href="{{ route('news.comment.rep',['slug_pays'=>'tg','slug_annonce'=>$annonces->slug_annonce,'id'=>$commentaire->identifiant]) }}" data-bs-toggle="modal" data-bs-target="#Comment"><span class="badge badge-default">Répondre</span></a>
+												<a href="{{ route('blog.comment.rep',['slug_pays'=>'tg','slug_blog'=>$details->slug_blog,'id'=>$commentaire->identifiant]) }}" data-bs-toggle="modal" data-bs-target="#Comment"><span class="badge badge-default">Répondre</span></a>
 												@foreach ($reponses as $reponse)
 													@if ($reponse->commentaires_id == $commentaire->identifiant)
 														<div class="media mt-5">
@@ -89,7 +113,7 @@
 																<p class="font-13  mb-2 mt-2">
 																	{{ $reponse->messageR }}
 																</p>
-																<a href="{{ route('news.comment.rep',['slug_pays'=>'tg','slug_annonce'=>$annonces->slug_annonce,'id'=>$commentaire->identifiant]) }}" data-bs-toggle="modal" data-bs-target="#Comment"><span class="badge badge-default">Répondre</span></a>
+																<a href="{{ route('blog.comment.rep',['slug_pays'=>'tg','slug_blog'=>$details->slug_blog,'id'=>$commentaire->identifiant]) }}" data-bs-toggle="modal" data-bs-target="#Comment"><span class="badge badge-default">Répondre</span></a>
 															</div>
 														</div>
 													@endif
@@ -103,16 +127,16 @@
 								<div class="card-header">
 									<h3 class="card-title">Ecrire un commentaire</h3>
 								</div>
-								<form class="card-body" method="POST" action="{{ route('news.comment',['slug_pays'=>'tg','slug_annonce'=>$annonces->slug_annonce]) }}">
+								<form class="card-body" method="POST" action="{{ route('blog.comment',['slug_pays'=>'tg','slug_blog'=>$details->slug_blog]) }}">
 									@csrf
                                     @if(Session::has('success'))
                                         <div class="alert alert-success" role="alert">{{Session::get('success') }}</div>
                                     @endif
 									<div class="form-group">
-										<input type="text" class="form-control" id="name1" placeholder="Votre nom" name="pseudo">
+										<input type="text" class="form-control" id="name1" placeholder="Votre nom" name="nom">
 									</div>
 									<div class="form-group">
-										<textarea class="form-control" name="commentaire" rows="6" placeholder="Votre commentaire"></textarea>
+										<textarea class="form-control" name="message" rows="6" placeholder="Votre commentaire"></textarea>
 									</div>
 									<button type="submit" class="btn btn-primary">Envoyer</button>
 								</form>
@@ -176,20 +200,20 @@
 								</div>
 							</div>
 						</div>
-						<div class="card">
+						{{-- <div class="card">
 							<div class="card-header">
 								<h3 class="card-title">Types de nouvelles</h3>
 							</div>
 							<div class="card-body">
 								<div class="product-tags clearfix">
 									<ul class="list-unstyled mb-0">
-										@foreach ($annonce2s as $annonces2)
-											<li><a href="{{ route('news',['slug_pays'=>'tg','slug_annonce'=>$annonces2->slug_cat_an]) }}">{{ $annonces2->libelle }}</a></li>
+										@foreach ($annonce2s as $details2)
+											<li><a href="{{ route('news',['slug_pays'=>'tg','slug_blog'=>$details2->slug_cat_an]) }}">{{ $details2->libelle }}</a></li>
 										@endforeach
 									</ul>
 								</div>
 							</div>
-						</div>
+						</div> --}}
 						
 					</div>
 					<!--/Rightside Content-->
@@ -204,7 +228,7 @@
 @foreach ($commentaires as $commentaire)
 	<div class="modal fade" id="Comment" tabindex="-1" role="dialog"  aria-hidden="true">
 		<div class="modal-dialog" role="document">
-			<form class="modal-content" method="POST" action="{{ route('news.comment.rep',['slug_pays'=>'tg','slug_annonce'=>$annonces->slug_annonce,'id'=>$commentaire->identifiant]) }}">
+			<form class="modal-content" method="POST" action="{{ route('blog.comment.rep',['slug_pays'=>'tg','slug_blog'=>$details->slug_blog,'id'=>$commentaire->identifiant]) }}">
 				@csrf
 				@if(Session::has('success'))
 					<div class="alert alert-success" role="alert">{{Session::get('success') }}</div>

@@ -12,14 +12,14 @@
                     </div>
                     <div class="col-lg-2 col-md-12">
                         <h6>Nos Services</h6>
-                         <hr class="deep-purple text-primary accent-2 mb-4 mt-0 d-inline-block mx-auto">
+                        <hr class="deep-purple text-primary accent-2 mb-4 mt-0 d-inline-block mx-auto">
                         <ul class="list-unstyled mb-0">
-                            <li><a href="javascript:;">Our Team</a></li>
                             <li><a href="{{ route('contact.pays',['slug_pays'=>'tg']) }}">Contact</a></li>
                             <li><a href="{{ route('about.pays',['slug_pays'=>'tg']) }}">A propos</a></li>
-                            <li><a href="javascript:;">Services</a></li>
-                            <li><a href="javascript:;">Blog</a></li>
-                            <li><a href="javascript:;">Terms and Services</a></li>
+                            <li><a href="{{ route('blog',['slug_pays'=>'tg']) }}">Blog</a></li>
+                            <li><a href="javascript:;">Condition générale d'utilisation</a></li>
+                            <li><a href="javascript:;">Politique de confidentialité</a></li>
+                            <li><a href="javascript:;">politique de cookie</a></li>
                         </ul>
                     </div>
 
