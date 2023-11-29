@@ -515,7 +515,13 @@ class AuthController extends Controller
 
     public function mdpOubli_pays($slug_pays)
     {
-        return view('frontend.auth.forgot');
+        $pays_id = DB::table('pays')->where('slug_pays', $slug_pays)->select('id')->get();
+        $parametres = DB::table('pays')->where('pays.id', $pays_id[0]->id)
+                ->join('parametres', 'pays.id', '=', 'parametres.pays_id')
+                ->where('parametres.id', 3)
+                ->select('*')
+                ->get();
+        return view('frontend.auth.forgot', compact('parametres'));
     }
 
     public function forgot($slug_pays)

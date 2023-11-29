@@ -128,8 +128,20 @@
                                                     <li class="me-5"><a class="icons"><i class="icon icon-eye text-muted me-1"></i>{{$Profil_entreprise->vue}}</a></li>
                                                 </ul>
                                                 <div class=" d-inline-flex me-5">
-                                                    <div class="rating-star sm my-rating-5 me-2" data-rating="4.0">
-                                                    </div>4.0
+                                                    @foreach ($ratings as $rating)
+                                                        <div class="rating-star sm my-rating-5 me-2" data-rating="{{ number_format($rating->rate, 1, '.', ' ') }}" id="rating-container">
+                                                        </div>{{ number_format($rating->rate, 1, '.', ' ') }}
+                                                    @endforeach
+
+                                                    <script>
+                                                        document.addEventListener('DOMContentLoaded', function () {
+                                                            var ratingContainer = document.getElementById('rating-container');
+                                                            var ratingValue = ratingContainer.dataset.rating;
+                                                    
+                                                            // Faites ce que vous devez faire avec la valeur de l'évaluation (par exemple, afficher des étoiles en conséquence)
+                                                            console.log('Évaluation actuelle : ' + ratingValue);
+                                                        });
+                                                    </script>
                                                 </div>
                                                 
                                             </div>
@@ -228,7 +240,7 @@
                             <!--Comments-->
                             <div class="card">
                                     <div class="card-header">
-                                        <h3 class="card-title">Les commentaires</h3>
+                                        <h3 class="card-title">Évaluation et avis</h3>
                                     </div>
 
                                     <div class="card-body p-0">
@@ -402,7 +414,7 @@
                             </div>
                             <div class="card">
                                 <div class="card-header">
-                                    <h3 class="card-title">Entreprise populaire</h3>
+                                    <h3 class="card-title">Entreprises populaires</h3>
                                 </div>
                                 <div class="card-body ">
                                     <ul class="vertical-scroll">
@@ -468,7 +480,7 @@
 
                             <div class="card mb-0">
                                 <div class="card-header">
-                                    <h3 class="card-title">Ils nous ont rejoint</h3>
+                                    <h3 class="card-title">Entreprises récentes</h3>
                                 </div>
                                 <div class="card-body">
                                     <div class="rated-products">
