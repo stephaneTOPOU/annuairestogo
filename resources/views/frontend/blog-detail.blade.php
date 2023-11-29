@@ -17,7 +17,7 @@
 
     <!--Breadcrumb-->
 		<section>
-			<div class="bannerimg cover-image bg-background3" data-bs-image-src="{{ asset('assets/images/banners/banner2.jpg') }}">
+			<div class="bannerimg cover-image shadow-font" data-bs-image-src="{{ asset('assets/images/banners/banner2.jpg') }}">
 				<div class="header-text mb-0">
 					<div class="container">
 						<div class="text-center text-white">
@@ -68,7 +68,7 @@
                                         </div>
                                     @endif
                                     
-									<p>{!! $details->description2 !!}</p>
+									<p class="mt-4">{!! $details->description2 !!}</p>
 
                                     @if ($details->image3)
                                         <div class="item7-card-img">
@@ -84,7 +84,7 @@
 						</div>
 						<div class="card">
 								<div class="card-header">
-									<h3 class="card-title">Les commentaire</h3>
+									<h3 class="card-title">Les commentaires</h3>
 								</div>
 								<div class="card-body p-0">
 									@foreach ($commentaires as $commentaire)
