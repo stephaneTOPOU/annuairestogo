@@ -65,7 +65,7 @@
                         <img  alt="first slide" src="{{ asset('assets/images/banners/slide-1.jpg') }}" >
                     </div> --}}
                     @foreach ($banner as $ban)
-                        <div class="item">
+                        <div>
                             <img  alt="{{ $ban->image }}" src="{{ asset('assets/images/banners') }}/{{ $ban->image }}" >
                         </div>
                     @endforeach
@@ -73,7 +73,7 @@
                 <div class="header-text slide-header-text mt-0 mb-0">
                     <div class="col-xl-10 col-lg-12 col-md-12 d-block mx-auto">
                         <div class="search-background bg-transparent input-field">
-                            <div class="text-center text-white  mb-6 ">
+                            <div class="text-center text-white shadow-font mb-6 ">
                                 <h1 class="mb-1 d-none d-md-block">Trouver les meilleures entreprise</h1>
                                 <p class="d-none d-md-block">It is a long established fact that a reader will be distracted by the readable.</p>
                             </div>
@@ -578,9 +578,11 @@
 							<ul class="d-flex">
 								<li class=""><a class="icons"><i class="icon icon-location-pin text-muted me-1"></i> {{$offre->ville}}</a></li>
 								<li><a class="icons"><i class="icon icon-event text-muted me-1"></i>{{ date('d/m/Y', strtotime($offre->created_at))}}</a></li>
-								<li class=""><a class="icons"><i class="icon icon-phone text-muted me-1"></i> {{$offre->telephone}}</a></li>
+								@if ($offre->telephone)
+                                    <li class=""><a class="icons"><i class="icon icon-phone text-muted me-1"></i> {{$offre->telephone}}</a></li> 
+                                @endif
 							</ul>
-							<p class="mb-0">{!! Str::limit($offre->description, 47) !!}</p>
+							<p class="mb-0">{!! Str::limit($offre->description, 40) !!}</p>
 						</div>
 					</div>
 					<div class="card-body">

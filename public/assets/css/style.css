@@ -531,6 +531,10 @@ mark {
     line-height: 5rem; 
 }
 
+.shadow-font {
+    text-shadow: 2px 8px 16px rgb(0 0 0 / 82%);
+}
+
 .figure {
     display: inline-block;
 }

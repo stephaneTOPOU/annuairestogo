@@ -29,7 +29,7 @@
 		<div>
             <div class="owl-carousel testimonial-owl-carousel2 slider slider-header">
                 @foreach ($Profil_entreprises as $Profil_entreprise)
-                <div class="item cover-image sptb-1 bg-background" data-bs-image-src="{{ asset('assets/images/banners/entreprise') }}/{{ $Profil_entreprise->photo4 }}">
+                <div class="cover-image sptb-1" data-bs-image-src="{{ asset('assets/images/banners/entreprise') }}/{{ $Profil_entreprise->photo4 }}">
                     <div class="header-text1 mb-0">
                         <div class="container">
                             <div class="row">
