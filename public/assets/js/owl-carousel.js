@@ -328,6 +328,29 @@
 			}
 		}
 	})
+
+
+	// ______________slider-owl-carousel
+	var owl = $('.blog-owl-carousel');
+	owl.owlCarousel({
+		loop: true,
+		rewind: false,
+		margin: 25,
+		autoplay: true,
+		animateIn: 'fadeInDowm',
+		animateOut: 'fadeOutDown',
+		autoplayTimeout: 5000, // set value to change speed
+		autoplayHoverPause: true,
+		dots: false,
+		nav: false,
+		responsiveClass: true,
+		responsive: {
+			0: {
+				items: 1,
+				nav: false
+			}
+		}
+	})
 	
 	/*---End Owl-carousel----*/
 	

@@ -10,6 +10,7 @@
         <nav class="horizontalMenu clearfix d-md-flex">
             <ul class="horizontalMenu-list">
                 <li aria-haspopup="true"><a href="{{ route('home.pays',['slug_pays'=>'tg']) }}">Accueil</a></li>
+                <li aria-haspopup="true"><a href="{{ route('pharmacie',['slug_pays'=>'tg']) }}">Pharmacie de garde</a></li>
                 <li aria-haspopup="true"><a href="{{ route('about.pays',['slug_pays'=>'tg']) }}">A Propos</a></li>
                 <li aria-haspopup="true"><a href="{{ route('contact.pays',['slug_pays'=>'tg']) }}"> Contact <span class="wsarrow"></span></a></li>
                 <li aria-haspopup="true" class="d-lg-none mt-5 pb-5 mt-lg-0">
