@@ -171,17 +171,18 @@
 							<video src="" autoplay controls poster=""></video>
 						</div>
 						
+						<h4 style="text-align: center; margin-top: 15px; margin-bottom: 5px;">Les blogs récents</h4>
 						<div id="myCarousel1" class="owl-carousel blog-owl-carousel">
 							@foreach ($blogs as $blog)
 								<div class="item">
 									<div class="card">
 										<div class="item-card7-imgs">
-											<a href="#"></a>
+											<a href="{{ route('blog.detail',['slug_pays'=>'tg','slug_blog'=>$blog->slug_blog]) }}"></a>
 											<img src="{{ asset('assets/images/blogs') }}/{{ $blog->image1 }}" alt="{{ $blog->titre }}" class="cover-image">
 										</div>
 										<div class="card-body">
 											<div class="item-card7-desc">
-												<a href="#" class="text-dark"><h4 class="font-weight-semibold">{{ $blog->titre }}</h4></a>
+												<a href="{{ route('blog.detail',['slug_pays'=>'tg','slug_blog'=>$blog->slug_blog]) }}" class="text-dark"><h4 class="font-weight-semibold">{{ $blog->titre }}</h4></a>
 											</div>
 										</div>
 									</div>
