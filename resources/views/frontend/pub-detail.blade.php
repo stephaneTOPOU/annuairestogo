@@ -126,7 +126,7 @@
 									<div class="video-list">
 										<div class="video-list-inner video" style="cursor: pointer">
 											<div class="play card-img">
-												<img src="{{ asset('assets/videos/posters') }}/{{ $media->imageSpot }}" alt="img" class="play">
+												<img src="{{ asset('assets/videos/posters') }}/{{ $media->imageSpot }}" alt="{{ $media->imageSpot }}" class="play">
 											</div>
 											<div class="play item-card-text">
 												<i class="fa fa-play-circle" aria-hidden="false"></i>
