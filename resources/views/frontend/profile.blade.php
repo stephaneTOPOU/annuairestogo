@@ -347,15 +347,15 @@
                                     <h4 class="mb-4">Informations</h4>
                                     <div>
                                         @if ($Profil_entreprise->email)
-                                            <h6><span class="font-weight-semibold"><i class="fa fa-envelope me-3 mb-2"></i></span><a href="#" class="text-body">{{ $Profil_entreprise->email }}</a></h6>
+                                            <h6><span class="font-weight-semibold"><i class="fa fa-envelope me-3 mb-2"></i></span><a class="text-body">{{ $Profil_entreprise->email }}</a></h6>
                                         @endif
                                         
-                                        <h6><span class="font-weight-semibold"><i class="fa fa-phone me-3  mb-2"></i></span><a href="#" class="text-primary">(+228) <b>{{ $Profil_entreprise->telephone1 }}</b> @if ($Profil_entreprise->telephone2)
+                                        <h6><span class="font-weight-semibold"><i class="fa fa-phone me-3  mb-2"></i></span><a class="text-primary">(+228) <b>{{ $Profil_entreprise->telephone1 }}</b> @if ($Profil_entreprise->telephone2)
                                             <b>• {{ $Profil_entreprise->telephone2 }}</b>
                                         @endif</a></h6>
 
                                         @if ($Profil_entreprise->siteweb)
-                                            <h6><span class="font-weight-semibold"><i class="fa fa-link me-3 "></i></span><a href="#" class="text-primary">{{ $Profil_entreprise->siteweb }}</a></h6>
+                                            <h6><span class="font-weight-semibold"><i class="fa fa-link me-3 "></i></span><a href="{{$Profil_entreprise->siteweb}}" class="text-primary">{{ $Profil_entreprise->siteweb }}</a></h6>
                                         @endif
                                     </div>
                                     {{-- <div class=" item-user-icons mt-4">
