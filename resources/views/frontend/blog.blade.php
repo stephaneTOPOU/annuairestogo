@@ -99,6 +99,7 @@
 @include('frontend.footer.footer13')
 @include('frontend.footer.footer14')
 @include('frontend.footer.footer12')
+@include('frontend.footer.footer15')
 @include('frontend.footer.footer16')
 @include('frontend.footer.footer17')
 @include('frontend.footer.footer18')
