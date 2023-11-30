@@ -43,19 +43,15 @@
     <div class="container">
         <div class="row">
             @foreach ($pharmacies as $pharmacie)
-                <div class="col-lg-3 col-md-12">
+                <div class="col-lg-4 col-md-12">
                     <a href="{{ route('entreprise.pays.profil',['slug_pays'=>$pharmacie->slug_pays,'slug_categorie'=>$pharmacie->slug_categorie,'slug_souscategorie'=>$pharmacie->slug_souscategorie,'slug_entreprise'=>$pharmacie->slug_entreprise]) }}">
                         <div class="card">
-                            <div>
-                                @if ( $pharmacie->logo )
-                                    <img src="{{ asset('assets/images/products') }}/{{ $pharmacie->logo }}" class="logo-pharma" alt="{{ $pharmacie->nom }}">
-                                @else
-                                    <img src="{{ asset('assets/images/products') }}/{{ $pharmacie->logo }}" class="logo-pharma" alt="{{ $pharmacie->nom }}">
-                                @endif
-                            </div>
-                            <div class="item-box-wrap">
-                                <h4 class="mt-2" style="padding: 10px">{{ $pharmacie->nom }}</h4>
-                                {{-- <p class="text-muted mb-0">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium</p> --}}
+                            <div style="padding: 20px; height: 170px">
+                                <h4 class="font-weight-bold">{{ $pharmacie->nom }}</h4>
+                                <p class="text-muted mt-4"><i class="fa fa-home me-3  mb-2"></i>{{ $pharmacie->adresse }}</p>
+                                <h6><span class="font-weight-semibold"><i class="fa fa-phone me-3  mb-2"></i></span><a class="text-black">(+228) <b>{{ $pharmacie->telephone1 }}</b> @if ($pharmacie->telephone2)
+                                    <b>• {{ $pharmacie->telephone2 }}</b>
+                                @endif</a></h6>
                             </div>
                         </div>
                     </a>
