@@ -318,7 +318,11 @@
                                 </div>
                                 <div class="card-body  item-user">
                                     <div class="profile-pic mb-0">
-                                        <img src="{{ asset('assets/images/products') }}/{{ $Profil_entreprise->logo }}" class="avatar-xxl" alt="{{ $Profil_entreprise->nom }}">
+                                        @if ($Profil_entreprise->logo)
+                                            <img src="{{ asset('assets/images/products') }}/{{ $Profil_entreprise->logo }}" class="avatar-xxl" alt="{{ $Profil_entreprise->nom }}">
+                                        @else
+                                            <img src="{{ asset('assets/images/products/entreprise.png') }}" class="avatar-xxl" alt="{{ $Profil_entreprise->nom }}">
+                                        @endif                        
                                         <div >
                                             <a class="text-dark"><h4 class="mt-3 mb-1 font-weight-bold">{{ $Profil_entreprise->nom }}</h4></a>
                                             <span class="text-muted">{{ $Profil_entreprise->subcat }}</span>
