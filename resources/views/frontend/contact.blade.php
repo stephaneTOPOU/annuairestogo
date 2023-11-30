@@ -63,7 +63,7 @@
 								<div class="col-12 mb-5">
 									<div class="support-service bg-primary br-2 mb-4 mb-xl-0">
 										<i class="fa fa-phone"></i>
-										<h6> (+228) {{ $parametre->telephone1 }}</h6>
+										<h6> (+228) {{ $parametre->telephone2 }}</h6>
 										<P>Assistance gratuite !</P>
 									</div>
 								</div>

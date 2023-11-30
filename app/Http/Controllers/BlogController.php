@@ -17,7 +17,7 @@ class BlogController extends Controller
 
         $parametres = DB::table('pays')->where('pays.id', $pays_id[0]->id)
             ->join('parametres', 'pays.id', '=', 'parametres.pays_id')
-            ->where('parametres.id', 3)
+            ->where('parametres.id', 1)
             ->select('*')
             ->get();
 
@@ -39,7 +39,7 @@ class BlogController extends Controller
 
         $parametres = DB::table('pays')->where('pays.id', $pays_id[0]->id)
             ->join('parametres', 'pays.id', '=', 'parametres.pays_id')
-            ->where('parametres.id', 3)
+            ->where('parametres.id', 1)
             ->select('*')
             ->get();
 
@@ -62,7 +62,9 @@ class BlogController extends Controller
             ->orderBy('reponse_commentaire3s.id', 'desc')
             ->get();
 
-        return view('frontend.blog-detail', compact('parametres', 'details', 'nombres', 'commentaires', 'reponses'));
+        $blogs = Blog::all();
+
+        return view('frontend.blog-detail', compact('blogs','parametres', 'details', 'nombres', 'commentaires', 'reponses'));
     }
 
     public function comment($slug_pays, $slug_blog, Request $request)

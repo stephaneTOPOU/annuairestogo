@@ -3,6 +3,7 @@
 @include('frontend.header.header3')
 @include('frontend.header.header4')
 @include('frontend.header.header5')
+<link href="{{ asset('assets/css/video-player.css') }}" rel="stylesheet"/>
 @include('frontend.header.header6')
 @include('frontend.header.header7')
 
@@ -145,76 +146,48 @@
 
 					<!--Rightside Content-->
 					<div class="col-xl-4 col-lg-4 col-md-12">
-						<div class="card">
-							<div class="card-header">
-								<h3 class="card-title">Categories</h3>
-							</div>
-							<div class="card-body p-0">
-								<div class="list-catergory">
-									<div class="item-list">
-										<ul class="list-group mb-0">
-											<li class="list-group-item">
-												<a href="#" class="text-dark">
-													<i class="fa fa-building bg-primary text-primary"></i> Real Estate
-													<span class="badgetext badge badge-pill badge-light mb-0 mt-1">14</span>
-												</a>
-											</li>
-											<li class="list-group-item">
-												<a href="#" class="text-dark">
-													<i class="fa fa-bed bg-success text-success"></i> Hostel & Travels
-													<span class="badgetext badge badge-pill badge-light mb-0 mt-1">63</span>
-												</a>
-											</li>
-											<li class="list-group-item">
-												<a href="#" class="text-dark">
-													<i class="fa fa-heartbeat bg-info text-info"></i> Health & Fitness
-													<span class="badgetext badge badge-pill badge-light mb-0 mt-1">25</span>
-												</a>
-											</li>
-											<li class="list-group-item">
-												<a href="#" class="text-dark">
-													<i class="fa fa-cutlery bg-warning text-warning"></i> Restaurant
-													<span class="badgetext badge badge-pill badge-light mb-0 mt-1">74</span>
-												</a>
-											</li>
-											<li class="list-group-item">
-												<a href="#" class="text-dark">
-													<i class="fa fa-laptop bg-danger text-danger"></i> Computer
-													<span class="badgetext badge badge-pill badge-light mb-0 mt-1">18</span>
-												</a>
-											</li>
-											<li class="list-group-item">
-												<a href="#" class="text-dark">
-													<i class="fa fa-mobile bg-blue text-blue"></i> Mobile
-													<span class="badgetext badge badge-pill badge-light mb-0 mt-1">32</span>
-												</a>
-											</li>
-											<li class="list-group-item border-bottom-0">
-												<a href="#" class="text-dark">
-													<i class="fa fa-pencil-square  bg-secondary text-pink"></i> Education
-													<span class="badgetext badge badge-pill badge-light mb-0 mt-1">08</span>
-												</a>
-											</li>
-										</ul>
+						@if ($details->video1)
+							<div class="item-card overflow-hidden">
+								<div class="item-card-desc">
+									<div class="card text-center overflow-hidden"> 
+										<div class="video-list">
+											<div class="video-list-inner video" style="cursor: pointer">
+												<div class="play card-img">
+													<img src="{{ asset('assets/videos/posters') }}/{{ $details->image1 }}" alt="{{ $details->image1 }}" class="play">
+												</div>
+												<div class="play item-card-text">
+													<i class="fa fa-play-circle" aria-hidden="false"></i>
+												</div>
+												<video class="hide" muted src="{{ asset('assets/videos') }}/{{ $details->video1 }}" controls poster="{{ asset('assets/videos') }}/{{ $details->image1 }}">
+											</div>
+										</div>                                       
 									</div>
 								</div>
 							</div>
-						</div>
-						{{-- <div class="card">
-							<div class="card-header">
-								<h3 class="card-title">Types de nouvelles</h3>
-							</div>
-							<div class="card-body">
-								<div class="product-tags clearfix">
-									<ul class="list-unstyled mb-0">
-										@foreach ($annonce2s as $details2)
-											<li><a href="{{ route('news',['slug_pays'=>'tg','slug_blog'=>$details2->slug_cat_an]) }}">{{ $details2->libelle }}</a></li>
-										@endforeach
-									</ul>
-								</div>
-							</div>
-						</div> --}}
+						@endif
 						
+						<div class="video-container">
+							<a class="close btn btn-sm btn-light w-6" data-bs-dismiss="modal" aria-label="Close" style="font-size: 14px; border-radius: 50%">x</a>
+							<video src="" autoplay controls poster=""></video>
+						</div>
+						
+						<div id="myCarousel1" class="owl-carousel blog-owl-carousel">
+							@foreach ($blogs as $blog)
+								<div class="item">
+									<div class="card">
+										<div class="item-card7-imgs">
+											<a href="#"></a>
+											<img src="{{ asset('assets/images/blogs') }}/{{ $blog->image1 }}" alt="{{ $blog->titre }}" class="cover-image">
+										</div>
+										<div class="card-body">
+											<div class="item-card7-desc">
+												<a href="#" class="text-dark"><h4 class="font-weight-semibold">{{ $blog->titre }}</h4></a>
+											</div>
+										</div>
+									</div>
+								</div>
+							@endforeach
+						</div>
 					</div>
 					<!--/Rightside Content-->
 				</div>
@@ -278,5 +251,6 @@
 @include('frontend.footer.footer15')
 @include('frontend.footer.footer16')
 @include('frontend.footer.footer17')
+<script src="{{ asset('assets/js/video-modal.js') }}"></script>
 @include('frontend.footer.footer18')
 
