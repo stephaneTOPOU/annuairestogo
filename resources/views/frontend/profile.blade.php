@@ -355,7 +355,7 @@
                                         @endif</a></h6>
 
                                         @if ($Profil_entreprise->siteweb)
-                                            <h6><span class="font-weight-semibold"><i class="fa fa-link me-3 "></i></span><a href="{{$Profil_entreprise->siteweb}}" class="text-primary">{{ $Profil_entreprise->siteweb }}</a></h6>
+                                            <h6><span class="font-weight-semibold"><i class="fa fa-link me-3 "></i></span><a href="{{$Profil_entreprise->siteweb}}" target="_blank" class="text-primary">{{ $Profil_entreprise->siteweb }}</a></h6>
                                         @endif
                                     </div>
                                     {{-- <div class=" item-user-icons mt-4">

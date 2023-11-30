@@ -94,7 +94,7 @@
             <div class="container">
                 <div class="row d-flex">
                     <div class="col-lg-12 col-sm-12 mt-3 mb-3 text-center ">
-                        Copyright © 2022 <a href="#" class="fs-14 text-primary">Claylist</a>. Designed with <span class="fa fa-heart text-primary"></span> by <a href="javascript:void0" class="text-primary"> Spruko </a>  All rights reserved.
+                        Copyright © 2023 <a href="{{ route('home.pays',['slug_pays'=>'tg']) }}" class="fs-14 text-primary">Annuaires Togo</a>. Tous droits réservés.
                     </div>
                 </div>
             </div>
