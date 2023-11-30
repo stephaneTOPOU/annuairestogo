@@ -122,7 +122,11 @@
                                                             {{-- <div class="arrow-ribbon bg-primary">Rent</div> --}}
                                                             <div class="item-card9-imgs">
                                                                 <a href="{{ route('entreprise.pays.profil',['slug_pays'=>$entreprise->slug_pays,'slug_categorie'=>$entreprise->slug_categorie,'slug_souscategorie'=>$entreprise->slug_souscategorie,'slug_entreprise'=>$entreprise->slug_entreprise]) }}"></a>
-                                                                <img src="{{ asset('assets/images/products') }}/{{ $entreprise->logo }}" alt="{{ $entreprise->nom }}" class="cover-image">
+                                                                @if ($entreprise->logo)
+                                                                    <img src="{{ asset('assets/images/products') }}/{{ $entreprise->logo }}" alt="{{ $entreprise->nom }}" class="cover-image">
+                                                                @else
+                                                                    <img src="{{ asset('assets/images/products/entreprise.png') }}" alt="{{ $entreprise->nom }}" class="cover-image">
+                                                                @endif                                      
                                                             </div>
                                                             {{-- <div class="item-card9-icons">
                                                                 <a href="{{ route('entreprise.pays.profil',['slug_pays'=>$entreprise->slug_pays,'slug_categorie'=>$entreprise->slug_categorie,'slug_souscategorie'=>$entreprise->slug_souscategorie,'slug_entreprise'=>$entreprise->slug_entreprise]) }}" class="item-card9-icons1 wishlist"> <i class="fa fa fa-heart-o"></i></a>
