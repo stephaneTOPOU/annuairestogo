@@ -54,6 +54,12 @@
 													@if ($annonces->image3)
 													<div class="carousel-item"> <img src="{{asset('assets/images/annonces')}}/{{$annonces->image3}}" alt="{{$annonces->titre}}"> </div>
 													@endif
+													@if ($annonces->image4)
+													<div class="carousel-item"> <img src="{{asset('assets/images/annonces')}}/{{$annonces->image4}}" alt="{{$annonces->titre}}"> </div>
+													@endif
+													@if ($annonces->image6)
+													<div class="carousel-item"> <img src="{{asset('assets/images/annonces')}}/{{$annonces->image6}}" alt="{{$annonces->titre}}"> </div>
+													@endif
 													<div class="thumbcarousel">
 														<a class="carousel-control-prev" href="#carouselFade" role="button"
 															data-bs-slide="prev">

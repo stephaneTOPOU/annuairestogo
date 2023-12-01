@@ -56,12 +56,21 @@
 									<div id="carouselFade" class="carousel slide carousel-fade" data-bs-ride="carousel"
 										data-bs-loop="false" data-bs-thumb="true">
 										<div class="carousel-inner slide-show-image" id=full-gallery>
-											<div class="carousel-item active"> <img src="{{asset('assets/images/products/products')}}/{{$pubs_details->image1}}" alt="{{$pubs_details->titre}}"> </div>
+											<div class="carousel-item active"> <img src="{{asset('assets/images/pubs')}}/{{$pubs_details->image1}}" alt="{{$pubs_details->titre}}"> </div>
 											@if ($pubs_details->image2)
-												<div class="carousel-item"> <img src="{{asset('assets/images/products/products')}}/{{$pubs_details->image2}}" alt="{{$pubs_details->titre}}"> </div>
+												<div class="carousel-item"> <img src="{{asset('assets/images/pubs')}}/{{$pubs_details->image2}}" alt="{{$pubs_details->titre}}"> </div>
 											@endif
 											@if ($pubs_details->image3)
-											<div class="carousel-item"> <img src="{{asset('assets/images/products/products')}}/{{$pubs_details->image3}}" alt="{{$pubs_details->titre}}"> </div>
+											<div class="carousel-item"> <img src="{{asset('assets/images/pubs')}}/{{$pubs_details->image3}}" alt="{{$pubs_details->titre}}"> </div>
+											@endif
+											@if ($pubs_details->image4)
+											<div class="carousel-item"> <img src="{{asset('assets/images/pubs')}}/{{$pubs_details->image4}}" alt="{{$pubs_details->titre}}"> </div>
+											@endif
+											@if ($pubs_details->image5)
+											<div class="carousel-item"> <img src="{{asset('assets/images/pubs')}}/{{$pubs_details->image5}}" alt="{{$pubs_details->titre}}"> </div>
+											@endif
+											@if ($pubs_details->image6)
+											<div class="carousel-item"> <img src="{{asset('assets/images/pubs')}}/{{$pubs_details->image6}}" alt="{{$pubs_details->titre}}"> </div>
 											@endif
 											<div class="thumbcarousel">
 												<a class="carousel-control-prev" href="#carouselFade" role="button"
@@ -119,7 +128,10 @@
 					
 					<!--Right Side Content-->
 					@foreach ($medias as $media)
-						<div class="col-xl-4 col-lg-4 col-md-12">						
+						<div class="col-xl-4 col-lg-4 col-md-12">
+							<div class="card-header">
+								<h3 class="card-title">Spot</h3>
+							</div>						
 							<div class="item-card overflow-hidden">
 								<div class="item-card-desc">
 									<div class="card text-center overflow-hidden"> 
@@ -138,6 +150,9 @@
 								</div>
 							</div>						
 							<div class="mb-4">
+								<div class="card-header">
+									<h3 class="card-title">Spot 2</h3>
+								</div>
 								<div class="video-youtube">
 										<iframe src="{{$media->youtube}}" frameborder="0" allowfullscreen></iframe>                 
 								</div>

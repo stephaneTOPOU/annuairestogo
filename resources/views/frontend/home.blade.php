@@ -238,7 +238,7 @@
                         <div class="card mb-0">
                             <div class="item-card2-img">
                                 <a href="{{ route('entreprise.pays.profil',['slug_pays'=>$honeure->slug_pays,'slug_categorie'=>$honeure->slug_categorie,'slug_souscategorie'=>$honeure->slug_souscategorie,'slug_entreprise'=>$honeure->slug_entreprise]) }}"></a>
-                                <img src="{{ asset('assets/images/products/products') }}/{{ $honeure->photo4 }}" alt="{{ $honeure->nom }}" class="cover-image">
+                                <img src="{{ asset('assets/images/nos_selection') }}/{{ $honeure->photo4 }}" alt="{{ $honeure->nom }}" class="cover-image">
                             </div>
                         </div>
                     </div>
@@ -399,7 +399,7 @@
 										<div class="col-xl-8 col-md-12 d-block mx-auto">
 											<div class="testimonia">
 												<div class="testimonia-img mx-auto mb-3">
-													<img src="../assets/images/faces/female/11.jpg" class="img-thumbnail rounded-circle alt=" alt="">
+													<img src="{{ asset('assets/images/faces/female/11.jpg') }}" class="img-thumbnail rounded-circle alt=" alt="">
 												</div>
 												<p>
 													<i class="fa fa-quote-left"></i> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod eos id officiis hic tenetur quae quaerat ad velit ab. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore cum accusamus eveniet molestias voluptatum inventore laboriosam labore sit, aspernatur praesentium iste impedit quidem dolor veniam.
@@ -563,7 +563,11 @@
 					<div class="item-card7-img">
 						<div class="item-card7-imgs">
 							<a href="{{ route('offre.detail',['slug_pays'=>'tg','offre_slug'=>$offre->slug_offres])}}"></a>
-							<img src="../assets/images/products/products/job.jpg" alt="img" class="cover-image">
+                            @if ($offre->image)
+                                <img src="{{ asset('assets/images/offres') }}/{{ $offre->image }}" alt="{{ $offre->titre }}" class="cover-image">
+                            @else
+                                <img src="{{ asset('assets/images/offres/job.jpg') }}" alt="{{ $offre->titre }}" class="cover-image">
+                            @endif
 						</div>
 						<div class="item-card7-overlaytext">
 							<a class="text-white"> {{$offre->categorie}}</a>

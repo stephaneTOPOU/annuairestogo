@@ -150,9 +150,9 @@
                                             <div id="carouselFade" class="carousel slide carousel-fade" data-bs-ride="carousel"
                                                 data-bs-loop="false" data-bs-thumb="true">
                                                 <div class="carousel-inner slide-show-image" id=full-gallery>
-                                                    <div class="carousel-item active"> <img src="{{ asset('assets/images/products/products/v1.jpg') }}" alt="img"> </div>
+                                                    <div class="carousel-item active"> <img src="{{ asset('assets/images/entreprises/galerie/v1.jpg') }}" alt="image"> </div>
                                                     @foreach ($galleries as $galleries)
-                                                        <div class="carousel-item"> <img src="{{ asset('assets/images/products/products') }}/{{ $galleries->galerie_image }}" alt="{{ $galleries->entreprise }}"> </div>
+                                                        <div class="carousel-item"> <img src="{{ asset('assets/images/entreprises/galerie') }}/{{ $galleries->galerie_image }}" alt="{{ $galleries->entreprise }}"> </div>
                                                     @endforeach
                                                     <div class="thumbcarousel">
                                                         <a class="carousel-control-prev" href="#carouselFade" role="button"
@@ -170,38 +170,38 @@
                                     </div>
                             </div>
                             <div class="card">
-                                    <div class="card-header">
-                                        <h3 class="card-title">Description de {{ $Profil_entreprise->nom }}</h3>
-                                    </div>
-                                    <div class="card-body">
-                                        @foreach ($services as $service)
-                                            <h4 class="mb-4">Qui Sommes-nous ?</h4>
-                                            <div class="mb-4">
-                                                <p>
-                                                    {{$service->libelle}}
-                                                </p>
-                                            </div>
-                                            <h4 class="mb-4">Notre mission</h4>
-                                            <div class="mb-4">
-                                                <p>
-                                                    {{$service->description}}
-                                                </p>
-                                            </div>
-                                            <h4 class="mb-4">Nos objectifs</h4>
-                                            <div class="mb-4">
-                                                <p>
-                                                    {{$service->image5}}
-                                                </p>
-                                            </div>
-                                        @endforeach
-                                    </div>
-                                    
-                                    <div class="card-footer">
-                                        <div class="icons">
-                                            <button id="boutonPartage" class="btn btn-info icons"><i class="icon icon-share me-1"></i> Partager </button>
-                                            <a href="#" class="btn btn-secondary icons"><i class="icon icon-printer  me-1"></i> Imprimer </a>
+                                <div class="card-header">
+                                    <h3 class="card-title">Description de {{ $Profil_entreprise->nom }}</h3>
+                                </div>
+                                <div class="card-body">
+                                    @foreach ($services as $service)
+                                        <h4 class="mb-4">Qui Sommes-nous ?</h4>
+                                        <div class="mb-4">
+                                            <p>
+                                                {{$service->libelle}}
+                                            </p>
                                         </div>
+                                        <h4 class="mb-4">Notre mission</h4>
+                                        <div class="mb-4">
+                                            <p>
+                                                {{$service->description}}
+                                            </p>
+                                        </div>
+                                        <h4 class="mb-4">Nos objectifs</h4>
+                                        <div class="mb-4">
+                                            <p>
+                                                {{$service->image5}}
+                                            </p>
+                                        </div>
+                                    @endforeach
+                                </div>
+                                    
+                                <div class="card-footer">
+                                    <div class="icons">
+                                        <button id="boutonPartage" class="btn btn-info icons"><i class="icon icon-share me-1"></i> Partager </button>
+                                        <a href="#" class="btn btn-secondary icons"><i class="icon icon-printer  me-1"></i> Imprimer </a>
                                     </div>
+                                </div>
                             </div>
                             <!--/Classified Description-->
 
@@ -215,7 +215,11 @@
                                             <div class="card">
                                                 <div class="item-card7-imgs">
                                                     <a href="{{ route('entreprise.pays.profil',['slug_pays'=>$entreprise_sim->slug_pays,'slug_categorie'=>$entreprise_sim->slug_categorie,'slug_souscategorie'=>$entreprise_sim->slug_souscategorie,'slug_entreprise'=>$entreprise_sim->slug_entreprise]) }}"></a>
-                                                    <img src="{{ asset('assets/images/products/products') }}/{{ $entreprise_sim->publireportage2 }}" alt="{{ $entreprise_sim->nom }}" class="cover-image">
+                                                    @if ($entreprise_sim->publireportage2)
+                                                        <img src="{{ asset('assets/images/entreprises/covers') }}/{{ $entreprise_sim->publireportage2 }}" alt="{{ $entreprise_sim->nom }}" class="cover-image">
+                                                    @else
+                                                        <img src="{{ asset('assets/images/entreprises/covers/j1.jpg') }}" alt="{{ $entreprise_sim->nom }}" class="cover-image">
+                                                    @endif
                                                 </div>
                                                 <div class="item-card7-overlaytext">
                                                     <a href="{{ route('entreprise.pays.profil',['slug_pays'=>$entreprise_sim->slug_pays,'slug_categorie'=>$entreprise_sim->slug_categorie,'slug_souscategorie'=>$entreprise_sim->slug_souscategorie,'slug_entreprise'=>$entreprise_sim->slug_entreprise]) }}" class="text-white">{{ $entreprise_sim->subcat }}</a>
@@ -319,9 +323,9 @@
                                 <div class="card-body  item-user">
                                     <div class="profile-pic mb-0">
                                         @if ($Profil_entreprise->logo)
-                                            <img src="{{ asset('assets/images/products') }}/{{ $Profil_entreprise->logo }}" class="avatar-xxl" alt="{{ $Profil_entreprise->nom }}">
+                                            <img src="{{ asset('assets/images/entreprises/logos') }}/{{ $Profil_entreprise->logo }}" class="avatar-xxl" alt="{{ $Profil_entreprise->nom }}">
                                         @else
-                                            <img src="{{ asset('assets/images/products/entreprise.png') }}" class="avatar-xxl" alt="{{ $Profil_entreprise->nom }}">
+                                            <img src="{{ asset('assets/images/entreprises/logos/entreprise.png') }}" class="avatar-xxl" alt="{{ $Profil_entreprise->nom }}">
                                         @endif                        
                                         <div >
                                             <a class="text-dark"><h4 class="mt-3 mb-1 font-weight-bold">{{ $Profil_entreprise->nom }}</h4></a>
