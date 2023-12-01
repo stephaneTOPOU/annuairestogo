@@ -21,10 +21,10 @@
 				<div class="header-text mb-0">
 					<div class="container">
 						<div class="text-center text-white">
-							<h1 class="">My Dashboard</h1>
+							<h1 class="">Mon profil</h1>
 							<ol class="breadcrumb text-center">
 								<li class="breadcrumb-item"><a href="users">Home</a></li>
-								<li class="breadcrumb-item active text-white" aria-current="page">My Dashboard</li>
+								<li class="breadcrumb-item active text-white" aria-current="page">Mon profil</li>
 							</ol>
 						</div>
 					</div>
@@ -40,7 +40,7 @@
 					<div class="col-xl-3 col-lg-12 col-md-12">
 						<div class="card overflow-hidden is-expanded">
 							<div class="card-header">
-								<h3 class="card-title">My Dashboard</h3>
+								<h3 class="card-title">Mon profil</h3>
 							</div>
 							<div class="card-body item-user p-5 active">
 								<div class="profile-pic">
@@ -52,7 +52,7 @@
 											<img src="{{ asset('assets/images/user_profile/user.png') }}" class="brround" alt="{{ $users->name }}">
 										@endif
 									</div>
-									<a href="#" class="text-dark"><h4 class="mt-4 mb-0 font-weight-semibold">{{ $users->name }}</h4></a>
+									<a href="#" class="text-dark"><h4 class="mt-6 mb-0 font-weight-semibold">{{ $users->name }} {{ $users->prenoms }}</h4></a>
 								</div>
 							</div>
 							<aside class="app-sidebar doc-sidebar my-dash open">
