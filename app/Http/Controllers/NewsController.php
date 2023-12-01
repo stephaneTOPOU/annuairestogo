@@ -45,7 +45,9 @@ class NewsController extends Controller
             ->select('commentaire_annonces.id as identifiant')
             ->count();
 
-        return view('frontend.news', compact('parametres', 'annonces', 'annonce2s', 'commentaires', 'reponses', 'nb'));
+        $news = Annonce::all();
+
+        return view('frontend.news', compact('news', 'parametres', 'annonces', 'annonce2s', 'commentaires', 'reponses', 'nb'));
     }
 
     public function comment($slug_pays, $slug_annonce, Request $request)

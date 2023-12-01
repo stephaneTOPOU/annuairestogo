@@ -3,6 +3,7 @@
 @include('frontend.header.header3')
 @include('frontend.header.header4')
 @include('frontend.header.header5')
+<link href="{{ asset('assets/css/video-player.css') }}" rel="stylesheet"/>
 @include('frontend.header.header6')
 @include('frontend.header.header7')
 
@@ -41,12 +42,32 @@
 					<div class="col-xl-8 col-lg-8 col-md-12">
 						<div class="card">
 								<div class="card-body">
-									<div class="item7-card-img">
-										<img src="{{ asset('assets/images/products') }}/{{ $annonces->image1 }}" alt="{{ $annonces->titre }}" class="w-100">
-										<div class="item7-card-text">
-											<span class="badge badge-info">Annonce</span>
+									<div class="card-body h-100 boot-slider">
+										<div class="product-slider carousel-slide-2">
+											<div id="carouselFade" class="carousel slide carousel-fade" data-bs-ride="carousel"
+												data-bs-loop="false" data-bs-thumb="true">
+												<div class="carousel-inner slide-show-image" id=full-gallery>
+													<div class="carousel-item active"> <img src="{{asset('assets/images/annonces')}}/{{$annonces->image1}}" alt="{{$annonces->titre}}"> </div>
+													@if ($annonces->image2)
+														<div class="carousel-item"> <img src="{{asset('assets/images/annonces')}}/{{$annonces->image2}}" alt="{{$annonces->titre}}"> </div>
+													@endif
+													@if ($annonces->image3)
+													<div class="carousel-item"> <img src="{{asset('assets/images/annonces')}}/{{$annonces->image3}}" alt="{{$annonces->titre}}"> </div>
+													@endif
+													<div class="thumbcarousel">
+														<a class="carousel-control-prev" href="#carouselFade" role="button"
+															data-bs-slide="prev">
+																<i class="fa fa-angle-left" aria-hidden="true"></i>
+														</a>
+														<a class="carousel-control-next" href="#carouselFade" role="button"
+															data-bs-slide="next">
+															<i class="fa fa-angle-right" aria-hidden="true"></i>
+														</a>
+													</div>
+												</div>
+											</div>
 										</div>
-									</div>
+									</div>							
 									<div class="item7-card-desc d-flex mb-2 mt-3">
 										<a href="#"><i class="fa fa-calendar-o text-muted me-2"></i>@php echo \Carbon\Carbon::parse($annonces->created_at)->diffForHumans(null, false, 'fr'); @endphp</a>
 										<div class="ms-auto">
@@ -54,8 +75,9 @@
 										</div>
 									</div>
 									<a href="#" class="text-dark"><h2 class="font-weight-semibold">{{ $annonces->titre }}</h2></a>
-									<p>{{ $annonces->text1 }}</p>
-									<p>{{ $annonces->text2 }}</p>
+									<p>{!! $annonces->text1 !!}</p>
+									<p>{!! $annonces->text2 !!}</p>
+									<p>{!! $annonces->text3 !!}</p>
 								</div>
 						</div>
 						<div class="card">
@@ -121,61 +143,33 @@
 
 					<!--Rightside Content-->
 					<div class="col-xl-4 col-lg-4 col-md-12">
-						<div class="card">
+						@if ($annonces->image5)
 							<div class="card-header">
-								<h3 class="card-title">Categories</h3>
+								<h3 class="card-title">Spot</h3>
 							</div>
-							<div class="card-body p-0">
-								<div class="list-catergory">
-									<div class="item-list">
-										<ul class="list-group mb-0">
-											<li class="list-group-item">
-												<a href="#" class="text-dark">
-													<i class="fa fa-building bg-primary text-primary"></i> Real Estate
-													<span class="badgetext badge badge-pill badge-light mb-0 mt-1">14</span>
-												</a>
-											</li>
-											<li class="list-group-item">
-												<a href="#" class="text-dark">
-													<i class="fa fa-bed bg-success text-success"></i> Hostel & Travels
-													<span class="badgetext badge badge-pill badge-light mb-0 mt-1">63</span>
-												</a>
-											</li>
-											<li class="list-group-item">
-												<a href="#" class="text-dark">
-													<i class="fa fa-heartbeat bg-info text-info"></i> Health & Fitness
-													<span class="badgetext badge badge-pill badge-light mb-0 mt-1">25</span>
-												</a>
-											</li>
-											<li class="list-group-item">
-												<a href="#" class="text-dark">
-													<i class="fa fa-cutlery bg-warning text-warning"></i> Restaurant
-													<span class="badgetext badge badge-pill badge-light mb-0 mt-1">74</span>
-												</a>
-											</li>
-											<li class="list-group-item">
-												<a href="#" class="text-dark">
-													<i class="fa fa-laptop bg-danger text-danger"></i> Computer
-													<span class="badgetext badge badge-pill badge-light mb-0 mt-1">18</span>
-												</a>
-											</li>
-											<li class="list-group-item">
-												<a href="#" class="text-dark">
-													<i class="fa fa-mobile bg-blue text-blue"></i> Mobile
-													<span class="badgetext badge badge-pill badge-light mb-0 mt-1">32</span>
-												</a>
-											</li>
-											<li class="list-group-item border-bottom-0">
-												<a href="#" class="text-dark">
-													<i class="fa fa-pencil-square  bg-secondary text-pink"></i> Education
-													<span class="badgetext badge badge-pill badge-light mb-0 mt-1">08</span>
-												</a>
-											</li>
-										</ul>
+							<div class="item-card overflow-hidden">
+								<div class="item-card-desc">
+									<div class="card text-center overflow-hidden"> 
+										<div class="video-list">
+											<div class="video-list-inner video" style="cursor: pointer">
+												<div class="play card-img">
+													<img src="{{ asset('assets/videos/posters') }}/{{ $annonces->image1 }}" alt="{{ $annonces->image1 }}" class="play">
+												</div>
+												<div class="play item-card-text">
+													<i class="fa fa-play-circle" aria-hidden="false"></i>
+												</div>
+												<video class="hide" muted src="{{ asset('assets/videos') }}/{{ $annonces->image5 }}" controls poster="{{ asset('assets/videos') }}/{{ $annonces->image1 }}">
+											</div>
+										</div>                                       
 									</div>
 								</div>
 							</div>
+						@endif
+						<div class="video-container">
+							<a class="close btn btn-sm btn-light w-6" data-bs-dismiss="modal" aria-label="Close" style="font-size: 14px; border-radius: 50%">x</a>
+							<video src="" autoplay controls poster=""></video>
 						</div>
+							
 						<div class="card">
 							<div class="card-header">
 								<h3 class="card-title">Types de nouvelles</h3>
@@ -184,11 +178,33 @@
 								<div class="product-tags clearfix">
 									<ul class="list-unstyled mb-0">
 										@foreach ($annonce2s as $annonces2)
-											<li><a href="{{ route('news',['slug_pays'=>'tg','slug_annonce'=>$annonces2->slug_cat_an]) }}">{{ $annonces2->libelle }}</a></li>
+											<li><a href="#">{{ $annonces2->libelle }}</a></li>
 										@endforeach
 									</ul>
 								</div>
 							</div>
+						</div>
+
+						<div class="card-header">
+							<h3 class="card-title">Les annonces récentes</h3>
+						</div>
+						{{-- <h4 style="text-align: center; margin-top: 15px; margin-bottom: 5px;">Les annonces récentes</h4> --}}
+						<div id="myCarousel1" class="owl-carousel blog-owl-carousel">
+							@foreach ($news as $new)
+								<div class="item">
+									<div class="card">
+										<div class="item-card7-imgs">
+											<a href="{{ route('news',['slug_pays'=>'tg','slug_annonce'=>$new->slug_annonce]) }}"></a>
+											<img src="{{ asset('assets/images/annonces') }}/{{ $new->image1 }}" alt="{{ $new->titre }}" class="cover-image">
+										</div>
+										<div class="card-body">
+											<div class="item-card7-desc">
+												<a href="{{ route('news',['slug_pays'=>'tg','slug_annonce'=>$new->slug_annonce]) }}" class="text-dark"><h4 class="font-weight-semibold">{{ $new->titre }}</h4></a>
+											</div>
+										</div>
+									</div>
+								</div>
+							@endforeach
 						</div>
 						
 					</div>
@@ -254,5 +270,10 @@
 @include('frontend.footer.footer15')
 @include('frontend.footer.footer16')
 @include('frontend.footer.footer17')
+<!--JQuery Slider  js-->
+<script src="{{ asset('assets/plugins/boot-slider/boot-slider.min.js')}}"></script>
+<script src="{{ asset('assets/js/boots-slider.js')}}"></script>
+<!--modal Js-->
+<script src="{{ asset('assets/js/video-modal.js') }}"></script>
 @include('frontend.footer.footer18')
 

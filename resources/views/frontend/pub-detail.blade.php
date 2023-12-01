@@ -119,30 +119,30 @@
 					
 					<!--Right Side Content-->
 					@foreach ($medias as $media)
-					<div class="col-xl-4 col-lg-4 col-md-12">						
-						<div class="item-card overflow-hidden">
-							<div class="item-card-desc">
-								<div class="card text-center overflow-hidden"> 
-									<div class="video-list">
-										<div class="video-list-inner video" style="cursor: pointer">
-											<div class="play card-img">
-												<img src="{{ asset('assets/videos/posters') }}/{{ $media->imageSpot }}" alt="{{ $media->imageSpot }}" class="play">
+						<div class="col-xl-4 col-lg-4 col-md-12">						
+							<div class="item-card overflow-hidden">
+								<div class="item-card-desc">
+									<div class="card text-center overflow-hidden"> 
+										<div class="video-list">
+											<div class="video-list-inner video" style="cursor: pointer">
+												<div class="play card-img">
+													<img src="{{ asset('assets/videos/posters') }}/{{ $media->imageSpot }}" alt="{{ $media->imageSpot }}" class="play">
+												</div>
+												<div class="play item-card-text">
+													<i class="fa fa-play-circle" aria-hidden="false"></i>
+												</div>
+												<video class="hide" muted src="{{ asset('assets/videos') }}/{{ $media->videoSpot }}" controls poster="{{ asset('assets/videos') }}/{{ $media->imageSpot }}">
 											</div>
-											<div class="play item-card-text">
-												<i class="fa fa-play-circle" aria-hidden="false"></i>
-											</div>
-											<video class="hide" muted src="{{ asset('assets/videos') }}/{{ $media->videoSpot }}" controls poster="{{ asset('assets/videos') }}/{{ $media->imageSpot }}">
-										</div>
-									</div>                                       
+										</div>                                       
+									</div>
 								</div>
-							</div>
-						</div>						
-						<div class="mb-4">
-							<div class="video-youtube">
-									<iframe src="{{$media->youtube}}" frameborder="0" allowfullscreen></iframe>                 
-							</div>
-						</div> 
-					</div>
+							</div>						
+							<div class="mb-4">
+								<div class="video-youtube">
+										<iframe src="{{$media->youtube}}" frameborder="0" allowfullscreen></iframe>                 
+								</div>
+							</div> 
+						</div>
 					@endforeach
 					<div class="video-container">
 						<a class="close btn btn-sm btn-light w-6" data-bs-dismiss="modal" aria-label="Close" style="font-size: 14px; border-radius: 50%">x</a>

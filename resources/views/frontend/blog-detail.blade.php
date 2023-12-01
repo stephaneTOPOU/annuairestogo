@@ -147,6 +147,9 @@
 					<!--Rightside Content-->
 					<div class="col-xl-4 col-lg-4 col-md-12">
 						@if ($details->video1)
+							<div class="card-header">
+								<h3 class="card-title">Spot</h3>
+							</div>
 							<div class="item-card overflow-hidden">
 								<div class="item-card-desc">
 									<div class="card text-center overflow-hidden"> 
@@ -171,7 +174,10 @@
 							<video src="" autoplay controls poster=""></video>
 						</div>
 						
-						<h4 style="text-align: center; margin-top: 15px; margin-bottom: 5px;">Les blogs récents</h4>
+						<div class="card-header">
+							<h3 class="card-title">Les blogs récents</h3>
+						</div>
+						{{-- <h4 style="text-align: center; margin-top: 15px; margin-bottom: 5px;">Les blogs récents</h4> --}}
 						<div id="myCarousel1" class="owl-carousel blog-owl-carousel">
 							@foreach ($blogs as $blog)
 								<div class="item">
