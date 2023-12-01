@@ -112,7 +112,7 @@
 								<div class="card">
 									<div class="item-card7-imgs">
 										<a href="{{ route('offre.detail',['slug_pays'=>'tg','offre_slug'=>$offre->slug_offres])}}"></a>
-										<img src="../assets/images/products/products/job.jpg" alt="img" class="cover-image">
+										<img src="{{ asset('assets/images/offres') }}/{{ $offre->image }}" alt="{{ $offre->image }}" class="cover-image">
 									</div>
 									<div class="item-card7-overlaytext">
 										<a class="text-white"> {{$offre->categorie}}</a>
@@ -145,40 +145,40 @@
 					<!--Right Side Content-->
 					<div class="col-xl-4 col-lg-4 col-md-12">
 						{{-- <div class="card">
-							<div class="card-header">
-								<h3 class="card-title">Posted By</h3>
-							</div>
-							<div class="card-body  item-user">
-								<div class="profile-pic mb-0">
-									<img src="../assets/images/faces/male/25.jpg" class="brround avatar-xxl" alt="user">
-									<div >
-										<a href="userprofile.html" class="text-dark"><h4 class="mt-3 mb-1 font-weight-semibold">Robert McLean</h4></a>
-										<span class="text-muted">Member Since November 2008</span>
-										<h6 class="mt-2 mb-0"><a href="#" class="btn btn-primary btn-sm">See All Ads</a></h6>
-									</div>
+								<div class="card-header">
+									<h3 class="card-title">Posted By</h3>
+								</div>
+								<div class="card-body  item-user">
+									<div class="profile-pic mb-0">
+										<img src="../assets/images/faces/male/25.jpg" class="brround avatar-xxl" alt="user">
+										<div >
+											<a href="userprofile.html" class="text-dark"><h4 class="mt-3 mb-1 font-weight-semibold">Robert McLean</h4></a>
+											<span class="text-muted">Member Since November 2008</span>
+											<h6 class="mt-2 mb-0"><a href="#" class="btn btn-primary btn-sm">See All Ads</a></h6>
+										</div>
 
+									</div>
 								</div>
-							</div>
-							<div class="card-body item-user">
-								<h4 class="mb-4">Contact Info</h4>
-								<div>
-									<h6><span class="font-weight-semibold"><i class="fa fa-envelope me-3 mb-2"></i></span><a href="#" class="text-body"> robert123@gmail.com</a></h6>
-									<h6><span class="font-weight-semibold"><i class="fa fa-phone me-3  mb-2"></i></span><a href="#" class="text-primary"> 0-235-657-24587</a></h6>
-									<h6><span class="font-weight-semibold"><i class="fa fa-link me-3 "></i></span><a href="#" class="text-primary">http://spruko.com/</a></h6>
+								<div class="card-body item-user">
+									<h4 class="mb-4">Contact Info</h4>
+									<div>
+										<h6><span class="font-weight-semibold"><i class="fa fa-envelope me-3 mb-2"></i></span><a href="#" class="text-body"> robert123@gmail.com</a></h6>
+										<h6><span class="font-weight-semibold"><i class="fa fa-phone me-3  mb-2"></i></span><a href="#" class="text-primary"> 0-235-657-24587</a></h6>
+										<h6><span class="font-weight-semibold"><i class="fa fa-link me-3 "></i></span><a href="#" class="text-primary">http://spruko.com/</a></h6>
+									</div>
+									<div class=" item-user-icons mt-4">
+										<a href="#" class="facebook-bg mt-0"><i class="fa fa-facebook"></i></a>
+										<a href="#" class="twitter-bg"><i class="fa fa-twitter"></i></a>
+										<a href="#" class="google-bg"><i class="fa fa-google"></i></a>
+										<a href="#" class="dribbble-bg"><i class="fa fa-dribbble"></i></a>
+									</div>
 								</div>
-								<div class=" item-user-icons mt-4">
-									<a href="#" class="facebook-bg mt-0"><i class="fa fa-facebook"></i></a>
-									<a href="#" class="twitter-bg"><i class="fa fa-twitter"></i></a>
-									<a href="#" class="google-bg"><i class="fa fa-google"></i></a>
-									<a href="#" class="dribbble-bg"><i class="fa fa-dribbble"></i></a>
+								<div class="card-footer">
+									<div class="text-start">
+										<a href="#" class="btn  btn-info"><i class="fa fa-envelope"></i> Chat</a>
+										<a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#contact"><i class="fa fa-user"></i> Contact Me</a>
+									</div>
 								</div>
-							</div>
-							<div class="card-footer">
-								<div class="text-start">
-									<a href="#" class="btn  btn-info"><i class="fa fa-envelope"></i> Chat</a>
-									<a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#contact"><i class="fa fa-user"></i> Contact Me</a>
-								</div>
-							</div>
 						</div> --}}
 						<div class="card">
 							<div class="card-header">

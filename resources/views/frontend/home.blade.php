@@ -577,7 +577,7 @@
 					<div class="card-body">
 						<div class="item-card7-desc">
 							<div class="item-card7-text">
-								<a href="{{ route('offre.detail',['slug_pays'=>'tg','offre_slug'=>$offre->slug_offres])}}" class="text-dark"><h4 class="font-weight-semibold">{{$offre->titre}}</h4></a>
+								<a href="{{ route('offre.detail',['slug_pays'=>'tg','offre_slug'=>$offre->slug_offres])}}" class="text-dark"><h4 class="font-weight-semibold">{{ Str::limit($offre->titre, 30) }}</h4></a>
 							</div>
 							<ul class="d-flex">
 								<li class=""><a class="icons"><i class="icon icon-location-pin text-muted me-1"></i> {{$offre->ville}}</a></li>
@@ -586,7 +586,7 @@
                                     <li class=""><a class="icons"><i class="icon icon-phone text-muted me-1"></i> {{$offre->telephone}}</a></li> 
                                 @endif
 							</ul>
-							<p class="mb-0">{!! Str::limit($offre->description, 40) !!}</p>
+							<p class="mb-0">{{ Str::limit($offre->description, 40) }}</p>
 						</div>
 					</div>
 					<div class="card-body">
