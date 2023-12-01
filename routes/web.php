@@ -186,8 +186,6 @@ Route::get('/{slug_pays}/{slug_annonce}', [\App\Http\Controllers\NewsController:
 
 Route::get('/{slug_pays}/{pub_slug}', [App\Http\Controllers\PubController::class, 'pubDetail'])->name('pub.detail');
 
-Route::get('/{slug_pays}/{slug_user}', [\App\Http\Controllers\UserController::class, 'mydash'])->name('user.dashboard');
-
 Route::get('/{slug_pays}/{slug_categorie}', [\App\Http\Controllers\SousCategoriesController::class, 'Souscategories_pays'])->name('subcat.pays');
 
 
@@ -207,6 +205,8 @@ Route::post('/{slug_pays}/{slug_user}', [\App\Http\Controllers\UserController::c
 
 
 Route::get('/{slug_pays}/blog/{slug_blog}', [\App\Http\Controllers\BlogController::class, 'detail'])->name('blog.detail');
+
+Route::get('/{slug_pays}/mon-profil/{slug_user}', [\App\Http\Controllers\UserController::class, 'mydash'])->name('user.dashboard');
 
 Route::get('/{slug_pays}/profil/{slug_user}', [\App\Http\Controllers\UserController::class, 'myprofil'])->name('user.profile');
 
