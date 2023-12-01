@@ -153,8 +153,24 @@ class ProfileController extends Controller
             ->join('entreprises', 'sous_categories.id', '=', 'entreprises.souscategorie_id')->where('entreprises.id', $entreprise_id[0]->id)
             ->select('rate')
             ->get();
+
+        $populaires = DB::table('pays')->where('pays.id', $pays_id[0]->id)
+            ->join('categories', 'pays.id', '=', 'categories.pays_id')
+            ->join('sous_categories', 'categories.id', '=', 'sous_categories.categorie_id')
+            ->join('entreprises', 'sous_categories.id', '=', 'souscategorie_id')
+            ->select('*')
+            ->where('vue', '>=', 500)
+            ->inRandomOrder()
+            ->get();
             
-        return view('frontend.profile',compact('ratings','parametres','commentaires','commentaire2s','entreprise_similaire','souscategories','parametres', 'Profil_entreprises', 'avis3', 'avis', 'services', 'serviceImages', 'horaires', 'galleries', 'premiums', 'basics', 'partenaires'));
+        $recents = DB::table('pays')->where('pays.id', $pays_id[0]->id)
+            ->join('categories', 'pays.id', '=', 'categories.pays_id')
+            ->join('sous_categories', 'categories.id', '=', 'sous_categories.categorie_id')
+            ->join('entreprises', 'sous_categories.id', '=', 'souscategorie_id')
+            ->select('*')
+            ->orderBy('entreprises.id', 'desc')
+            ->get();
+        return view('frontend.profile',compact('recents', 'populaires', 'ratings','parametres','commentaires','commentaire2s','entreprise_similaire','souscategories','parametres', 'Profil_entreprises', 'avis3', 'avis', 'services', 'serviceImages', 'horaires', 'galleries', 'premiums', 'basics', 'partenaires'));
     }
 
 

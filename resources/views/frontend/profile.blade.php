@@ -40,7 +40,7 @@
                                     <div class=" search-background bg-transparent">
                                         <form class="form row g-0" action="{{ route('recherche.pays',['slug_pays'=>'tg']) }}" method="GET">
                                             <div class="form-group  col-xl-6 col-lg-5 col-md-12 mb-0">
-                                                <input type="text" class="form-control input-lg border-start-0 br-0" id="text4" placeholder="Trouver une entreprise ou un professionel" name="nom">
+                                                <input type="text" class="form-control input-lg border-start-0 br-0" id="text4" placeholder="Trouver une entreprise" name="nom">
                                                 <script type="text/javascript">
                                                     var path = "{{ route('autocomplete.pays',['slug_pays'=>'tg']) }}" ;
                                                     // path = path.replace(':pays_id', pays_id);
@@ -426,62 +426,15 @@
                                 </div>
                                 <div class="card-body ">
                                     <ul class="vertical-scroll">
-                                        <li class="news-item">
-                                            <table>
-                                                <tr>
-                                                    <td><img src="../assets/images/products/1.png" alt="image" class="w-8 border"/></td>
-                                                    <td><h5 class="mb-1 ">Best New Model Watch</h5><a href="#" class="btn-link">View Details</a><span class="float-end font-weight-bold">$17</span></td>
-                                                </tr>
-                                            </table>
-                                        </li>
-                                        <li class="news-item">
-                                            <table>
-                                                <tr>
-                                                    <td><img src="../assets/images/products/2.png" alt="image" class="w-8 border"/></td>
-                                                    <td><h5 class="mb-1 ">Trending New Model Watches</h5><a href="#" class="btn-link">View Details</a><span class="float-end font-weight-bold">$17</span></td>
-                                                </tr>
-                                            </table>
-                                        </li>
-                                        <li class="news-item">
-                                            <table>
-                                                <tr>
-                                                    <td><img src="../assets/images/products/3.png" alt="image" class="w-8 border" /></td>
-                                                    <td><h5 class="mb-1 ">Best New Model Watch</h5><a href="#" class="btn-link">View Details</a><span class="float-end font-weight-bold">$17</span></td>
-                                                </tr>
-                                            </table>
-                                        </li>
-                                        <li class="news-item">
-                                            <table>
-                                                <tr>
-                                                    <td><img src="../assets/images/products/4.png" alt="image" class="w-8 border" /></td>
-                                                    <td><h5 class="mb-1 ">Trending New Model Watches</h5><a href="#" class="btn-link">View Details</a><span class="float-end font-weight-bold">$17</span></td>
-                                                </tr>
-                                            </table>
-                                        </li>
-                                        <li class="news-item">
-                                            <table>
-                                                <tr>
-                                                    <td><img src="../assets/images/products/5.png" alt="image" class="w-8 border" /></td>
-                                                    <td><h5 class="mb-1 ">Best New Model Watch</h5><a href="#" class="btn-link">View Details</a><span class="float-end font-weight-bold">$17</span></td>
-                                                </tr>
-                                            </table>
-                                        </li>
-                                        <li class="news-item">
-                                            <table>
-                                                <tr>
-                                                    <td><img src="../assets/images/products/6.png" alt="image" class="w-8 border" /></td>
-                                                    <td><h5 class="mb-1 ">Best New Model Shoes</h5><a href="#" class="btn-link">View Details</a><span class="float-end font-weight-bold">$17</span></td>
-                                                </tr>
-                                            </table>
-                                        </li>
-                                        <li class="news-item">
-                                            <table>
-                                                <tr>
-                                                    <td><img src="../assets/images/products/7.png" alt="image" class="w-8 border" /></td>
-                                                    <td><h5 class="mb-1 ">Trending New Model Shoes</h5><a href="#" class="btn-link">View Details</a><span class="float-end font-weight-bold">$17</span></td>
-                                                </tr>
-                                            </table>
-                                        </li>
+                                        @foreach ($populaires as $populaire)
+                                            <li class="news-item">
+                                                <table>
+                                                    <tr>
+                                                        <td><h5 class="mb-1 ">{{ $populaire->nom }}</h5><a href="{{ route('entreprise.pays.profil',['slug_pays'=>$populaire->slug_pays,'slug_categorie'=>$populaire->slug_categorie,'slug_souscategorie'=>$populaire->slug_souscategorie,'slug_entreprise'=>$populaire->slug_entreprise]) }}" class="btn-link">Détails</a></td>
+                                                    </tr>
+                                                </table>
+                                            </li>
+                                        @endforeach
                                     </ul>
                                 </div>
                             </div>
@@ -493,86 +446,15 @@
                                 <div class="card-body">
                                     <div class="rated-products">
                                         <ul class="vertical-scroll">
-                                            <li class="item">
-                                                <div class="media m-0 mt-0 p-5">
-                                                    <img class="me-4" src="../assets/images/products/toys.png" alt="img">
-                                                    <div class="media-body">
-                                                        <h4 class="mt-2 mb-1">Kids Toys</h4>
-                                                        <span class="rated-products-ratings">
-                                                            <i class="fa fa-star text-warning"> </i>
-                                                            <i class="fa fa-star text-warning"> </i>
-                                                            <i class="fa fa-star text-warning"> </i>
-                                                            <i class="fa fa-star text-warning"> </i>
-                                                            <i class="fa fa-star text-warning"> </i>
-                                                        </span>
-                                                        <div class="h5 mb-0 font-weight-semibold mt-1">$17 - $29</div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="item">
-                                                <div class="media p-5 mt-0">
-                                                    <img class="me-4" src="../assets/images/products/1.png" alt="img">
-                                                    <div class="media-body">
-                                                        <h4 class="mt-2 mb-1">Leather Watch</h4>
-                                                        <span class="rated-products-ratings">
-                                                            <i class="fa fa-star text-warning"> </i>
-                                                            <i class="fa fa-star text-warning"> </i>
-                                                            <i class="fa fa-star text-warning"> </i>
-                                                            <i class="fa fa-star text-warning"> </i>
-                                                            <i class="fa fa-star-o text-warning"> </i>
-                                                        </span>
-                                                        <div class="h5 mb-0 font-weight-semibold mt-1">$22 - $45</div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="item">
-                                                <div class="media p-5 mt-0">
-                                                    <img class=" me-4" src="../assets/images/products/4.png" alt="img">
-                                                    <div class="media-body">
-                                                        <h4 class="mt-2 mb-1">Digital Watch</h4>
-                                                        <span class="rated-products-ratings">
-                                                            <i class="fa fa-star text-warning"> </i>
-                                                            <i class="fa fa-star text-warning"> </i>
-                                                            <i class="fa fa-star text-warning"> </i>
-                                                            <i class="fa fa-star text-warning"> </i>
-                                                            <i class="fa fa-star-half-o text-warning"> </i>
-                                                        </span>
-                                                        <div class="h5 mb-0 font-weight-semibold mt-1">$35 - $72</div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="item">
-                                                <div class="media p-5 mt-0">
-                                                    <img class=" me-4" src="../assets/images/products/6.png" alt="img">
-                                                    <div class="media-body">
-                                                        <h4 class="mt-2 mb-1">Sports Shoe</h4>
-                                                        <span class="rated-products-ratings">
-                                                            <i class="fa fa-star text-warning"> </i>
-                                                            <i class="fa fa-star text-warning"> </i>
-                                                            <i class="fa fa-star text-warning"> </i>
-                                                            <i class="fa fa-star-half-o text-warning"> </i>
-                                                            <i class="fa fa-star-o text-warning"> </i>
-                                                        </span>
-                                                        <div class="h5 mb-0 font-weight-semibold mt-1">$12 - $21</div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="item">
-                                                <div class="media  mb-0 p-5 mt-0">
-                                                    <img class=" me-4" src="../assets/images/products/8.png" alt="img">
-                                                    <div class="media-body">
-                                                        <h4 class="mt-2 mb-1">Ladies shoes</h4>
-                                                        <span class="rated-products-ratings">
-                                                            <i class="fa fa-star text-warning"> </i>
-                                                            <i class="fa fa-star text-warning"> </i>
-                                                            <i class="fa fa-star text-warning"> </i>
-                                                            <i class="fa fa-star-o text-warning"> </i>
-                                                            <i class="fa fa-star-o text-warning"> </i>
-                                                        </span>
-                                                        <div class="h5 mb-0 font-weight-semibold mt-1">$89 - $97</div>
-                                                    </div>
-                                                </div>
-                                            </li>
+                                            @foreach ($recents as $recent)
+                                                <li class="news-item">
+                                                    <table>
+                                                        <tr>
+                                                            <td><h5 class="mb-1 ">{{ $recent->nom }}</h5><a href="{{ route('entreprise.pays.profil',['slug_pays'=>$recent->slug_pays,'slug_categorie'=>$recent->slug_categorie,'slug_souscategorie'=>$recent->slug_souscategorie,'slug_entreprise'=>$recent->slug_entreprise]) }}" class="btn-link">Détails</a></td>
+                                                        </tr>
+                                                    </table>
+                                                </li>
+                                            @endforeach
                                         </ul>
                                     </div>
                                 </div>
@@ -587,79 +469,79 @@
 @include('frontend.footer.footer1')
 
     @foreach ($Profil_entreprises as $Profil_entreprise)
-            @foreach ($commentaires as $commentaire)
-                <!-- Message Modal -->
-                <div class="modal fade" id="contact" tabindex="-1" role="dialog"  aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <form class="modal-content" method="POST" action="{{ route('entreprise.contact',['slug_pays'=>$Profil_entreprise->slug_pays,'slug_categorie'=>$Profil_entreprise->slug_categorie,'slug_souscategorie'=>$Profil_entreprise->slug_souscategorie]) }}" enctype="multipart/form-data">
-                            @csrf
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="examplecontactLongTitle">{{ $Profil_entreprise->nom }}</h5>
-                                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="form-group" hidden>
-                                    <input class="form-control" type="text" placeholder="{{ $Profil_entreprise->nom }}" required value="{{ $Profil_entreprise->nom }}" name="entrprise_nom">
-                                </div>
-                                <div class="form-group" hidden>
-                                    @if ($Profil_entreprise->email)
-                                        <input class="form-control" type="text" placeholder="{{ $Profil_entreprise->email }}" required value="{{ $Profil_entreprise->email }}" name="entrprise_email">
-                                    @else
-                                        <input class="form-control" type="text" placeholder="contact@showroomafrica.com" required value="contact@showroomafrica.com" name="entrprise_email">
-                                    @endif
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" id="contact-name" placeholder="Votre nom" name="nom">
-                                </div>
-                                <div class="form-group">
-                                    <input type="email" class="form-control" id="contact-email" placeholder="Votre email" name="email">
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" id="contact-name" placeholder="Objet" name="objet">
-                                </div>
-                                <div class="form-group mb-0">
-                                    <textarea class="form-control" name="message" rows="6" placeholder="Message" ></textarea>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Annuler</button>
-                                <button type="submit" class="btn btn-success">Envoyer</button>
-                            </div>
-                        </form>
+        <!-- Message Modal -->
+        <div class="modal fade" id="contact" tabindex="-1" role="dialog"  aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <form class="modal-content" method="POST" action="{{ route('entreprise.contact',['slug_pays'=>$Profil_entreprise->slug_pays,'slug_categorie'=>$Profil_entreprise->slug_categorie,'slug_souscategorie'=>$Profil_entreprise->slug_souscategorie]) }}" enctype="multipart/form-data">
+                    @csrf
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="examplecontactLongTitle">{{ $Profil_entreprise->nom }}</h5>
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
-                </div>
-                <!--Comment Modal -->
-                <div class="modal fade" id="Comment" tabindex="-1" role="dialog"  aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <form class="modal-content" method="POST" action="{{ route('entreprise.pays.comment2',['slug_pays'=>$Profil_entreprise->slug_pays,'slug_categorie'=>$Profil_entreprise->slug_categorie,'slug_souscategorie'=>$Profil_entreprise->slug_souscategorie,'slug_entreprise'=>$Profil_entreprise->slug_entreprise,'id'=>$commentaire->id]) }}">
-                            @csrf
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleCommentLongTitle">Envoyer le message</h5>
-                                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" id="Comment-name" placeholder="Votre nom" name="nomR">
-                                </div>
-                                <div class="form-group">
-                                    <input type="email" class="form-control" id="Comment-email" placeholder="Votre email" name="emailR">
-                                </div>
-                                <div class="form-group mb-0">
-                                    <textarea class="form-control" name="messageR" rows="6" placeholder="Message"></textarea>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Annuler</button>
-                                <button type="submit" class="btn btn-success">Envoyer</button>
-                            </div>
-                        </form>
+                    <div class="modal-body">
+                        <div class="form-group" hidden>
+                            <input class="form-control" type="text" placeholder="{{ $Profil_entreprise->nom }}" required value="{{ $Profil_entreprise->nom }}" name="entrprise_nom">
+                        </div>
+                        <div class="form-group" hidden>
+                            @if ($Profil_entreprise->email)
+                                <input class="form-control" type="text" placeholder="{{ $Profil_entreprise->email }}" required value="{{ $Profil_entreprise->email }}" name="entrprise_email">
+                            @else
+                                <input class="form-control" type="text" placeholder="contact@showroomafrica.com" required value="contact@showroomafrica.com" name="entrprise_email">
+                            @endif
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="contact-name" placeholder="Votre nom" name="nom">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" id="contact-email" placeholder="Votre email" name="email">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="contact-name" placeholder="Objet" name="objet">
+                        </div>
+                        <div class="form-group mb-0">
+                            <textarea class="form-control" name="message" rows="6" placeholder="Message" ></textarea>
+                        </div>
                     </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Annuler</button>
+                        <button type="submit" class="btn btn-success">Envoyer</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        @foreach ($commentaires as $commentaire)
+            <!--Comment Modal -->
+            <div class="modal fade" id="Comment" tabindex="-1" role="dialog"  aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <form class="modal-content" method="POST" action="{{ route('entreprise.pays.comment2',['slug_pays'=>$Profil_entreprise->slug_pays,'slug_categorie'=>$Profil_entreprise->slug_categorie,'slug_souscategorie'=>$Profil_entreprise->slug_souscategorie,'slug_entreprise'=>$Profil_entreprise->slug_entreprise,'id'=>$commentaire->id]) }}">
+                        @csrf
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleCommentLongTitle">Envoyer le message</h5>
+                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="Comment-name" placeholder="Votre nom" name="nomR">
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control" id="Comment-email" placeholder="Votre email" name="emailR">
+                            </div>
+                            <div class="form-group mb-0">
+                                <textarea class="form-control" name="messageR" rows="6" placeholder="Message"></textarea>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Annuler</button>
+                            <button type="submit" class="btn btn-success">Envoyer</button>
+                        </div>
+                    </form>
                 </div>
-            @endforeach
+            </div>
+        @endforeach
     @endforeach
 
 		<!-- Report Modal -->
