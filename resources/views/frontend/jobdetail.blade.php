@@ -46,9 +46,17 @@
 									<h3 >{{$offres_details->titre}}</h3></a>
 									<div class=" d-flex">
 										<ul class="d-flex mb-0">
-											<li class="me-5"><i class="icon icon-briefcase text-muted me-1"></i> {{$offres_details->entreprise}}</li>
-											<li class="me-5"><i class="icon icon-location-pin text-muted me-1"></i>{{$offres_details->ville}}</li>
-											<li class="me-5"><i class="icon icon-calendar text-muted me-1"></i> {{ date('d/m/Y', strtotime($offres_details->date_lim)) }}</li>
+											@if ($offres_details->entreprise)
+												<li class="me-5"><i class="icon icon-briefcase text-muted me-1"></i> {{$offres_details->entreprise}}</li>
+											@endif
+											
+											@if ($offres_details->ville)
+												<li class="me-5"><i class="icon icon-location-pin text-muted me-1"></i>{{$offres_details->ville}}</li>
+											@endif
+											
+											@if ($offres_details->date_lim)
+												<li class="me-5"><i class="icon icon-calendar text-muted me-1"></i> {{ date('d/m/Y', strtotime($offres_details->date_lim)) }}</li>
+											@endif
 										</ul>
 									</div>
 								</div>
@@ -56,42 +64,70 @@
 							</div>
 						</div>
 						<div class="card">
-							<div class="card-header">
-								<h3 class="card-title font-weight-bold">Description</h3>
-							</div>
-							<div class="card-body">
-								<div class="mb-4">
-									<p>{!! $offres_details->description !!}</p>
+							@if ($offres_details->description)
+								<div class="card-header">
+									<h3 class="card-title font-weight-bold">Description</h3>
 								</div>
-							</div>
-							<div class="card-header">
-								<h3 class="card-title font-weight-bold">Mission</h3>
-							</div>
-							<div class="card-body">
-								<div class="mb-4">
-									<p>{!! $offres_details->mission !!}</p>
+								<div class="card-body">
+									<div class="mb-4">
+										<p>{!! $offres_details->description !!}</p>
+									</div>
 								</div>
-							</div>
-							<div class="card-header">
-								<h3 class="card-title font-weight-bold">Profil recherché</h3>
-							</div>
-							<div class="card-body">
-								<div class="mb-4">
-									<p>{!! $offres_details->profil !!}</p>
+							@endif
+							
+							@if ($offres_details->mission)
+								<div class="card-header">
+									<h3 class="card-title font-weight-bold">Mission</h3>
 								</div>
-							</div>
-							<div class="pt-4 pb-4 px-5 border-top border-top">
-								<div class="list-id">
-									<div class="row">
-										<div class="col">
-											<a class="mb-0">Lien : {{$offres_details->lien}}</a>
-										</div>
-										<div class="col col-auto">
-											<a class="mb-0 font-weight-bold">Date limite : {{ date('d/m/Y', strtotime($offres_details->date_lim)) }}</a>
+								<div class="card-body">
+									<div class="mb-4">
+										<p>{!! $offres_details->mission !!}</p>
+									</div>
+								</div>
+							@endif
+							
+							@if ($offres_details->profil)
+								<div class="card-header">
+									<h3 class="card-title font-weight-bold">Profil recherché</h3>
+								</div>
+								<div class="card-body">
+									<div class="mb-4">
+										<p>{!! $offres_details->profil !!}</p>
+									</div>
+								</div>
+							@endif
+							
+							@if ($offres_details->dossier)
+								<div class="card-header">
+									<h3 class="card-title font-weight-bold">Dossier à fournir</h3>
+								</div>
+								<div class="card-body">
+									<div class="mb-4">
+										<p>{!! $offres_details->dossier !!}</p>
+									</div>
+								</div>
+							@endif
+							
+							@if ( $offres_details->lien || $offres_details->date_lim )
+								<div class="pt-4 pb-4 px-5 border-top border-top">
+									<div class="list-id">
+										<div class="row">
+											@if ($offres_details->lien)
+												<div class="col">
+													<a class="mb-0">Lien : {{$offres_details->lien}}</a>
+												</div>
+											@endif
+											
+											@if ($offres_details->date_lim)
+												<div class="col col-auto">
+													<a class="mb-0 font-weight-bold">Date limite : {{ date('d/m/Y', strtotime($offres_details->date_lim)) }}</a>
+												</div>
+											@endif
 										</div>
 									</div>
 								</div>
-							</div>
+							@endif
+							
 							<div class="card-footer">
 								<div class="icons">
 									<button id="boutonPartage" class="btn btn-info icons"><i class="icon icon-share me-1"></i> Partager</button>
@@ -130,7 +166,7 @@
 													<li class="mb-0"><a class="icons"><i class="icon icon-phone text-muted me-1"></i> {{$offre->telephone}}</a></li>
 												@endif	
 											</ul>
-											<p class="mb-0">{!! Str::limit($offre->description, 47) !!}</p>
+											<p class="mb-0">{!! Str::limit($offre->libelle, 47) !!}</p>
 										</div>
 									</div>
 								</div>

@@ -586,7 +586,7 @@
                                     <li class=""><a class="icons"><i class="icon icon-phone text-muted me-1"></i> {{$offre->telephone}}</a></li> 
                                 @endif
 							</ul>
-							<p class="mb-0">{{ Str::limit($offre->description, 40) }}</p>
+							<p class="mb-0">{{ Str::limit($offre->libelle, 40) }}</p>
 						</div>
 					</div>
 					<div class="card-body">
