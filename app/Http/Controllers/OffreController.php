@@ -21,9 +21,8 @@ class OffreController extends Controller
 
         $delete = Offre::whereDate('date_lim', '=', date('Y-m-d'))->delete();
 
-        $offres = DB::table('categorie_offres')
-        ->join('offres', 'categorie_offres.id','=','offres.categorieOffres_id')
-        ->select('*', 'categorie_offres.nom as categorie')
+        $offres = DB::table('offres')
+        ->select('*')
         ->where('offres.valide',1)->orderBy('offres.id', 'desc')
         ->get();
 

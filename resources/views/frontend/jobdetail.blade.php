@@ -54,8 +54,8 @@
 												<li class="me-5"><i class="icon icon-location-pin text-muted me-1"></i>{{$offres_details->ville}}</li>
 											@endif
 											
-											@if ($offres_details->date_lim)
-												<li class="me-5"><i class="icon icon-calendar text-muted me-1"></i> {{ date('d/m/Y', strtotime($offres_details->date_lim)) }}</li>
+											@if ($offres_details->created_at)
+												<li class="me-5"><i class="icon icon-calendar text-muted me-1"></i> {{ date('d/m/Y', strtotime($offres_details->created_at)) }}</li>
 											@endif
 										</ul>
 									</div>

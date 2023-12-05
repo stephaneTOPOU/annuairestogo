@@ -13,9 +13,10 @@ use Illuminate\Support\Facades\DB;
 
 class NewsController extends Controller
 {
-    public function news($slug_pays, $slug_annonce)
+    public function news($slug_pays, $slug_cat_an, $slug_annonce)
     {
         $pays_id = DB::table('pays')->where('slug_pays', $slug_pays)->select('id')->get();
+        $categorie_annonce_id = DB::table('categorie_annonces')->where('slug_cat_an', $slug_cat_an)->select('id')->get();
         $annonce_id = DB::table('annonces')->where('slug_annonce', $slug_annonce)->select('id')->get();
 
         $parametres = DB::table('pays')->where('pays.id', $pays_id[0]->id)
@@ -24,7 +25,11 @@ class NewsController extends Controller
             ->select('*')
             ->get();
 
-        $annonces = Annonce::find($annonce_id[0]->id);
+        $annonce = DB::table('categorie_annonces')->where('categorie_annonces.id', $categorie_annonce_id[0]->id)
+            ->join('annonces', 'annonces.categorie_id', '=', 'categorie_annonces.id')
+            ->where('annonces.id', $annonce_id[0]->id)
+            ->select('*', 'categorie_annonces.libelle as cat')
+            ->get();
 
         $annonce2s = CategorieAnnonce::all();
 
@@ -45,14 +50,23 @@ class NewsController extends Controller
             ->select('commentaire_annonces.id as identifiant')
             ->count();
 
-        $news = Annonce::all();
+        $news = DB::table('categorie_annonces')
+            ->join('annonces', 'annonces.categorie_id', '=', 'categorie_annonces.id')
+            ->select('*', 'categorie_annonces.libelle as cat')
+            ->get();
 
-        return view('frontend.news', compact('news', 'parametres', 'annonces', 'annonce2s', 'commentaires', 'reponses', 'nb'));
+        $relative = DB::table('categorie_annonces')->where('categorie_annonces.id', $categorie_annonce_id[0]->id)
+            ->join('annonces', 'annonces.categorie_id', '=', 'categorie_annonces.id')
+            ->select('*', 'categorie_annonces.libelle as cat')
+            ->get();
+
+        return view('frontend.news', compact('relative', 'news', 'parametres', 'annonce', 'annonce2s', 'commentaires', 'reponses', 'nb'));
     }
 
-    public function comment($slug_pays, $slug_annonce, Request $request)
+    public function comment($slug_pays, $slug_cat_an, $slug_annonce, Request $request)
     {
         $pays_id = DB::table('pays')->where('slug_pays', $slug_pays)->select('id')->get();
+        $categorie_annonce_id = DB::table('categorie_annonces')->where('slug_cat_an', $slug_cat_an)->select('id')->get();
         $annonce_id = DB::table('annonces')->where('slug_annonce', $slug_annonce)->select('id')->get();
 
         $request->validate([
@@ -72,7 +86,7 @@ class NewsController extends Controller
         }
     }
 
-    public function reponse($slug_pays, $slug_annonce, Request $request, $id)
+    public function reponse($slug_pays, $slug_cat_an, $slug_annonce, Request $request, $id)
     {
         $commentaires_id = DB::table('commentaire_annonces')->where('commentaire_annonces.id', $id)->select('id')->get();
 

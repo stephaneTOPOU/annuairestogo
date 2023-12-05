@@ -270,13 +270,13 @@
                                 <div class="row">
                                     @foreach ($annonce_all as $all)
                                         <div class="col-xl-4 col-lg-4 col-md-12">
-                                            <a href="{{ route('news',['slug_pays'=>'tg','slug_annonce'=>$all->slug_annonce]) }}">
+                                            <a href="{{ route('news',['slug_pays'=>'tg','slug_cat_an'=>$all->slug_cat_an,'slug_annonce'=>$all->slug_annonce]) }}">
                                                 <div class="card mb-xl-0">
                                                     <span class="ribbon-1">
                                                         <span><i class="fa fa-briefcase"></i></span>
                                                     </span>
                                                     <div class="item-card8-img  rounded-top-7">
-                                                        <img src="{{ asset('assets/images/products') }}/{{ $all->image1 }}" alt="{{ $all->titre }}" class="cover-image">
+                                                        <img src="{{ asset('assets/images/annonces') }}/{{ $all->image1 }}" alt="{{ $all->titre }}" class="cover-image">
                                                     </div>
                                                     <div class="item-card8-overlaytext">
                                                         <h6 class=" fs-20 mb-0">{{ $all->libelle }}</h6>
@@ -301,13 +301,13 @@
                                         @foreach ($annonces as $annonce)
                                             @if ($annonce->categorie_id == $cat_ann->id)
                                                 <div class="col-xl-4 col-lg-4 col-md-12">
-                                                    <a href="{{ route('news',['slug_pays'=>'tg','slug_annonce'=>$annonce->slug_annonce]) }}">
+                                                    <a href="{{ route('news',['slug_pays'=>'tg', 'slug_cat_an'=>$annonce->slug_cat_an,'slug_annonce'=>$annonce->slug_annonce]) }}">
                                                         <div class="card mb-xl-0">
                                                             <span class="ribbon-2">
                                                                 <span><i class="fa fa-briefcase"></i></span>
                                                             </span>
                                                             <div class="item-card8-img  rounded-top-7">
-                                                                <img src="{{ asset('assets/images/products') }}/{{ $annonce->image1 }}" alt="{{ $annonce->titre }}" class="cover-image">
+                                                                <img src="{{ asset('assets/images/annonces') }}/{{ $annonce->image1 }}" alt="{{ $annonce->titre }}" class="cover-image">
                                                             </div>
                                                             <div class="item-card8-overlaytext">
                                                                 <h6 class="bg-primary fs-20 mb-0">{{ $cat_ann->libelle }}</h6>

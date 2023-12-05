@@ -173,64 +173,40 @@ Route::post('/{slug_pays}/entreprise-devis', [\App\Http\Controllers\DevisControl
 
 
 
-
-
-
-
-
-
-
 Route::get('/{slug_pays}/{pub_slug}', [App\Http\Controllers\PubController::class, 'pubDetail'])->name('pub.detail');
 
 Route::get('/{slug_pays}/{slug_categorie}', [\App\Http\Controllers\SousCategoriesController::class, 'Souscategories_pays'])->name('subcat.pays');
 
 
-
 Route::post('/{slug_pays}/{slug_blog}', [\App\Http\Controllers\BlogController::class, 'comment'])->name('blog.comment');
 
-Route::post('/{slug_pays}/{slug_annonce}', [\App\Http\Controllers\NewsController::class, 'comment'])->name('news.comment');
-
 Route::post('/{slug_pays}/{slug_user}', [\App\Http\Controllers\UserController::class, 'update'])->name('user.dashboard.update');
-
-
-
-
-
-
-
 
 
 Route::get('/{slug_pays}/blog/{slug_blog}', [\App\Http\Controllers\BlogController::class, 'detail'])->name('blog.detail');
 
 Route::get('/{slug_pays}/offres/{offre_slug}', [App\Http\Controllers\OffreController::class, 'jobDetail'])->name('offre.detail');
 
-Route::get('/{slug_pays}/annonces/{slug_annonce}', [\App\Http\Controllers\NewsController::class, 'news'])->name('news');
-
 Route::get('/{slug_pays}/mon-profil/{slug_user}', [\App\Http\Controllers\UserController::class, 'mydash'])->name('user.dashboard');
 
 Route::get('/{slug_pays}/profil/{slug_user}', [\App\Http\Controllers\UserController::class, 'myprofil'])->name('user.profile');
 
+Route::get('/{slug_pays}/{slug_cat_an}/{slug_annonce}', [\App\Http\Controllers\NewsController::class, 'news'])->name('news');
+
 Route::get('/{slug_pays}/{slug_categorie}/{slug_souscategorie}', [\App\Http\Controllers\EntrepriseController::class, 'entreprise_pays'])->name('entreprise.pays');
 
 
-
-Route::post('/{slug_pays}/{slug_annonce}/{id}', [\App\Http\Controllers\NewsController::class, 'reponse'])->name('news.comment.rep');
-
 Route::post('/{slug_pays}/{slug_categorie}/{slug_souscategorie}', [\App\Http\Controllers\ProfileController::class, 'message'])->name('entreprise.contact');
 
-
-
-
+Route::post('/{slug_pays}/{slug_cat_an}/{slug_annonce}', [\App\Http\Controllers\NewsController::class, 'comment'])->name('news.comment');
 
 Route::get('/{slug_pays}/{slug_categorie}/{slug_souscategorie}/{slug_entreprise}', [\App\Http\Controllers\ProfileController::class, 'ProfileEntreprise_pays'])->name('entreprise.pays.profil');
-
-
-
 
 Route::post('/{slug_pays}/blog/{slug_blog}/{id}', [\App\Http\Controllers\BlogController::class, 'reponse'])->name('blog.comment.rep');
 
 Route::post('/{slug_pays}/{slug_categorie}/{slug_souscategorie}/{slug_entreprise}', [\App\Http\Controllers\ProfileController::class, 'commentaire'])->name('entreprise.pays.comment');
 
+Route::post('/{slug_pays}/{slug_cat_an}/{slug_annonce}/{id}', [\App\Http\Controllers\NewsController::class, 'reponse'])->name('news.comment.rep');
 
 
 
