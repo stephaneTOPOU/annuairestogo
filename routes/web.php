@@ -124,7 +124,6 @@ Route::get('/', function () {
 //     return view('welcome');
 // });
 
-//****************************************************************Pour les pays********************************************************************//
 Route::get('/{slug_pays}', [\App\Http\Controllers\HomeController::class, 'index_pays'])->name('home.pays');
 
 Route::get('/{slug_pays}/autocomplete', [\App\Http\Controllers\HomeController::class, 'autocompletion_pays'])->name('autocomplete.pays');
@@ -196,23 +195,19 @@ Route::get('/{slug_pays}/{slug_cat_an}/{slug_annonce}', [\App\Http\Controllers\N
 Route::get('/{slug_pays}/{slug_categorie}/{slug_souscategorie}', [\App\Http\Controllers\EntrepriseController::class, 'entreprise_pays'])->name('entreprise.pays');
 
 
-Route::post('/{slug_pays}/{slug_categorie}/{slug_souscategorie}', [\App\Http\Controllers\ProfileController::class, 'message'])->name('entreprise.contact');
-
 Route::post('/{slug_pays}/{slug_cat_an}/{slug_annonce}', [\App\Http\Controllers\NewsController::class, 'comment'])->name('news.comment');
+
+Route::post('/{slug_pays}/{slug_categorie}/{slug_souscategorie}', [\App\Http\Controllers\ProfileController::class, 'message'])->name('entreprise.contact');
 
 Route::get('/{slug_pays}/{slug_categorie}/{slug_souscategorie}/{slug_entreprise}', [\App\Http\Controllers\ProfileController::class, 'ProfileEntreprise_pays'])->name('entreprise.pays.profil');
 
 Route::post('/{slug_pays}/blog/{slug_blog}/{id}', [\App\Http\Controllers\BlogController::class, 'reponse'])->name('blog.comment.rep');
 
-Route::post('/{slug_pays}/{slug_categorie}/{slug_souscategorie}/{slug_entreprise}', [\App\Http\Controllers\ProfileController::class, 'commentaire'])->name('entreprise.pays.comment');
-
 Route::post('/{slug_pays}/{slug_cat_an}/{slug_annonce}/{id}', [\App\Http\Controllers\NewsController::class, 'reponse'])->name('news.comment.rep');
 
-
-
+Route::post('/{slug_pays}/{slug_categorie}/{slug_souscategorie}/{slug_entreprise}', [\App\Http\Controllers\ProfileController::class, 'commentaire'])->name('entreprise.pays.comment');
 
 Route::post('/{slug_pays}/{slug_categorie}/{slug_souscategorie}/{slug_entreprise}/{id}', [\App\Http\Controllers\ProfileController::class, 'commentaire2'])->name('entreprise.pays.comment2');
 
-//***************************************************************End Pour les pays**************************************************************//
 
 

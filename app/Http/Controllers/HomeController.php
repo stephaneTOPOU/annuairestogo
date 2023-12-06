@@ -205,8 +205,9 @@ class HomeController extends Controller
             ->join('sous_categories', 'categories.id', '=', 'sous_categories.categorie_id')
             ->join('entreprises', 'sous_categories.id', '=', 'entreprises.souscategorie_id')
             ->join('pop_ups', 'pop_ups.entreprise_id', '=', 'entreprises.id')
-            ->where('apopup', 1)
-            ->select('*')
+            ->join('admins', 'admins.id', '=', 'pop_ups.admin_id')
+            ->where('entreprises.apopup', 1)
+            ->select('*', 'pop_ups.image as popup')
             ->get();
 
         $banner = DB::table('pays')->where('pays.id', $pays_id[0]->id)

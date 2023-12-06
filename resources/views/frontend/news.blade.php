@@ -96,7 +96,7 @@
 											<div class="item">
 												<div class="card">
 													<div class="item-card7-imgs">
-														<a href="#"></a>
+														<a href="{{ route('news',['slug_pays'=>'tg','slug_cat_an'=>$relatives->slug_cat_an,'slug_annonce'=>$relatives->slug_annonce]) }}"></a>
 														@if ($relatives->image1)
 															<img src="{{ asset('assets/images/annonces') }}/{{ $relatives->image1 }}" alt="{{ $relatives->titre }}" class="cover-image">
 														@else
@@ -104,11 +104,11 @@
 														@endif
 													</div>
 													<div class="item-card7-overlaytext">
-														<a href="#" class="text-white">{{ $relatives->cat }}</a>
+														<a href="{{ route('news',['slug_pays'=>'tg','slug_cat_an'=>$relatives->slug_cat_an,'slug_annonce'=>$relatives->slug_annonce]) }}" class="text-white">{{ $relatives->cat }}</a>
 													</div>
 													<div class="card-body">
 														<div class="item-card7-desc">
-															<a href="#" class="text-dark"><h4 class="font-weight-semibold">{{ $relatives->titre }}</h4></a>
+															<a href="{{ route('news',['slug_pays'=>'tg','slug_cat_an'=>$relatives->slug_cat_an,'slug_annonce'=>$relatives->slug_annonce]) }}" class="text-dark"><h4 class="font-weight-semibold">{{ $relatives->titre }}</h4></a>
 														</div>
 														{{-- <div class="item-card7-text">
 															<ul class="icon-card mb-0">
@@ -185,7 +185,7 @@
 
 						<!--Rightside Content-->
 						<div class="col-xl-4 col-lg-4 col-md-12">
-							@if ($annonces->image1)
+							@if ($annonces->video)
 								<div class="card-header">
 									<h3 class="card-title">Spot</h3>
 								</div>
@@ -239,6 +239,9 @@
 												<a href="{{ route('news',['slug_pays'=>'tg','slug_cat_an'=>$new->slug_cat_an,'slug_annonce'=>$new->slug_annonce]) }}"></a>
 												<img src="{{ asset('assets/images/annonces') }}/{{ $new->image1 }}" alt="{{ $new->titre }}" class="cover-image">
 											</div>
+											<div class="item-card7-overlaytext">
+												<a href="#" class="text-white">{{ $new->cat }}</a>
+											</div>
 											<div class="card-body">
 												<div class="item-card7-desc">
 													<a href="{{ route('news',['slug_pays'=>'tg','slug_cat_an'=>$new->slug_cat_an,'slug_annonce'=>$new->slug_annonce]) }}" class="text-dark"><h4 class="font-weight-semibold">{{ $new->titre }}</h4></a>
@@ -266,9 +269,9 @@
 		<div class="modal-dialog" role="document">
 			<form class="modal-content" method="POST" action="{{ route('news.comment.rep',['slug_pays'=>'tg','slug_cat_an'=>$annonces->slug_cat_an,'slug_annonce'=>$annonces->slug_annonce,'id'=>$commentaire->identifiant]) }}">
 				@csrf
-				@if(Session::has('success'))
+				{{-- @if(Session::has('success'))
 					<div class="alert alert-success" role="alert">{{Session::get('success') }}</div>
-				@endif
+				@endif --}}
 				<div class="modal-header">
 					<h5 class="modal-title" id="exampleCommentLongTitle">Laissez un réponse</h5>
 					<button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
