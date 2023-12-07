@@ -90,37 +90,37 @@
 							<h3 class="mb-5 mt-4">Les annonces relatives</h3>
 
 								<!--Related Posts-->
-								<div id="myCarousel5" class="owl-carousel owl-carousel-icons3">
-										<!-- Wrapper for carousel items -->
-										@foreach ($relative as $relatives)
-											<div class="item">
-												<div class="card">
-													<div class="item-card7-imgs">
-														<a href="{{ route('news',['slug_pays'=>'tg','slug_cat_an'=>$relatives->slug_cat_an,'slug_annonce'=>$relatives->slug_annonce]) }}"></a>
-														@if ($relatives->image1)
-															<img src="{{ asset('assets/images/annonces') }}/{{ $relatives->image1 }}" alt="{{ $relatives->titre }}" class="cover-image">
-														@else
-															<img src="{{ asset('assets/images/annonces/f2.png') }}" alt="{{ $relatives->titre }}" class="cover-image">
-														@endif
-													</div>
-													<div class="item-card7-overlaytext">
-														<a href="{{ route('news',['slug_pays'=>'tg','slug_cat_an'=>$relatives->slug_cat_an,'slug_annonce'=>$relatives->slug_annonce]) }}" class="text-white">{{ $relatives->cat }}</a>
-													</div>
-													<div class="card-body">
-														<div class="item-card7-desc">
-															<a href="{{ route('news',['slug_pays'=>'tg','slug_cat_an'=>$relatives->slug_cat_an,'slug_annonce'=>$relatives->slug_annonce]) }}" class="text-dark"><h4 class="font-weight-semibold">{{ $relatives->titre }}</h4></a>
+									<div id="myCarousel5" class="owl-carousel owl-carousel-icons3">
+											<!-- Wrapper for carousel items -->
+											@foreach ($relative as $relatives)
+												<div class="item">
+													<div class="card">
+														<div class="item-card7-imgs">
+															<a href="{{ route('news',['slug_pays'=>'tg','slug_cat_an'=>$relatives->slug_cat_an,'slug_annonce'=>$relatives->slug_annonce]) }}"></a>
+															@if ($relatives->image1)
+																<img src="{{ asset('assets/images/annonces') }}/{{ $relatives->image1 }}" alt="{{ $relatives->titre }}" class="cover-image">
+															@else
+																<img src="{{ asset('assets/images/annonces/f2.png') }}" alt="{{ $relatives->titre }}" class="cover-image">
+															@endif
 														</div>
-														{{-- <div class="item-card7-text">
-															<ul class="icon-card mb-0">
-																<li ><a href="#" class="icons"><i class="icon icon-location-pin text-muted me-1"></i>{{ $relatives->adresse }}</a></li>
-																<li class="mb-0"><a href="#" class="icons"><i class="icon icon-phone text-muted me-1"></i>(+228) <b>{{ $relatives->telephone1 }}</b></a></li>
-															</ul>
-														</div> --}}
+														<div class="item-card7-overlaytext">
+															<a href="{{ route('news',['slug_pays'=>'tg','slug_cat_an'=>$relatives->slug_cat_an,'slug_annonce'=>$relatives->slug_annonce]) }}" class="text-white">{{ $relatives->cat }}</a>
+														</div>
+														<div class="card-body">
+															<div class="item-card7-desc">
+																<a href="{{ route('news',['slug_pays'=>'tg','slug_cat_an'=>$relatives->slug_cat_an,'slug_annonce'=>$relatives->slug_annonce]) }}" class="text-dark"><h4 class="font-weight-semibold">{{ $relatives->titre }}</h4></a>
+															</div>
+															{{-- <div class="item-card7-text">
+																<ul class="icon-card mb-0">
+																	<li ><a href="#" class="icons"><i class="icon icon-location-pin text-muted me-1"></i>{{ $relatives->adresse }}</a></li>
+																	<li class="mb-0"><a href="#" class="icons"><i class="icon icon-phone text-muted me-1"></i>(+228) <b>{{ $relatives->telephone1 }}</b></a></li>
+																</ul>
+															</div> --}}
+														</div>
 													</div>
 												</div>
-											</div>
-										@endforeach
-								</div>
+											@endforeach
+									</div>
 								<!--/Related Posts-->
 							<div class="card">
 									<div class="card-header">

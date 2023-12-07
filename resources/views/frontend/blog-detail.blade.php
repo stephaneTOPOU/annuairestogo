@@ -83,6 +83,31 @@
 									<p>{!! $details->description3 !!}</p>
 								</div>
 						</div>
+						<h3 class="mb-5 mt-4">Les blogs récents</h3>
+						<!--Related Posts-->
+							<div id="myCarousel5" class="owl-carousel owl-carousel-icons3">
+								<!-- Wrapper for carousel items -->
+								@foreach ($blogs as $blog)
+									<div class="item">
+										<div class="card">
+											<div class="item-card7-imgs">
+												<a href="{{ route('blog.detail',['slug_pays'=>'tg','slug_blog'=>$blog->slug_blog]) }}"></a>
+												@if ($blog->image1)
+													<img src="{{ asset('assets/images/blogs') }}/{{ $blog->image1 }}" alt="{{ $blog->titre }}" class="cover-image">
+												@else
+													<img src="{{ asset('assets/images/blogs/f1.jpg') }}" alt="{{ $blog->titre }}" class="cover-image">
+												@endif
+											</div>
+											<div class="card-body">
+												<div class="item-card7-desc">
+													<a href="{{ route('blog.detail',['slug_pays'=>'tg','slug_blog'=>$blog->slug_blog]) }}" class="text-dark"><h4 class="font-weight-semibold">{{ Str::limit($blog->titre, 20) }}</h4></a>
+												</div>
+											</div>
+										</div>
+									</div>
+								@endforeach
+							</div>
+						<!--/Related Posts-->
 						<div class="card">
 								<div class="card-header">
 									<h3 class="card-title">Les commentaires</h3>

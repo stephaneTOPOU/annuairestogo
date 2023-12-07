@@ -571,7 +571,6 @@
 						</div>
 						<div class="item-card7-overlaytext">
 							<a class="text-white"> {{$offre->categorie}}</a>
-
 						</div>
 					</div>
 					<div class="card-body">
