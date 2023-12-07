@@ -35,7 +35,7 @@
                                 <div class="row">
                                     <div class="col-xl-12 col-md-12 d-block mx-auto">
                                         <div class="testimonia text-center">
-                                            <img src="{{ asset('assets/images/popup') }}/{{ $popup->popup }}" class="w-100 h-100 mb-3 mx-auto text-center" alt="{{ $popup->nom }}">
+                                            <img src="{{ asset('assets/images/popup') }}/{{ $popup->popup_image }}" class="w-100 h-100 mb-3 mx-auto text-center" alt="{{ $popup->nom }}">
                                             <a href="{{ route('entreprise.pays.profil',['slug_pays'=>$popup->slug_pays,'slug_categorie'=>$popup->slug_categorie,'slug_souscategorie'=>$popup->slug_souscategorie,'slug_entreprise'=>$popup->slug_entreprise]) }}" class="btn btn-primary btn-ptill mb-3">{{ $popup->nom }}</a>
                                         </div>
                                     </div>
@@ -284,8 +284,8 @@
                                                     <div class="card-body">
                                                         <div class="item-card8-desc">
                                                             <p class="text-muted"><i class="icon icon-event text-muted me-1"></i>@php echo \Carbon\Carbon::parse($all->created_at)->diffForHumans(null, false, 'fr'); @endphp</p>
-                                                            <h4 class="font-weight-semibold">{{ Str::limit($all->titre, 50) }}</h4>
-                                                            <p class="mb-0">{{ Str::limit($all->text1, 40) }}</p>
+                                                            <h4 class="font-weight-semibold">{{ Str::limit($all->titre, 20) }}</h4>
+                                                            <p class="mb-0">{{ Str::limit($all->descriptionCourte, 40) }}</p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -315,8 +315,8 @@
                                                             <div class="card-body">
                                                                 <div class="item-card8-desc">
                                                                     <p class="text-muted"><i class="icon icon-event text-muted me-1"></i>@php echo \Carbon\Carbon::parse($annonce->date)->diffForHumans(null, false, 'fr'); @endphp</p>
-                                                                    <h4 class="font-weight-semibold">{{ Str::limit($annonce->titre, 50) }}</h4>
-                                                                    <p class="mb-0">{{ Str::limit($annonce->description, 40) }}</p>
+                                                                    <h4 class="font-weight-semibold">{{ Str::limit($annonce->titre, 20) }}</h4>
+                                                                    <p class="mb-0">{{ Str::limit($annonce->descriptionCourte, 40) }}</p>
                                                                 </div>
                                                             </div>
                                                         </div>

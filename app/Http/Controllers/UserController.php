@@ -37,7 +37,10 @@ class UserController extends Controller
             ->where('parametres.id', 1)
             ->select('*')
             ->get();
-        return view('frontend.user.mydash', compact('souscategories', 'users', 'parametres'));
+
+        $sliders = SliderRecherche::all();
+
+        return view('frontend.user.mydash', compact('sliders', 'souscategories', 'users', 'parametres'));
     }
 
     public function myprofil($slug_pays, $slug_user)

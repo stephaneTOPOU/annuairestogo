@@ -108,7 +108,7 @@
 														</div>
 														<div class="card-body">
 															<div class="item-card7-desc">
-																<a href="{{ route('news',['slug_pays'=>'tg','slug_cat_an'=>$relatives->slug_cat_an,'slug_annonce'=>$relatives->slug_annonce]) }}" class="text-dark"><h4 class="font-weight-semibold">{{ $relatives->titre }}</h4></a>
+																<a href="{{ route('news',['slug_pays'=>'tg','slug_cat_an'=>$relatives->slug_cat_an,'slug_annonce'=>$relatives->slug_annonce]) }}" class="text-dark"><h4 class="font-weight-semibold">{{ Str::limit($relatives->titre, 20) }}</h4></a>
 															</div>
 															{{-- <div class="item-card7-text">
 																<ul class="icon-card mb-0">

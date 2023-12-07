@@ -19,7 +19,7 @@
 		<div>
 			<div class="owl-carousel testimonial-owl-carousel2 slider slider-header">
 				@foreach ($sliders as $slider)
-				<div class="bannerimg cover-image sptb-1 shadow-font" data-bs-image-src="{{ asset('assets/images/banners') }}/{{ $slider->image }}">
+				<div class="bannerimg cover-image sptb-1 shadow-font" data-bs-image-src="{{ asset('assets/images/sliders') }}/{{ $slider->image }}">
 					<div class="header-text mb-0">
 							<div class="container">
 								<div class="text-center text-white ">
