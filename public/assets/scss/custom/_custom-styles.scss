@@ -939,7 +939,7 @@ body {
 	touch-action: manipulation;
 	-webkit-font-feature-settings: "liga" 0;
 	font-feature-settings: "liga" 0;
-	overflow-y: scroll;
+	overflow: hidden;
 	position: relative;
 	margin: 0;
 	font-size: 14px;
@@ -4536,7 +4536,7 @@ dd {
 
 .sptb-1 {
 	padding-top: 10rem;
-	padding-bottom: 4.5rem;
+	padding-bottom: 8.5rem !important;
 }
 
 .sptb-2 {
