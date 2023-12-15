@@ -31,17 +31,23 @@ class ProfileController extends Controller
         $premiums = DB::table('pays')->where('pays.id', $pays_id[0]->id)
             ->join('categories', 'pays.id', '=', 'categories.pays_id')
             ->join('sous_categories', 'categories.id', '=', 'sous_categories.categorie_id')
-            ->join('entreprises', 'sous_categories.id', '=', 'entreprises.souscategorie_id')
-            ->where('entreprises.id', $entreprise_id[0]->id)
+            ->join('entreprises', 'sous_categories.id', '=', 'entreprises.souscategorie_id')->where('entreprises.id', $entreprise_id[0]->id)
             ->where('premium', 1)
+            ->select('*', 'entreprises.id as identifiant')
+            ->get();
+
+        $business = DB::table('pays')->where('pays.id', $pays_id[0]->id)
+            ->join('categories', 'pays.id', '=', 'categories.pays_id')
+            ->join('sous_categories', 'categories.id', '=', 'sous_categories.categorie_id')
+            ->join('entreprises', 'sous_categories.id', '=', 'entreprises.souscategorie_id')->where('entreprises.id', $entreprise_id[0]->id)
+            ->where('a_publireportage', 1)
             ->select('*', 'entreprises.id as identifiant')
             ->get();
 
         $basics = DB::table('pays')->where('pays.id', $pays_id[0]->id)
             ->join('categories', 'pays.id', '=', 'categories.pays_id')
             ->join('sous_categories', 'categories.id', '=', 'sous_categories.categorie_id')
-            ->join('entreprises', 'sous_categories.id', '=', 'entreprises.souscategorie_id')
-            ->where('entreprises.id', $entreprise_id[0]->id)
+            ->join('entreprises', 'sous_categories.id', '=', 'entreprises.souscategorie_id')->where('entreprises.id', $entreprise_id[0]->id)
             ->where('basic', 1)
             ->select('*', 'entreprises.id as identifiant')
             ->get();
@@ -123,9 +129,8 @@ class ProfileController extends Controller
         $souscategories = SousCategories::all();
 
         $entreprise_similaire = DB::table('pays')->where('pays.id', $pays_id[0]->id)
-        ->join('categories', 'pays.id', '=', 'categories.pays_id')
-        ->join('sous_categories', 'categories.id', '=', 'sous_categories.categorie_id')
-        ->where('sous_categories.id', $sousCategorie_id[0]->id)
+        ->join('categories', 'pays.id', '=', 'categories.pays_id')->where('categories.id',$categorie_id[0]->id)
+        ->join('sous_categories', 'categories.id', '=', 'sous_categories.categorie_id')->where('sous_categories.id', $sousCategorie_id[0]->id)
         ->where('est_souscrit', 1)
         ->join('entreprises', 'sous_categories.id', '=', 'entreprises.souscategorie_id')
         ->select('*', 'entreprises.id as identifiant', 'pays.id as pays_id', 'sous_categories.libelle as subcat')
@@ -170,7 +175,7 @@ class ProfileController extends Controller
             ->select('*')
             ->orderBy('entreprises.id', 'desc')
             ->get();
-        return view('frontend.profile',compact('recents', 'populaires', 'ratings','parametres','commentaires','commentaire2s','entreprise_similaire','souscategories','parametres', 'Profil_entreprises', 'avis3', 'avis', 'services', 'serviceImages', 'horaires', 'galleries', 'premiums', 'basics', 'partenaires'));
+        return view('frontend.profile',compact('business', 'recents', 'populaires', 'ratings','parametres','commentaires','commentaire2s','entreprise_similaire','souscategories','parametres', 'Profil_entreprises', 'avis3', 'avis', 'services', 'serviceImages', 'horaires', 'galleries', 'premiums', 'basics', 'partenaires'));
     }
 
 
@@ -254,5 +259,24 @@ class ProfileController extends Controller
         } catch (Exception $e) {
             return redirect()->back()->with('success', $e->getMessage());
         }
+    }
+
+    public function updateRating(Request $request, $slug_pays, $slug_categorie, $slug_souscategorie, $slug_entreprise)
+    {
+        $entreprise_id = DB::table('entreprises')->where('slug_entreprise', $slug_entreprise)->select('id')->get();
+
+        try {
+            $rating = Entreprise::find($entreprise_id[0]->id);
+            $rating->rate = $request->input('rating');
+
+            $rating->update();
+            return response()->json(['success' => true]);
+        } catch (Exception $e) {
+            return redirect()->back()->with('success', $e->getMessage());
+        }
+        
+
+    
+        
     }
 }

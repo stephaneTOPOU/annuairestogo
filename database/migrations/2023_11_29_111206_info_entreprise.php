@@ -14,7 +14,7 @@ class InfoEntreprise extends Migration
     public function up()
     {
         Schema::table('entreprises', function (Blueprint $table) {
-            $table->float('rate')->default(0.0);
+            $table->double('rate')->default(0.00);
         });
     }
 

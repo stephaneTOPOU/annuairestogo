@@ -216,6 +216,8 @@ Route::post('/{slug_pays}/{slug_cat_an}/{slug_annonce}/{id}', [\App\Http\Control
 
 Route::post('/{slug_pays}/{slug_categorie}/{slug_souscategorie}/{slug_entreprise}', [\App\Http\Controllers\ProfileController::class, 'commentaire'])->name('entreprise.pays.comment');
 
+Route::post('/{slug_pays}/{slug_categorie}/{slug_souscategorie}/{slug_entreprise}/etoile', [\App\Http\Controllers\ProfileController::class, 'updateRating'])->name('rate');
+
 Route::post('/{slug_pays}/{slug_categorie}/{slug_souscategorie}/{slug_entreprise}/{id}', [\App\Http\Controllers\ProfileController::class, 'commentaire2'])->name('entreprise.pays.comment2');
 
 

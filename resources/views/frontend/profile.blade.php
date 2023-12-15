@@ -29,7 +29,7 @@
 		<div>
             <div class="owl-carousel testimonial-owl-carousel2 slider slider-header">
                 @foreach ($Profil_entreprises as $Profil_entreprise)
-                <div class="cover-image sptb-1" data-bs-image-src="{{ asset('assets/images/banners/entreprise') }}/{{ $Profil_entreprise->photo4 }}">
+                <div class="cover-image sptb-1" data-bs-image-src="{{ asset('assets/images/sliders') }}/{{ $Profil_entreprise->photo2 }}">
                     <div class="header-text1 mb-0">
                         <div class="container">
                             <div class="row">
@@ -118,91 +118,222 @@
                         <div class="col-xl-8 col-lg-8 col-md-12">
                             <!--Classified Description-->
                             <div class="card overflow-hidden">
-                                    <div class="card-body h-100 boot-slider">
-                                        <div class="item-det mb-4">
-                                            <a class="text-dark"><h3 >Gallerie</h3></a>
-                                            <div class=" d-flex">
-                                                <ul class="d-flex mb-0">
-                                                    <li class="me-5"><a class="icons"><i class="icon icon-briefcase text-muted me-1"></i>{{ $Profil_entreprise->subcat }}</a></li>
-                                                    <li class="me-5"><a class="icons"><i class="icon icon-location-pin text-muted me-1"></i>{{$Profil_entreprise->adresse}}</a></li>
-                                                    <li class="me-5"><a class="icons"><i class="icon icon-eye text-muted me-1"></i>{{$Profil_entreprise->vue}}</a></li>
-                                                </ul>
-                                                <div class=" d-inline-flex me-5">
-                                                    @foreach ($ratings as $rating)
-                                                        <div class="rating-star sm my-rating-5 me-2" data-rating="{{ number_format($rating->rate, 1, '.', ' ') }}" id="rating-container">
-                                                        </div>{{ number_format($rating->rate, 1, '.', ' ') }}
-                                                    @endforeach
+                                <div class="card-body h-100 boot-slider">
+                                    <div class="item-det mb-4">
+                                        <a class="text-dark"><h3 >Gallerie</h3></a>
+                                        <div class=" d-flex">
+                                            <ul class="d-flex mb-0">
+                                                <li class="me-5"><a class="icons"><i class="icon icon-briefcase text-muted me-1"></i>{{ $Profil_entreprise->subcat }}</a></li>
+                                                <li class="me-5"><a class="icons"><i class="icon icon-location-pin text-muted me-1"></i>{{$Profil_entreprise->adresse}}</a></li>
+                                                <li class="me-5"><a class="icons"><i class="icon icon-eye text-muted me-1"></i>{{$Profil_entreprise->vue}}</a></li>
+                                            </ul>
+                                            <div class=" d-inline-flex me-5" id="currentRating">
+                                                @foreach ($ratings as $rating)
+                                                    <div class="rating-star sm my-rating-5 me-2" data-rating="{{ number_format($rating->rate, 1, '.', ' ') }}" id="rating-container">
+                                                    </div>{{ number_format($rating->rate, 1, '.', ' ') }}
+                                                @endforeach
 
-                                                    <script>
-                                                        document.addEventListener('DOMContentLoaded', function () {
-                                                            var ratingContainer = document.getElementById('rating-container');
-                                                            var ratingValue = ratingContainer.dataset.rating;
+                                                {{-- <script>
+                                                        // Écoutez les clics sur les étoiles
+                                                        document.querySelectorAll('.sm').forEach(function(sm) {
+                                                            sm.addEventListener('click', function() {
+                                                                // Mettez à jour la note actuelle à mesure que l'utilisateur attribue une note
+                                                                // document.getElementById('currentRating').innerText = this.getAttribute('data-rating');
+
+                                                                let url = "{{ route('rate',['slug_pays'=>$Profil_entreprise->slug_pays,'slug_categorie'=>$Profil_entreprise->slug_categorie,'slug_souscategorie'=>$Profil_entreprise->slug_souscategorie,'slug_entreprise'=>$Profil_entreprise->slug_entreprise]) }}";
                                                     
-                                                            // Faites ce que vous devez faire avec la valeur de l'évaluation (par exemple, afficher des étoiles en conséquence)
-                                                            console.log('Évaluation actuelle : ' + ratingValue);
+                                                                // Effectuez une requête Ajax pour mettre à jour la note sur le serveur
+                                                                // Assurez-vous d'inclure le jeton CSRF si vous en utilisez un dans Laravel
+                                                                // Utilisez la route et le contrôleur appropriés dans l'URL
+                                                                $.ajax({
+                                                                    type: 'POST',
+                                                                    url: url,
+                                                                    data: {
+                                                                        _token: "{{ csrf_token() }}",
+                                                                        rating: this.getAttribute('data-rating'),
+                                                                    },
+                                                                    success: function (data) {
+                                                                        // Traitement réussi
+                                                                        console.log('Note mise à jour avec succès');
+                                                                    },
+                                                                    error: function (error) {
+                                                                        // Gestion des erreurs
+                                                                        console.error('Erreur lors de la mise à jour de la note');
+                                                                    }
+                                                                });
+                                                            });
                                                         });
-                                                    </script>
-                                                </div>
-                                                
+                                                </script> --}}
+
+                                                <script>
+                                                        // Écoutez les clics sur l'étoile
+                                                        document.getElementById('rating-container').addEventListener('click', function() {
+                                                            // Récupérez la note actuelle
+                                                            var currentRating = parseInt(this.getAttribute('data-rating'));
+
+                                                            // Mettez à jour la note actuelle à mesure que l'utilisateur attribue une note
+                                                            //document.getElementById('currentRating').innerText = currentRating + 1;
+
+                                                            let url = "{{ route('rate',['slug_pays'=>$Profil_entreprise->slug_pays,'slug_categorie'=>$Profil_entreprise->slug_categorie,'slug_souscategorie'=>$Profil_entreprise->slug_souscategorie,'slug_entreprise'=>$Profil_entreprise->slug_entreprise]) }}";
+                                                            // Effectuez une requête Ajax pour mettre à jour la note sur le serveur
+                                                            // Assurez-vous d'inclure le jeton CSRF si vous en utilisez un dans Laravel
+                                                            // Utilisez la route et le contrôleur appropriés dans l'URL
+                                                            $.ajax({
+                                                                type: 'POST',
+                                                                url: url,
+                                                                data: {
+                                                                    _token: "{{ csrf_token() }}",
+                                                                    rating: currentRating + 1,
+                                                                },
+                                                                success: function (data) {
+                                                                    // Traitement réussi
+                                                                    console.log('Note mise à jour avec succès');
+                                                                },
+                                                                error: function (error) {
+                                                                    // Gestion des erreurs
+                                                                    console.error('Erreur lors de la mise à jour de la note');
+                                                                }
+                                                            });
+
+                                                            // Mettez à jour l'attribut data-rating pour la prochaine interaction
+                                                            this.setAttribute('data-rating', currentRating + 1);
+                                                        });
+                                                </script>
                                             </div>
                                         </div>
-                                        <div class="product-slider carousel-slide-2">
-                                            <div id="carouselFade" class="carousel slide carousel-fade" data-bs-ride="carousel"
-                                                data-bs-loop="false" data-bs-thumb="true">
-                                                <div class="carousel-inner slide-show-image" id=full-gallery>
-                                                    <div class="carousel-item active"> <img src="{{ asset('assets/images/entreprises/galerie/v1.jpg') }}" alt="image"> </div>
-                                                    @foreach ($galleries as $galleries)
-                                                        <div class="carousel-item"> <img src="{{ asset('assets/images/entreprises/galerie') }}/{{ $galleries->galerie_image }}" alt="{{ $galleries->entreprise }}"> </div>
-                                                    @endforeach
-                                                    <div class="thumbcarousel">
-                                                        <a class="carousel-control-prev" href="#carouselFade" role="button"
-                                                            data-bs-slide="prev">
-                                                            <i class="fa fa-angle-left" aria-hidden="true"></i>
-                                                        </a>
-                                                        <a class="carousel-control-next" href="#carouselFade" role="button"
-                                                            data-bs-slide="next">
-                                                            <i class="fa fa-angle-right" aria-hidden="true"></i>
-                                                        </a>
-                                                    </div>
+                                    </div>
+                                    <div class="product-slider carousel-slide-2">
+                                        <div id="carouselFade" class="carousel slide carousel-fade" data-bs-ride="carousel"
+                                            data-bs-loop="false" data-bs-thumb="true">
+                                            <div class="carousel-inner slide-show-image" id=full-gallery>
+                                                <div class="carousel-item active"> <img src="{{ asset('assets/images/entreprises/galerie/v1.jpg') }}" alt="image"> </div>
+                                                @foreach ($galleries as $galleries)
+                                                    <div class="carousel-item"> <img src="{{ asset('assets/images/entreprises/galerie') }}/{{ $galleries->galerie_image }}" alt="{{ $galleries->entreprise }}"> </div>
+                                                @endforeach
+                                                <div class="thumbcarousel">
+                                                    <a class="carousel-control-prev" href="#carouselFade" role="button"
+                                                        data-bs-slide="prev">
+                                                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                                                    </a>
+                                                    <a class="carousel-control-next" href="#carouselFade" role="button"
+                                                        data-bs-slide="next">
+                                                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                                    </a>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+                                </div>
                             </div>
-                            <div class="card">
-                                <div class="card-header">
-                                    <h3 class="card-title">Description de {{ $Profil_entreprise->nom }}</h3>
-                                </div>
-                                <div class="card-body">
-                                    @foreach ($services as $service)
-                                        <h4 class="mb-4">Qui Sommes-nous ?</h4>
-                                        <div class="mb-4">
-                                            <p>
-                                                {{$service->libelle}}
-                                            </p>
+
+                            @foreach ($premiums as $premium)
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Description de {{ $Profil_entreprise->nom }}</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        @foreach ($services as $service)
+                                            @if ($service->libelle)
+                                                <h4 class="mb-4">Qui Sommes-nous ?</h4>
+                                                <div class="mb-4">
+                                                    <p>
+                                                        {{$service->libelle}}
+                                                    </p>
+                                                </div>
+                                            @endif
+                                            
+                                            @if ($service->description)
+                                                <h4 class="mb-4">Notre mission</h4>
+                                                <div class="mb-4">
+                                                    <p>
+                                                        {{$service->description}}
+                                                    </p>
+                                                </div>
+                                            @endif
+                                            
+                                            @if ($service->image5)
+                                                <h4 class="mb-4">Nos objectifs</h4>
+                                                <div class="mb-4">
+                                                    <p>
+                                                        {{$service->image5}}
+                                                    </p>
+                                                </div>
+                                            @endif                                            
+                                        @endforeach
+                                    </div>
+                                        
+                                    <div class="card-footer">
+                                        <div class="icons">
+                                            <button id="boutonPartage" class="btn btn-info icons"><i class="icon icon-share me-1"></i> Partager </button>
+                                            <a href="#" class="btn btn-secondary icons"><i class="icon icon-printer  me-1"></i> Imprimer </a>
                                         </div>
-                                        <h4 class="mb-4">Notre mission</h4>
-                                        <div class="mb-4">
-                                            <p>
-                                                {{$service->description}}
-                                            </p>
-                                        </div>
-                                        <h4 class="mb-4">Nos objectifs</h4>
-                                        <div class="mb-4">
-                                            <p>
-                                                {{$service->image5}}
-                                            </p>
-                                        </div>
-                                    @endforeach
-                                </div>
-                                    
-                                <div class="card-footer">
-                                    <div class="icons">
-                                        <button id="boutonPartage" class="btn btn-info icons"><i class="icon icon-share me-1"></i> Partager </button>
-                                        <a href="#" class="btn btn-secondary icons"><i class="icon icon-printer  me-1"></i> Imprimer </a>
                                     </div>
                                 </div>
-                            </div>
+                            @endforeach
+
+                            @foreach ($business as $busi)
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Description de {{ $Profil_entreprise->nom }}</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        @foreach ($services as $service)
+                                            @if ($service->libelle)
+                                                <h4 class="mb-4">Qui Sommes-nous ?</h4>
+                                                <div class="mb-4">
+                                                    <p>
+                                                        {{$service->libelle}}
+                                                    </p>
+                                                </div>
+                                            @endif
+                                            
+                                            @if ($service->description)
+                                                <h4 class="mb-4">Notre mission</h4>
+                                                <div class="mb-4">
+                                                    <p>
+                                                        {{$service->description}}
+                                                    </p>
+                                                </div>
+                                            @endif
+                                        @endforeach
+                                    </div>
+                                        
+                                    <div class="card-footer">
+                                        <div class="icons">
+                                            <button id="boutonPartage" class="btn btn-info icons"><i class="icon icon-share me-1"></i> Partager </button>
+                                            <a href="#" class="btn btn-secondary icons"><i class="icon icon-printer  me-1"></i> Imprimer </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+
+                            @foreach ($basics as $basic)
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Description de {{ $Profil_entreprise->nom }}</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        @foreach ($services as $service)
+                                            @if ($service->libelle)
+                                                <h4 class="mb-4">Qui Sommes-nous ?</h4>
+                                                <div class="mb-4">
+                                                    <p>
+                                                        {{$service->libelle}}
+                                                    </p>
+                                                </div>
+                                            @endif
+                                        @endforeach
+                                    </div>
+                                        
+                                    <div class="card-footer">
+                                        <div class="icons">
+                                            <button id="boutonPartage" class="btn btn-info icons"><i class="icon icon-share me-1"></i> Partager </button>
+                                            <a href="#" class="btn btn-secondary icons"><i class="icon icon-printer  me-1"></i> Imprimer </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                            
                             <!--/Classified Description-->
 
                             <h3 class="mb-5 mt-4">Les entreprises relatives</h3>
@@ -215,8 +346,8 @@
                                             <div class="card">
                                                 <div class="item-card7-imgs">
                                                     <a href="{{ route('entreprise.pays.profil',['slug_pays'=>$entreprise_sim->slug_pays,'slug_categorie'=>$entreprise_sim->slug_categorie,'slug_souscategorie'=>$entreprise_sim->slug_souscategorie,'slug_entreprise'=>$entreprise_sim->slug_entreprise]) }}"></a>
-                                                    @if ($entreprise_sim->publireportage2)
-                                                        <img src="{{ asset('assets/images/entreprises/covers') }}/{{ $entreprise_sim->publireportage2 }}" alt="{{ $entreprise_sim->nom }}" class="cover-image">
+                                                    @if ($entreprise_sim->publireportage1)
+                                                        <img src="{{ asset('assets/images/entreprises/covers') }}/{{ $entreprise_sim->publireportage1 }}" alt="{{ $entreprise_sim->nom }}" class="cover-image">
                                                     @else
                                                         <img src="{{ asset('assets/images/entreprises/covers/j1.jpg') }}" alt="{{ $entreprise_sim->nom }}" class="cover-image">
                                                     @endif
@@ -230,8 +361,13 @@
                                                     </div>
                                                     <div class="item-card7-text">
                                                         <ul class="icon-card mb-0">
-                                                            <li ><a href="#" class="icons"><i class="icon icon-location-pin text-muted me-1"></i>{{ $entreprise_sim->adresse }}</a></li>
-                                                            <li class="mb-0"><a href="#" class="icons"><i class="icon icon-phone text-muted me-1"></i>(+228) <b>{{ $entreprise_sim->telephone1 }}</b></a></li>
+                                                            @if ($entreprise_sim->adresse)
+                                                                <li ><a href="#" class="icons"><i class="icon icon-location-pin text-muted me-1"></i>{{ Str::limit($entreprise_sim->adresse, 20) }}</a></li>
+                                                            @endif
+                                                            
+                                                            @if ($entreprise_sim->telephone1)
+                                                                <li class="mb-0"><a href="#" class="icons"><i class="icon icon-phone text-muted me-1"></i>(+228) <b>{{ $entreprise_sim->telephone1 }}</b></a></li>
+                                                            @endif                                                            
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -312,6 +448,60 @@
                                     </div>
                                 </form>
                             </div>
+
+                            @foreach ($premiums as $premium)
+                                @if ($Profil_entreprise->partenaire)
+                                    <h3 class="mb-5 mt-4">Les partenaires</h3>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div id="owl-demo2" class="owl-carousel owl-carousel-icons2">
+                                                @foreach ($partenaires as $partenaire)
+                                                    <div class="item">
+                                                        <div class="card">
+                                                            <div class="card-body">
+                                                                <div class="cat-item text-center">
+                                                                    <a href="#"></a>
+                                                                    <div class="cat-img">
+                                                                        <img src="{{ asset('assets/images/products/categories') }}/{{ $partenaire->image }}" alt="{{ $partenaire->image }}" width="100">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endif
+                            @endforeach
+
+                            @foreach ($business as $busi)
+                                @if ($Profil_entreprise->partenaire)
+                                    <h3 class="mb-5 mt-4">Les partenaires</h3>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div id="owl-demo2" class="owl-carousel owl-carousel-icons2">
+                                                @foreach ($partenaires as $partenaire)
+                                                    <div class="item">
+                                                        <div class="card">
+                                                            <div class="card-body">
+                                                                <div class="cat-item text-center">
+                                                                    <a href="#"></a>
+                                                                    <div class="cat-img">
+                                                                        <img src="{{ asset('assets/images/products/categories') }}/{{ $partenaire->image }}" alt="{{ $partenaire->image }}" width="100">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endif
+                            @endforeach
                         </div>
 
                         <!--Right Side Content-->

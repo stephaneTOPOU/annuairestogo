@@ -393,68 +393,30 @@
 				<div class="col-lg-12">
 					<div class="card">
 						<div id="myCarousel" class="owl-carousel testimonial-owl-carousel">
-							<div class="item text-center">
-								<div class="card-body">
-									<div class="row">
-										<div class="col-xl-8 col-md-12 d-block mx-auto">
-											<div class="testimonia">
-												<div class="testimonia-img mx-auto mb-3">
-													<img src="{{ asset('assets/images/faces/female/11.jpg') }}" class="img-thumbnail rounded-circle alt=" alt="">
-												</div>
-												<p>
-													<i class="fa fa-quote-left"></i> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod eos id officiis hic tenetur quae quaerat ad velit ab. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore cum accusamus eveniet molestias voluptatum inventore laboriosam labore sit, aspernatur praesentium iste impedit quidem dolor veniam.
-												</p>
-												<div class="testimonia-data">
-													<h4 class="fs-20 mb-1">Heather Bell</h4>
-													<div class="rating-star">
-														<div class="rating-star sm my-rating-5" data-stars="4s"></div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="item text-center">
-								<div class="card-body">
-									<div class="row">
-										<div class="col-xl-8 col-md-12 d-block mx-auto">
-											<div class="testimonia">
-												<div class="testimonia-img mx-auto mb-3">
-													<img src="../assets/images/faces/male/42.jpg" class="img-thumbnail rounded-circle alt=" alt="">
-												</div>
-												<p><i class="fa fa-quote-left"></i> Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore. </p>
-												<div class="testimonia-data">
-													<h4 class="fs-20 mb-1">David Blake</h4>
-													<div class="rating-star">
-														<div class="rating-star sm my-rating-5" data-stars="4s"></div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="item text-center">
-								<div class="card-body">
-									<div class="row">
-										<div class="col-xl-8 col-md-12 d-block mx-auto">
-											<div class="testimonia">
-												<div class="testimonia-img mx-auto mb-3">
-													<img src="../assets/images/faces/female/20.jpg" class="img-thumbnail rounded-circle alt=" alt="">
-												</div>
-												<p><i class="fa fa-quote-left"></i> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
-												<div class="testimonia-data">
-													<h4 class="fs-20 mb-1">Sophie Carr</h4>
-													<div class="rating-star">
-														<div class="rating-star sm my-rating-5" data-stars="4s"></div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
+                            @foreach ($testimonies as $testimony)
+                                <div class="item text-center">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-xl-8 col-md-12 d-block mx-auto">
+                                                <div class="testimonia">
+                                                    <div class="testimonia-img mx-auto mb-3">
+                                                        <img src="{{ asset('assets/images/faces/female/11.jpg') }}" class="img-thumbnail rounded-circle alt=" alt="{{$testimony->nom}}">
+                                                    </div>
+                                                    <p>
+                                                        <i class="fa fa-quote-left"></i>{{$testimony->message}}
+                                                    </p>
+                                                    <div class="testimonia-data">
+                                                        <h4 class="fs-20 mb-1">{{$testimony->nom}}</h4>
+                                                        <div class="rating-star">
+                                                            <div class="rating-star sm my-rating-5" data-stars="{{$testimony->note}}s"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
 						</div>
 					</div>
 				</div>
@@ -635,8 +597,8 @@
                                     <span class="price-value1"><span>{{$pub->titre}}</span></span>
                                 </div>
                                 <div class="pricingContent2">
-                                    <h2 class="sous-titre">{{$pub->sousTitre}}</h2>
-                                    <p>{{$pub->description}}</p>
+                                    <h2 class="sous-titre">{{ $pub->sousTitre }}</h2>
+                                    <p>{{ Str::limit($pub->description, 100) }}</p>
                                 </div><!-- CONTENT BOX-->
                                 <div class="pricingTable2-sign-up">
                                     <a href="{{ route('pub.detail', ['slug_pays'=>'tg','pub_slug'=>$pub->slug_pub])}}" class="btn btn-block btn-primary">Découvrir</a>
