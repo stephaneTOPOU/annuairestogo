@@ -76,7 +76,7 @@ class ProfileController extends Controller
             ->join('entreprises', 'sous_categories.id', '=', 'entreprises.souscategorie_id')
             ->where('entreprises.id', $entreprise_id[0]->id)
             ->join('services', 'services.entreprise_id', '=', 'entreprises.id')
-            ->select('*', 'entreprises.id as identifiant')
+            ->select('*', 'entreprises.id as identifiant', 'entreprises.nom as entreprise')
             ->get();
 
         $serviceImages = DB::table('pays')->where('pays.id', $pays_id[0]->id)

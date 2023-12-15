@@ -241,7 +241,14 @@
                                                     </p>
                                                 </div>
                                             @endif
-                                            
+                                            @if ($service->image2)
+                                                <div class="item7-card-img mb-4">
+                                                    <img src="{{ asset('assets/images/entreprises/services') }}/{{ $service->image2 }}" alt="{{ $service->entreprise }}" class="w-100">
+                                                    <div class="item7-card-text">
+                                                        <span class="badge badge-info">{{ $service->entreprise }}</span>
+                                                    </div>
+                                                </div>
+                                            @endif
                                             @if ($service->description)
                                                 <h4 class="mb-4">Notre mission</h4>
                                                 <div class="mb-4">
@@ -250,7 +257,14 @@
                                                     </p>
                                                 </div>
                                             @endif
-                                            
+                                            @if ($service->image3)
+                                                <div class="item7-card-img mb-4">
+                                                    <img src="{{ asset('assets/images/entreprises/services') }}/{{ $service->image3 }}" alt="{{ $service->entreprise }}" class="w-100">
+                                                    <div class="item7-card-text">
+                                                        <span class="badge badge-info">{{ $service->entreprise }}</span>
+                                                    </div>
+                                                </div>
+                                            @endif                                            
                                             @if ($service->image5)
                                                 <h4 class="mb-4">Nos objectifs</h4>
                                                 <div class="mb-4">
@@ -286,6 +300,14 @@
                                                     </p>
                                                 </div>
                                             @endif
+                                            @if ($service->image2)
+                                                <div class="item7-card-img mb-4">
+                                                    <img src="{{ asset('assets/images/entreprises/services') }}/{{ $service->image2 }}" alt="{{ $service->entreprise }}" class="w-100">
+                                                    <div class="item7-card-text">
+                                                        <span class="badge badge-info">{{ $service->entreprise }}</span>
+                                                    </div>
+                                                </div>
+                                            @endif
                                             
                                             @if ($service->description)
                                                 <h4 class="mb-4">Notre mission</h4>
@@ -293,6 +315,14 @@
                                                     <p>
                                                         {{$service->description}}
                                                     </p>
+                                                </div>
+                                            @endif
+                                            @if ($service->image3)
+                                                <div class="item7-card-img mb-4">
+                                                    <img src="{{ asset('assets/images/entreprises/services') }}/{{ $service->image3 }}" alt="{{ $service->entreprise }}" class="w-100">
+                                                    <div class="item7-card-text">
+                                                        <span class="badge badge-info">{{ $service->entreprise }}</span>
+                                                    </div>
                                                 </div>
                                             @endif
                                         @endforeach
@@ -320,6 +350,14 @@
                                                     <p>
                                                         {{$service->libelle}}
                                                     </p>
+                                                </div>
+                                            @endif
+                                            @if ($service->image2)
+                                                <div class="item7-card-img mb-4">
+                                                    <img src="{{ asset('assets/images/entreprises/services') }}/{{ $service->image2 }}" alt="{{ $service->entreprise }}" class="w-100">
+                                                    <div class="item7-card-text">
+                                                        <span class="badge badge-info">{{ $service->entreprise }}</span>
+                                                    </div>
                                                 </div>
                                             @endif
                                         @endforeach
