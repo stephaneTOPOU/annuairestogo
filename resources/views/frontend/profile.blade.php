@@ -4,6 +4,7 @@
 @include('frontend.header.header4')
 @include('frontend.header.header5')
 <link rel="stylesheet" href="{{ asset('assets/css/companies.css') }}" />
+<link href="{{ asset('assets/css/video-player.css') }}" rel="stylesheet"/>
 @include('frontend.header.header6')
 @include('frontend.header.header7')
 
@@ -603,6 +604,55 @@
                                     </div>
                                 </div>
                             </div>
+
+                            @foreach ($premiums as $premium)
+                                @foreach ($services as $service)
+                                    @if ($service->image7)
+                                        <div class="item-card overflow-hidden">
+                                            <div class="item-card-desc">
+                                                <div class="card text-center overflow-hidden"> 
+                                                    <div class="video-list">
+                                                        <div class="video-list-inner video" style="cursor: pointer">
+                                                            <div class="play card-img">
+                                                                <img src="{{ asset('assets/images/entreprises/services') }}/{{ $service->image6 }}" alt="{{ $service->entreprise }}" class="play">
+                                                            </div>
+                                                            <div class="play item-card-text">
+                                                                <i class="fa fa-play-circle" aria-hidden="false"></i>
+                                                            </div>
+                                                            <video class="hide" muted src="{{ asset('assets/images/entreprises/services') }}/{{ $service->image7 }}" controls poster="{{ asset('assets/images/entreprises/services') }}/{{ $service->image6 }}">
+                                                        </div>
+                                                    </div>                                       
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endif
+                                @endforeach
+                            @endforeach
+
+                            @foreach ($business as $busi)
+                                @foreach ($services as $service)
+                                    @if ($service->image7)
+                                        <div class="item-card overflow-hidden">
+                                            <div class="item-card-desc">
+                                                <div class="card text-center overflow-hidden"> 
+                                                    <div class="video-list">
+                                                        <div class="video-list-inner video" style="cursor: pointer">
+                                                            <div class="play card-img">
+                                                                <img src="{{ asset('assets/images/entreprises/services') }}/{{ $service->image6 }}" alt="{{ $service->entreprise }}" class="play">
+                                                            </div>
+                                                            <div class="play item-card-text">
+                                                                <i class="fa fa-play-circle" aria-hidden="false"></i>
+                                                            </div>
+                                                            <video class="hide" muted src="{{ asset('assets/images/entreprises/services') }}/{{ $service->image7 }}" controls poster="{{ asset('assets/images/entreprises/services') }}/{{ $service->image6 }}">
+                                                        </div>
+                                                    </div>                                       
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endif
+                                @endforeach
+                            @endforeach
+
                             <div class="card">
                                 <div class="card-header">
                                     <h3 class="card-title">Emplacement sur la carte</h3>
@@ -647,6 +697,22 @@
                                         @endforeach
                                     </tbody>
                                 </table>                              
+                            </div>
+
+                            @foreach ($premiums as $premium)
+                                @foreach ($services as $service)
+                                    @if ($service->image8)
+                                        <div class="mb-4">
+                                            <div class="video-youtube">
+                                                    <iframe src="{{$service->image8}}" frameborder="0" allowfullscreen></iframe>                
+                                            </div>
+                                        </div> 
+                                    @endif
+                                @endforeach
+                            @endforeach
+                            <div class="video-container">
+                                <a class="close btn btn-sm btn-light w-6" data-bs-dismiss="modal" aria-label="Close" style="font-size: 14px; border-radius: 50%">x</a>
+                                <video src="" autoplay controls poster=""></video>
                             </div>
                             <div class="card">
                                 <div class="card-header">
@@ -861,6 +927,7 @@
 	});
 </script>
 <script src="{{ asset('assets/js/company-hours.js') }}"></script>
+<script src="{{ asset('assets/js/video-modal.js') }}"></script>
 @include('frontend.footer.footer18')
 
 

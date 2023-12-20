@@ -13,9 +13,12 @@
 @include('frontend.topbar.topbar5')
 
 <!--Sliders Section-->
-<div>
-    <div class="cover-image sptb-1 shadow-font" data-bs-image-src="../assets/images/banners/banner1.jpg">
-    </div>
+<<div>
+	<div class="owl-carousel testimonial-owl-carousel2 slider slider-header">
+		@foreach ($sliders as $slider)
+			<div class="cover-image sptb-1" data-bs-image-src="{{ asset('assets/images/sliders') }}/{{ $slider->image }}"></div>
+		@endforeach
+	</div>
 </div>
 <!--/Sliders Section-->
 

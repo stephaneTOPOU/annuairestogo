@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Offre;
+use App\Models\SliderRecherche;
 use Illuminate\Support\Facades\DB;
 
 class OffreController extends Controller
@@ -27,7 +28,9 @@ class OffreController extends Controller
         ->get();
 
         $offres_details = Offre::find($offre_id[0]->id);
+
+        $sliders = SliderRecherche::all();
     
-        return view('frontend.jobdetail', compact('offres','offres_details', 'parametres'));
+        return view('frontend.jobdetail', compact('offres','offres_details', 'parametres', 'sliders'));
     }
 }

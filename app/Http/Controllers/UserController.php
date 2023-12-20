@@ -21,7 +21,9 @@ class UserController extends Controller
             ->select('*')
             ->get();
 
-        return view('frontend.auth.register', compact('parametres'));
+        $sliders = SliderRecherche::all();
+
+        return view('frontend.auth.register', compact('parametres', 'sliders'));
     }
 
     public function mydash($slug_pays, $slug_user)

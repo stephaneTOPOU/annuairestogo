@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Pub;
+use App\Models\SliderRecherche;
 use Illuminate\Support\Facades\DB;
 
 class PubController extends Controller
@@ -28,6 +29,8 @@ class PubController extends Controller
         ->select('*')
         ->get();
 
-        return view('frontend.pub-detail', compact('pubs','pubs_details', 'parametres', 'medias'));
+        $sliders = SliderRecherche::all();
+
+        return view('frontend.pub-detail', compact('pubs','pubs_details', 'parametres', 'medias', 'sliders'));
     }
 }

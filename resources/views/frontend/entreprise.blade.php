@@ -148,7 +148,7 @@
                                                                         <i class="icon icon-phone text-muted me-1"></i> (+228) <b>{{ $entreprise->telephone1 }}</b>
                                                                     </div>
                                                                     <div class="ms-auto">
-                                                                        <div class="rating-star sm my-rating-5" data-stars="4s"></div>
+                                                                        <div class="rating-star sm my-rating-5" data-stars="{{ $entreprise->rate }}s"></div>
                                                                     </div>
                                                                 </div>
                                                             </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contact;
+use App\Models\SliderRecherche;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -18,8 +19,10 @@ class ContactController extends Controller
             ->where('parametres.id', 1)
             ->select('*')
             ->get();
+
+        $sliders = SliderRecherche::all();
             
-        return view('frontend.contact', compact('parametres'));
+        return view('frontend.contact', compact('parametres', 'sliders'));
     }
 
     public function save($slug_pays, Request $request)

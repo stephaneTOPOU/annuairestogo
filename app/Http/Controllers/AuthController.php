@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Entreprise;
 use App\Models\Parametre;
 use App\Models\Pays;
+use App\Models\SliderRecherche;
 use App\Models\User;
 use Exception;
 use Illuminate\Http\Request;
@@ -26,7 +27,10 @@ class AuthController extends Controller
             ->where('parametres.id', 1)
             ->select('*')
             ->get();
-            return view("frontend.auth.login", compact('parametres'));
+
+            $sliders = SliderRecherche::all();
+
+            return view("frontend.auth.login", compact('parametres', 'sliders'));
         }
 
         if (Auth::check()) {
@@ -38,7 +42,10 @@ class AuthController extends Controller
             ->where('parametres.id', 1)
             ->select('*')
             ->get();
-            return view("frontend.auth.login", compact('parametres'));
+
+            $sliders = SliderRecherche::all();
+
+            return view("frontend.auth.login", compact('parametres', 'sliders'));
         }
 
         if (Auth::check()) {
@@ -50,7 +57,10 @@ class AuthController extends Controller
             ->where('parametres.id', 1)
             ->select('*')
             ->get();
-            return view("frontend.auth.login", compact('parametres'));
+
+            $sliders = SliderRecherche::all();
+
+            return view("frontend.auth.login", compact('parametres', 'sliders'));
         }
 
         if (Auth::check()) {
@@ -62,7 +72,10 @@ class AuthController extends Controller
             ->where('parametres.id', 1)
             ->select('*')
             ->get();
-            return view("frontend.auth.login", compact('parametres'));
+
+            $sliders = SliderRecherche::all();
+
+            return view("frontend.auth.login", compact('parametres', 'sliders'));
         }
 
         if (Auth::check()) {
@@ -74,7 +87,10 @@ class AuthController extends Controller
             ->where('parametres.id', 1)
             ->select('*')
             ->get();
-            return view("frontend.auth.login", compact('parametres'));
+
+            $sliders = SliderRecherche::all();
+
+            return view("frontend.auth.login", compact('parametres', 'sliders'));
         }
 
         if (Auth::check()) {
@@ -134,7 +150,10 @@ class AuthController extends Controller
             ->where('parametres.id', 1)
             ->select('*')
             ->get();
-            return view("frontend.auth.login", compact('parametres'));
+
+            $sliders = SliderRecherche::all();
+
+            return view("frontend.auth.login", compact('parametres', 'sliders'));
         }
 
         if (Auth::check()) {
@@ -230,7 +249,10 @@ class AuthController extends Controller
             ->where('parametres.id', 1)
             ->select('*')
             ->get();
-            return view("frontend.auth.login", compact('parametres'));
+
+            $sliders = SliderRecherche::all();
+
+            return view("frontend.auth.login", compact('parametres', 'sliders'));
         }
     }
 
@@ -394,7 +416,10 @@ class AuthController extends Controller
                 ->where('parametres.id', 1)
                 ->select('*')
                 ->get();
-            return view('frontend.entreprise.entreprise-register', compact('parametres', 'pays', 'villes', 'souscategories'));
+
+            $sliders = SliderRecherche::all();
+
+            return view('frontend.entreprise.entreprise-register', compact('parametres', 'pays', 'villes', 'souscategories', 'sliders'));
         } elseif ($slug_pays == 'bf') {
             $parametres = DB::table('pays')->where('pays.id', $pays_id[0]->id)
                 ->join('parametres', 'pays.id', '=', 'parametres.pays_id')
@@ -509,7 +534,8 @@ class AuthController extends Controller
             return view('frontend.entreprise.entreprise-register', compact('parametres', 'pays', 'villes', 'souscategories'));
         } else {
             $parametres = Parametre::find(1);
-            return view('frontend.entreprise.entreprise-register',compact('parametres', 'sousCategorieNavs', 'pays', 'villes', 'souscategories'));
+            $sliders = SliderRecherche::all();
+            return view('frontend.entreprise.entreprise-register',compact('sliders','parametres', 'sousCategorieNavs', 'pays', 'villes', 'souscategories'));
         }
     }
 
@@ -522,7 +548,9 @@ class AuthController extends Controller
             ->where('parametres.id', 3)
             ->select('*')
             ->get();
-        return view('frontend.auth.forgot', compact('parametres'));
+
+        $sliders = SliderRecherche::all();
+        return view('frontend.auth.forgot', compact('parametres', 'sliders'));
     }
 
     public function forgot($slug_pays)

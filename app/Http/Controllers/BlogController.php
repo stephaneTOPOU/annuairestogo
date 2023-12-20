@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Blog;
 use App\Models\commentaire_blog;
 use App\Models\Reponse_commentaire3;
+use App\Models\SliderRecherche;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -29,7 +30,9 @@ class BlogController extends Controller
             ->groupBy('blog')
             ->get();
 
-        return view('frontend.blog', compact('parametres', 'blogs', 'nombres'));
+            $sliders = SliderRecherche::all();
+
+        return view('frontend.blog', compact('parametres', 'blogs', 'nombres', 'sliders'));
     }
 
     public function detail($slug_pays, $slug_blog)
@@ -64,7 +67,9 @@ class BlogController extends Controller
 
         $blogs = Blog::all();
 
-        return view('frontend.blog-detail', compact('blogs','parametres', 'details', 'nombres', 'commentaires', 'reponses'));
+        $sliders = SliderRecherche::all();
+
+        return view('frontend.blog-detail', compact('blogs','parametres', 'details', 'nombres', 'commentaires', 'reponses', 'sliders'));
     }
 
     public function comment($slug_pays, $slug_blog, Request $request)

@@ -6,6 +6,7 @@ use App\Models\Annonce;
 use App\Models\CategorieAnnonce;
 use App\Models\commentaireAnnonce;
 use App\Models\Reponse_commentaire2;
+use App\Models\SliderRecherche;
 use Exception;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -60,7 +61,9 @@ class NewsController extends Controller
             ->select('*', 'categorie_annonces.libelle as cat')
             ->get();
 
-        return view('frontend.news', compact('relative', 'news', 'parametres', 'annonce', 'annonce2s', 'commentaires', 'reponses', 'nb'));
+            $sliders = SliderRecherche::all();
+
+        return view('frontend.news', compact('relative', 'news', 'parametres', 'annonce', 'annonce2s', 'commentaires', 'reponses', 'nb', 'sliders'));
     }
 
     public function comment($slug_pays, $slug_cat_an, $slug_annonce, Request $request)
