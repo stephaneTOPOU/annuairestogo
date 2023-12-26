@@ -3,8 +3,9 @@
 @include('frontend.header.header3')
 @include('frontend.header.header4')
 @include('frontend.header.header5')
-<link href="{{ asset('assets/css/video-player.css') }}" rel="stylesheet"/>
+
 @include('frontend.header.header6')
+<link href="{{ asset('assets/css/video-player.css') }}" rel="stylesheet"/>
 @include('frontend.header.header7')
 
 

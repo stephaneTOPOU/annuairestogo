@@ -122,6 +122,7 @@ $(function() {
 
 	// ______________ Modal
 		$("#myModal").modal('show');
+		// $("#devis").modal('show');
 
 
 

@@ -53,6 +53,14 @@ class EntrepriseController extends Controller
 
         $sliders = SliderRecherche::all();
 
-        return view('frontend.entreprise', compact('subcategories','entreprises', 'souscategories', 'tops', 'top2s', 'parametres','sliders'));
+        $sousCategories2 = DB::table('pays')->where('pays.id', $pays_id[0]->id)
+            ->join('categories', 'pays.id', '=', 'categories.pays_id')->where('categories.id', $categorie_id[0]->id)
+            ->join('sous_categories', 'categories.id', '=', 'sous_categories.categorie_id')->where('sous_categories.id', $sousCategorie_id[0]->id)
+            ->join('entreprises', 'sous_categories.id', '=', 'entreprises.souscategorie_id')
+            ->select('sous_categories.libelle', 'sous_categories.id as identifiant')
+            ->limit(1)
+            ->get();
+
+        return view('frontend.entreprise', compact('sousCategories2', 'subcategories','entreprises', 'souscategories', 'tops', 'top2s', 'parametres','sliders'));
     }
 }

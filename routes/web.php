@@ -131,7 +131,7 @@ Route::get('/{slug_pays}/autocomplete', [\App\Http\Controllers\HomeController::c
 Route::get('/{slug_pays}/autocomplete-user', [\App\Http\Controllers\UserController::class, 'user_autocomplete'])->name('user.autocomplete');
 
 Route::get('/{slug_pays}/rechercher-entreprise', [\App\Http\Controllers\HomeController::class, 'recherche_pays'])->name('recherche.pays');
-Route::post('/{slug_pays}/rechercher-entreprise', [\App\Http\Controllers\DevisController::class, 'devis'])->name('devis.pays.recherche');
+Route::post('/{slug_pays}/rechercher-entreprise', [\App\Http\Controllers\DevisController::class, 'devis'])->name('devis.recherche');
 
 Route::get('/{slug_pays}/rechercher-professionnel', [\App\Http\Controllers\UserController::class, 'list'])->name('user.list');
 
@@ -162,7 +162,7 @@ Route::post('/{slug_pays}/authentification', [\App\Http\Controllers\AuthControll
 
 Route::post('/{slug_pays}/ajouter-entreprise', [\App\Http\Controllers\ActionEntrepriseController::class, 'addEntreprise'])->name('entreprise.pays.add');
 
-Route::post('/{slug_pays}/entreprise-devis', [\App\Http\Controllers\DevisController::class, 'devis'])->name('devis.pays.entreprise');
+Route::post('/{slug_pays}/entreprise-devis', [\App\Http\Controllers\DevisController::class, 'devis'])->name('devis.entreprise');
 
 Route::get('/{slug_pays}/{pub_slug}', [App\Http\Controllers\PubController::class, 'pubDetail'])->name('pub.detail');
 

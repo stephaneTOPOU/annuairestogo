@@ -113,6 +113,129 @@
 											</div>
 										</div>
 									</div>
+                                    <div class="mb-0 mt-6 d-flex justify-content-center align-items-center">
+                                        <div class="col-xl-4 col-lg-3 col-md-12 mb-0">
+                                            <button onclick="openModal()" type="button" class="btn btn-lg btn-block btn-primary br-bs-0 br-ts-0" >Demande de devis</button>
+                                        </div>
+                                    </div>
+                                    <script>
+                                        function openModal() {
+                                            $("#devis").modal('show');
+                                        }
+                                    </script>
+                                    <!-- Popup Devis-->
+                                    <div id="devis" class="modal fade">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content ">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Demande de devis</h5>
+                                                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">×</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="single-page customerpage " >
+                                                        <div class="wrapper wrapper2 box-shadow-0">
+                                                            <form id="Register" class="card-body" tabindex="500" action="{{ route('devis.entreprise',['slug_pays','tg']) }}" method="POST">
+                                                                @csrf
+                                                                @if(Session::has('succes'))
+                                                                    <div class="alert alert-success" role="alert">{{Session::get('succes') }}</div>
+                                                                @endif
+                                                                <div class="row">
+                                                                    <div class="col-md-12">
+                                                                        <div class="">
+                                                                            <select class="form-control select2-show-search border-bottom-0 w-100" data-placeholder="Select" name="souscategorie_id">
+                                                                                <optgroup label="Catégories">
+                                                                                    <option disabled selected>Secteur d'activité</option>
+                                                                                    @foreach ($souscategories as $souscategorie)
+                                                                                        <option value="{{ $souscategorie->identifiant }}">{{ $souscategorie->libelle }}</option>
+                                                                                    @endforeach
+                                                                                </optgroup>
+                                                                            </select>
+                                                                        </div>                                                                        
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="row">
+                                                                    <div class="col-md-12">
+                                                                        <div class="type">
+                                                                            <select class="form-control select2-show-search border-bottom-0 w-100" data-placeholder="Select" name="type_demande">
+                                                                                <optgroup label="Catégories">
+                                                                                    <option disabled selected>Type de demande</option>
+                                                                                    <option value="Demande d'information">Demande d'information</option>
+                                                                                    <option value="Demande de produit">Demande de produit</option>
+                                                                                    <option value="Demande de service">Demande de service</option>
+                                                                                </optgroup>
+                                                                            </select>
+                                                                        </div>                                                                        
+                                                                    </div>
+                                                                </div>
+                            
+                                                                <div class="row">
+                                                                    <div class="col-md-6">
+                                                                        <div class="nom">
+                                                                            <input type="text" name="nom">
+                                                                            <label>Nom</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <div class="prenoms">
+                                                                            <input type="text" name="prenom">
+                                                                            <label>Prenoms</label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                                <div class="row">
+                                                                    <div class="col-md-12">
+                                                                        <div class="email">
+                                                                            <input type="email" name="email">
+                                                                            <label>Email</label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="row">
+                                                                    <div class="col-md-12">
+                                                                        <div class="telephone">
+                                                                            <input type="tel" name="telephone">
+                                                                            <label>Téléphone</label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="row">
+                                                                    <div class="col-md-12">
+                                                                        <div class="demande">
+                                                                            <style>
+                                                                                textarea{
+                                                                                    padding: 5px 15px;
+                                                                                    width: 100%;
+                                                                                    border: solid 1px #e8ebf3;
+                                                                                }
+                                                                                select{
+                                                                                    padding: 5px 15px;
+                                                                                    width: 100%;
+                                                                                    border: solid 1px #e8ebf3;
+                                                                                }
+                                                                            </style>
+                                                                            <textarea type="text" name="demande" rows="6"></textarea>
+                                                                            <label>Demande</label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                            
+                                                                <div class="submit">
+                                                                    <button class="btn btn-primary btn-block">Envoyer</button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Popup Devis-->
 									<div class="tab-content">
 										<div class="tab-pane active" id="tab-11">
                                             @foreach ($entreprises as $entreprise)
