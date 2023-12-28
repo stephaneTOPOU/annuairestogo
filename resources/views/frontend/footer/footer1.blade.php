@@ -7,8 +7,8 @@
                     <div class="col-lg-3 col-md-12">
                         <h6>Annuaire Togo</h6>
                         <hr class="deep-purple  accent-2 mb-4 mt-0 d-inline-block mx-auto">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit amet numquam iure provident voluptate essequasi, veritatis totam voluptas nostrum.Lorem ipsum dolor sit amet, consectetur </p>
-                        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum .</p>
+                        <p>Bienvenue sur l'Annuaire Togo, votre référence incontournable pour découvrir et contacter les entreprises, services et professionnels locaux au cœur de ce magnifique pays d'Afrique de l'Ouest. </p>
+                        <p>Notre annuaire exhaustif offre une plateforme conviviale où les utilisateurs peuvent trouver rapidement des informations précises et à jour sur une variété de secteurs.</p>
                     </div>
                     <div class="col-lg-2 col-md-12">
                         <h6>Nos Services</h6>

@@ -3,9 +3,9 @@
 @include('frontend.header.header3')
 @include('frontend.header.header4')
 @include('frontend.header.header5')
-
-@include('frontend.header.header6')
 <link href="{{ asset('assets/css/video-player.css') }}" rel="stylesheet"/>
+@include('frontend.header.header6')
+
 @include('frontend.header.header7')
 
 
@@ -198,7 +198,7 @@
         <div class="container">
             <div class="section-title center-block text-center">
                 <h2>Nos secteur d'activités</h2>
-                <p>Mauris ut cursus nunc. Morbi eleifend, ligula at consectetur vehicula</p>
+                {{-- <p>Mauris ut cursus nunc. Morbi eleifend, ligula at consectetur vehicula</p> --}}
             </div>
             <div id="small-categories" class="owl-carousel owl-carousel-icons2">
                 @foreach ($subcategories as $secteur)
@@ -231,7 +231,7 @@
         <div class="container">
             <div class="section-title center-block text-center">
                 <h2>Selection d'entreprises</h2>
-                <p>Mauris ut cursus nunc. Morbi eleifend, ligula at consectetur vehicula</p>
+                {{-- <p>Mauris ut cursus nunc. Morbi eleifend, ligula at consectetur vehicula</p> --}}
             </div>
             <div id="myCarousel1" class="owl-carousel owl-carousel-icons2">
                 @foreach ($honeures as $honeure)
@@ -466,8 +466,8 @@
     <section class="sptb bg-white">
         <div class="container">
             <div class="section-title center-block text-center">
-                <h2>Best Rated Locations</h2>
-                <p>Mauris ut cursus nunc. Morbi eleifend, ligula at consectetur vehicula</p>
+                <h2>Mini - spot & Reportage</h2>
+                {{-- <p>Mauris ut cursus nunc. Morbi eleifend, ligula at consectetur vehicula</p> --}}
             </div>
             <div class="row">
                 <div class="col-12 col-md-12 col-lg-12 col-xl-6">
@@ -518,7 +518,7 @@
 		<div class="container">
 			<div class="section-title center-block text-center">
 				<h2>Les Annonces</h2>
-				<p>Mauris ut cursus nunc. Morbi eleifend, ligula at consectetur vehicula</p>
+				{{-- <p>Mauris ut cursus nunc. Morbi eleifend, ligula at consectetur vehicula</p> --}}
 			</div>
 			<div id="myCarousel1" class="owl-carousel annonce-owl-carousel">
                 @foreach ($offres as $offre)
@@ -585,8 +585,8 @@
     <section class="sptb bg-white">
         <div class="container">
             <div class="section-title center-block text-center">
-                <h2>Another Pricing</h2>
-                <p>Mauris ut cursus nunc. Morbi eleifend, ligula at consectetur vehicula</p>
+                <h2>Espace TOGOCOM</h2>
+                {{-- <p>Mauris ut cursus nunc. Morbi eleifend, ligula at consectetur vehicula</p> --}}
             </div>
             <div class="container">
                 <div class="row">
