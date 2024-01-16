@@ -308,7 +308,11 @@
                                 @foreach ($top2s as $top2)
                                     <div class="img-div">
                                         <a href="{{ route('entreprise.pays.profil',['slug_pays'=>$top2->slug_pays,'slug_categorie'=>$top2->slug_categorie,'slug_souscategorie'=>$top2->slug_souscategorie,'slug_entreprise'=>$top2->slug_entreprise]) }}">
-                                            <img src="{{ asset('assets/images/products/popup') }}/{{ $top2->photo1 }}" alt="{{ $top2->nom }}">
+                                            @if ($top2->photo1)
+                                                <img src="{{ asset('assets/images/entreprises/pharmacies') }}/{{ $top2->photo1 }}" alt="{{ $top2->nom }}">
+                                            @else
+                                                <img src="{{ asset('assets/images/entreprises/pharmacies/pharmacie.jpg') }}" alt="{{ $top2->nom }}">
+                                            @endif                                            
                                         </a>
                                     </div>
                                 @endforeach

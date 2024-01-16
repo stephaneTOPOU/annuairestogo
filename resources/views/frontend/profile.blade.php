@@ -207,7 +207,7 @@
                                         <div id="carouselFade" class="carousel slide carousel-fade" data-bs-ride="carousel"
                                             data-bs-loop="false" data-bs-thumb="true">
                                             <div class="carousel-inner slide-show-image" id=full-gallery>
-                                                <div class="carousel-item active"> <img src="{{ asset('assets/images/entreprises/galerie/v1.jpg') }}" alt="image"> </div>
+                                                <div class="carousel-item active"> <img src="{{ asset('assets/images/entreprises/galerie/gallerie.jpg') }}" alt="image"> </div>
                                                 @foreach ($galleries as $galleries)
                                                     <div class="carousel-item"> <img src="{{ asset('assets/images/entreprises/galerie') }}/{{ $galleries->galerie_image }}" alt="{{ $galleries->entreprise }}"> </div>
                                                 @endforeach

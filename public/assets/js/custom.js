@@ -2,7 +2,7 @@ $(function() {
 	"use strict";
 	
 	// ______________Loader 
-	$("#global-loader").fadeOut("slow");
+	$("#global-loader").fadeOut(5000);
 	
 	// ______________Active Class
 		$(".horizontalMenu-list li a").each(function () {

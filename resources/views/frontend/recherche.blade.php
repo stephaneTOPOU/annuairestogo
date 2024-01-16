@@ -134,41 +134,37 @@
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <div class="single-page customerpage " >
+                                                    <div class="single-page customerpage " >                                                        
                                                         <div class="wrapper wrapper2 box-shadow-0">
                                                             <form id="Register" class="card-body" tabindex="500" action="{{ route('devis.entreprise',['slug_pays','tg']) }}" method="POST">
                                                                 @csrf
                                                                 @if(Session::has('succes'))
                                                                     <div class="alert alert-success" role="alert">{{Session::get('succes') }}</div>
                                                                 @endif
-                                                                <div class="row">
-                                                                    <div class="col-md-12">
-                                                                        <div class="">
-                                                                            <select class="form-control select2-show-search border-bottom-0 w-100" data-placeholder="Select" name="souscategorie_id">
-                                                                                <optgroup label="Catégories">
-                                                                                    <option disabled selected>Secteur d'activité</option>
-                                                                                    @foreach ($souscategories as $souscategorie)
-                                                                                        <option value="{{ $souscategorie->identifiant }}">{{ $souscategorie->libelle }}</option>
-                                                                                    @endforeach
-                                                                                </optgroup>
-                                                                            </select>
-                                                                        </div>                                                                        
-                                                                    </div>
+                                                                <div class="row">                                                                    
+                                                                    <div class="form-group col-xl-12 col-lg-4 select2-lg  col-md-12 mb-0">
+                                                                        <select class="form-control select2-show-search border-bottom-0 w-100" data-placeholder="Select" name="souscategorie_id">
+                                                                            <optgroup label="Catégories">
+                                                                                <option disabled selected>Secteur d'activité</option>
+                                                                                @foreach ($souscategories as $souscategorie)
+                                                                                    <option value="{{ $souscategorie->identifiant }}">{{ $souscategorie->libelle }}</option>
+                                                                                @endforeach
+                                                                            </optgroup>
+                                                                        </select>
+                                                                    </div>                                                                  
                                                                 </div>
 
                                                                 <div class="row">
-                                                                    <div class="col-md-12">
-                                                                        <div class="type">
-                                                                            <select class="form-control select2-show-search border-bottom-0 w-100" data-placeholder="Select" name="type_demande">
-                                                                                <optgroup label="Catégories">
-                                                                                    <option disabled selected>Type de demande</option>
-                                                                                    <option value="Demande d'information">Demande d'information</option>
-                                                                                    <option value="Demande de produit">Demande de produit</option>
-                                                                                    <option value="Demande de service">Demande de service</option>
-                                                                                </optgroup>
-                                                                            </select>
-                                                                        </div>                                                                        
-                                                                    </div>
+                                                                    <div class="form-group col-xl-12 col-lg-4 select2-lg  col-md-12 mb-0">
+                                                                        <select class="form-control select2-show-search border-bottom-0 w-100" data-placeholder="Select" name="type_demande">
+                                                                            <optgroup label="Catégories">
+                                                                                <option disabled selected>Type de demande</option>
+                                                                                <option value="Demande d'information">Demande d'information</option>
+                                                                                <option value="Demande de produit">Demande de produit</option>
+                                                                                <option value="Demande de service">Demande de service</option>
+                                                                            </optgroup>
+                                                                        </select>
+                                                                    </div> 
                                                                 </div>
                             
                                                                 <div class="row">
@@ -305,7 +301,11 @@
                                 @foreach ($top2s as $top2)
                                     <div class="img-div">
                                         <a href="{{ route('entreprise.pays.profil',['slug_pays'=>$top2->slug_pays,'slug_categorie'=>$top2->slug_categorie,'slug_souscategorie'=>$top2->slug_souscategorie,'slug_entreprise'=>$top2->slug_entreprise]) }}">
-                                            <img src="{{ asset('assets/images/products/popup') }}/{{ $top2->photo1 }}" alt="{{ $top2->nom }}">
+                                            @if ($top2->photo1)
+                                                <img src="{{ asset('assets/images/entreprises/pharmacies') }}/{{ $top2->photo1 }}" alt="{{ $top2->nom }}">
+                                            @else
+                                                <img src="{{ asset('assets/images/entreprises/pharmacies/pharmacie.jpg') }}" alt="{{ $top2->nom }}">
+                                            @endif                                            
                                         </a>
                                     </div>
                                 @endforeach
