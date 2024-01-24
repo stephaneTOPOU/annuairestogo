@@ -117,7 +117,7 @@
 										<div class="row">
 											@if ($offres_details->lien)
 												<div class="col">
-													<a class="mb-0">Lien : {{$offres_details->lien}}</a>
+													<a class="mb-0">Email : {{$offres_details->lien}}</a>
 												</div>
 											@endif
 											
@@ -151,14 +151,19 @@
 								<div class="card">
 									<div class="item-card7-imgs">
 										<a href="{{ route('offre.detail',['slug_pays'=>'tg','offre_slug'=>$offre->slug_offres])}}"></a>
-										<img src="{{ asset('assets/images/offres') }}/{{ $offre->image }}" alt="{{ $offre->image }}" class="cover-image">
+										@if ($offre->image)
+											<img src="{{ asset('assets/images/offres') }}/{{ $offre->image }}" alt="{{ $offre->titre }}" class="cover-image">
+										@else
+											<img src="{{ asset('assets/images/offres/job.jpg') }}" alt="{{ $offre->titre }}" class="cover-image">
+										@endif
+										
 									</div>
 									<div class="item-card7-overlaytext">
 										<a class="text-white"> {{$offre->categorie}}</a>
 									</div>
 									<div class="card-body">
 										<div class="item-card7-desc">
-											<a href="{{ route('offre.detail',['slug_pays'=>'tg','offre_slug'=>$offre->slug_offres])}}" class="text-dark"><h4 class="font-weight-semibold">{{$offre->titre}}</h4></a>
+											<a href="{{ route('offre.detail',['slug_pays'=>'tg','offre_slug'=>$offre->slug_offres])}}" class="text-dark"><h4 class="font-weight-semibold">{!! Str::limit($offre->titre, 20) !!}</h4></a>
 										</div>
 										<div class="item-card7-text">
 											<ul class="icon-card mb-0">

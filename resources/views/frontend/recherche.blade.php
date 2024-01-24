@@ -115,14 +115,10 @@
 									</div>
                                     <div class="mb-0 mt-6 d-flex justify-content-center align-items-center">
                                         <div class="col-xl-4 col-lg-3 col-md-12 mb-0">
-                                            <button onclick="openModal()" type="button" class="btn btn-lg btn-block btn-primary br-bs-0 br-ts-0" >Demande de devis</button>
+                                            <button id="monBouton" type="button" class="btn btn-lg btn-block btn-primary br-bs-0 br-ts-0" >Demande de devis</button>
                                         </div>
                                     </div>
-                                    <script>
-                                        function openModal() {
-                                            $("#devis").modal('show');
-                                        }
-                                    </script>
+                                    
                                     <!-- Popup Devis-->
                                     <div id="devis" class="modal fade">
                                         <div class="modal-dialog" role="document">
@@ -232,6 +228,7 @@
                                         </div>
                                     </div>
                                     <!-- End Popup Devis-->
+                                    
 									<div class="tab-content">
 										<div class="tab-pane active" id="tab-11">
                                             @foreach ($entreprises as $entreprise)
@@ -339,6 +336,13 @@
 <script src="{{ asset('assets/js/showmore.js') }}"></script>
 @include('frontend.footer.footer16')
 @include('frontend.footer.footer17')
+<script>
+    function onClickHandler() {
+        $("#devis").modal('show');
+    }
+    var bouton = document.getElementById("monBouton");
+    bouton.onclick = onClickHandler;
+</script>
 
 <script src="https://code.jquery.com/jquery-3.0.0.js"></script>
 {{-- <script src="https://code.jquery.com/jquery-migrate-3.3.2.js"></script> --}}

@@ -492,7 +492,7 @@
 	<section class="sptb">
 		<div class="container">
 			<div class="section-title center-block text-center">
-				<h2>Les Annonces</h2>
+				<h2>Recrutements & Annonces</h2>
 				{{-- <p>Mauris ut cursus nunc. Morbi eleifend, ligula at consectetur vehicula</p> --}}
 			</div>
 			<div id="myCarousel1" class="owl-carousel annonce-owl-carousel">
@@ -514,7 +514,7 @@
 					<div class="card-body">
 						<div class="item-card7-desc">
 							<div class="item-card7-text">
-								<a href="{{ route('offre.detail',['slug_pays'=>'tg','offre_slug'=>$offre->slug_offres])}}" class="text-dark"><h4 class="font-weight-semibold">{{ Str::limit($offre->titre, 30) }}</h4></a>
+								<a href="{{ route('offre.detail',['slug_pays'=>'tg','offre_slug'=>$offre->slug_offres])}}" class="text-dark"><h4 class="font-weight-semibold">{{ Str::limit($offre->titre, 20) }}</h4></a>
 							</div>
 							<ul class="d-flex">
 								<li class=""><a class="icons"><i class="icon icon-location-pin text-muted me-1"></i> {{$offre->ville}}</a></li>
