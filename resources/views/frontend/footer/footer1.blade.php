@@ -94,7 +94,7 @@
             <div class="container">
                 <div class="row d-flex">
                     <div class="col-lg-12 col-sm-12 mt-3 mb-3 text-center ">
-                        Copyright © 2023 <a href="{{ route('home.pays',['slug_pays'=>'tg']) }}" class="fs-14 text-primary">Annuaires Togo</a>. Tous droits réservés.
+                        Copyright © 2024 <a href="{{ route('home.pays',['slug_pays'=>'tg']) }}" class="fs-14 text-primary">Annuaires Togo</a>. Tous droits réservés.
                     </div>
                 </div>
             </div>
