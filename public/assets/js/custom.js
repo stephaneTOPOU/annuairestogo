@@ -2,7 +2,7 @@ $(function() {
 	"use strict";
 	
 	// ______________Loader 
-	$("#global-loader").fadeOut(5000);
+	$("#global-loader").fadeOut(2000);
 	
 	// ______________Active Class
 		$(".horizontalMenu-list li a").each(function () {
@@ -138,7 +138,7 @@ $(function() {
 			$(".select2-container--default").attr("dir", "rtl");
 			$(".select2-dropdown--below").attr("dir", "rtl");
 			$("head link#style").attr("href", $(this));
-			(document.getElementById("style").setAttribute("href", "../assets/plugins/bootstrap/css/bootstrap.rtl.min.css"));
+			(document.getElementById("style").setAttribute("href", "../../assets/plugins/bootstrap/css/bootstrap.rtl.min.css"));
 			var carousel = $('.owl-carousel');
 			$.each(carousel, function (index, element) {
 				// element == this
@@ -166,7 +166,7 @@ $(function() {
 			$(".select2-container--default").attr("dir", "ltr");
 			$(".select2-dropdown--below").attr("dir", "ltr");
 			$("head link#style").attr("href", $(this));
-			(document.getElementById("style").setAttribute("href", "../assets/plugins/bootstrap/css/bootstrap.min.css"));
+			(document.getElementById("style").setAttribute("href", "../../assets/plugins/bootstrap/css/bootstrap.min.css"));
 			var carousel = $('.owl-carousel');
 			$.each(carousel, function (index, element) {
 				// element == this
@@ -261,7 +261,7 @@ $(function() {
 		$(".select2-container--default").attr("dir", "rtl");
 		$(".select2-dropdown--below").attr("dir", "rtl");
 		$("head link#style").attr("href", $(this));
-		(document.getElementById("style").setAttribute("href", "../assets/plugins/bootstrap/css/bootstrap.rtl.min.css"));
+		(document.getElementById("style").setAttribute("href", "../../assets/plugins/bootstrap/css/bootstrap.rtl.min.css"));
 		var carousel = $('.owl-carousel');
 		$.each(carousel, function (index, element) {
 			console.log($(element).data('owl.carousel'))
@@ -313,7 +313,7 @@ function resetData() {
 	$(".select2-container--default").attr("dir", "ltr");
 	$(".select2-dropdown--below").attr("dir", "ltr");
 	$("head link#style").attr("href", $(this));
-	(document.getElementById("style").setAttribute("href", "../assets/plugins/bootstrap/css/bootstrap.min.css"));
+	(document.getElementById("style").setAttribute("href", "../../assets/plugins/bootstrap/css/bootstrap.min.css"));
 	var carousel = $('.owl-carousel');
 	$.each(carousel, function (index, element) {
 		// element == this

@@ -164,6 +164,12 @@ Route::post('/{slug_pays}/ajouter-entreprise', [\App\Http\Controllers\ActionEntr
 
 Route::post('/{slug_pays}/entreprise-devis', [\App\Http\Controllers\DevisController::class, 'devis'])->name('devis.entreprise');
 
+Route::get('/{slug_pays}/cgu',[\App\Http\Controllers\CguController::class, 'Cgu'])->name('cgu');
+
+Route::get('/{slug_pays}/confidentialite',[\App\Http\Controllers\CguController::class, 'Confidentialite'])->name('cp');
+
+Route::get('/{slug_pays}/cookie',[\App\Http\Controllers\CguController::class, 'Cookie'])->name('cookie');
+
 Route::get('/{slug_pays}/{pub_slug}', [App\Http\Controllers\PubController::class, 'pubDetail'])->name('pub.detail');
 
 Route::get('/{slug_pays}/{slug_categorie}', [\App\Http\Controllers\SousCategoriesController::class, 'Souscategories_pays'])->name('subcat.pays');

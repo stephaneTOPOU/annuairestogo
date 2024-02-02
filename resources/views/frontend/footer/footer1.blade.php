@@ -17,9 +17,9 @@
                             <li><a href="{{ route('contact.pays',['slug_pays'=>'tg']) }}">Contact</a></li>
                             <li><a href="{{ route('about.pays',['slug_pays'=>'tg']) }}">A propos</a></li>
                             <li><a href="{{ route('blog',['slug_pays'=>'tg']) }}">Blog</a></li>
-                            <li><a href="javascript:;">Condition générale d'utilisation</a></li>
-                            <li><a href="javascript:;">Politique de confidentialité</a></li>
-                            <li><a href="javascript:;">politique de cookie</a></li>
+                            <li><a href="{{ route('cgu',['slug_pays'=>'tg']) }}">Condition générale d'utilisation</a></li>
+                            <li><a href="{{ route('cp',['slug_pays'=>'tg']) }}">Politique de confidentialité</a></li>
+                            <li><a href="{{ route('cookie',['slug_pays'=>'tg']) }}">politique de cookie</a></li>
                         </ul>
                     </div>
 

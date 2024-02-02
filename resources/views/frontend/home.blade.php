@@ -34,18 +34,13 @@
             <div class="container-fuild">
                 <!-- Carousel -->
                 <div class="owl-carousel testimonial-owl-carousel2 slider slider-header">
-                    {{-- <div class="item cover-image" data-bs-image-src="">
-                        <img  alt="first slide" src="{{ asset('assets/images/banners/slide-1.jpg') }}" >
-                    </div> --}}
                     @foreach ($banner as $ban)
-                        <div>
-                            <img  alt="{{ $ban->image }}"
-                            {{-- loading="lazy" --}}
-                            src="{{ asset('assets/images/banners') }}/{{ $ban->image }}" />
+                        <div class="cover-image" data-bs-image-src="{{ asset('assets/images/banners') }}/{{ $ban->image }}">                        
+                                <img  loading="lazy" alt="{{ $ban->image }}" src="{{ asset('assets/images/banners') }}/{{ $ban->image }}" >                                             
                         </div>
-                    @endforeach
-
+                    @endforeach   
                 </div>
+
                 <div class="header-text slide-header-text mt-0 mb-0">
                     <div class="col-xl-10 col-lg-12 col-md-12 d-block mx-auto">
                         <div class="search-background bg-transparent input-field">
