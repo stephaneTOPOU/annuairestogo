@@ -185,12 +185,16 @@
 										<div class="video-list">
 											<div class="video-list-inner video" style="cursor: pointer">
 												<div class="play card-img">
-													<img src="{{ asset('assets/videos/posters') }}/{{ $details->image1 }}" alt="{{ $details->image1 }}" class="play">
+													@if ($details->video2)
+														<img src="{{ asset('assets/videos/posters') }}/{{ $details->video2 }}" alt="{{ $details->video2 }}" class="play">
+													@else
+														<img src="{{ asset('assets/videos/posters/f1.jpg') }}" alt="{{ $details->video2 }}" class="play">
+													@endif
 												</div>
 												<div class="play item-card-text">
 													<i class="fa fa-play-circle" aria-hidden="false"></i>
 												</div>
-												<video class="hide" muted src="{{ asset('assets/videos') }}/{{ $details->video1 }}" controls poster="{{ asset('assets/videos') }}/{{ $details->image1 }}">
+												<video class="hide" muted src="{{ asset('assets/videos') }}/{{ $details->video1 }}" controls poster="{{ asset('assets/videos/posters') }}/{{ $details->video2 }}">
 											</div>
 										</div>                                       
 									</div>
@@ -213,7 +217,12 @@
 									<div class="card">
 										<div class="item-card7-imgs">
 											<a href="{{ route('blog.detail',['slug_pays'=>'tg','slug_blog'=>$blog->slug_blog]) }}"></a>
-											<img src="{{ asset('assets/images/blogs') }}/{{ $blog->image1 }}" alt="{{ $blog->titre }}" class="cover-image">
+											@if ($blog->image1)
+												<img src="{{ asset('assets/images/blogs') }}/{{ $blog->image1 }}" alt="{{ $blog->titre }}" class="cover-image">
+											@else
+												<img src="{{ asset('assets/images/blogs/f1.jpg') }}" alt="{{ $blog->titre }}" class="cover-image">
+											@endif
+											
 										</div>
 										<div class="card-body">
 											<div class="item-card7-desc">

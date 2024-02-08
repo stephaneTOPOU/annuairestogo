@@ -282,8 +282,8 @@
 					</div>
 
 					<!--Right Side Content-->
-					<div class="col-xl-3 col-lg-4 col-md-12">
-                        <div class="top">
+					<div class="col-xl-3 col-lg-12 d-none d-xl-block custom-leftnav">
+                        <div class="main-content-left-components">
                             <div class="search">
                                 @foreach ($tops as $top)
                                     <div class="img-div">

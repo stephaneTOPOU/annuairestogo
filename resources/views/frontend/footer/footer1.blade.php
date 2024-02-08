@@ -4,13 +4,13 @@
         <div class="footer-main">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-3 col-md-12">
+                    <div class="col-lg-6 col-md-12">
                         <h6>Annuaire Togo</h6>
                         <hr class="deep-purple  accent-2 mb-4 mt-0 d-inline-block mx-auto">
                         <p>Bienvenue sur l'Annuaire Togo, votre référence incontournable pour découvrir et contacter les entreprises, services et professionnels locaux au cœur de ce magnifique pays d'Afrique de l'Ouest. </p>
                         <p>Notre annuaire exhaustif offre une plateforme conviviale où les utilisateurs peuvent trouver rapidement des informations précises et à jour sur une variété de secteurs.</p>
                     </div>
-                    <div class="col-lg-2 col-md-12">
+                    <div class="col-lg-3 col-md-12">
                         <h6>Nos Services</h6>
                         <hr class="deep-purple text-primary accent-2 mb-4 mt-0 d-inline-block mx-auto">
                         <ul class="list-unstyled mb-0">
@@ -66,7 +66,7 @@
                             @endforeach
                         </ul>
                     </div>
-                    <div class="col-lg-4 col-md-12">
+                    {{-- <div class="col-lg-4 col-md-12">
                         <h6>S'abonner</h6>
                         <hr class="deep-purple  text-primary accent-2 mb-4 mt-0 d-inline-block mx-auto">
                         <div class="clearfix"></div>
@@ -86,7 +86,7 @@
                             <li><a href="javascript:;"><i class="fa fa-cc-mastercard text-muted" aria-hidden="true"></i></a></li>
                             <li><a href="javascript:;"><i class="fa fa-cc-paypal text-muted" aria-hidden="true"></i></a></li>
                         </ul>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
@@ -102,3 +102,12 @@
     </footer>
 </section>
 <!--Footer Section-->
+
+<script src="{{ asset('/sw.js') }}"></script>
+<script>
+    if (!navigator.serviceWorker.controller) {
+        navigator.serviceWorker.register("/sw.js").then(function (reg) {
+            console.log("Service worker has been registered for scope: " + reg.scope);
+        });
+    }
+</script>

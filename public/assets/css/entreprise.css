@@ -1,7 +1,8 @@
-.top {
-    top: 60px !important;
+.custom-leftnav .main-content-left-components {
+    position: -webkit-sticky !important;
     position: sticky !important;
-    height: fit-content !important;
+    border-right: 0;
+    top: 4rem !important;
 }
 
 .mia-be-class {
@@ -13,6 +14,7 @@
 .search {
     width: 100%;
     margin: 0 auto;
+    position: relative !important;
 }
 
 .img-div {

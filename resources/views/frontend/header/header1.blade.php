@@ -9,3 +9,8 @@
 		<meta name="description" content="Annuaires Togo">
 		<meta name="author" content="Spruko Technologies Private Limited">
 		<meta name="keywords" content="annuaire">
+
+		<!-- PWA  -->
+		<meta name="theme-color" content="#6777ef"/>
+		<link rel="icon" type="image/x-icon" href="{{ asset('assets/images/annuairestogo_logo/favicon.png') }}">
+		<link rel="manifest" href="{{ asset('/manifest.json') }}">

@@ -66,7 +66,7 @@
 							<div class="mb-lg-0 mb-4">
 								<div class="service-card text-center">
 									<div class="bg-purple-transparent icon-bg box-shadow icon-service text-purple about">
-										<img src="{{ asset('assets/images/products/about/employees.png') }}" alt="Annuaire togo">
+										<img src="{{ asset('assets/images/products/about/coins.png') }}" alt="Annuaire togo">
 									</div>
 									<div class="servic-data mt-3">
 										<h4 class="font-weight-semibold mb-2">Entreprises locales</h4>
@@ -81,7 +81,7 @@
 							<div class="mb-lg-0 mb-4">
 								<div class="service-card text-center">
 									<div class="bg-purple-transparent icon-bg box-shadow icon-service text-purple about">
-										<img src="{{ asset('assets/images/products/about/megaphone.png') }}" alt="Annuaire togo">
+										<img src="{{ asset('assets/images/products/about/employees.png') }}" alt="Annuaire togo">
 									</div>
 									<div class="servic-data mt-3">
 										<h4 class="font-weight-semibold mb-2">Services professionnels</h4>
@@ -111,7 +111,7 @@
 							<div class="">
 								<div class="service-card text-center">
 									<div class="bg-purple-transparent icon-bg box-shadow icon-service text-purple about">
-										<img src="{{ asset('assets/images/products/about/coins.png') }}" alt="Annuaire togo">
+										<img src="{{ asset('assets/images/products/about/megaphone.png') }}" alt="Annuaire togo">
 									</div>
 									<div class="servic-data mt-3">
 										<h4 class="font-weight-semibold mb-2">Informations utiles</h4>
@@ -132,7 +132,7 @@
 				<div class="content-text mb-0">
 					<div class="container">
 						<div class="text-center text-white ">
-							<h2 class="mb-2 display-6">Êtes-vous prêt(e) à enrégistrer votre entreprise sur ce site ?</h2>
+							<h2 class="mb-2 display-6">Êtes-vous prêt(e) à enrégistrer votre entreprise dans l'annuaire?</h2>
 							{{-- <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p> --}}
 							<div class="mt-5">
 								<a href="{{ route('entreprise.register.pays',['slug_pays'=>'tg']) }}" class="btn btn-primary btn-pill">Enrégitrer votre entreprise</a>

@@ -1,0 +1,17 @@
+{
+    "name": "Annuaires Togo",
+    "short_name": "Annuaires",
+    "start_url": "/index.php",
+    "background_color": "#6777ef",
+    "description": "Retrouvez les entreprise et les professionnels sur Annuaires Togo",
+    "display": "fullscreen",
+    "theme_color": "#6777ef",
+    "icons": [
+        {
+            "src": "assets/images/annuairestogo_logo/favicon.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ]
+}

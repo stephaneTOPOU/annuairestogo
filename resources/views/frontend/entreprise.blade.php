@@ -2,6 +2,7 @@
 @include('frontend.header.header2')
 @include('frontend.header.header3')
 @include('frontend.header.header4')
+<link href="{{ asset('assets2/plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" />
 @include('frontend.header.header5')
 @include('frontend.header.header6')
 @include('frontend.header.header7')
@@ -288,8 +289,8 @@
 					</div>
 
 					<!--Right Side Content-->
-					<div class="col-xl-3 col-lg-4 col-md-12">
-                        <div class="top">
+					<div class="col-xl-3 col-lg-12 d-none d-xl-block custom-leftnav">
+                        <div class="main-content-left-components">
                             <div class="search">
                                 @foreach ($tops as $top)
                                     <div class="img-div">
@@ -297,9 +298,9 @@
                                     </div>
                                 @endforeach
                             </div>
-    
+        
                             <h4 class="mia-be-class"><a href="{{ route('pharmacie',['slug_pays'=>'tg']) }}">Liste de pharmacie de garde</a></h4>
-    
+        
                             <div class="search">
                                 @foreach ($top2s as $top2)
                                     <div class="img-div">
@@ -313,7 +314,7 @@
                                     </div>
                                 @endforeach
                             </div>
-                        </div>
+                        </div>                       
 					</div>
 					<!--/Right Side Content-->
 				</div>
