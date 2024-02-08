@@ -51,10 +51,12 @@
                                         <div class="card">
                                             <div class="item7-card-img">
                                                 <a href="{{ route('blog.detail',['slug_pays'=>'tg','slug_blog'=>$blog->slug_blog]) }}"></a>
-                                                <img src="{{ asset('assets/images/blogs') }}/{{ $blog->image1 }}" alt="{{ $blog->titre }}" class="cover-image">
-                                                {{-- <div class="item7-card-text">
-                                                    <span class="badge badge-success">Restaurant</span>
-                                                </div> --}}
+												@if ($blog->image1)
+													<img src="{{ asset('assets/images/blogs') }}/{{ $blog->image1 }}" alt="{{ $blog->titre }}" class="cover-image">
+												@else
+													<img src="{{ asset('assets/images/blogs/f1.jpg') }}" alt="{{ $blog->titre }}" class="cover-image">
+												@endif
+                                                
                                             </div>
                                             <div class="card-body">
                                                 <div class="item7-card-desc d-flex mb-2">
