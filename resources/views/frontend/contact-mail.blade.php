@@ -5,10 +5,10 @@
 
     Détails de l'utilisateur: <br><br>
 
-    Nom :  {{ $name }}<br>
-    Email :  {{ $email }}<br>
-    Objet :  {{ $subject }}<br>
-    Message :  {{ $form_message }}<br><br>
+    Nom : {{ $name }}<br>
+    Email : {{ $email }}<br>
+    Objet : {{ $subject }}<br>
+    Message : {{ $form_message }}<br><br>
 
     Merci :)
 </div>

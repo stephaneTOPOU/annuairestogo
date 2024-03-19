@@ -8,17 +8,15 @@ use Illuminate\Support\Facades\DB;
 
 class AboutController extends Controller
 {
-    public function about($slug_pays)
+    public function about()
     {
-        $pays_id = DB::table('pays')->where('slug_pays', $slug_pays)->select('id')->get();
-        $parametres = DB::table('pays')->where('pays.id', $pays_id[0]->id)
-            ->join('parametres', 'pays.id', '=', 'parametres.pays_id')
+        $parametres = DB::table('parametres')
             ->where('parametres.id', 1)
             ->select('*')
             ->get();
 
         $sliders = SliderRecherche::all();
-            
+
         return view('frontend.about', compact('parametres', 'sliders'));
     }
 }

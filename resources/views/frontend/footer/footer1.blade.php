@@ -7,19 +7,22 @@
                     <div class="col-lg-6 col-md-12">
                         <h6>Annuaire Togo</h6>
                         <hr class="deep-purple  accent-2 mb-4 mt-0 d-inline-block mx-auto">
-                        <p>Bienvenue sur l'Annuaire Togo, votre référence incontournable pour découvrir et contacter les entreprises, services et professionnels locaux au cœur de ce magnifique pays d'Afrique de l'Ouest. </p>
-                        <p>Notre annuaire exhaustif offre une plateforme conviviale où les utilisateurs peuvent trouver rapidement des informations précises et à jour sur une variété de secteurs.</p>
+                        <p>Bienvenue sur l'Annuaire Togo, votre référence incontournable pour découvrir et contacter les
+                            entreprises, services et professionnels locaux au cœur de ce magnifique pays d'Afrique de
+                            l'Ouest. </p>
+                        <p>Notre annuaire exhaustif offre une plateforme conviviale où les utilisateurs peuvent trouver
+                            rapidement des informations précises et à jour sur une variété de secteurs.</p>
                     </div>
                     <div class="col-lg-3 col-md-12">
                         <h6>Nos Services</h6>
                         <hr class="deep-purple text-primary accent-2 mb-4 mt-0 d-inline-block mx-auto">
                         <ul class="list-unstyled mb-0">
-                            <li><a href="{{ route('contact.pays',['slug_pays'=>'tg']) }}">Contact</a></li>
-                            <li><a href="{{ route('about.pays',['slug_pays'=>'tg']) }}">A propos</a></li>
-                            <li><a href="{{ route('blog',['slug_pays'=>'tg']) }}">Blog</a></li>
-                            <li><a href="{{ route('cgu',['slug_pays'=>'tg']) }}">Condition générale d'utilisation</a></li>
-                            <li><a href="{{ route('cp',['slug_pays'=>'tg']) }}">Politique de confidentialité</a></li>
-                            <li><a href="{{ route('cookie',['slug_pays'=>'tg']) }}">politique de cookie</a></li>
+                            <li><a href="{{ route('contact') }}">Contact</a></li>
+                            <li><a href="{{ route('about') }}">A propos</a></li>
+                            <li><a href="{{ route('blog') }}">Blog</a></li>
+                            <li><a href="{{ route('cgu') }}">Condition générale d'utilisation</a></li>
+                            <li><a href="{{ route('cp') }}">Politique de confidentialité</a></li>
+                            <li><a href="{{ route('cookie') }}">politique de cookie</a></li>
                         </ul>
                     </div>
 
@@ -29,38 +32,47 @@
                         <ul class="list-unstyled mb-0">
                             @foreach ($parametres as $parametre)
                                 <li>
-                                    <a href="#"><i class="fa fa-home me-3 text-primary"></i> {{ $parametre->adresse }} </a>
+                                    <a href="#"><i class="fa fa-home me-3 text-primary"></i>
+                                        {{ $parametre->adresse }} </a>
                                 </li>
                                 <li>
-                                    <a href="#"><i class="fa fa-envelope me-3 text-primary"></i> {{ $parametre->email }} </a></li>
-                                <li>
-                                    <a href="#"><i class="fa fa-phone me-3 text-primary"></i> (+228) {{ $parametre->telephone1 }} </a>
+                                    <a href="#"><i class="fa fa-envelope me-3 text-primary"></i>
+                                        {{ $parametre->email }} </a>
                                 </li>
                                 <li>
-                                    <a href="#"><i class="fa fa-print me-3 text-primary"></i> (+228) {{ $parametre->telephone2 }}</a>
+                                    <a href="#"><i class="fa fa-phone me-3 text-primary"></i> (+228)
+                                        {{ $parametre->telephone1 }} </a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="fa fa-print me-3 text-primary"></i> (+228)
+                                        {{ $parametre->telephone2 }}</a>
                                 </li>
                             @endforeach
                         </ul>
                         <ul class="list-unstyled list-inline mt-3">
                             @foreach ($parametres as $parametre)
                                 <li class="list-inline-item">
-                                    <a class="btn-floating btn-sm rgba-white-slight mx-1 waves-effect waves-light" href="{{ $parametre->lienface }}" target="_blank">
-                                    <i class="fa fa-facebook bg-facebook"></i>
+                                    <a class="btn-floating btn-sm rgba-white-slight mx-1 waves-effect waves-light"
+                                        href="{{ $parametre->lienface }}" target="_blank">
+                                        <i class="fa fa-facebook bg-facebook"></i>
                                     </a>
                                 </li>
                                 <li class="list-inline-item">
-                                    <a class="btn-floating btn-sm rgba-white-slight mx-1 waves-effect waves-light" href="{{ $parametre->lientwitter }}" target="_blank">
-                                    <i class="fa fa-twitter bg-info"></i>
+                                    <a class="btn-floating btn-sm rgba-white-slight mx-1 waves-effect waves-light"
+                                        href="{{ $parametre->lientwitter }}" target="_blank">
+                                        <i class="fa fa-twitter bg-info"></i>
                                     </a>
                                 </li>
                                 <li class="list-inline-item">
-                                    <a class="btn-floating btn-sm rgba-white-slight mx-1 waves-effect waves-light" href="{{ $parametre->lienyoutube }}" target="_blank">
-                                    <i class="fa fa-youtube bg-danger"></i>
+                                    <a class="btn-floating btn-sm rgba-white-slight mx-1 waves-effect waves-light"
+                                        href="{{ $parametre->lienyoutube }}" target="_blank">
+                                        <i class="fa fa-youtube bg-danger"></i>
                                     </a>
                                 </li>
                                 <li class="list-inline-item">
-                                    <a class="btn-floating btn-sm rgba-white-slight mx-1 waves-effect waves-light" href="{{ $parametre->lienlinkedin }}" target="_blank">
-                                    <i class="fa fa-linkedin bg-linkedin"></i>
+                                    <a class="btn-floating btn-sm rgba-white-slight mx-1 waves-effect waves-light"
+                                        href="{{ $parametre->lienlinkedin }}" target="_blank">
+                                        <i class="fa fa-linkedin bg-linkedin"></i>
                                     </a>
                                 </li>
                             @endforeach
@@ -94,7 +106,8 @@
             <div class="container">
                 <div class="row d-flex">
                     <div class="col-lg-12 col-sm-12 mt-3 mb-3 text-center ">
-                        Copyright © 2024 <a href="{{ route('home.pays',['slug_pays'=>'tg']) }}" class="fs-14 text-primary">Annuaires Togo</a>. Tous droits réservés.
+                        Copyright © 2024 <a href="{{ route('home') }}" class="fs-14 text-primary">Annuaires Togo</a>.
+                        Tous droits réservés.
                     </div>
                 </div>
             </div>
@@ -123,7 +136,7 @@
 
 <script>
     if (!navigator.serviceWorker.controller) {
-        navigator.serviceWorker.register("/sw.js").then(function (reg) {
+        navigator.serviceWorker.register("/sw.js").then(function(reg) {
             console.log("Service worker has been registered for scope: " + reg.scope);
         });
     }

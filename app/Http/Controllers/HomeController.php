@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Banner;
+use App\Models\Entreprise;
 use App\Models\Pays;
 use App\Models\SousCategories;
 use App\Models\Stat;
@@ -10,36 +12,31 @@ use App\Models\Offre;
 use App\Models\Pub;
 use App\Models\Slider1;
 use App\Models\SliderRecherche;
+use App\Models\SliderRechercheLateral;
 use App\Models\Temoignage;
+use App\Models\Ville;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
-    public function autocompletion_pays(Request $request, $slug_pays)
+    public function autocompletion_pays(Request $request)
     {
-        $pays_id = DB::table('pays')->where('slug_pays', $slug_pays)->select('id')->get();
-
-        $data = DB::table('pays')->where('pays.id', $pays_id[0]->id)
-            ->join('categories', 'pays.id', '=', 'categories.pays_id')
-            ->join('sous_categories', 'categories.id', '=', 'sous_categories.categorie_id')
-            ->join('entreprises', 'sous_categories.id', '=', 'entreprises.souscategorie_id')
-            ->select('entreprises.nom as value', 'entreprises.id')
-            ->where('entreprises.nom', 'LIKE', '%' . $request->get('text4') . '%')
+        $data = Entreprise::select('nom as value', 'id')
+            ->where('nom', 'LIKE', '%' . $request->get('text4') . '%')
             ->get()
             ->take(6);
         return response()->json($data);
     }
 
-    public function recherche_pays($slug_pays)
+    public function recherche_pays()
     {
-        $pays_id = DB::table('pays')->where('slug_pays', $slug_pays)->select('id')->get();
 
         $nom = request()->input('nom');
         $secteur = request()->input('secteur');
 
         if ($nom && $secteur) {
-            $entreprises = DB::table('pays')->where('pays.id', $pays_id[0]->id)
+            $entreprises = DB::table('pays')
                 ->join('categories', 'pays.id', '=', 'categories.pays_id')
                 ->join('sous_categories', 'categories.id', '=', 'sous_categories.categorie_id')
                 ->join('entreprises', 'sous_categories.id', '=', 'entreprises.souscategorie_id')
@@ -51,7 +48,7 @@ class HomeController extends Controller
                 ->orderBy('entreprises.est_souscrit', 'desc')
                 ->paginate(100);
         } elseif ($nom) {
-            $entreprises = DB::table('pays')->where('pays.id', $pays_id[0]->id)
+            $entreprises = DB::table('pays')
                 ->join('categories', 'pays.id', '=', 'categories.pays_id')
                 ->join('sous_categories', 'categories.id', '=', 'sous_categories.categorie_id')
                 ->join('entreprises', 'sous_categories.id', '=', 'entreprises.souscategorie_id')
@@ -62,7 +59,7 @@ class HomeController extends Controller
                 ->orderBy('entreprises.est_souscrit', 'desc')
                 ->paginate(100);
         } elseif ($secteur) {
-            $entreprises = DB::table('pays')->where('pays.id', $pays_id[0]->id)
+            $entreprises = DB::table('pays')
                 ->join('categories', 'pays.id', '=', 'categories.pays_id')
                 ->join('sous_categories', 'categories.id', '=', 'sous_categories.categorie_id')
                 ->join('entreprises', 'sous_categories.id', '=', 'entreprises.souscategorie_id')
@@ -71,7 +68,7 @@ class HomeController extends Controller
                 ->orderBy('entreprises.est_souscrit', 'desc')
                 ->paginate(100);
         } else {
-            $entreprises = DB::table('pays')->where('pays.id', $pays_id[0]->id)
+            $entreprises = DB::table('pays')
                 ->join('categories', 'pays.id', '=', 'categories.pays_id')
                 ->join('sous_categories', 'categories.id', '=', 'sous_categories.categorie_id')
                 ->join('entreprises', 'sous_categories.id', '=', 'entreprises.souscategorie_id')
@@ -82,39 +79,32 @@ class HomeController extends Controller
 
         $souscategories = SousCategories::all();
 
-        $subcategories = DB::table('pays')->where('pays.id', $pays_id[0]->id)
-            ->join('categories', 'pays.id', '=', 'categories.pays_id')
+        $subcategories = DB::table('categories')
             ->join('sous_categories', 'categories.id', '=', 'sous_categories.categorie_id')
             ->select('*', 'sous_categories.libelle as sousCategorie', 'sous_categories.id as identifiant3')
             ->get();
 
-        $tops = DB::table('pays')->where('pays.id', $pays_id[0]->id)
-            ->join('slider_recherche_laterals', 'pays.id', '=', 'slider_recherche_laterals.pays_id')
-            ->select('*')
-            ->get();
+        $tops = SliderRechercheLateral::all();
 
-        $top2s = DB::table('pays')->where('pays.id', $pays_id[0]->id)
-            ->join('categories', 'pays.id', '=', 'categories.pays_id')
+        $top2s = DB::table('categories')
             ->join('sous_categories', 'categories.id', '=', 'sous_categories.categorie_id')
             ->join('entreprises', 'sous_categories.id', '=', 'entreprises.souscategorie_id')
             ->select('*', 'sous_categories.libelle as sousCategorie', 'entreprises.id as identifiant', 'sous_categories.id as identifiant2')
             ->where('entreprises.pharmacie_de_garde', 1)
             ->get();
 
-        $parametres = DB::table('pays')->where('pays.id', $pays_id[0]->id)
-            ->join('parametres', 'pays.id', '=', 'parametres.pays_id')
+        $parametres = DB::table('parametres')
             ->where('parametres.id', 1)
             ->select('*')
             ->get();
 
         $sliders = SliderRecherche::all();
 
-        return view('frontend.recherche', compact('sliders','entreprises', 'souscategories', 'subcategories', 'tops', 'top2s', 'parametres'));
+        return view('frontend.recherche', compact('sliders', 'entreprises', 'souscategories', 'subcategories', 'tops', 'top2s', 'parametres'));
     }
 
-    public function index_pays($slug_pays)
+    public function index_pays()
     {
-        $pays_id = DB::table('pays')->where('slug_pays', $slug_pays)->select('id')->get();
 
         $inscrit = User::all()->count();
 
@@ -124,25 +114,20 @@ class HomeController extends Controller
 
         $visiteur2 = DB::table('stats')->select('visiteur')->get();
 
-        $villes = DB::table('pays')->where('pays.id', $pays_id[0]->id)
-            ->join('villes', 'pays.id', '=', 'villes.pays_id')
-            ->select('*')
-            ->get();
+        $villes = Ville::all();
 
         $pays = Pays::all();
 
-        $subcategories = DB::table('pays')->where('pays.id', $pays_id[0]->id)
-            ->leftJoin('categories', 'pays.id', '=', 'categories.pays_id')
+        $subcategories = DB::table('categories')
             ->leftJoin('sous_categories', 'categories.id', '=', 'sous_categories.categorie_id')
             ->leftJoin('entreprises', 'sous_categories.id', '=', 'entreprises.souscategorie_id')
-            ->select('pays.slug_pays as slug1','categories.slug_categorie as slug2','sous_categories.id as identifiant', 'sous_categories.libelle as sub_nom', 'sous_categories.slug_souscategorie as slug3', DB::raw('COUNT(sous_categories.id) as sous_categories_count'))
-            ->groupBy('identifiant', 'sub_nom', 'slug1', 'slug2', 'slug3')
+            ->select('categories.slug_categorie as slug2', 'sous_categories.id as identifiant', 'sous_categories.libelle as sub_nom', 'sous_categories.slug_souscategorie as slug3', DB::raw('COUNT(sous_categories.id) as sous_categories_count'))
+            ->groupBy('identifiant', 'sub_nom', 'slug2', 'slug3')
             ->get();
 
         $souscategories = SousCategories::all();
 
-        $rejoints = DB::table('pays')->where('pays.id', $pays_id[0]->id)
-            ->join('categories', 'pays.id', '=', 'categories.pays_id')
+        $rejoints = DB::table('categories')
             ->join('sous_categories', 'categories.id', '=', 'sous_categories.categorie_id')
             ->join('entreprises', 'sous_categories.id', '=', 'entreprises.souscategorie_id')
             ->select('*')
@@ -150,19 +135,16 @@ class HomeController extends Controller
             ->orderBy('entreprises.id', 'desc')
             ->get();
 
-        $minispots = DB::table('pays')->where('pays.id', $pays_id[0]->id)
-            ->join('mini_spots', 'pays.id', '=', 'mini_spots.pays_id')
+        $minispots = DB::table('mini_spots')
             ->select('*')
             ->limit(4)
             ->get();
 
-        $reportages = DB::table('pays')->where('pays.id', $pays_id[0]->id)
-            ->join('reportages', 'pays.id', '=', 'reportages.pays_id')
+        $reportages = DB::table('reportages')
             ->select('*')
             ->get();
 
-        $magazines = DB::table('pays')->where('pays.id', $pays_id[0]->id)
-            ->join('categories', 'pays.id', '=', 'categories.pays_id')
+        $magazines = DB::table('categories')
             ->join('sous_categories', 'categories.id', '=', 'sous_categories.categorie_id')
             ->join('entreprises', 'sous_categories.id', '=', 'entreprises.souscategorie_id')
             ->select('*')
@@ -170,8 +152,7 @@ class HomeController extends Controller
             ->orderBy('entreprises.id', 'desc')
             ->get();
 
-        $honeures = DB::table('pays')->where('pays.id', $pays_id[0]->id)
-            ->join('categories', 'pays.id', '=', 'categories.pays_id')
+        $honeures = DB::table('categories')
             ->join('sous_categories', 'categories.id', '=', 'sous_categories.categorie_id')
             ->join('entreprises', 'sous_categories.id', '=', 'entreprises.souscategorie_id')
             ->select('*')
@@ -198,11 +179,10 @@ class HomeController extends Controller
 
         $annonces = DB::table('categorie_annonces')
             ->join('annonces', 'categorie_annonces.id', '=', 'annonces.categorie_id')
-            ->select('*','categorie_annonces.libelle as categorie','annonces.categorie_id as categorie_id', 'annonces.titre as titre', 'annonces.text1 as description', 'annonces.created_at as date', 'annonces.image1 as image')
+            ->select('*', 'categorie_annonces.libelle as categorie', 'annonces.categorie_id as categorie_id', 'annonces.titre as titre', 'annonces.text1 as description', 'annonces.created_at as date', 'annonces.image1 as image')
             ->get();
 
-        $popups = DB::table('pays')->where('pays.id', $pays_id[0]->id)
-            ->join('categories', 'pays.id', '=', 'categories.pays_id')
+        $popups = DB::table('categories')
             ->join('sous_categories', 'categories.id', '=', 'sous_categories.categorie_id')
             ->join('entreprises', 'sous_categories.id', '=', 'entreprises.souscategorie_id')
             ->join('pop_ups', 'pop_ups.entreprise_id', '=', 'entreprises.id')
@@ -211,14 +191,10 @@ class HomeController extends Controller
             ->select('*', 'pop_ups.image as popup_image')
             ->get();
 
-        $banner = DB::table('pays')->where('pays.id', $pays_id[0]->id)
-            ->join('banners', 'pays.id', '=', 'banners.pays_id')
-            ->select('*')
-            ->get();
+        $banner = Banner::all();
 
 
-        $parametres = DB::table('pays')->where('pays.id', $pays_id[0]->id)
-            ->join('parametres', 'pays.id', '=', 'parametres.pays_id')
+        $parametres = DB::table('parametres')
             ->where('parametres.id', 1)
             ->select('*')
             ->get();
@@ -226,10 +202,10 @@ class HomeController extends Controller
         $delete = Offre::whereDate('date_lim', '=', date('Y-m-d'))->delete();
 
         $offres = DB::table('offres')
-        ->select('*')
-        ->where('offres.valide',1)
-        ->orderBy('offres.id', 'desc')
-        ->get();
+            ->select('*')
+            ->where('offres.valide', 1)
+            ->orderBy('offres.id', 'desc')
+            ->get();
 
         $users = User::all();
 
@@ -239,6 +215,6 @@ class HomeController extends Controller
 
         $testimonies = Temoignage::all();
 
-        return view('frontend.home', compact('testimonies', 'sliders','users','banner', 'rejoints', 'minispots', 'reportages', 'magazines', 'parametres', 'villes', 'pays', 'subcategories', 'souscategories', 'honeures', 'nombresEntreprise', 'cat_annonce', 'annonce_all', 'annonces', 'inscrit', 'visiteur2', 'popups','offres','pubs'));
+        return view('frontend.home', compact('testimonies', 'sliders', 'users', 'banner', 'rejoints', 'minispots', 'reportages', 'magazines', 'parametres', 'villes', 'pays', 'subcategories', 'souscategories', 'honeures', 'nombresEntreprise', 'cat_annonce', 'annonce_all', 'annonces', 'inscrit', 'visiteur2', 'popups', 'offres', 'pubs'));
     }
 }

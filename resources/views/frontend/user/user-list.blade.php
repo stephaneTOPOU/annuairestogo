@@ -19,8 +19,9 @@
 <div>
     <div class="owl-carousel testimonial-owl-carousel2 slider slider-header">
         @foreach ($sliders as $slider)
-        <div class="cover-image sptb-1" data-bs-image-src="{{ asset('assets/images/sliders') }}/{{ $slider->image }}"></div>
-    @endforeach
+            <div class="cover-image sptb-1" data-bs-image-src="{{ asset('assets/images/sliders') }}/{{ $slider->image }}">
+            </div>
+        @endforeach
     </div>
 </div>
 <!--/Sliders Section-->
@@ -31,36 +32,40 @@
         <div class="page-header">
             <h4 class="page-title">Professionnel</h4>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{ route('home.pays',['slug_pays'=>'tg']) }}">Home</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Professionnel</li>
             </ol>
         </div>
     </div>
 </div>
-<!--/Breadcrumb-->  
+<!--/Breadcrumb-->
 
 <div class="sptb">
     <div class="container">
         <div class="row">
             @foreach ($users as $user)
                 <div class="col-lg-6 col-md-12">
-                    <a href="{{ route('user.profile',['slug_pays'=>'tg','slug_user'=>$user->slug_user]) }}">
+                    <a href="{{ route('user.profile', ['slug_user' => $user->slug_user]) }}">
                         <div class="card widgets-cards">
                             <div class="card-body d-flex">
                                 <div class="widgets-cards-icons">
                                     <div class="wrp icon-circle bg-success">
                                         @if ($user->photo1)
-                                            <img src="{{ asset('assets/images/user_profile') }}/{{ $user->photo1 }}" alt="{{ $user->name }}">
+                                            <img src="{{ asset('assets/images/user_profile') }}/{{ $user->photo1 }}"
+                                                alt="{{ $user->name }}">
                                         @else
-                                            <img src="{{ asset('assets/images/user_profile/user.png') }}" alt="{{ $user->name }}">
+                                            <img src="{{ asset('assets/images/user_profile/user.png') }}"
+                                                alt="{{ $user->name }}">
                                         @endif
                                     </div>
                                 </div>
                                 <div class="widgets-cards-data">
                                     <div class="wrp text-wrapper">
                                         <p>{{ $user->name }}</p>
-                                        <p class="text-muted mt-1 mb-0"><i class="icon icon-phone text-muted me-1"></i>{{ $user->telephone1 }}</p>
-                                        <p class="text-muted mt-1 mb-0"><i class="icon icon-bag text-muted me-1"></i>{{ $user->fonction }}</p>
+                                        <p class="text-muted mt-1 mb-0"><i
+                                                class="icon icon-phone text-muted me-1"></i>{{ $user->telephone1 }}</p>
+                                        <p class="text-muted mt-1 mb-0"><i
+                                                class="icon icon-bag text-muted me-1"></i>{{ $user->fonction }}</p>
                                     </div>
                                 </div>
                             </div>

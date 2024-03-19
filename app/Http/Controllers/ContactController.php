@@ -11,21 +11,19 @@ use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
-    public function contact_pays($slug_pays)
+    public function contact_pays()
     {
-        $pays_id = DB::table('pays')->where('slug_pays', $slug_pays)->select('id')->get();
-        $parametres = DB::table('pays')->where('pays.id', $pays_id[0]->id)
-            ->join('parametres', 'pays.id', '=', 'parametres.pays_id')
+        $parametres = DB::table('parametres')
             ->where('parametres.id', 1)
             ->select('*')
             ->get();
 
         $sliders = SliderRecherche::all();
-            
+
         return view('frontend.contact', compact('parametres', 'sliders'));
     }
 
-    public function save($slug_pays, Request $request)
+    public function save(Request $request)
     {
         $request->validate([
             'nom' => 'required',

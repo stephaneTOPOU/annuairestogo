@@ -60,15 +60,15 @@
 			<div class="menu main-sidebar">
 				<ul class="list" id="documenter_nav">
 					<li class="nav-item">
-						<a class="nav-link" href="{{ route('cgu',['slug_pays'=>'tg']) }}"><i class="fe fe-link sidemenu-icon"></i><span
+						<a class="nav-link" href="{{ route('cgu') }}"><i class="fe fe-link sidemenu-icon"></i><span
 								class="sidemenu-label">cgu</span></a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="{{ route('cp',['slug_pays'=>'tg']) }}"><i class="fe fe-link sidemenu-icon"></i><span
+						<a class="nav-link" href="{{ route('cp') }}"><i class="fe fe-link sidemenu-icon"></i><span
 								class="sidemenu-label">politique de confidentialité</span></a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="{{ route('cookie',['slug_pays'=>'tg']) }}"><i class="fe fe-link sidemenu-icon"></i><span
+						<a class="nav-link" href="{{ route('cookie') }}"><i class="fe fe-link sidemenu-icon"></i><span
 								class="sidemenu-label">politique de cookies</span></a>
 					</li>
 				</ul>
@@ -266,7 +266,7 @@
 		<!-- Footer opened -->
 		<div class="main-footer ht-40">
 			<div class="pd-t-0-f ht-100p">
-				<span>Copyright &copy; 2024 <a href="{{ route('home.pays',['slug_pays'=>'tg']) }}">Annuaires Togo</a>. Tous droits réservés.</span>
+				<span>Copyright &copy; 2024 <a href="{{ route('home') }}">Annuaires Togo</a>. Tous droits réservés.</span>
 			</div>
 		</div>
 		<!-- Footer closed -->
@@ -274,7 +274,7 @@
 
 	<div class="color-bg">
 		<div class="sidebar__toggle" data-toggle="sidebar">
-			<a class="open-toggle" href="{{ route('home.pays',['slug_pays'=>'tg']) }}"><i class="fe fe-menu"></i></a>
+			<a class="open-toggle" href="{{ route('home') }}"><i class="fe fe-menu"></i></a>
 		</div>
 	<ul class="nav navbar-nav">
 		<li class="nav-item mr-2"><a class="btn btn-primary" href=" https://spruko.com/support" target="_blank"><i class="icon-help2"></i> Support</a></li>

@@ -15,128 +15,152 @@
 @include('frontend.topbar.topbar4')
 @include('frontend.topbar.topbar5')
 
-	<!--Sliders Section-->
-		<div>
-			<div class="owl-carousel testimonial-owl-carousel2 slider slider-header">
-				@foreach ($sliders as $slider)
-				<div class="bannerimg cover-image sptb-1 shadow-font" data-bs-image-src="{{ asset('assets/images/sliders') }}/{{ $slider->image }}">
-					<div class="header-text mb-0">
-							<div class="container">
-								<div class="text-center text-white ">
-									<h1 class="">{{ $users->name }}</h1>
-									<ol class="breadcrumb text-center">
-										<li class="breadcrumb-item"><a href="{{ route('home.pays',['slug_pays'=>'tg']) }}">Home</a></li>
-										{{-- <li class="breadcrumb-item"><a href="#">Pages</a></li> --}}
-										<li class="breadcrumb-item active text-white" aria-current="page"> {{ $users->name }}</li>
-									</ol>
-								</div>
-							</div>
-						</div>
-				</div>
-			@endforeach
-			</div>
-		</div>
-	<!--/Sliders Section-->
+<!--Sliders Section-->
+<div>
+    <div class="owl-carousel testimonial-owl-carousel2 slider slider-header">
+        @foreach ($sliders as $slider)
+            <div class="bannerimg cover-image sptb-1 shadow-font"
+                data-bs-image-src="{{ asset('assets/images/sliders') }}/{{ $slider->image }}">
+                <div class="header-text mb-0">
+                    <div class="container">
+                        <div class="text-center text-white ">
+                            <h1 class="">{{ $users->name }}</h1>
+                            <ol class="breadcrumb text-center">
+                                <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
+                                {{-- <li class="breadcrumb-item"><a href="#">Pages</a></li> --}}
+                                <li class="breadcrumb-item active text-white" aria-current="page"> {{ $users->name }}
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endforeach
+    </div>
+</div>
+<!--/Sliders Section-->
 
-    
 
-        <!--User Profile-->
-		<section class="sptb">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-12">
-						<div class="card">
-							<div class="card-body pattern-1">
-								<div class="wideget-user">
-									<div class="row">
-										<div class="col-lg-12 col-md-12">
-											<div class="wideget-user-desc text-center">
-												<div class="wideget-user-img">
-													@if ($users->photo1)
-                                                        <img src="{{ asset('assets/images/user_profile') }}/{{ $users->photo1 }}" class="brround" alt="{{ $users->name }}" style="width: 128px; height: 128px;">
-                                                    @else
-                                                        <img src="{{ asset('assets/images/user_profile/user.png') }}" class="brround" alt="{{ $users->name }}" style="width: 128px; height: 128px;">
-                                                    @endif
-												</div>
-												<div class="user-wrap wideget-user-info">
-													<a href="#" class="text-white"><h4 class="font-weight-semibold">{{ $users->name }}</h4></a>
-													<div class="wideget-user-rating">
-														<a href="#"><i class="fa fa-star text-warning"></i></a>
-														<a href="#"><i class="fa fa-star text-warning"></i></a>
-														<a href="#"><i class="fa fa-star text-warning"></i></a>
-														<a href="#"><i class="fa fa-star text-warning"></i></a>
-														<a href="#"><i class="fa fa-star-o text-warning me-1"></i></a> <span class="text-white">5 (3876 Reviews)</span>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="col-lg-12 col-md-12 text-center">
-											<div class="wideget-user-info ">
-												<div class="wideget-user-icons mt-2">
-													<a href="{{ $users->facebook }}" class="facebook-bg mt-0"><i class="fa fa-facebook"></i></a>
-													<a href="{{ $users->twitter }}" class="twitter-bg"><i class="fa fa-twitter"></i></a>
-													<a href="{{ $users->google }}" class="google-bg"><i class="fa fa-google"></i></a>
-													<a href="{{ $users->linkedin }}" class="dribbble-bg"><i class="fa fa-linkedin"></i></a>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="card-footer">
-								<div class="wideget-user-tab">
-									<div class="tab-menu-heading">
-										<div class="tabs-menu1">
-											<ul class="nav">
-												<li class=""><a href="#tab-5" class="active" data-bs-toggle="tab">Profil</a></li>
-											</ul>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
 
-						<div class="card mb-0">
-							<div class="card-body">
-								<div class="border-0">
-									<div class="tab-content">
-										<div class="tab-pane active" id="tab-5">
-											<div class="profile-log-switch">
-												<div class="media-heading">
-													<h3 class="card-title mb-3 font-weight-bold">Détails personnels</h3>
-												</div>
-												<ul class="usertab-list mb-0">
-													<li><a href="#" class="text-dark"><span class="font-weight-bold">Nom Complet :</span> {{ $users->name }} {{ $users->prenoms }}</a></li>
-													<li><a href="#" class="text-dark"><span class="font-weight-bold">Adresse :</span> {{ $users->adresse }} </a></li>
-													<li><a href="#" class="text-dark"><span class="font-weight-bold">Fonction :</span> {{ $users->fonction }} </a></li>
-													<li><a href="#" class="text-dark"><span class="font-weight-bold">Website :</span>{{ $users->name }}</a></li>
-													<li><a href="#" class="text-dark"><span class="font-weight-bold">Email :</span> {{ $users->email }}</a></li>
-													<li><a href="#" class="text-dark"><span class="font-weight-bold">Phone :</span> +228 {{ $users->telephone1 }} </a></li>
-												</ul>
-												<div class="row profie-img">
-													<div class="col-md-12">
-														<div class="media-heading">
-															<h3 class="card-title mb-3 font-weight-bold">Biographie</h3>
-														</div>
-														<p>{{ $users->description }}</p>
-														<p class="mb-0"></p>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+<!--User Profile-->
+<section class="sptb">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body pattern-1">
+                        <div class="wideget-user">
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12">
+                                    <div class="wideget-user-desc text-center">
+                                        <div class="wideget-user-img">
+                                            @if ($users->photo1)
+                                                <img src="{{ asset('assets/images/user_profile') }}/{{ $users->photo1 }}"
+                                                    class="brround" alt="{{ $users->name }}"
+                                                    style="width: 128px; height: 128px;">
+                                            @else
+                                                <img src="{{ asset('assets/images/user_profile/user.png') }}"
+                                                    class="brround" alt="{{ $users->name }}"
+                                                    style="width: 128px; height: 128px;">
+                                            @endif
+                                        </div>
+                                        <div class="user-wrap wideget-user-info">
+                                            <a href="#" class="text-white">
+                                                <h4 class="font-weight-semibold">{{ $users->name }}</h4>
+                                            </a>
+                                            <div class="wideget-user-rating">
+                                                <a href="#"><i class="fa fa-star text-warning"></i></a>
+                                                <a href="#"><i class="fa fa-star text-warning"></i></a>
+                                                <a href="#"><i class="fa fa-star text-warning"></i></a>
+                                                <a href="#"><i class="fa fa-star text-warning"></i></a>
+                                                <a href="#"><i class="fa fa-star-o text-warning me-1"></i></a>
+                                                <span class="text-white">5 (3876 Reviews)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-md-12 text-center">
+                                    <div class="wideget-user-info ">
+                                        <div class="wideget-user-icons mt-2">
+                                            <a href="{{ $users->facebook }}" class="facebook-bg mt-0"><i
+                                                    class="fa fa-facebook"></i></a>
+                                            <a href="{{ $users->twitter }}" class="twitter-bg"><i
+                                                    class="fa fa-twitter"></i></a>
+                                            <a href="{{ $users->google }}" class="google-bg"><i
+                                                    class="fa fa-google"></i></a>
+                                            <a href="{{ $users->linkedin }}" class="dribbble-bg"><i
+                                                    class="fa fa-linkedin"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="wideget-user-tab">
+                            <div class="tab-menu-heading">
+                                <div class="tabs-menu1">
+                                    <ul class="nav">
+                                        <li class=""><a href="#tab-5" class="active"
+                                                data-bs-toggle="tab">Profil</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mb-0">
+                    <div class="card-body">
+                        <div class="border-0">
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="tab-5">
+                                    <div class="profile-log-switch">
+                                        <div class="media-heading">
+                                            <h3 class="card-title mb-3 font-weight-bold">Détails personnels</h3>
+                                        </div>
+                                        <ul class="usertab-list mb-0">
+                                            <li><a href="#" class="text-dark"><span class="font-weight-bold">Nom
+                                                        Complet :</span> {{ $users->name }} {{ $users->prenoms }}</a>
+                                            </li>
+                                            <li><a href="#" class="text-dark"><span
+                                                        class="font-weight-bold">Adresse :</span> {{ $users->adresse }}
+                                                </a></li>
+                                            <li><a href="#" class="text-dark"><span
+                                                        class="font-weight-bold">Fonction :</span>
+                                                    {{ $users->fonction }} </a></li>
+                                            <li><a href="#" class="text-dark"><span
+                                                        class="font-weight-bold">Website
+                                                        :</span>{{ $users->name }}</a></li>
+                                            <li><a href="#" class="text-dark"><span class="font-weight-bold">Email
+                                                        :</span> {{ $users->email }}</a></li>
+                                            <li><a href="#" class="text-dark"><span class="font-weight-bold">Phone
+                                                        :</span> +228 {{ $users->telephone1 }} </a></li>
+                                        </ul>
+                                        <div class="row profie-img">
+                                            <div class="col-md-12">
+                                                <div class="media-heading">
+                                                    <h3 class="card-title mb-3 font-weight-bold">Biographie</h3>
+                                                </div>
+                                                <p>{{ $users->description }}</p>
+                                                <p class="mb-0"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 @include('frontend.footer.footer1')
 
 <!-- Message Modal -->
-<div class="modal fade" id="contact" tabindex="-1" role="dialog"  aria-hidden="true">
+<div class="modal fade" id="contact" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -182,7 +206,3 @@
 @include('frontend.footer.footer16')
 @include('frontend.footer.footer17')
 @include('frontend.footer.footer18')
-
-
-
-

@@ -8,19 +8,16 @@ use Illuminate\Support\Facades\DB;
 
 class PharmacieController extends Controller
 {
-    public function pharmacie($slug_pays)
+    public function pharmacie()
     {
-        $pays_id = DB::table('pays')->where('slug_pays',$slug_pays)->select('id')->get();
-        $parametres = DB::table('pays')->where('pays.id', $pays_id[0]->id)
-            ->join('parametres', 'pays.id', '=', 'parametres.pays_id')
+        $parametres = DB::table('parametres')
             ->where('parametres.id', 1)
             ->select('*')
             ->get();
-            
+
         $sliders = SliderRecherche::all();
 
-        $pharmacies = DB::table('pays')->where('pays.id', $pays_id[0]->id)
-            ->join('categories', 'pays.id', '=', 'categories.pays_id')
+        $pharmacies = DB::table('categories')
             ->join('sous_categories', 'categories.id', '=', 'sous_categories.categorie_id')
             ->join('entreprises', 'sous_categories.id', '=', 'entreprises.souscategorie_id')
             ->select('*', 'sous_categories.libelle as sousCategorie', 'entreprises.id as identifiant', 'sous_categories.id as identifiant2')

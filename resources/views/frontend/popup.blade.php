@@ -14,20 +14,21 @@
                             <div class="row">
                                 <div class="col-xl-12 col-md-12 d-block mx-auto">
                                     <div class="testimonia text-center">
-                                        <img
-                                            loading="lazy"
-                                            src="{{ asset('assets/images/popup') }}/{{ $popup->popup_image }}" class="w-100 h-100 mb-3 mx-auto text-center p" alt="{{ $popup->nom }}" data-index="{{ $index }}"/>
-                                        <a href="{{ route('entreprise.pays.profil',['slug_pays'=>$popup->slug_pays,'slug_categorie'=>$popup->slug_categorie,'slug_souscategorie'=>$popup->slug_souscategorie,'slug_entreprise'=>$popup->slug_entreprise]) }}" class="btn btn-primary btn-ptill mb-3">{{ $popup->nom }}</a>
+                                        <img loading="lazy"
+                                            src="{{ asset('assets/images/popup') }}/{{ $popup->popup_image }}"
+                                            class="w-100 h-100 mb-3 mx-auto text-center p" alt="{{ $popup->nom }}"
+                                            data-index="{{ $index }}" />
+                                        <a href="{{ route('entreprise.profil', ['slug_categorie' => $popup->slug_categorie, 'slug_souscategorie' => $popup->slug_souscategorie, 'slug_entreprise' => $popup->slug_entreprise]) }}"
+                                            class="btn btn-primary btn-ptill mb-3">{{ $popup->nom }}</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     @endforeach
                     <script>
-                        document.addEventListener("DOMContentLoaded", function () {
-                            
-                        });
+                        document.addEventListener("DOMContentLoaded", function() {
 
+                        });
                     </script>
                 </div>
             </div>

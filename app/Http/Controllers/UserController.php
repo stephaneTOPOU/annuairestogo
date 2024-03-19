@@ -11,12 +11,9 @@ use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
-    public function user($slug_pays)
+    public function user()
     {
-        $pays_id = DB::table('pays')->where('slug_pays', $slug_pays)->select('id')->get();
-    
-        $parametres = DB::table('pays')->where('pays.id', $pays_id[0]->id)
-            ->join('parametres', 'pays.id', '=', 'parametres.pays_id')
+        $parametres = DB::table('parametres')
             ->where('parametres.id', 1)
             ->select('*')
             ->get();
@@ -26,16 +23,15 @@ class UserController extends Controller
         return view('frontend.auth.register', compact('parametres', 'sliders'));
     }
 
-    public function mydash($slug_pays, $slug_user)
+    public function mydash($slug_user)
     {
-        $pays_id = DB::table('pays')->where('slug_pays', $slug_pays)->select('id')->get();
+
         $user_id = DB::table('users')->where('slug_user', $slug_user)->select('id')->get();
 
         $users = User::find($user_id[0]->id);
         $souscategories = SousCategories::all();
 
-        $parametres = DB::table('pays')->where('pays.id', $pays_id[0]->id)
-            ->join('parametres', 'pays.id', '=', 'parametres.pays_id')
+        $parametres = DB::table('parametres')
             ->where('parametres.id', 1)
             ->select('*')
             ->get();
@@ -45,28 +41,25 @@ class UserController extends Controller
         return view('frontend.user.mydash', compact('sliders', 'souscategories', 'users', 'parametres'));
     }
 
-    public function myprofil($slug_pays, $slug_user)
+    public function myprofil($slug_user)
     {
-        $pays_id = DB::table('pays')->where('slug_pays', $slug_pays)->select('id')->get();
+
         $user_id = DB::table('users')->where('slug_user', $slug_user)->select('id')->get();
 
         $users = User::find($user_id[0]->id);
 
-        $parametres = DB::table('pays')->where('pays.id', $pays_id[0]->id)
-            ->join('parametres', 'pays.id', '=', 'parametres.pays_id')
+        $parametres = DB::table('parametres')
             ->where('parametres.id', 1)
             ->select('*')
             ->get();
 
         $sliders = SliderRecherche::all();
-        return view('frontend.user.user-profile', compact('users','parametres','sliders'));
+        return view('frontend.user.user-profile', compact('users', 'parametres', 'sliders'));
     }
 
-    public function update($slug_pays, $slug_user, Request $request)
+    public function update($slug_user, Request $request)
     {
-        $pays_id = DB::table('pays')->where('slug_pays', $slug_pays)->select('id')->get();
         $user_id = DB::table('users')->where('slug_user', $slug_user)->select('id')->get();
-
 
         $data = $request->validate([
             'name' => 'required|string',
@@ -89,7 +82,6 @@ class UserController extends Controller
             $data->twitter = $request->twitter;
             $data->linkedin = $request->linkedin;
             //$data->password = $d['password'];
-            $data->pays_id = $pays_id[0]->id;
             $data->update();
             //User::create($data);
             return redirect()->back()->with('user', "Votre profile a été créé avec success !!!");
@@ -98,63 +90,53 @@ class UserController extends Controller
         }
     }
 
-    public function list($slug_pays)
+    public function list()
     {
-        $pays_id = DB::table('pays')->where('slug_pays', $slug_pays)->select('id')->get();
 
         $nom = request()->input('name');
         $secteur = request()->input('secteur2');
 
         if ($nom && $secteur) {
-            $users = DB::table('pays')->where('pays.id', $pays_id[0]->id)
-                ->join('users', 'pays.id', '=', 'users.pays_id')
+            $users = DB::table('users')
                 ->where('users.name', 'LIKE', "%$nom%")
                 ->orWhere('users.telephone1', 'LIKE', "%$nom%")
                 ->select('*')
                 ->orderBy('users.id', 'desc')
                 ->get();
         } elseif ($nom) {
-            $users = DB::table('pays')->where('pays.id', $pays_id[0]->id)
-                ->join('users', 'pays.id', '=', 'users.pays_id')
+            $users = DB::table('users')
                 ->where('users.name', 'LIKE', "%$nom%")
                 ->orWhere('users.telephone1', 'LIKE', "%$nom%")
                 ->select('*')
                 ->orderBy('users.id', 'desc')
                 ->get();
         } elseif ($secteur) {
-            $users = DB::table('pays')->where('pays.id', $pays_id[0]->id)
-                ->join('users', 'pays.id', '=', 'users.pays_id')
+            $users = DB::table('users')
                 ->where('users.fonction', 'LIKE', "%$secteur%")
                 ->select('*')
                 ->orderBy('users.id', 'desc')
                 ->get();
         } else {
-            $users = DB::table('pays')->where('pays.id', $pays_id[0]->id)
-                ->join('users', 'pays.id', '=', 'users.pays_id')
+            $users = DB::table('users')
                 ->select('*')
                 ->orderBy('users.id', 'desc')
                 ->get();
         }
 
-        $parametres = DB::table('pays')->where('pays.id', $pays_id[0]->id)
-            ->join('parametres', 'pays.id', '=', 'parametres.pays_id')
+        $parametres = DB::table('parametres')
             ->where('parametres.id', 1)
             ->select('*')
             ->get();
 
         $sliders = SliderRecherche::all();
-            
-        return view('frontend.user.user-list', compact('parametres','users','sliders'));
+
+        return view('frontend.user.user-list', compact('parametres', 'users', 'sliders'));
     }
 
-    public function user_autocomplete(Request $request, $slug_pays)
+    public function user_autocomplete(Request $request)
     {
-        $pays_id = DB::table('pays')->where('slug_pays', $slug_pays)->select('id')->get();
-
-        $data1 = DB::table('pays')->where('pays.id', $pays_id[0]->id)
-            ->join('users', 'pays.id', '=', 'users.pays_id')
-            ->select('users.name as value', 'users.id')
-            ->where('users.name', 'LIKE', '%' . $request->get('t44') . '%')
+        $data1 = User::select('name as value', 'id')
+            ->where('name', 'LIKE', '%' . $request->get('t44') . '%')
             ->get()
             ->take(6);
         return response()->json($data1);

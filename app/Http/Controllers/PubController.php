@@ -9,13 +9,11 @@ use Illuminate\Support\Facades\DB;
 
 class PubController extends Controller
 {
-    public function pubDetail($slug_pays, $slug_pub)
+    public function pubDetail($slug_pub)
     {
-        $pays_id = DB::table('pays')->where('slug_pays',$slug_pays)->select('id')->get();
-        $pub_id = DB::table('pubs')->where('slug_pub',$slug_pub)->select('id')->get();
-        
-        $parametres = DB::table('pays')->where('pays.id', $pays_id[0]->id)
-            ->join('parametres', 'pays.id', '=', 'parametres.pays_id')
+        $pub_id = DB::table('pubs')->where('slug_pub', $slug_pub)->select('id')->get();
+
+        $parametres = DB::table('parametres')
             ->where('parametres.id', 1)
             ->select('*')
             ->get();
@@ -24,13 +22,13 @@ class PubController extends Controller
 
         $pubs_details = Pub::find($pub_id[0]->id);
 
-        $medias = DB::table('pubs')->where('pubs.id',$pub_id[0]->id)
-        ->join('media_pubs', 'pubs.id','=','media_pubs.pubs_id')
-        ->select('*')
-        ->get();
+        $medias = DB::table('pubs')->where('pubs.id', $pub_id[0]->id)
+            ->join('media_pubs', 'pubs.id', '=', 'media_pubs.pubs_id')
+            ->select('*')
+            ->get();
 
         $sliders = SliderRecherche::all();
 
-        return view('frontend.pub-detail', compact('pubs','pubs_details', 'parametres', 'medias', 'sliders'));
+        return view('frontend.pub-detail', compact('pubs', 'pubs_details', 'parametres', 'medias', 'sliders'));
     }
 }

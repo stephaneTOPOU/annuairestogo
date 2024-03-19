@@ -37,11 +37,11 @@
                                         
                                     </div>
                                     <div class=" search-background bg-transparent">
-                                        <form class="form row g-0" action="{{ route('recherche.pays',['slug_pays'=>'tg']) }}" method="GET">
+                                        <form class="form row g-0" action="{{ route('recherche') }}" method="GET">
                                             <div class="form-group  col-xl-6 col-lg-5 col-md-12 mb-0">
                                                 <input type="text" class="form-control input-lg border-start-0 br-0" id="text4" placeholder="Trouver une entreprise" name="nom">
                                                 <script type="text/javascript">
-                                                    var path = "{{ route('autocomplete.pays',['slug_pays'=>'tg']) }}" ;
+                                                    var path = "{{ route('autocomplete') }}" ;
                                                     // path = path.replace(':pays_id', pays_id);
                             
                                                     $( "#text4" ).autocomplete({
@@ -98,9 +98,9 @@
                 <div class="page-header">
                     <h4 class="page-title">{{ $Profil_entreprise->nom }}</h4>
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ route('home.pays',['slug_pays'=>$Profil_entreprise->slug_pays]) }}">Home</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
                         <li class="breadcrumb-item"><a href="#">{{ $Profil_entreprise->cat }}</a></li>
-                        <li class="breadcrumb-item"><a href="{{ route('entreprise.pays',['slug_pays'=>$Profil_entreprise->slug_pays,'slug_categorie'=>$Profil_entreprise->slug_categorie,'slug_souscategorie'=>$Profil_entreprise->slug_souscategorie]) }}">{{ $Profil_entreprise->subcat }}</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('entreprise',['slug_categorie'=>$Profil_entreprise->slug_categorie,'slug_souscategorie'=>$Profil_entreprise->slug_souscategorie]) }}">{{ $Profil_entreprise->subcat }}</a></li>
                         <li class="breadcrumb-item active" aria-current="page">{{ $Profil_entreprise->nom }}</li>
                     </ol>
                 </div>
@@ -139,7 +139,7 @@
                                                                 // Mettez à jour la note actuelle à mesure que l'utilisateur attribue une note
                                                                 // document.getElementById('currentRating').innerText = this.getAttribute('data-rating');
 
-                                                                let url = "{{ route('rate',['slug_pays'=>$Profil_entreprise->slug_pays,'slug_categorie'=>$Profil_entreprise->slug_categorie,'slug_souscategorie'=>$Profil_entreprise->slug_souscategorie,'slug_entreprise'=>$Profil_entreprise->slug_entreprise]) }}";
+                                                                let url = "{{ route('rate',['slug_categorie'=>$Profil_entreprise->slug_categorie,'slug_souscategorie'=>$Profil_entreprise->slug_souscategorie,'slug_entreprise'=>$Profil_entreprise->slug_entreprise]) }}";
                                                     
                                                                 // Effectuez une requête Ajax pour mettre à jour la note sur le serveur
                                                                 // Assurez-vous d'inclure le jeton CSRF si vous en utilisez un dans Laravel
@@ -173,7 +173,7 @@
                                                             // Mettez à jour la note actuelle à mesure que l'utilisateur attribue une note
                                                             //document.getElementById('currentRating').innerText = currentRating + 1;
 
-                                                            let url = "{{ route('rate',['slug_pays'=>$Profil_entreprise->slug_pays,'slug_categorie'=>$Profil_entreprise->slug_categorie,'slug_souscategorie'=>$Profil_entreprise->slug_souscategorie,'slug_entreprise'=>$Profil_entreprise->slug_entreprise]) }}";
+                                                            let url = "{{ route('rate',['slug_categorie'=>$Profil_entreprise->slug_categorie,'slug_souscategorie'=>$Profil_entreprise->slug_souscategorie,'slug_entreprise'=>$Profil_entreprise->slug_entreprise]) }}";
                                                             // Effectuez une requête Ajax pour mettre à jour la note sur le serveur
                                                             // Assurez-vous d'inclure le jeton CSRF si vous en utilisez un dans Laravel
                                                             // Utilisez la route et le contrôleur appropriés dans l'URL
@@ -382,7 +382,7 @@
                                         <div class="item">
                                             <div class="card">
                                                 <div class="item-card7-imgs">
-                                                    <a href="{{ route('entreprise.pays.profil',['slug_pays'=>$entreprise_sim->slug_pays,'slug_categorie'=>$entreprise_sim->slug_categorie,'slug_souscategorie'=>$entreprise_sim->slug_souscategorie,'slug_entreprise'=>$entreprise_sim->slug_entreprise]) }}"></a>
+                                                    <a href="{{ route('entreprise.profil',['slug_categorie'=>$entreprise_sim->slug_categorie,'slug_souscategorie'=>$entreprise_sim->slug_souscategorie,'slug_entreprise'=>$entreprise_sim->slug_entreprise]) }}"></a>
                                                     @if ($entreprise_sim->publireportage1)
                                                         <img src="{{ asset('assets/images/entreprises/covers') }}/{{ $entreprise_sim->publireportage1 }}" alt="{{ $entreprise_sim->nom }}" class="cover-image">
                                                     @else
@@ -390,11 +390,11 @@
                                                     @endif
                                                 </div>
                                                 <div class="item-card7-overlaytext">
-                                                    <a href="{{ route('entreprise.pays.profil',['slug_pays'=>$entreprise_sim->slug_pays,'slug_categorie'=>$entreprise_sim->slug_categorie,'slug_souscategorie'=>$entreprise_sim->slug_souscategorie,'slug_entreprise'=>$entreprise_sim->slug_entreprise]) }}" class="text-white">{{ $entreprise_sim->subcat }}</a>
+                                                    <a href="{{ route('entreprise.profil',['slug_categorie'=>$entreprise_sim->slug_categorie,'slug_souscategorie'=>$entreprise_sim->slug_souscategorie,'slug_entreprise'=>$entreprise_sim->slug_entreprise]) }}" class="text-white">{{ $entreprise_sim->subcat }}</a>
                                                 </div>
                                                 <div class="card-body">
                                                     <div class="item-card7-desc">
-                                                        <a href="{{ route('entreprise.pays.profil',['slug_pays'=>$entreprise_sim->slug_pays,'slug_categorie'=>$entreprise_sim->slug_categorie,'slug_souscategorie'=>$entreprise_sim->slug_souscategorie,'slug_entreprise'=>$entreprise_sim->slug_entreprise]) }}" class="text-dark"><h4 class="font-weight-semibold">{{ $entreprise_sim->nom }}</h4></a>
+                                                        <a href="{{ route('entreprise.profil',['slug_categorie'=>$entreprise_sim->slug_categorie,'slug_souscategorie'=>$entreprise_sim->slug_souscategorie,'slug_entreprise'=>$entreprise_sim->slug_entreprise]) }}" class="text-dark"><h4 class="font-weight-semibold">{{ $entreprise_sim->nom }}</h4></a>
                                                     </div>
                                                     <div class="item-card7-text">
                                                         <ul class="icon-card mb-0">
@@ -436,7 +436,7 @@
                                                     {{ $commentaire->commentaire }}
                                                     </p>
 
-                                                    <a href="{{ route('entreprise.pays.comment2',['slug_pays'=>$Profil_entreprise->slug_pays,'slug_categorie'=>$Profil_entreprise->slug_categorie,'slug_souscategorie'=>$Profil_entreprise->slug_souscategorie,'slug_entreprise'=>$Profil_entreprise->slug_entreprise,'id'=>$commentaire->id ]) }}" class="me-2" data-bs-toggle="modal" data-bs-target="#Comment"><span class="badge badge-primary">Répondre</span></a>
+                                                    <a href="{{ route('entreprise.comment2',['slug_categorie'=>$Profil_entreprise->slug_categorie,'slug_souscategorie'=>$Profil_entreprise->slug_souscategorie,'slug_entreprise'=>$Profil_entreprise->slug_entreprise,'id'=>$commentaire->id ]) }}" class="me-2" data-bs-toggle="modal" data-bs-target="#Comment"><span class="badge badge-primary">Répondre</span></a>
 
                                                     @foreach ($commentaire2s as $commentaire2)
                                                         @if ($commentaire2->commentaires_id == $commentaire->id )
@@ -450,7 +450,7 @@
                                                                     <p class="font-13  mb-2 mt-2">
                                                                         {{$commentaire2->messageR}}
                                                                     </p>
-                                                                    <a href="{{ route('entreprise.pays.comment2',['slug_pays'=>$Profil_entreprise->slug_pays,'slug_categorie'=>$Profil_entreprise->slug_categorie,'slug_souscategorie'=>$Profil_entreprise->slug_souscategorie,'slug_entreprise'=>$Profil_entreprise->slug_entreprise,'id'=>$commentaire->id ]) }}" data-bs-toggle="modal" data-bs-target="#Comment"><span class="badge badge-default">Répondre</span></a>
+                                                                    <a href="{{ route('entreprise.comment2',['slug_categorie'=>$Profil_entreprise->slug_categorie,'slug_souscategorie'=>$Profil_entreprise->slug_souscategorie,'slug_entreprise'=>$Profil_entreprise->slug_entreprise,'id'=>$commentaire->id ]) }}" data-bs-toggle="modal" data-bs-target="#Comment"><span class="badge badge-default">Répondre</span></a>
                                                                 </div>
                                                             </div>
                                                         @endif
@@ -466,7 +466,7 @@
                                 <div class="card-header">
                                         <h3 class="card-title">Laisser un commentaire</h3>
                                 </div>
-                                <form class="card-body" action="{{ route('entreprise.pays.comment',['slug_pays'=>$Profil_entreprise->slug_pays,'slug_categorie'=>$Profil_entreprise->slug_categorie,'slug_souscategorie'=>$Profil_entreprise->slug_souscategorie,'slug_entreprise'=>$Profil_entreprise->slug_entreprise]) }}" method="POST">
+                                <form class="card-body" action="{{ route('entreprise.commentaire',['slug_categorie'=>$Profil_entreprise->slug_categorie,'slug_souscategorie'=>$Profil_entreprise->slug_souscategorie,'slug_entreprise'=>$Profil_entreprise->slug_entreprise]) }}" method="POST">
                                     @csrf
                                     @if(Session::has('success'))
                                         <div class="alert alert-success" role="alert">{{Session::get('success') }}</div>
@@ -722,7 +722,7 @@
                                             <li class="news-item">
                                                 <table>
                                                     <tr>
-                                                        <td><h5 class="mb-1 ">{{ $populaire->nom }}</h5><a href="{{ route('entreprise.pays.profil',['slug_pays'=>$populaire->slug_pays,'slug_categorie'=>$populaire->slug_categorie,'slug_souscategorie'=>$populaire->slug_souscategorie,'slug_entreprise'=>$populaire->slug_entreprise]) }}" class="btn-link">Détails</a></td>
+                                                        <td><h5 class="mb-1 ">{{ $populaire->nom }}</h5><a href="{{ route('entreprise.profil',['slug_categorie'=>$populaire->slug_categorie,'slug_souscategorie'=>$populaire->slug_souscategorie,'slug_entreprise'=>$populaire->slug_entreprise]) }}" class="btn-link">Détails</a></td>
                                                     </tr>
                                                 </table>
                                             </li>
@@ -742,7 +742,7 @@
                                                 <li class="news-item">
                                                     <table>
                                                         <tr>
-                                                            <td><h5 class="mb-1 ">{{ $recent->nom }}</h5><a href="{{ route('entreprise.pays.profil',['slug_pays'=>$recent->slug_pays,'slug_categorie'=>$recent->slug_categorie,'slug_souscategorie'=>$recent->slug_souscategorie,'slug_entreprise'=>$recent->slug_entreprise]) }}" class="btn-link">Détails</a></td>
+                                                            <td><h5 class="mb-1 ">{{ $recent->nom }}</h5><a href="{{ route('entreprise.profil',['slug_categorie'=>$recent->slug_categorie,'slug_souscategorie'=>$recent->slug_souscategorie,'slug_entreprise'=>$recent->slug_entreprise]) }}" class="btn-link">Détails</a></td>
                                                         </tr>
                                                     </table>
                                                 </li>
@@ -764,7 +764,7 @@
         <!-- Message Modal -->
         <div class="modal fade" id="contact" tabindex="-1" role="dialog"  aria-hidden="true">
             <div class="modal-dialog" role="document">
-                <form class="modal-content" method="POST" action="{{ route('entreprise.contact',['slug_pays'=>$Profil_entreprise->slug_pays,'slug_categorie'=>$Profil_entreprise->slug_categorie,'slug_souscategorie'=>$Profil_entreprise->slug_souscategorie]) }}" enctype="multipart/form-data">
+                <form class="modal-content" method="POST" action="{{ route('entreprise.contact',['slug_categorie'=>$Profil_entreprise->slug_categorie,'slug_souscategorie'=>$Profil_entreprise->slug_souscategorie]) }}" enctype="multipart/form-data">
                     @csrf
                     <div class="modal-header">
                         <h5 class="modal-title" id="examplecontactLongTitle">{{ $Profil_entreprise->nom }}</h5>
@@ -807,7 +807,7 @@
             <!--Comment Modal -->
             <div class="modal fade" id="Comment" tabindex="-1" role="dialog"  aria-hidden="true">
                 <div class="modal-dialog" role="document">
-                    <form class="modal-content" method="POST" action="{{ route('entreprise.pays.comment2',['slug_pays'=>$Profil_entreprise->slug_pays,'slug_categorie'=>$Profil_entreprise->slug_categorie,'slug_souscategorie'=>$Profil_entreprise->slug_souscategorie,'slug_entreprise'=>$Profil_entreprise->slug_entreprise,'id'=>$commentaire->id]) }}">
+                    <form class="modal-content" method="POST" action="{{ route('entreprise.comment2',['slug_categorie'=>$Profil_entreprise->slug_categorie,'slug_souscategorie'=>$Profil_entreprise->slug_souscategorie,'slug_entreprise'=>$Profil_entreprise->slug_entreprise,'id'=>$commentaire->id]) }}">
                         @csrf
                         <div class="modal-header">
                             <h5 class="modal-title" id="exampleCommentLongTitle">Envoyer le message</h5>

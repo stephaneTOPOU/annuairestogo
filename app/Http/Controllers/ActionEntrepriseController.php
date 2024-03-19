@@ -18,16 +18,16 @@ class ActionEntrepriseController extends Controller
         ]);
 
         try {
-                $data = new Entreprise();
+            $data = new Entreprise();
 
-                $data->souscategorie_id = $request->souscategorie_id;
-                $data->nom = $request->nom;
-                $data->email = $request->email;
-                $data->adresse = $request->adresse;
-                $data->telephone1 = $request->telephone1;
-                $data->telephone2 = $request->telephone2;
+            $data->souscategorie_id = $request->souscategorie_id;
+            $data->nom = $request->nom;
+            $data->email = $request->email;
+            $data->adresse = $request->adresse;
+            $data->telephone1 = $request->telephone1;
+            $data->telephone2 = $request->telephone2;
 
-                $data->save();
+            $data->save();
             return redirect()->back()->with('entreprise', 'Votre Entreprise a été ajoutée avec succès. Merci :)');
         } catch (Exception $e) {
             return redirect()->back()->with('entreprise', $e->getMessage());
