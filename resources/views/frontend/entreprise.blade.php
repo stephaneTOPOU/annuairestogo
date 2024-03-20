@@ -274,10 +274,10 @@
                                                         <a
                                                             href="{{ route('entreprise.profil', ['slug_categorie' => $entreprise->slug_categorie, 'slug_souscategorie' => $entreprise->slug_souscategorie, 'slug_entreprise' => $entreprise->slug_entreprise]) }}"></a>
                                                         @if ($entreprise->photo3)
-                                                            <img src="{{ asset('assets/images/entreprises/cover_entreprise') }}/{{ $entreprise->photo3 }}"
+                                                            <img src="{{ asset('assets/images/entreprises/logo_recherches') }}/{{ $entreprise->photo3 }}"
                                                                 alt="{{ $entreprise->nom }}" class="cover-image">
                                                         @else
-                                                            <img src="{{ asset('assets/images/entreprises/cover_entreprise/entreprise.jpg') }}"
+                                                            <img src="{{ asset('assets/images/entreprises/logo_recherches/entreprise.jpg') }}"
                                                                 alt="{{ $entreprise->nom }}" class="cover-image">
                                                         @endif
                                                     </div>

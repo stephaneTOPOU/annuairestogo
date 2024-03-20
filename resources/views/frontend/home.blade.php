@@ -224,7 +224,7 @@
                         <div class="item-card2-img">
                             <a
                                 href="{{ route('entreprise.profil', ['slug_categorie' => $honeure->slug_categorie, 'slug_souscategorie' => $honeure->slug_souscategorie, 'slug_entreprise' => $honeure->slug_entreprise]) }}"></a>
-                            <img src="{{ asset('assets/images/nos_selection') }}/{{ $honeure->photo4 }}"
+                            <img src="{{ asset('assets/images/entreprises/selections') }}/{{ $honeure->photo4 }}"
                                 alt="{{ $honeure->nom }}" class="cover-image">
                         </div>
                     </div>

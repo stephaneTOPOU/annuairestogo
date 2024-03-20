@@ -384,9 +384,9 @@
                                                 <div class="item-card7-imgs">
                                                     <a href="{{ route('entreprise.profil',['slug_categorie'=>$entreprise_sim->slug_categorie,'slug_souscategorie'=>$entreprise_sim->slug_souscategorie,'slug_entreprise'=>$entreprise_sim->slug_entreprise]) }}"></a>
                                                     @if ($entreprise_sim->publireportage1)
-                                                        <img src="{{ asset('assets/images/entreprises/covers') }}/{{ $entreprise_sim->publireportage1 }}" alt="{{ $entreprise_sim->nom }}" class="cover-image">
+                                                        <img src="{{ asset('assets/images/entreprises/image_relatives') }}/{{ $entreprise_sim->publireportage1 }}" alt="{{ $entreprise_sim->nom }}" class="cover-image">
                                                     @else
-                                                        <img src="{{ asset('assets/images/entreprises/covers/j1.jpg') }}" alt="{{ $entreprise_sim->nom }}" class="cover-image">
+                                                        <img src="{{ asset('assets/images/entreprises/image_relatives/j1.jpg') }}" alt="{{ $entreprise_sim->nom }}" class="cover-image">
                                                     @endif
                                                 </div>
                                                 <div class="item-card7-overlaytext">
