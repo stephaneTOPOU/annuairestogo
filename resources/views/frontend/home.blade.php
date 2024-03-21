@@ -404,7 +404,7 @@
                                         <div class="col-xl-8 col-md-12 d-block mx-auto">
                                             <div class="testimonia">
                                                 <div class="testimonia-img mx-auto mb-3">
-                                                    <img src="{{ asset('assets/images/faces/female/11.jpg') }}"
+                                                    <img src="{{ asset('assets/images/temoignages') }}/{{ $testimony->image }}"
                                                         class="img-thumbnail rounded-circle alt="
                                                         alt="{{ $testimony->nom }}">
                                                 </div>
