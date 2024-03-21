@@ -65,14 +65,16 @@ class UserController extends Controller
             'name' => 'required|string',
             'prenoms' => 'required|string',
             'email' => 'required|email',
+            'password' => 'string|min:8',
         ]);
         //dd($request->all());
         try {
-            //$d['password'] = bcrypt($data['password']);
+            $d['password'] = bcrypt($data['password']);
             $data = User::find($user_id[0]->id);
             $data->name = $request->name;
             $data->prenoms = $request->prenoms;
             $data->email = $request->email;
+            $data->password = $d['password'];
             $data->adresse = $request->adresse;
             $data->fonction = $request->fonction;
             $data->telephone1 = $request->telephone1;
@@ -81,10 +83,9 @@ class UserController extends Controller
             $data->google = $request->google;
             $data->twitter = $request->twitter;
             $data->linkedin = $request->linkedin;
-            //$data->password = $d['password'];
+            $data->description = $request->description;
             $data->update();
-            //User::create($data);
-            return redirect()->back()->with('user', "Votre profile a été créé avec success !!!");
+            return redirect()->back()->with('user', "Votre profile a été mis à jour avec success !!!");
         } catch (Exception $e) {
             return redirect()->back()->with('user', $e->getMessage());
         }

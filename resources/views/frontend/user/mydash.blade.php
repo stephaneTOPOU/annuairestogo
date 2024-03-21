@@ -154,7 +154,7 @@
             </div>
             <div class="col-xl-9 col-lg-12 col-md-12">
                 <form class="card mb-0" enctype="multipart/form-data" method="POST"
-                    action="{{ route('user.dashboard.update',['slug_user'=> $users->slug_user]) }}">
+                    action="{{ route('user.dashboard.update', ['slug_user' => $users->slug_user]) }}">
                     @csrf
                     <div class="card-header">
                         <h3 class="card-title">Modifiez votre profil</h3>
@@ -166,8 +166,8 @@
                         <div class="row">
                             <div class="col-sm-6 col-md-6">
                                 <div class="form-group">
-                                    <label class="form-label">Prénon</label>
-                                    <input type="text" class="form-control" placeholder="Prénon" name="prenoms"
+                                    <label class="form-label">Prénom</label>
+                                    <input type="text" class="form-control" placeholder="Prénom" name="prenoms"
                                         value="{{ old('prenoms') ?? $users->prenoms }}">
                                 </div>
                             </div>
@@ -187,15 +187,22 @@
                             </div>
                             <div class="col-sm-6 col-md-6">
                                 <div class="form-group">
+                                    <label class="form-label">Mot de passe</label>
+                                    <input type="password" class="form-control" placeholder="Mot de passe"
+                                        name="password" value="{{ old('password') ?? $users->password }}">
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-6">
+                                <div class="form-group">
                                     <label class="form-label">Téléphone 1</label>
-                                    <input type="number" class="form-control" placeholder="Téléphone 1"
+                                    <input type="text" class="form-control" placeholder="Téléphone 1"
                                         name="telephone1" value="{{ old('telephone1') ?? $users->telephone1 }}">
                                 </div>
                             </div>
                             <div class="col-sm-6 col-md-6">
                                 <div class="form-group">
                                     <label class="form-label">Téléphone 2</label>
-                                    <input type="number" class="form-control" placeholder="Téléphone 2"
+                                    <input type="text" class="form-control" placeholder="Téléphone 2"
                                         name="telephone2" value="{{ old('telephone2') ?? $users->telephone2 }}">
                                 </div>
                             </div>
@@ -208,6 +215,13 @@
                             </div>
                             <div class="col-sm-6 col-md-6">
                                 <div class="form-group">
+                                    <label class="form-label">Fonction</label>
+                                    <input type="text" class="form-control" placeholder="Votre fonction"
+                                        name="fonction" value="{{ old('fonction') ?? $users->fonction }}">
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-6">
+                                <div class="form-group">
                                     <label class="form-label">Facebook</label>
                                     <input type="text" class="form-control"
                                         placeholder="https://www.facebook.com/" name="facebook"
@@ -216,8 +230,8 @@
                             </div>
                             <div class="col-sm-6 col-md-6">
                                 <div class="form-group">
-                                    <label class="form-label">Google</label>
-                                    <input type="text" class="form-control" placeholder="https://www.google.com/"
+                                    <label class="form-label">Instagram</label>
+                                    <input type="text" class="form-control" placeholder="https://www.instagram.com/"
                                         name="google" value="{{ old('google') ?? $users->google }}">
                                 </div>
                             </div>

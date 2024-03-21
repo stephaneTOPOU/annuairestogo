@@ -452,18 +452,22 @@
                                                 style="width: 128px; height: 128px;">
                                         @endif
                                     </div>
-                                    <h4 class="font-weight-bold dark-grey-text mt-4">{{ $user->name }}</h4>
+                                    <h4 class="font-weight-bold dark-grey-text mt-4">{{ Str::limit($user->name, 5) }} @if ($user->prenoms)
+                                            • {{ Str::limit($user->prenoms, 10) }}
+                                        @endif
+                                    </h4>
                                     <h6 class="font-weight-bold-text "><i
-                                            class="icon icon-bag text-muted me-1"></i>{{ $user->fonction }}</h6>
-                                    <p class="font-weight-normal dark-grey-text"><i
-                                            class="icon icon-phone text-muted me-1"></i>{{ $user->telephone1 }}</p>
-                                    <div class="text-warning">
+                                            class="icon icon-bag text-muted me-1"></i>{{ Str::limit($user->fonction, 25) }}
+                                    </h6>
+                                    {{-- <p class="font-weight-normal dark-grey-text"><i
+                                            class="icon icon-phone text-muted me-1"></i>{{ $user->telephone1 }}</p> --}}
+                                    {{-- <div class="text-warning">
                                         <i class="fa fa-star"> </i>
                                         <i class="fa fa-star"> </i>
                                         <i class="fa fa-star"> </i>
                                         <i class="fa fa-star"> </i>
                                         <i class="fa fa-star-half-full"> </i>
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </div>
                         </div>

@@ -87,8 +87,8 @@
                                             <a href="{{ $users->twitter }}" class="twitter-bg"><i
                                                     class="fa fa-twitter"></i></a>
                                             <a href="{{ $users->google }}" class="google-bg"><i
-                                                    class="fa fa-google"></i></a>
-                                            <a href="{{ $users->linkedin }}" class="dribbble-bg"><i
+                                                    class="fa fa-instagram"></i></a>
+                                            <a href="{{ $users->linkedin }}" class="twitter-bg"><i
                                                     class="fa fa-linkedin"></i></a>
                                         </div>
                                     </div>
@@ -121,7 +121,10 @@
                                         </div>
                                         <ul class="usertab-list mb-0">
                                             <li><a href="#" class="text-dark"><span class="font-weight-bold">Nom
-                                                        Complet :</span> {{ $users->name }} {{ $users->prenoms }}</a>
+                                                        :</span> {{ $users->name }} </a>
+                                            </li>
+                                            <li><a href="#" class="text-dark"><span class="font-weight-bold">Nom
+                                                        :</span> {{ $users->prenoms }} </a>
                                             </li>
                                             <li><a href="#" class="text-dark"><span
                                                         class="font-weight-bold">Adresse :</span> {{ $users->adresse }}
@@ -129,13 +132,13 @@
                                             <li><a href="#" class="text-dark"><span
                                                         class="font-weight-bold">Fonction :</span>
                                                     {{ $users->fonction }} </a></li>
-                                            <li><a href="#" class="text-dark"><span
-                                                        class="font-weight-bold">Website
-                                                        :</span>{{ $users->name }}</a></li>
                                             <li><a href="#" class="text-dark"><span class="font-weight-bold">Email
                                                         :</span> {{ $users->email }}</a></li>
                                             <li><a href="#" class="text-dark"><span class="font-weight-bold">Phone
-                                                        :</span> +228 {{ $users->telephone1 }} </a></li>
+                                                        :</span> (+228) {{ $users->telephone1 }} @if ($users->telephone2)
+                                                        • {{ $users->telephone2 }}
+                                                    @endif
+                                                </a></li>
                                         </ul>
                                         <div class="row profie-img">
                                             <div class="col-md-12">
