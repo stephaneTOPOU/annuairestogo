@@ -8,6 +8,7 @@ use App\Models\User;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -65,7 +66,7 @@ class UserController extends Controller
             'name' => 'required|string',
             'prenoms' => 'required|string',
             'email' => 'required|email',
-            'password' => 'string|min:8',
+            'password' => 'string|min:6',
         ]);
         //dd($request->all());
         try {
@@ -84,6 +85,28 @@ class UserController extends Controller
             $data->twitter = $request->twitter;
             $data->linkedin = $request->linkedin;
             $data->description = $request->description;
+
+            if ($request->hasFile('photo1')) {
+
+                //get filename with extension
+                $filenamewithextension = $request->file('photo1')->getClientOriginalName();
+
+                //get filename without extension
+                $filename = pathinfo($filenamewithextension, PATHINFO_FILENAME);
+
+                //get file extension
+                $extension = $request->file('photo1')->getClientOriginalExtension();
+
+                //filename to store
+                $filenametostore = $filename . '_' . uniqid() . '.' . $extension;
+
+                //Upload File to external server
+                Storage::disk('ftp')->put($filenametostore, fopen($request->file('photo1'), 'r+'));
+
+                //Upload name to database
+                $data->photo1 = $filenametostore;
+            }
+            
             $data->update();
             return redirect()->back()->with('user', "Votre profile a été mis à jour avec success !!!");
         } catch (Exception $e) {

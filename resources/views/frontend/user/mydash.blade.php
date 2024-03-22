@@ -154,7 +154,8 @@
             </div>
             <div class="col-xl-9 col-lg-12 col-md-12">
                 <form class="card mb-0" enctype="multipart/form-data" method="POST"
-                    action="{{ route('user.dashboard.update', ['slug_user' => $users->slug_user]) }}">
+                    action="{{ route('user.dashboard.update', ['slug_user' => $users->slug_user]) }}"
+                    enctype="multipart/form-data">
                     @csrf
                     <div class="card-header">
                         <h3 class="card-title">Modifiez votre profil</h3>
@@ -231,8 +232,9 @@
                             <div class="col-sm-6 col-md-6">
                                 <div class="form-group">
                                     <label class="form-label">Instagram</label>
-                                    <input type="text" class="form-control" placeholder="https://www.instagram.com/"
-                                        name="google" value="{{ old('google') ?? $users->google }}">
+                                    <input type="text" class="form-control"
+                                        placeholder="https://www.instagram.com/" name="google"
+                                        value="{{ old('google') ?? $users->google }}">
                                 </div>
                             </div>
                             <div class="col-sm-6 col-md-6">
@@ -260,7 +262,7 @@
                                     <label class="form-label">Votre photo</label>
                                     <div class="form-file">
                                         <input type="file" class="form-control example-file-input-custom"
-                                            name="example-file-input-custom" name="photo1"
+                                            placeholder="taille max : 400 x 400px " name="photo1"
                                             value="{{ old('photo1') ?? $users->photo1 }}">
                                     </div>
                                 </div>
