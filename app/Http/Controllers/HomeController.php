@@ -45,6 +45,7 @@ class HomeController extends Controller
                 ->orWhere('entreprises.telephone2', 'LIKE', "%$nom%")
                 ->orWhere('sous_categories.libelle', 'LIKE', "%$secteur%")
                 ->select('*', 'sous_categories.libelle as sousCategorie', 'entreprises.id as identifiant', 'sous_categories.id as identifiant2')
+                ->where('entreprises.valide', 1)
                 ->orderBy('entreprises.est_souscrit', 'desc')
                 ->paginate(100);
         } elseif ($nom) {
@@ -56,6 +57,7 @@ class HomeController extends Controller
                 ->orWhere('entreprises.telephone1', 'LIKE', "%$nom%")
                 ->orWhere('entreprises.telephone2', 'LIKE', "%$nom%")
                 ->select('*', 'sous_categories.libelle as sousCategorie', 'entreprises.id as identifiant', 'sous_categories.id as identifiant2')
+                ->where('entreprises.valide', 1)
                 ->orderBy('entreprises.est_souscrit', 'desc')
                 ->paginate(100);
         } elseif ($secteur) {
@@ -65,6 +67,7 @@ class HomeController extends Controller
                 ->join('entreprises', 'sous_categories.id', '=', 'entreprises.souscategorie_id')
                 ->where('sous_categories.libelle', 'LIKE', "%$secteur%")
                 ->select('*', 'sous_categories.libelle as sousCategorie', 'entreprises.id as identifiant', 'sous_categories.id as identifiant2')
+                ->where('entreprises.valide', 1)
                 ->orderBy('entreprises.est_souscrit', 'desc')
                 ->paginate(100);
         } else {
@@ -73,6 +76,7 @@ class HomeController extends Controller
                 ->join('sous_categories', 'categories.id', '=', 'sous_categories.categorie_id')
                 ->join('entreprises', 'sous_categories.id', '=', 'entreprises.souscategorie_id')
                 ->select('*', 'sous_categories.libelle as sousCategorie', 'entreprises.id as identifiant', 'sous_categories.id as identifiant2')
+                ->where('entreprises.valide', 1)
                 ->orderBy('entreprises.est_souscrit', 'desc')
                 ->paginate(100);
         }
@@ -207,7 +211,7 @@ class HomeController extends Controller
             ->orderBy('offres.id', 'desc')
             ->get();
 
-        $users = User::all();
+        $users = User::where('valide', 1)->get();
 
         $pubs = Pub::all()->take(4);
 

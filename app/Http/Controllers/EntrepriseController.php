@@ -24,6 +24,7 @@ class EntrepriseController extends Controller
             ->join('sous_categories', 'categories.id', '=', 'sous_categories.categorie_id')->where('sous_categories.id', $sousCategorie_id[0]->id)
             ->join('entreprises', 'sous_categories.id', '=', 'entreprises.souscategorie_id')
             ->select('*', 'sous_categories.libelle as sousCategorie', 'entreprises.id as identifiant')
+            ->where('entreprises.valide', 1)
             ->orderBy('entreprises.est_souscrit', 'desc')
             ->paginate(100);
 
