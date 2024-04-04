@@ -46,12 +46,12 @@ class SeoController extends Controller
 
         OpenGraph::addImage($post->cover->url);
         OpenGraph::addImage($post->images->list('url'));
-        OpenGraph::addImage(['url' => 'http://image.url.com/cover.jpg', 'size' => 300]);
-        OpenGraph::addImage('http://image.url.com/cover.jpg', ['height' => 300, 'width' => 300]);
+        OpenGraph::addImage(['url' => 'https://www.annuairestogo.com/assets/images/annuairestogo_logo/logo.png', 'size' => 300]);
+        OpenGraph::addImage('https://www.annuairestogo.com/assets/images/annuairestogo_logo/logo.png', ['height' => 300, 'width' => 300]);
 
         JsonLd::setTitle($post->title);
         JsonLd::setDescription($post->resume);
-        JsonLd::setType('Article');
+        JsonLd::setType('Annuaire');
         JsonLd::addImage($post->images->list('url'));
 
 
