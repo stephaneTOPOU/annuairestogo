@@ -18,7 +18,7 @@ class SeoController extends Controller
         SEOTools::opengraph()->setUrl('https://www.annuairestogo.com/');
         SEOTools::setCanonical('https://www.annuairestogo.com/');
         SEOTools::opengraph()->addProperty('type', 'annuaire');
-        SEOTools::twitter()->setSite('@annuaireafrique');
+        SEOTools::twitter()->setSite('#');
         SEOTools::jsonLd()->addImage('https://www.annuairestogo.com/assets/images/annuairestogo_logo/logo.png');
 
         $posts = Post::all();
@@ -35,7 +35,7 @@ class SeoController extends Controller
         SEOMeta::setDescription($post->resume);
         SEOMeta::addMeta('annuaire:published_time', $post->published_date->toW3CString(), 'property');
         SEOMeta::addMeta('annuaire:section', $post->category, 'property');
-        SEOMeta::addKeyword(['annuaire', 'annuaire togo', 'annuaire des entreprise']);
+        SEOMeta::addKeyword(['annuaire', 'annuaires togo', 'annuaire des entreprise']);
 
         OpenGraph::setDescription($post->resume);
         OpenGraph::setTitle($post->title);

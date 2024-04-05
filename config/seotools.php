@@ -9,11 +9,11 @@ return [
          * The default configurations to be used by the meta generator.
          */
         'defaults'       => [
-            'title'        => "Annuaire Togo", // set false to total remove
+            'title'        => "Annuaires Togo", // set false to total remove
             'titleBefore'  => "Annuaire", // Put defaults.title before page title, like 'It's Over 9000! - Dashboard'
             'description'  => 'Bienvenue sur le site officiel de l\'annuire Togo, votre annuaire qui répertorie toutes les entreprises du Togo', // set false to total remove
             'separator'    => ' - ',
-            'keywords'     => ["annuaire", "annuaires", "répertoire des professionnels", "annuaire des entreprises", "annuaire togo",],
+            'keywords'     => ["annuaire", "annuaires", "répertoire des professionnels", "annuaire des entreprises", "annuaires togo",],
             'canonical'    => "https://www.annuairestogo.com/", // Set to null or 'full' to use Url::full(), set to 'current' to use Url::current(), set false to total remove
             'robots'       => "https://www.annuairestogo.com/robots.txt", // Set to 'all', 'none' or any combination of index/noindex and follow/nofollow
         ],
@@ -36,11 +36,11 @@ return [
          * The default configurations to be used by the opengraph generator.
          */
         'defaults' => [
-            'title'       => 'Annuaire Togo', // set false to total remove
+            'title'       => 'Annuaires Togo', // set false to total remove
             'description' => 'Bienvenue sur le site officiel de l\'annuire Togo, votre annuaire qui répertorie toutes les entreprises du Togo', // set false to total remove
             'url'         => "https://www.annuairestogo.com/", // Set null for using Url::current(), set false to total remove
             'type'        => "website",
-            'site_name'   => 'Annuaire Togo',
+            'site_name'   => 'Annuaires Togo',
             'images'      => ["https://www.annuairestogo.com/assets/images/annuairestogo_logo/logo.png"],
         ],
     ],
@@ -58,7 +58,7 @@ return [
          * The default configurations to be used by the json-ld generator.
          */
         'defaults' => [
-            'title'       => 'Annuaire Togo', // set false to total remove
+            'title'       => 'Annuaires Togo', // set false to total remove
             'description' => 'Bienvenue sur le site officiel de l\'annuire Togo, votre annuaire qui répertorie toutes les entreprises du Togo', // set false to total remove
             'url'         => "https://www.annuairestogo.com/", // Set to null or 'full' to use Url::full(), set to 'current' to use Url::current(), set false to total remove
             'type'        => 'WebPage',
