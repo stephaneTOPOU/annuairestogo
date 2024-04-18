@@ -236,7 +236,7 @@
                                                 <h4 class="mb-4">Qui Sommes-nous ?</h4>
                                                 <div class="mb-4">
                                                     <p>
-                                                        {{$service->libelle}}
+                                                        {!! $service->libelle  !!}
                                                     </p>
                                                 </div>
                                             @endif
@@ -252,7 +252,7 @@
                                                 <h4 class="mb-4">Notre mission</h4>
                                                 <div class="mb-4">
                                                     <p>
-                                                        {{$service->description}}
+                                                        {!! $service->description !!}
                                                     </p>
                                                 </div>
                                             @endif
@@ -268,7 +268,7 @@
                                                 <h4 class="mb-4">Nos objectifs</h4>
                                                 <div class="mb-4">
                                                     <p>
-                                                        {{$service->image5}}
+                                                        {!! $service->image5 !!}
                                                     </p>
                                                 </div>
                                             @endif                                            
@@ -295,7 +295,7 @@
                                                 <h4 class="mb-4">Qui Sommes-nous ?</h4>
                                                 <div class="mb-4">
                                                     <p>
-                                                        {{$service->libelle}}
+                                                        {!! $service->libelle !!}
                                                     </p>
                                                 </div>
                                             @endif
@@ -312,7 +312,7 @@
                                                 <h4 class="mb-4">Notre mission</h4>
                                                 <div class="mb-4">
                                                     <p>
-                                                        {{$service->description}}
+                                                        {!! $service->description!!}
                                                     </p>
                                                 </div>
                                             @endif
@@ -347,7 +347,7 @@
                                                 <h4 class="mb-4">Qui Sommes-nous ?</h4>
                                                 <div class="mb-4">
                                                     <p>
-                                                        {{$service->libelle}}
+                                                        {!! $service->libelle !!}
                                                     </p>
                                                 </div>
                                             @endif
