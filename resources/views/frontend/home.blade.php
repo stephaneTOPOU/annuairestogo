@@ -275,7 +275,7 @@
                                                 <div class="card-body">
                                                     <div class="item-card8-desc">
                                                         <p class="text-muted"><i
-                                                                class="icon icon-event text-muted me-1"></i>@php echo \Carbon\Carbon::parse($all->created_at)->diffForHumans(null, false, 'fr'); @endphp
+                                                                class="icon icon-event text-muted me-1"></i>@php echo \Carbon\Carbon::parse($all->updated_at)->diffForHumans(null, false, 'fr'); @endphp
                                                         </p>
                                                         <h4 class="font-weight-semibold">
                                                             {{ Str::limit($all->titre, 20) }}</h4>

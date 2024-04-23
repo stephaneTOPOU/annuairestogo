@@ -183,7 +183,7 @@ class HomeController extends Controller
 
         $annonces = DB::table('categorie_annonces')
             ->join('annonces', 'categorie_annonces.id', '=', 'annonces.categorie_id')
-            ->select('*', 'categorie_annonces.libelle as categorie', 'annonces.categorie_id as categorie_id', 'annonces.titre as titre', 'annonces.text1 as description', 'annonces.created_at as date', 'annonces.image1 as image')
+            ->select('*', 'categorie_annonces.libelle as categorie', 'annonces.categorie_id as categorie_id', 'annonces.titre as titre', 'annonces.text1 as description', 'annonces.updated_at as date', 'annonces.image1 as image')
             ->get();
 
         $popups = DB::table('categories')
