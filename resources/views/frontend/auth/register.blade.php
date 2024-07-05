@@ -102,15 +102,17 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="Mot de passe">
-                                        <input type="password" name="password">
+                                        <input type="password" name="password" id="password">
                                         <label>Mot de passe</label>
                                     </div>
+                                    <span id="password-error" style="color: red;"></span>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="confirmez le mot de passe">
-                                        <input type="password" name="password2">
+                                        <input type="password" name="password2" id="password2">
                                         <label>confirmez le mot de passe</label>
                                     </div>
+                                    <span id="confirmPassword-error" style="color: red;"></span>
                                 </div>
                             </div>
 
@@ -120,6 +122,38 @@
                             <p class="text-dark mb-0">Déjà inscrit ?<a href="{{ route('login') }}"
                                     class="text-primary mx-1">Connectez-vous maintenant</a></p>
                         </form>
+                        <script>
+                            document.getElementById('Register').addEventListener('submit', function(event) {
+                                var password = document.getElementById('password').value;
+                                var confirmPassword = document.getElementById('password2').value;
+                                var passwordError = document.getElementById('password-error');
+                                var confirmPasswordError = document.getElementById('confirmPassword-error');
+
+                                var isValid = true;
+
+                                // Reset errors
+                                passwordError.textContent = '';
+                                confirmPasswordError.textContent = '';
+
+                                if (password.length < 8) {
+                                    event.preventDefault(); // Empêche la soumission du formulaire
+                                    passwordError.textContent = 'Le mot de passe doit comporter au moins 8 caractères.';
+                                    isValid = false;
+                                }
+
+                                if (password !== confirmPassword) {
+                                    event.preventDefault(); // Empêche la soumission du formulaire
+                                    confirmPasswordError.textContent = 'Les mots de passe ne correspondent pas.';
+                                    isValid = false;
+                                }
+
+                                // if (isValid) {
+                                //     alert('Mot de passe valide.');
+                                //     // Vous pouvez soumettre le formulaire ici si vous le souhaitez
+                                //     // this.submit(); // Décommentez cette ligne si vous voulez soumettre le formulaire
+                                // }
+                            });
+                        </script>
                     </div>
                 </div>
             </div>
