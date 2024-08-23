@@ -10,6 +10,10 @@ use Illuminate\Http\Request;
 
 class SeoController extends Controller
 {
+    use SEOMeta;
+    use OpenGraph;
+    use JsonLd;
+    
     public function index()
     {
 
@@ -52,7 +56,7 @@ class SeoController extends Controller
         JsonLd::setTitle($post->title);
         JsonLd::setDescription($post->resume);
         JsonLd::setType('Annuaire');
-        JsonLd::addImage($post->images->list('url'));
+        JsonLd::addImage($post->images->list('https://www.annuairestogo.com/assets/images/annuairestogo_logo/logo.png'));
 
 
         // Namespace URI: http://ogp.me/ns/article#
